@@ -1,0 +1,10 @@
+indexxx
+Title
+introduction
+loading-and-manipulating-packages-and-data-frames
+altering-variable-names
+data-manipulation
+statistical-methods
+linear-regression
+summary-tables
+this-is-the-second-chapter
