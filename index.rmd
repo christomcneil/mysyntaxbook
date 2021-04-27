@@ -1,22 +1,13 @@
---- 
-title: "USeful Syntax"
-author: "Chris McNeil"
+---
+title: "Useful R Syntax"
+author: "Chris mcNeil"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
 documentclass: book
 bibliography: [packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: christomcneil/mysyntaxbook
-description: "A bookdown book of useful syntax snippits and methods"
+description: "Useful R Syntax"
 ---
 
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
-
+# Indexxx
