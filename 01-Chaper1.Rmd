@@ -13,9 +13,9 @@ I intend to organise the snippets into sections.
 * data visualisation
 
 
-Use the mtcars data where possible.
+* Use the mtcars data where possible.
 
-**Load all libraries**
+Load all libraries
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(janitor) #dataframe import cleaning
@@ -23,11 +23,9 @@ library(knitr) #nice html tables
 library(kableExtra) # nicer knitr tables
 library(broom)
 ```
-
-
 ## Loading and manipulating packages and data frames
 
-**Data importing using Janitor**
+###Data importing using Janitor
 ```{r}
 # Create a data.frame with dirty names
 test_df <- as.data.frame(matrix(ncol = 6))
@@ -42,7 +40,7 @@ head(test_df)
 ```
 Reference [here](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html)
 
-**Remove dataframe from environment:**
+### Remove dataframe from environment:### 
 ```{r}
 data("mtcars")
 data("band_instruments")
@@ -55,16 +53,16 @@ rm(list=ls()) # Remove everything
 Reference:
 [Stackoverflow](https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r)
 
-**Remove a package (library)**
+### Remove a package (library)
 ```{r message=FALSE, warning=FALSE}
 #Unload a module: 
 library(clipr) #load
 detach(package:clipr) #unload
 ```
 
-***
+*
 
-**Recode a text variable**
+### Recode a text variable
 *Tidyverse libraries are needed for the following examples.*
 ```{r message=FALSE}
 data("band_members")
@@ -90,22 +88,21 @@ kable(head((mtcars))) %>% kable_minimal(full_width = F)
 
 ## Data manipulation
 
-**Bin variable based on The value ( e.g. Low/Medium/High)**
+### Bin variable based on The value ( e.g. Low/Medium/High)
 ```{r}
 data(mtcars)
 mtcars <- mtcars %>% mutate(hp_cat=cut(hp, breaks=c(-Inf, 100, Inf), 
                                        labels=c("low hp","high hp")))
 ```
 
-**Perform conditional function**
-
+### Perform conditional function
 ```{r}
 mtcars <- mtcars %>% mutate(loghp=ifelse(cyl>4,log10(hp),NA)) 
 # Nonsensical example, but log transformed all horse powers of cars with more
 # than four cylinders
 ```
 
-**Calculate sum of values across rows**
+### Calculate sum of values across rows
 ```{r}
 mtcars <- mtcars %>%  mutate(sum = select(., disp:drat) %>% 
 apply(1, sum, na.rm=TRUE))
@@ -114,9 +111,9 @@ apply(1, sum, na.rm=TRUE))
 # the '1' sets the dataframe to use (already selected here)
 
 ```
-[Reference](https://stackoverflow.com/questions/28873057/sum-across-multiple-columns-with-dplyr)
+[Reference for summation across rows](https://stackoverflow.com/questions/28873057/sum-across-multiple-columns-with-dplyr)
 
-**Standardize variable (mean of 0, SD of 1)**
+### Standardise variable (mean of 0, SD of 1)
 ```{r stardardise variable 1}
 set.seed(1234) # randowmn seed
 dat <- data.frame(x = rnorm(10, 30, .2), 
@@ -134,8 +131,7 @@ funcs <- list(
 dat2 %>% summarise(across(x:z,funcs))
 
 ```
-**Conditional Replacements**
-
+### Conditional Replacements
 *Replace all 'NA's in a specified variable with 0.*
 ```{r}
 mtcars <- mtcars %>% mutate(loghp1 = coalesce(loghp, 0))
@@ -145,15 +141,13 @@ mtcars <- mtcars %>% mutate(loghp1 = coalesce(loghp, 0))
 mtcars <- mtcars %>% mutate(loghp = replace_na(loghp, "missing"))
 ```
 
-**Filter individuals with na's in  specified variable, or retain complete cases**
-
+### Filter individuals with na's in  specified variable, or retain complete cases
 ```{r}
 mtcars <- mtcars %>% filter(!is.na(hp)) # no missing values found
 mtcars <- mtcars %>%filter(complete.cases(.)) # no missing values found
 ```
 
-
-**Delete specified columns**
+### Delete specified columns
 ```{r}
 mtcars1 <- mtcars %>% select(-(drat)) # single column
 mtcars2 <- mtcars %>% select(-c(drat,hp,vs:gear)) # multiple columns
@@ -161,49 +155,42 @@ mtcars2 <- mtcars %>% select(-c(drat,hp,vs:gear)) # multiple columns
 rm(list=setdiff(ls(), "mtcars")) # clean environment
 ```
 
-**Find duplicate rows (e.g. duplicated participant datasets)**
+### Find duplicate rows (e.g. duplicated participant datasets)
 ```{r}
 # specify which variable to check for duplication
 n_occur1 <- data.frame(table(mtcars$mpg)) 
 kable(n_occur1[n_occur1$Freq > 1,]) %>% kable_styling(full_width = F) %>% kable_minimal()
 ```
-**Keep Distinct rows only based on a value (for example the prescription code)  using dplyr**
-
+### Keep Distinct rows only based on a value (for example the prescription code)  using dplyr
 ```{r}
 mtcarsdistinct <- mtcars %>% 	distinct(cyl, .keep_all= TRUE)
 ```
 [Reference](http://www.datasciencemadesimple.com/remove-duplicate-rows-r-using-dplyr-distinct-function)
 
-
-**Delete rows (individuals) based on value of a variable**
+### Delete rows (individuals) based on value of a variable
 ```{r}
 mtcars1<-mtcars %>% filter(!(cyl==6))
 mtcars2<-mtcars %>% filter(!(cyl==6 | hp==180)) # | is the 'or' operator
 mtcars3<-mtcars %>% filter(!(cyl==8 & hp==215)) # & is the 'and' operator
-
 # remove the ! To select the individuals with the specified conditions
-
 ```
 
-
-**Use if else to calculate based on values**
+### Use if else to calculate based on values
 ```{r}
 # no NA's so all values unchanged.
 mtcars <- mtcars %>% mutate(vs=ifelse(is.na(vs),(carb-am)/365.25,vs)) 
 ```
 
-**Merge data frames by adding variables**
-
+### Merge data frames by adding variables
 *left_join(x, y): returns all rows from x, and all columns from x and y. Rows in   x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all   combinations of the matches are returned.
 inner_join(x, y): returns all rows from x where there are matching values in y,   and all columns from x and y. If there are multiple matches between x and y, all combinations of the matches are returned.
 full_join(x, y): returns all rows and all columns from both x and y. Where there are not matching values, the function returns NA for the one missing*
-**
+*
 
 * inner: only rows with matching keys in both x and y
 * left: all rows in x, adding matching columns from y
 * right: all rows in y, adding matching columns from x
 * full: all rows in x with matching columns in y, then the rows of y that don't match x.
-
 ```{r}
 #prepare new dataset
 # make the rownames into a 'joinable' column
@@ -215,24 +202,25 @@ mutate(carnames=rownames(mtcars_extradata))
 mtcars_extradata <- mtcars_extradata %>% mutate(valves=cyl*4)
 mtcars_extradata <- mtcars_extradata %>% select(-cyl)
 
-kable(glimpse(mtcars_extradata)) %>%  kable_styling(full_width = F) %>% kable_minimal()
+kable(glimpse(mtcars_extradata%>% slice(1:6))) %>%  kable_styling(full_width = F) %>%
+  kable_minimal()
 
 mtcars <- left_join(mtcars,mtcars_extradata,by = 'carnames')
 
-kable(glimpse(mtcars)) %>% kable_styling(full_width = F) %>% kable_minimal()
-
+kable(glimpse(mtcars %>% slice(1:6))) %>% kable_styling(full_width = F) %>%
+  kable_minimal()
 
 ```
 
 
-**Merge data frames by adding individuals not variables**
+### Merge data frames by adding individuals not variables
 ```{r}
 mtcarsmerged <- bind_rows(mtcars2, mtcars3)
 rm(list=setdiff(ls(), "mtcars")) # clean environment
 ```
 [Reference](https://dplyr.tidyverse.org/reference/bind.html)
 
-**Create a new factor from exisiting factors**
+### Create a new factor from existing factors
 ```{r}
 mtcars <- mtcars %>% mutate(cyc_carb = paste(cyl,carb,sep="-"))
 ```
@@ -241,10 +229,12 @@ mtcars <- mtcars %>% mutate(cyc_carb = paste(cyl,carb,sep="-"))
 
 ### Linear Regression
 
-**Summarise and perform linear regression on multiple groups**
+### Summarise and perform linear regression on multiple groups
 ```{r}
-mtcars %>%  group_by(as.factor(gear)) %>%
-  summarise(mean = mean(qsec), sd = sd(qsec))
+kable(mtcars %>%  group_by(as.factor(gear)) %>%
+summarise(mean = mean(qsec), sd = sd(qsec))) %>%
+  kable_styling(full_width = F) %>%
+  kable_minimal()
 
 #What if you wanted to run the same linear regression model by the different
 #group levels?  Instead of running #summary(lm(y~x)) for the number of levels 
@@ -253,32 +243,33 @@ mtcars %>%  group_by(as.factor(gear)) %>%
 # Run the same regression model for gears ##
 kable(mtcars%>% group_by(gear) %>%
   do(fitgear = glance(lm(hp~qsec, data = .))) %>% 
-  unnest(fitgear)) %>% kable_minimal()
+  unnest(fitgear),digits=2) %>%   kable_styling(full_width = F) %>% 
+  kable_minimal()
 ```
 
 [Reference](https://stackoverflow.com/questions/22713325/fitting-several-regression-models-with-dplyr)
 
 ### Summary Tables
-**Summarise by group**
+Summarise by group
 ```{r}
-kable(mtcars %>% group_by(cyl) %>% summarise(Average=mean(hp), StDev=sd(hp))) %>% 
+kable(mtcars %>% group_by(cyl) %>% summarise(Ave=mean(hp), StDev=sd(hp))) %>% 
   kable_styling(full_width = FALSE) %>% kable_minimal()
 ```
 
 
-**Summarise multiple functions across several variables**
+Summarise multiple functions across several variables
 
 ```{r}
 # make sure brackets are correct
 
 df.sum <- mtcars %>%  select(mpg,cyl,hp) %>%
   summarise(across(everything(),list(mean=mean,sd=sd)))
-kable(df.sum) %>% kable_styling(full_width = FALSE) %>% kable_minimal()
+kable(df.sum,digits=2) %>% kable_styling(full_width = FALSE) %>% kable_minimal()
 
 df.longer <- df.sum%>% pivot_longer(col=everything(),  
 names_to = c("Attribute",".value"),
   names_sep = "_")
-kable(df.longer) %>% kable_styling(full_width = FALSE) %>% kable_minimal()
+kable(df.longer,digits=2) %>% kable_styling(full_width = FALSE) %>% kable_minimal()
 ```
 
 
