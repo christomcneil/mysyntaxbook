@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.1 Introduction | Useful R Syntax</title>
-  <meta name="description" content="2.1 Introduction | Useful R Syntax" />
+  <title>2.3 Rstudio | Useful R Syntax</title>
+  <meta name="description" content="2.3 Rstudio | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.1 Introduction | Useful R Syntax" />
+  <meta property="og:title" content="2.3 Rstudio | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="2.1 Introduction | Useful R Syntax" />
+  <meta property="og:description" content="2.3 Rstudio | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.1 Introduction | Useful R Syntax" />
+  <meta name="twitter:title" content="2.3 Rstudio | Useful R Syntax" />
   
-  <meta name="twitter:description" content="2.1 Introduction | Useful R Syntax" />
+  <meta name="twitter:description" content="2.3 Rstudio | Useful R Syntax" />
   
 
 <meta name="author" content="Chris mcNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="Title.html"/>
-<link rel="next" href="rmarkdown.html"/>
+<link rel="prev" href="rmarkdown.html"/>
+<link rel="next" href="loading-and-manipulating-packages-and-data-frames.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -198,57 +198,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Introduction</h2>
-<p><strong>This document is a collection of useful code for Rmarkdown and R</strong>
-### Structure of collection</p>
-<ul>
-<li>Rmarkdown
-<ul>
-<li>formatting basics</li>
-</ul></li>
-<li>Rstudio
-<ul>
-<li>load/unload packages</li>
-<li>print figures to files</li>
-</ul></li>
-<li>Libraries/packages
-<ul>
-<li>essential/useful packaged</li>
-</ul></li>
-<li>data wrangling
-<ul>
-<li>load dataset (and basic cleaning)</li>
-<li>clean environment</li>
-<li>check for duplicates</li>
-</ul></li>
-<li>data restructuring
-<ul>
-<li>Merging datasheets (add variables)</li>
-<li>Merging datasets (add rows)</li>
-<li>Reshaping - Converting to longer or shorter format</li>
-</ul></li>
-<li>data manipulation (creating new variables)
-<ul>
-<li>recode factors</li>
-<li>dealing with missing data</li>
-<li>Data reduction with PCA</li>
-<li>Data standardisation</li>
-</ul></li>
-<li>statistical analysis – basic</li>
-<li>statistical analysis - advanced</li>
-<li>Tables</li>
-<li>Graphs and Plots
-<strong>I will use the mtcars dataset as much as possible</strong></li>
-</ul>
+<div id="rstudio" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Rstudio</h2>
+<div id="useful-packages" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Useful packages</h3>
+<p>Load all libraries</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="rstudio.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># data handling and viz</span></span></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
+<pre><code>## v ggplot2 3.3.3     v purrr   0.3.4
+## v tibble  3.1.0     v dplyr   1.0.5
+## v tidyr   1.1.3     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="rstudio.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor) <span class="co">#dataframe import cleaning</span></span></code></pre></div>
+<pre><code>## Warning: package &#39;janitor&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## 
+## Attaching package: &#39;janitor&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     chisq.test, fisher.test</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="rstudio.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr) <span class="co">#nice html tables</span></span></code></pre></div>
+<pre><code>## Warning: package &#39;knitr&#39; was built under R version 4.0.5</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="rstudio.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra) <span class="co"># nicer knitr tables</span></span></code></pre></div>
+<pre><code>## Warning: package &#39;kableExtra&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## 
+## Attaching package: &#39;kableExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     group_rows</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="rstudio.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
+<pre><code>## Warning: package &#39;broom&#39; was built under R version 4.0.5</code></pre>
+</div>
+<div id="remove-a-package-library" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Remove a package (library)</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="rstudio.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Unload a module: </span></span>
+<span id="cb18-2"><a href="rstudio.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clipr) <span class="co">#load</span></span></code></pre></div>
+<pre><code>## Welcome to clipr. See ?write_clip for advisories on writing to the clipboard in R.</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="rstudio.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(package<span class="sc">:</span>clipr) <span class="co">#unload</span></span></code></pre></div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="Title.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rmarkdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="loading-and-manipulating-packages-and-data-frames.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

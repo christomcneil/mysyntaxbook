@@ -4,27 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.4 Statistical Methods | Useful R Syntax</title>
-  <meta name="description" content="2.4 Statistical Methods | Useful R Syntax" />
+  <title>2.6 Statistical Methods | Useful R Syntax</title>
+  <meta name="description" content="2.6 Statistical Methods | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.4 Statistical Methods | Useful R Syntax" />
+  <meta property="og:title" content="2.6 Statistical Methods | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="2.4 Statistical Methods | Useful R Syntax" />
+  <meta property="og:description" content="2.6 Statistical Methods | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.4 Statistical Methods | Useful R Syntax" />
+  <meta name="twitter:title" content="2.6 Statistical Methods | Useful R Syntax" />
   
-  <meta name="twitter:description" content="2.4 Statistical Methods | Useful R Syntax" />
+  <meta name="twitter:description" content="2.6 Statistical Methods | Useful R Syntax" />
   
 
 <meta name="author" content="Chris mcNeil" />
 
 
-<meta name="date" content="2021-04-28" />
+<meta name="date" content="2021-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -136,40 +136,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="Title.html"><a href="Title.html"><i class="fa fa-check"></i><b>2</b> Collection of useful R syntax and methods</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
-<li class="chapter" data-level="2.2" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html"><i class="fa fa-check"></i><b>2.2</b> Loading and manipulating packages and data frames</a>
+<li class="chapter" data-level="2.2" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2.2</b> RMarkdown</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#remove-dataframe-from-environment"><i class="fa fa-check"></i><b>2.2.1</b> Remove dataframe from environment:</a></li>
-<li class="chapter" data-level="2.2.2" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#remove-a-package-library"><i class="fa fa-check"></i><b>2.2.2</b> Remove a package (library)</a></li>
-<li class="chapter" data-level="2.2.3" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#recode-a-text-variable"><i class="fa fa-check"></i><b>2.2.3</b> Recode a text variable</a></li>
-<li class="chapter" data-level="2.2.4" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#altering-variable-names"><i class="fa fa-check"></i><b>2.2.4</b> Altering variable names:</a></li>
+<li class="chapter" data-level="2.2.1" data-path="rmarkdown.html"><a href="rmarkdown.html#formatting-basics"><i class="fa fa-check"></i><b>2.2.1</b> Formatting basics</a></li>
+<li class="chapter" data-level="2.2.2" data-path="rmarkdown.html"><a href="rmarkdown.html#r-chunk-basics"><i class="fa fa-check"></i><b>2.2.2</b> R chunk basics</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>2.3</b> Data manipulation</a>
+<li class="chapter" data-level="2.3" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2.3</b> Rstudio</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="data-manipulation.html"><a href="data-manipulation.html#bin-variable-based-on-the-value-e.g.-lowmediumhigh"><i class="fa fa-check"></i><b>2.3.1</b> Bin variable based on The value ( e.g. Low/Medium/High)</a></li>
-<li class="chapter" data-level="2.3.2" data-path="data-manipulation.html"><a href="data-manipulation.html#perform-conditional-function"><i class="fa fa-check"></i><b>2.3.2</b> Perform conditional function</a></li>
-<li class="chapter" data-level="2.3.3" data-path="data-manipulation.html"><a href="data-manipulation.html#calculate-sum-of-values-across-rows"><i class="fa fa-check"></i><b>2.3.3</b> Calculate sum of values across rows</a></li>
-<li class="chapter" data-level="2.3.4" data-path="data-manipulation.html"><a href="data-manipulation.html#standardise-variable-mean-of-0-sd-of-1"><i class="fa fa-check"></i><b>2.3.4</b> Standardise variable (mean of 0, SD of 1)</a></li>
-<li class="chapter" data-level="2.3.5" data-path="data-manipulation.html"><a href="data-manipulation.html#conditional-replacements"><i class="fa fa-check"></i><b>2.3.5</b> Conditional Replacements</a></li>
-<li class="chapter" data-level="2.3.6" data-path="data-manipulation.html"><a href="data-manipulation.html#filter-individuals-with-nas-in-specified-variable-or-retain-complete-cases"><i class="fa fa-check"></i><b>2.3.6</b> Filter individuals with na’s in specified variable, or retain complete cases</a></li>
-<li class="chapter" data-level="2.3.7" data-path="data-manipulation.html"><a href="data-manipulation.html#delete-specified-columns"><i class="fa fa-check"></i><b>2.3.7</b> Delete specified columns</a></li>
-<li class="chapter" data-level="2.3.8" data-path="data-manipulation.html"><a href="data-manipulation.html#find-duplicate-rows-e.g.-duplicated-participant-datasets"><i class="fa fa-check"></i><b>2.3.8</b> Find duplicate rows (e.g. duplicated participant datasets)</a></li>
-<li class="chapter" data-level="2.3.9" data-path="data-manipulation.html"><a href="data-manipulation.html#keep-distinct-rows-only-based-on-a-value-for-example-the-prescription-code-using-dplyr"><i class="fa fa-check"></i><b>2.3.9</b> Keep Distinct rows only based on a value (for example the prescription code) using dplyr</a></li>
-<li class="chapter" data-level="2.3.10" data-path="data-manipulation.html"><a href="data-manipulation.html#delete-rows-individuals-based-on-value-of-a-variable"><i class="fa fa-check"></i><b>2.3.10</b> Delete rows (individuals) based on value of a variable</a></li>
-<li class="chapter" data-level="2.3.11" data-path="data-manipulation.html"><a href="data-manipulation.html#use-if-else-to-calculate-based-on-values"><i class="fa fa-check"></i><b>2.3.11</b> Use if else to calculate based on values</a></li>
-<li class="chapter" data-level="2.3.12" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-variables"><i class="fa fa-check"></i><b>2.3.12</b> Merge data frames by adding variables</a></li>
-<li class="chapter" data-level="2.3.13" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-individuals-not-variables"><i class="fa fa-check"></i><b>2.3.13</b> Merge data frames by adding individuals not variables</a></li>
-<li class="chapter" data-level="2.3.14" data-path="data-manipulation.html"><a href="data-manipulation.html#create-a-new-factor-from-existing-factors"><i class="fa fa-check"></i><b>2.3.14</b> Create a new factor from existing factors</a></li>
+<li class="chapter" data-level="2.3.1" data-path="rstudio.html"><a href="rstudio.html#useful-packages"><i class="fa fa-check"></i><b>2.3.1</b> Useful packages</a></li>
+<li class="chapter" data-level="2.3.2" data-path="rstudio.html"><a href="rstudio.html#remove-a-package-library"><i class="fa fa-check"></i><b>2.3.2</b> Remove a package (library)</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="statistical-methods.html"><a href="statistical-methods.html"><i class="fa fa-check"></i><b>2.4</b> Statistical Methods</a>
+<li class="chapter" data-level="2.4" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html"><i class="fa fa-check"></i><b>2.4</b> Loading and manipulating packages and data frames</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="statistical-methods.html"><a href="statistical-methods.html#linear-regression"><i class="fa fa-check"></i><b>2.4.1</b> Linear Regression</a></li>
-<li class="chapter" data-level="2.4.2" data-path="statistical-methods.html"><a href="statistical-methods.html#summarise-and-perform-linear-regression-on-multiple-groups"><i class="fa fa-check"></i><b>2.4.2</b> Summarise and perform linear regression on multiple groups</a></li>
-<li class="chapter" data-level="2.4.3" data-path="statistical-methods.html"><a href="statistical-methods.html#summary-tables"><i class="fa fa-check"></i><b>2.4.3</b> Summary Tables</a></li>
+<li class="chapter" data-level="2.4.1" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#data-importing-using-janitor"><i class="fa fa-check"></i><b>2.4.1</b> Data importing using Janitor</a></li>
+<li class="chapter" data-level="2.4.2" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#remove-dataframe-from-environment"><i class="fa fa-check"></i><b>2.4.2</b> Remove dataframe from environment:</a></li>
+<li class="chapter" data-level="2.4.3" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#recode-a-text-variable"><i class="fa fa-check"></i><b>2.4.3</b> Recode a text variable</a></li>
+<li class="chapter" data-level="2.4.4" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#altering-variable-names"><i class="fa fa-check"></i><b>2.4.4</b> Altering variable names:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>2.5</b> Data manipulation</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="data-manipulation.html"><a href="data-manipulation.html#bin-variable-e.g.-lowmediumhigh"><i class="fa fa-check"></i><b>2.5.1</b> Bin variable ( e.g. Low/Medium/High)</a></li>
+<li class="chapter" data-level="2.5.2" data-path="data-manipulation.html"><a href="data-manipulation.html#perform-conditional-function"><i class="fa fa-check"></i><b>2.5.2</b> Perform conditional function</a></li>
+<li class="chapter" data-level="2.5.3" data-path="data-manipulation.html"><a href="data-manipulation.html#calculate-sum-of-values-across-rows"><i class="fa fa-check"></i><b>2.5.3</b> Calculate sum of values across rows</a></li>
+<li class="chapter" data-level="2.5.4" data-path="data-manipulation.html"><a href="data-manipulation.html#standardise-variable-mean-of-0-sd-of-1"><i class="fa fa-check"></i><b>2.5.4</b> Standardise variable (mean of 0, SD of 1)</a></li>
+<li class="chapter" data-level="2.5.5" data-path="data-manipulation.html"><a href="data-manipulation.html#conditional-replacements"><i class="fa fa-check"></i><b>2.5.5</b> Conditional Replacements</a></li>
+<li class="chapter" data-level="2.5.6" data-path="data-manipulation.html"><a href="data-manipulation.html#filter-individuals-with-nas-in-specified-variable-or-retain-complete-cases"><i class="fa fa-check"></i><b>2.5.6</b> Filter individuals with na’s in specified variable, or retain complete cases</a></li>
+<li class="chapter" data-level="2.5.7" data-path="data-manipulation.html"><a href="data-manipulation.html#delete-specified-columns"><i class="fa fa-check"></i><b>2.5.7</b> Delete specified columns</a></li>
+<li class="chapter" data-level="2.5.8" data-path="data-manipulation.html"><a href="data-manipulation.html#find-duplicate-rows-e.g.-duplicated-participant-datasets"><i class="fa fa-check"></i><b>2.5.8</b> Find duplicate rows (e.g. duplicated participant datasets)</a></li>
+<li class="chapter" data-level="2.5.9" data-path="data-manipulation.html"><a href="data-manipulation.html#keep-distinct-rows-only-based-on-a-value-for-example-the-prescription-code-using-dplyr"><i class="fa fa-check"></i><b>2.5.9</b> Keep Distinct rows only based on a value (for example the prescription code) using dplyr</a></li>
+<li class="chapter" data-level="2.5.10" data-path="data-manipulation.html"><a href="data-manipulation.html#delete-rows-individuals-based-on-value-of-a-variable"><i class="fa fa-check"></i><b>2.5.10</b> Delete rows (individuals) based on value of a variable</a></li>
+<li class="chapter" data-level="2.5.11" data-path="data-manipulation.html"><a href="data-manipulation.html#use-if-else-to-calculate-based-on-values"><i class="fa fa-check"></i><b>2.5.11</b> Use if else to calculate based on values</a></li>
+<li class="chapter" data-level="2.5.12" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-variables"><i class="fa fa-check"></i><b>2.5.12</b> Merge data frames by adding variables</a></li>
+<li class="chapter" data-level="2.5.13" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-individuals-not-variables"><i class="fa fa-check"></i><b>2.5.13</b> Merge data frames by adding individuals not variables</a></li>
+<li class="chapter" data-level="2.5.14" data-path="data-manipulation.html"><a href="data-manipulation.html#create-a-new-factor-from-existing-factors"><i class="fa fa-check"></i><b>2.5.14</b> Create a new factor from existing factors</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="statistical-methods.html"><a href="statistical-methods.html"><i class="fa fa-check"></i><b>2.6</b> Statistical Methods</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="statistical-methods.html"><a href="statistical-methods.html#linear-regression"><i class="fa fa-check"></i><b>2.6.1</b> Linear Regression</a></li>
+<li class="chapter" data-level="2.6.2" data-path="statistical-methods.html"><a href="statistical-methods.html#summarise-and-perform-linear-regression-on-multiple-groups"><i class="fa fa-check"></i><b>2.6.2</b> Summarise and perform linear regression on multiple groups</a></li>
+<li class="chapter" data-level="2.6.3" data-path="statistical-methods.html"><a href="statistical-methods.html#summary-tables"><i class="fa fa-check"></i><b>2.6.3</b> Summary Tables</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chapter-2-the-second-chapter.html"><a href="chapter-2-the-second-chapter.html"><i class="fa fa-check"></i>Chapter 2 (the second chapter)</a>
 <ul>
-<li class="chapter" data-level="2.5" data-path="this-is-the-second-chapter.html"><a href="this-is-the-second-chapter.html"><i class="fa fa-check"></i><b>2.5</b> this is the second chapter</a></li>
+<li class="chapter" data-level="2.7" data-path="this-is-the-second-chapter.html"><a href="this-is-the-second-chapter.html"><i class="fa fa-check"></i><b>2.7</b> this is the second chapter</a></li>
 </ul></li>
 </ul>
 
@@ -188,17 +198,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistical-methods" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Statistical Methods</h2>
-<div id="linear-regression" class="section level3" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Linear Regression</h3>
+<div id="statistical-methods" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Statistical Methods</h2>
+<div id="linear-regression" class="section level3" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Linear Regression</h3>
 </div>
-<div id="summarise-and-perform-linear-regression-on-multiple-groups" class="section level3" number="2.4.2">
-<h3><span class="header-section-number">2.4.2</span> Summarise and perform linear regression on multiple groups</h3>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="statistical-methods.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
-<span id="cb39-2"><a href="statistical-methods.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
-<span id="cb39-3"><a href="statistical-methods.html#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb39-4"><a href="statistical-methods.html#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div id="summarise-and-perform-linear-regression-on-multiple-groups" class="section level3" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Summarise and perform linear regression on multiple groups</h3>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="statistical-methods.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
+<span id="cb49-2"><a href="statistical-methods.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="statistical-methods.html#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb49-4"><a href="statistical-methods.html#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -249,15 +259,15 @@ sd
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="statistical-methods.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#What if you wanted to run the same linear regression model by the different</span></span>
-<span id="cb40-2"><a href="statistical-methods.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co">#group levels?  Instead of running #summary(lm(y~x)) for the number of levels </span></span>
-<span id="cb40-3"><a href="statistical-methods.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
-<span id="cb40-4"><a href="statistical-methods.html#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-5"><a href="statistical-methods.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
-<span id="cb40-6"><a href="statistical-methods.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
-<span id="cb40-7"><a href="statistical-methods.html#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
-<span id="cb40-8"><a href="statistical-methods.html#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
-<span id="cb40-9"><a href="statistical-methods.html#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="statistical-methods.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Rrun the same linear regression model by group levels? </span></span>
+<span id="cb50-2"><a href="statistical-methods.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Instead of running #summary(lm(y~x)) for the number of levels </span></span>
+<span id="cb50-3"><a href="statistical-methods.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
+<span id="cb50-4"><a href="statistical-methods.html#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="statistical-methods.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
+<span id="cb50-6"><a href="statistical-methods.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
+<span id="cb50-7"><a href="statistical-methods.html#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
+<span id="cb50-8"><a href="statistical-methods.html#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
+<span id="cb50-9"><a href="statistical-methods.html#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -430,11 +440,11 @@ nobs
 </table>
 <p><a href="https://stackoverflow.com/questions/22713325/fitting-several-regression-models-with-dplyr">Reference</a></p>
 </div>
-<div id="summary-tables" class="section level3" number="2.4.3">
-<h3><span class="header-section-number">2.4.3</span> Summary Tables</h3>
+<div id="summary-tables" class="section level3" number="2.6.3">
+<h3><span class="header-section-number">2.6.3</span> Summary Tables</h3>
 <p>Summarise by group</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="statistical-methods.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">Ave=</span><span class="fu">mean</span>(hp), <span class="at">StDev=</span><span class="fu">sd</span>(hp))) <span class="sc">%&gt;%</span> </span>
-<span id="cb41-2"><a href="statistical-methods.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="statistical-methods.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">Ave=</span><span class="fu">mean</span>(hp), <span class="at">StDev=</span><span class="fu">sd</span>(hp))) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-2"><a href="statistical-methods.html#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -485,12 +495,12 @@ StDev
 </tr>
 </tbody>
 </table>
-<p>Summarise multiple functions across several variables</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="statistical-methods.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure brackets are correct</span></span>
-<span id="cb42-2"><a href="statistical-methods.html#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="statistical-methods.html#cb42-3" aria-hidden="true" tabindex="-1"></a>df.sum <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">select</span>(mpg,cyl,hp) <span class="sc">%&gt;%</span></span>
-<span id="cb42-4"><a href="statistical-methods.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="fu">list</span>(<span class="at">mean=</span>mean,<span class="at">sd=</span>sd)))</span>
-<span id="cb42-5"><a href="statistical-methods.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.sum,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<p>###Summarise multiple functions across several variables</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="statistical-methods.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure brackets are correct</span></span>
+<span id="cb52-2"><a href="statistical-methods.html#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="statistical-methods.html#cb52-3" aria-hidden="true" tabindex="-1"></a>df.sum <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">select</span>(mpg,cyl,hp) <span class="sc">%&gt;%</span></span>
+<span id="cb52-4"><a href="statistical-methods.html#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="fu">list</span>(<span class="at">mean=</span>mean,<span class="at">sd=</span>sd)))</span>
+<span id="cb52-5"><a href="statistical-methods.html#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.sum,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -537,10 +547,10 @@ hp_sd
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="statistical-methods.html#cb43-1" aria-hidden="true" tabindex="-1"></a>df.longer <span class="ot">&lt;-</span> df.sum<span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">col=</span><span class="fu">everything</span>(),  </span>
-<span id="cb43-2"><a href="statistical-methods.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;Attribute&quot;</span>,<span class="st">&quot;.value&quot;</span>),</span>
-<span id="cb43-3"><a href="statistical-methods.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span>)</span>
-<span id="cb43-4"><a href="statistical-methods.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.longer,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="statistical-methods.html#cb53-1" aria-hidden="true" tabindex="-1"></a>df.longer <span class="ot">&lt;-</span> df.sum<span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">col=</span><span class="fu">everything</span>(),  </span>
+<span id="cb53-2"><a href="statistical-methods.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;Attribute&quot;</span>,<span class="st">&quot;.value&quot;</span>),</span>
+<span id="cb53-3"><a href="statistical-methods.html#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb53-4"><a href="statistical-methods.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.longer,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
