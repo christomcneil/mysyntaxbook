@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="2.5 Data manipulation | Useful R Syntax" />
   
 
-<meta name="author" content="Chris mcNeil" />
+<meta name="author" content="Chris McNeil" />
 
 
-<meta name="date" content="2021-04-29" />
+<meta name="date" content="2021-05-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="loading-and-manipulating-packages-and-data-frames.html"/>
-<link rel="next" href="statistical-methods.html"/>
+<link rel="next" href="statistical-analysis.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -132,14 +132,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Indexxx</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="structure-of-collection.html"><a href="structure-of-collection.html"><i class="fa fa-check"></i><b>1.1</b> Structure of collection</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="Title.html"><a href="Title.html"><i class="fa fa-check"></i><b>2</b> Collection of useful R syntax and methods</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
 <li class="chapter" data-level="2.2" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2.2</b> RMarkdown</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="rmarkdown.html"><a href="rmarkdown.html#formatting-basics"><i class="fa fa-check"></i><b>2.2.1</b> Formatting basics</a></li>
-<li class="chapter" data-level="2.2.2" data-path="rmarkdown.html"><a href="rmarkdown.html#r-chunk-basics"><i class="fa fa-check"></i><b>2.2.2</b> R chunk basics</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2.3</b> Rstudio</a>
 <ul>
@@ -150,8 +152,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#data-importing-using-janitor"><i class="fa fa-check"></i><b>2.4.1</b> Data importing using Janitor</a></li>
 <li class="chapter" data-level="2.4.2" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#remove-dataframe-from-environment"><i class="fa fa-check"></i><b>2.4.2</b> Remove dataframe from environment:</a></li>
-<li class="chapter" data-level="2.4.3" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#recode-a-text-variable"><i class="fa fa-check"></i><b>2.4.3</b> Recode a text variable</a></li>
-<li class="chapter" data-level="2.4.4" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#altering-variable-names"><i class="fa fa-check"></i><b>2.4.4</b> Altering variable names:</a></li>
+<li class="chapter" data-level="2.4.3" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#save-dataframe-as-csv-or-r-data-file-with-unique-date"><i class="fa fa-check"></i><b>2.4.3</b> Save dataframe as CSV or R data file (with unique date)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#write-these-data-to-save-files"><i class="fa fa-check"></i><b>2.4.4</b> write these data to save files</a></li>
+<li class="chapter" data-level="2.4.5" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#recode-a-text-variable"><i class="fa fa-check"></i><b>2.4.5</b> Recode a text variable</a></li>
+<li class="chapter" data-level="2.4.6" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#altering-variable-names"><i class="fa fa-check"></i><b>2.4.6</b> Altering variable names:</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>2.5</b> Data manipulation</a>
 <ul>
@@ -163,23 +167,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.6" data-path="data-manipulation.html"><a href="data-manipulation.html#filter-individuals-with-nas-in-specified-variable-or-retain-complete-cases"><i class="fa fa-check"></i><b>2.5.6</b> Filter individuals with na’s in specified variable, or retain complete cases</a></li>
 <li class="chapter" data-level="2.5.7" data-path="data-manipulation.html"><a href="data-manipulation.html#delete-specified-columns"><i class="fa fa-check"></i><b>2.5.7</b> Delete specified columns</a></li>
 <li class="chapter" data-level="2.5.8" data-path="data-manipulation.html"><a href="data-manipulation.html#find-duplicate-rows-e.g.-duplicated-participant-datasets"><i class="fa fa-check"></i><b>2.5.8</b> Find duplicate rows (e.g. duplicated participant datasets)</a></li>
-<li class="chapter" data-level="2.5.9" data-path="data-manipulation.html"><a href="data-manipulation.html#keep-distinct-rows-only-based-on-a-value-for-example-the-prescription-code-using-dplyr"><i class="fa fa-check"></i><b>2.5.9</b> Keep Distinct rows only based on a value (for example the prescription code) using dplyr</a></li>
-<li class="chapter" data-level="2.5.10" data-path="data-manipulation.html"><a href="data-manipulation.html#delete-rows-individuals-based-on-value-of-a-variable"><i class="fa fa-check"></i><b>2.5.10</b> Delete rows (individuals) based on value of a variable</a></li>
-<li class="chapter" data-level="2.5.11" data-path="data-manipulation.html"><a href="data-manipulation.html#use-if-else-to-calculate-based-on-values"><i class="fa fa-check"></i><b>2.5.11</b> Use if else to calculate based on values</a></li>
-<li class="chapter" data-level="2.5.12" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-variables"><i class="fa fa-check"></i><b>2.5.12</b> Merge data frames by adding variables</a></li>
-<li class="chapter" data-level="2.5.13" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-individuals-not-variables"><i class="fa fa-check"></i><b>2.5.13</b> Merge data frames by adding individuals not variables</a></li>
-<li class="chapter" data-level="2.5.14" data-path="data-manipulation.html"><a href="data-manipulation.html#create-a-new-factor-from-existing-factors"><i class="fa fa-check"></i><b>2.5.14</b> Create a new factor from existing factors</a></li>
+<li class="chapter" data-level="2.5.9" data-path="data-manipulation.html"><a href="data-manipulation.html#impute-missing-valued"><i class="fa fa-check"></i><b>2.5.9</b> Impute missing valued</a></li>
+<li class="chapter" data-level="2.5.10" data-path="data-manipulation.html"><a href="data-manipulation.html#keep-distinct-rows-only-based-on-a-value-for-example-the-prescription-code-using-dplyr"><i class="fa fa-check"></i><b>2.5.10</b> Keep Distinct rows only based on a value (for example the prescription code) using dplyr</a></li>
+<li class="chapter" data-level="2.5.11" data-path="data-manipulation.html"><a href="data-manipulation.html#delete-rows-individuals-based-on-value-of-a-variable"><i class="fa fa-check"></i><b>2.5.11</b> Delete rows (individuals) based on value of a variable</a></li>
+<li class="chapter" data-level="2.5.12" data-path="data-manipulation.html"><a href="data-manipulation.html#use-if-else-to-calculate-based-on-values"><i class="fa fa-check"></i><b>2.5.12</b> Use if else to calculate based on values</a></li>
+<li class="chapter" data-level="2.5.13" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-variables"><i class="fa fa-check"></i><b>2.5.13</b> Merge data frames by adding variables</a></li>
+<li class="chapter" data-level="2.5.14" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-individuals-not-variables"><i class="fa fa-check"></i><b>2.5.14</b> Merge data frames by adding individuals not variables</a></li>
+<li class="chapter" data-level="2.5.15" data-path="data-manipulation.html"><a href="data-manipulation.html#create-a-new-factor-from-existing-factors"><i class="fa fa-check"></i><b>2.5.15</b> Create a new factor from existing factors</a></li>
+<li class="chapter" data-level="2.5.16" data-path="data-manipulation.html"><a href="data-manipulation.html#change-data-types-merging-fails-if-data-types-are-different"><i class="fa fa-check"></i><b>2.5.16</b> change data types (merging fails if data types are different)</a></li>
+<li class="chapter" data-level="2.5.17" data-path="data-manipulation.html"><a href="data-manipulation.html#calculate-dates-and-photoperiod-using-geosphere-library"><i class="fa fa-check"></i><b>2.5.17</b> calculate dates and photoperiod (using geosphere library)</a></li>
+<li class="chapter" data-level="2.5.18" data-path="data-manipulation.html"><a href="data-manipulation.html#reduce-variables-using-pca"><i class="fa fa-check"></i><b>2.5.18</b> Reduce variables using PCA</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="statistical-methods.html"><a href="statistical-methods.html"><i class="fa fa-check"></i><b>2.6</b> Statistical Methods</a>
+<li class="chapter" data-level="2.6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>2.6</b> Statistical Analysis</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="statistical-methods.html"><a href="statistical-methods.html#linear-regression"><i class="fa fa-check"></i><b>2.6.1</b> Linear Regression</a></li>
-<li class="chapter" data-level="2.6.2" data-path="statistical-methods.html"><a href="statistical-methods.html#summarise-and-perform-linear-regression-on-multiple-groups"><i class="fa fa-check"></i><b>2.6.2</b> Summarise and perform linear regression on multiple groups</a></li>
-<li class="chapter" data-level="2.6.3" data-path="statistical-methods.html"><a href="statistical-methods.html#summary-tables"><i class="fa fa-check"></i><b>2.6.3</b> Summary Tables</a></li>
+<li class="chapter" data-level="2.6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#linear-regression"><i class="fa fa-check"></i><b>2.6.1</b> Linear Regression</a></li>
+<li class="chapter" data-level="2.6.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>2.6.2</b> Logistic Regression</a></li>
+<li class="chapter" data-level="2.6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis-and-visualisation"><i class="fa fa-check"></i><b>2.6.3</b> Survival Analysis and Visualisation</a></li>
+<li class="chapter" data-level="2.6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#receiver-operated-curves-roc"><i class="fa fa-check"></i><b>2.6.4</b> Receiver Operated Curves (ROC)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>2.7</b> Data Visualisation</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="data-visualisation.html"><a href="data-visualisation.html#summary-tables"><i class="fa fa-check"></i><b>2.7.1</b> Summary Tables</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chapter-2-the-second-chapter.html"><a href="chapter-2-the-second-chapter.html"><i class="fa fa-check"></i>Chapter 2 (the second chapter)</a>
 <ul>
-<li class="chapter" data-level="2.7" data-path="this-is-the-second-chapter.html"><a href="this-is-the-second-chapter.html"><i class="fa fa-check"></i><b>2.7</b> this is the second chapter</a></li>
+<li class="chapter" data-level="2.8" data-path="ipso-lorum.html"><a href="ipso-lorum.html"><i class="fa fa-check"></i><b>2.8</b> Ipso Lorum</a></li>
 </ul></li>
 </ul>
 
@@ -202,35 +215,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.5</span> Data manipulation</h2>
 <div id="bin-variable-e.g.-lowmediumhigh" class="section level3" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Bin variable ( e.g. Low/Medium/High)</h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-manipulation.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
-<span id="cb31-2"><a href="data-manipulation.html#cb31-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">hp_cat=</span><span class="fu">cut</span>(hp, <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">100</span>, <span class="cn">Inf</span>), </span>
-<span id="cb31-3"><a href="data-manipulation.html#cb31-3" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;low hp&quot;</span>,<span class="st">&quot;high hp&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-manipulation.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb43-2"><a href="data-manipulation.html#cb43-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">hp_cat=</span><span class="fu">cut</span>(hp, <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">100</span>, <span class="cn">Inf</span>), </span>
+<span id="cb43-3"><a href="data-manipulation.html#cb43-3" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;low hp&quot;</span>,<span class="st">&quot;high hp&quot;</span>)))</span></code></pre></div>
 </div>
 <div id="perform-conditional-function" class="section level3" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> Perform conditional function</h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="data-manipulation.html#cb32-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp=</span><span class="fu">ifelse</span>(cyl<span class="sc">&gt;</span><span class="dv">4</span>,<span class="fu">log10</span>(hp),<span class="cn">NA</span>)) </span>
-<span id="cb32-2"><a href="data-manipulation.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Nonsensical example, but log transformed all horse powers of cars with more</span></span>
-<span id="cb32-3"><a href="data-manipulation.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># than four cylinders</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-manipulation.html#cb44-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp=</span><span class="fu">ifelse</span>(cyl<span class="sc">&gt;</span><span class="dv">4</span>,<span class="fu">log10</span>(hp),<span class="cn">NA</span>)) </span>
+<span id="cb44-2"><a href="data-manipulation.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Nonsensical example, but log transformed all horse powers of cars with more</span></span>
+<span id="cb44-3"><a href="data-manipulation.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># than four cylinders</span></span></code></pre></div>
 </div>
 <div id="calculate-sum-of-values-across-rows" class="section level3" number="2.5.3">
 <h3><span class="header-section-number">2.5.3</span> Calculate sum of values across rows</h3>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-manipulation.html#cb33-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">sum =</span> <span class="fu">select</span>(., disp<span class="sc">:</span>drat) <span class="sc">%&gt;%</span> </span>
-<span id="cb33-2"><a href="data-manipulation.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(<span class="dv">1</span>, sum, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
-<span id="cb33-3"><a href="data-manipulation.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#apply() takes Data frame or matrix as an input and gives output in vector </span></span>
-<span id="cb33-4"><a href="data-manipulation.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(i.e.many columns to one list)</span></span>
-<span id="cb33-5"><a href="data-manipulation.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the &#39;1&#39; sets the dataframe to use (already selected here)</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-manipulation.html#cb45-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">sum =</span> <span class="fu">select</span>(., disp<span class="sc">:</span>drat) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-2"><a href="data-manipulation.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(<span class="dv">1</span>, sum, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb45-3"><a href="data-manipulation.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co">#apply() takes Data frame or matrix as an input and gives output in vector </span></span>
+<span id="cb45-4"><a href="data-manipulation.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(i.e.many columns to one list)</span></span>
+<span id="cb45-5"><a href="data-manipulation.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the &#39;1&#39; sets the dataframe to use (already selected here)</span></span></code></pre></div>
 <p><a href="https://stackoverflow.com/questions/28873057/sum-across-multiple-columns-with-dplyr">Reference for summation across rows</a></p>
 </div>
 <div id="standardise-variable-mean-of-0-sd-of-1" class="section level3" number="2.5.4">
 <h3><span class="header-section-number">2.5.4</span> Standardise variable (mean of 0, SD of 1)</h3>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="data-manipulation.html#cb34-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="data-manipulation.html#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb34-3"><a href="data-manipulation.html#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), scale))</span>
-<span id="cb34-4"><a href="data-manipulation.html#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="data-manipulation.html#cb34-5" aria-hidden="true" tabindex="-1"></a>funcs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="sc">~</span><span class="fu">mean</span>(.x,<span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb34-6"><a href="data-manipulation.html#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd =</span> <span class="sc">~</span><span class="fu">sd</span>(.x,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb34-7"><a href="data-manipulation.html#cb34-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-8"><a href="data-manipulation.html#cb34-8" aria-hidden="true" tabindex="-1"></a>dat2 <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric),funcs))</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-manipulation.html#cb46-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb46-2"><a href="data-manipulation.html#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href="data-manipulation.html#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), scale))</span>
+<span id="cb46-4"><a href="data-manipulation.html#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="data-manipulation.html#cb46-5" aria-hidden="true" tabindex="-1"></a>funcs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="sc">~</span><span class="fu">mean</span>(.x,<span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb46-6"><a href="data-manipulation.html#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd =</span> <span class="sc">~</span><span class="fu">sd</span>(.x,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb46-7"><a href="data-manipulation.html#cb46-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-8"><a href="data-manipulation.html#cb46-8" aria-hidden="true" tabindex="-1"></a>dat2 <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric),funcs))</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 26
 ##   mpg_mean mpg_sd  cyl_mean cyl_sd disp_mean disp_sd  hp_mean hp_sd drat_mean
 ##      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
@@ -244,27 +257,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="conditional-replacements" class="section level3" number="2.5.5">
 <h3><span class="header-section-number">2.5.5</span> Conditional Replacements</h3>
 <p><em>Replace all ’NA’s in a specified variable with 0.</em></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="data-manipulation.html#cb36-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp1 =</span> <span class="fu">coalesce</span>(loghp, <span class="dv">0</span>))</span>
-<span id="cb36-2"><a href="data-manipulation.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
-<span id="cb36-3"><a href="data-manipulation.html#cb36-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp =</span> <span class="fu">replace_na</span>(loghp, <span class="st">&quot;missing&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-manipulation.html#cb48-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp1 =</span> <span class="fu">coalesce</span>(loghp, <span class="dv">0</span>))</span>
+<span id="cb48-2"><a href="data-manipulation.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
+<span id="cb48-3"><a href="data-manipulation.html#cb48-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp =</span> <span class="fu">replace_na</span>(loghp, <span class="st">&quot;missing&quot;</span>))</span></code></pre></div>
 </div>
 <div id="filter-individuals-with-nas-in-specified-variable-or-retain-complete-cases" class="section level3" number="2.5.6">
 <h3><span class="header-section-number">2.5.6</span> Filter individuals with na’s in specified variable, or retain complete cases</h3>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-manipulation.html#cb37-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(hp)) <span class="co"># no missing values found</span></span>
-<span id="cb37-2"><a href="data-manipulation.html#cb37-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span><span class="fu">filter</span>(<span class="fu">complete.cases</span>(.)) <span class="co"># no missing values found</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-manipulation.html#cb49-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(hp)) <span class="co"># no missing values found</span></span>
+<span id="cb49-2"><a href="data-manipulation.html#cb49-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span><span class="fu">filter</span>(<span class="fu">complete.cases</span>(.)) <span class="co"># no missing values found</span></span></code></pre></div>
 </div>
 <div id="delete-specified-columns" class="section level3" number="2.5.7">
 <h3><span class="header-section-number">2.5.7</span> Delete specified columns</h3>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-manipulation.html#cb38-1" aria-hidden="true" tabindex="-1"></a>mtcars1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>(drat)) <span class="co"># single column</span></span>
-<span id="cb38-2"><a href="data-manipulation.html#cb38-2" aria-hidden="true" tabindex="-1"></a>mtcars2 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(drat,hp,vs<span class="sc">:</span>gear)) <span class="co"># multiple columns</span></span>
-<span id="cb38-3"><a href="data-manipulation.html#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-4"><a href="data-manipulation.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;mtcars&quot;</span>)) <span class="co"># clean environment</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-manipulation.html#cb50-1" aria-hidden="true" tabindex="-1"></a>mtcars1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>(drat)) <span class="co"># single column</span></span>
+<span id="cb50-2"><a href="data-manipulation.html#cb50-2" aria-hidden="true" tabindex="-1"></a>mtcars2 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(drat,hp,vs<span class="sc">:</span>gear)) <span class="co"># multiple columns</span></span>
+<span id="cb50-3"><a href="data-manipulation.html#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="data-manipulation.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;mtcars&quot;</span>)) <span class="co"># clean environment</span></span></code></pre></div>
 </div>
 <div id="find-duplicate-rows-e.g.-duplicated-participant-datasets" class="section level3" number="2.5.8">
 <h3><span class="header-section-number">2.5.8</span> Find duplicate rows (e.g. duplicated participant datasets)</h3>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-manipulation.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify which variable to check for duplication</span></span>
-<span id="cb39-2"><a href="data-manipulation.html#cb39-2" aria-hidden="true" tabindex="-1"></a>n_occur1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">table</span>(mtcars<span class="sc">$</span>mpg)) </span>
-<span id="cb39-3"><a href="data-manipulation.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(n_occur1[n_occur1<span class="sc">$</span>Freq <span class="sc">&gt;</span> <span class="dv">1</span>,]) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-manipulation.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify which variable to check for duplication</span></span>
+<span id="cb51-2"><a href="data-manipulation.html#cb51-2" aria-hidden="true" tabindex="-1"></a>n_occur1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">table</span>(mtcars<span class="sc">$</span>mpg)) </span>
+<span id="cb51-3"><a href="data-manipulation.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(n_occur1[n_occur1<span class="sc">$</span>Freq <span class="sc">&gt;</span> <span class="dv">1</span>,]) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -359,47 +372,53 @@ Freq
 </tbody>
 </table>
 </div>
-<div id="keep-distinct-rows-only-based-on-a-value-for-example-the-prescription-code-using-dplyr" class="section level3" number="2.5.9">
-<h3><span class="header-section-number">2.5.9</span> Keep Distinct rows only based on a value (for example the prescription code) using dplyr</h3>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-manipulation.html#cb40-1" aria-hidden="true" tabindex="-1"></a>mtcarsdistinct <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>    <span class="fu">distinct</span>(cyl, <span class="at">.keep_all=</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="impute-missing-valued" class="section level3" number="2.5.9">
+<h3><span class="header-section-number">2.5.9</span> Impute missing valued</h3>
+<div id="to-be-completed" class="section level4" number="2.5.9.1">
+<h4><span class="header-section-number">2.5.9.1</span> To be completed</h4>
+</div>
+</div>
+<div id="keep-distinct-rows-only-based-on-a-value-for-example-the-prescription-code-using-dplyr" class="section level3" number="2.5.10">
+<h3><span class="header-section-number">2.5.10</span> Keep Distinct rows only based on a value (for example the prescription code) using dplyr</h3>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-manipulation.html#cb52-1" aria-hidden="true" tabindex="-1"></a>mtcarsdistinct <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>    <span class="fu">distinct</span>(cyl, <span class="at">.keep_all=</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><a href="http://www.datasciencemadesimple.com/remove-duplicate-rows-r-using-dplyr-distinct-function">Reference</a></p>
 </div>
-<div id="delete-rows-individuals-based-on-value-of-a-variable" class="section level3" number="2.5.10">
-<h3><span class="header-section-number">2.5.10</span> Delete rows (individuals) based on value of a variable</h3>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-manipulation.html#cb41-1" aria-hidden="true" tabindex="-1"></a>mtcars1<span class="ot">&lt;-</span>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>(cyl<span class="sc">==</span><span class="dv">6</span>))</span>
-<span id="cb41-2"><a href="data-manipulation.html#cb41-2" aria-hidden="true" tabindex="-1"></a>mtcars2<span class="ot">&lt;-</span>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>(cyl<span class="sc">==</span><span class="dv">6</span> <span class="sc">|</span> hp<span class="sc">==</span><span class="dv">180</span>)) <span class="co"># | is the &#39;or&#39; operator</span></span>
-<span id="cb41-3"><a href="data-manipulation.html#cb41-3" aria-hidden="true" tabindex="-1"></a>mtcars3<span class="ot">&lt;-</span>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>(cyl<span class="sc">==</span><span class="dv">8</span> <span class="sc">&amp;</span> hp<span class="sc">==</span><span class="dv">215</span>)) <span class="co"># &amp; is the &#39;and&#39; operator</span></span>
-<span id="cb41-4"><a href="data-manipulation.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># remove the ! To select the individuals with the specified conditions</span></span></code></pre></div>
+<div id="delete-rows-individuals-based-on-value-of-a-variable" class="section level3" number="2.5.11">
+<h3><span class="header-section-number">2.5.11</span> Delete rows (individuals) based on value of a variable</h3>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-manipulation.html#cb53-1" aria-hidden="true" tabindex="-1"></a>mtcars1<span class="ot">&lt;-</span>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>(cyl<span class="sc">==</span><span class="dv">6</span>))</span>
+<span id="cb53-2"><a href="data-manipulation.html#cb53-2" aria-hidden="true" tabindex="-1"></a>mtcars2<span class="ot">&lt;-</span>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>(cyl<span class="sc">==</span><span class="dv">6</span> <span class="sc">|</span> hp<span class="sc">==</span><span class="dv">180</span>)) <span class="co"># | is the &#39;or&#39; operator</span></span>
+<span id="cb53-3"><a href="data-manipulation.html#cb53-3" aria-hidden="true" tabindex="-1"></a>mtcars3<span class="ot">&lt;-</span>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>(cyl<span class="sc">==</span><span class="dv">8</span> <span class="sc">&amp;</span> hp<span class="sc">==</span><span class="dv">215</span>)) <span class="co"># &amp; is the &#39;and&#39; operator</span></span>
+<span id="cb53-4"><a href="data-manipulation.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># remove the ! To select the individuals with the specified conditions</span></span></code></pre></div>
 </div>
-<div id="use-if-else-to-calculate-based-on-values" class="section level3" number="2.5.11">
-<h3><span class="header-section-number">2.5.11</span> Use if else to calculate based on values</h3>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-manipulation.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># no NA&#39;s so all values unchanged.</span></span>
-<span id="cb42-2"><a href="data-manipulation.html#cb42-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">vs=</span><span class="fu">ifelse</span>(<span class="fu">is.na</span>(vs),(carb<span class="sc">-</span>am)<span class="sc">/</span><span class="fl">365.25</span>,vs)) </span></code></pre></div>
+<div id="use-if-else-to-calculate-based-on-values" class="section level3" number="2.5.12">
+<h3><span class="header-section-number">2.5.12</span> Use if else to calculate based on values</h3>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-manipulation.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># no NA&#39;s so all values unchanged.</span></span>
+<span id="cb54-2"><a href="data-manipulation.html#cb54-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">vs=</span><span class="fu">ifelse</span>(<span class="fu">is.na</span>(vs),(carb<span class="sc">-</span>am)<span class="sc">/</span><span class="fl">365.25</span>,vs)) </span></code></pre></div>
 </div>
-<div id="merge-data-frames-by-adding-variables" class="section level3" number="2.5.12">
-<h3><span class="header-section-number">2.5.12</span> Merge data frames by adding variables</h3>
+<div id="merge-data-frames-by-adding-variables" class="section level3" number="2.5.13">
+<h3><span class="header-section-number">2.5.13</span> Merge data frames by adding variables</h3>
 <p>*left_join(x, y): returns all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.</p>
-<p>inner_join(x, y): returns all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combinations of the matches are returned.</p>
-<p>full_join(x, y): returns all rows and all columns from both x and y. Where there are not matching values, the function returns NA for the one missing*</p>
+<p>*inner_join(x, y): returns all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combinations of the matches are returned.</p>
+<p>*full_join(x, y): returns all rows and all columns from both x and y. Where there are not matching values, the function returns NA for the one missing</p>
 <ul>
 <li>inner: only rows with matching keys in both x and y</li>
 <li>left: all rows in x, adding matching columns from y</li>
 <li>right: all rows in y, adding matching columns from x</li>
 <li>full: all rows in x with matching columns in y, then the rows of y that don’t match x.</li>
 </ul>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-manipulation.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#prepare new dataset</span></span>
-<span id="cb43-2"><a href="data-manipulation.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># make the rownames into a &#39;joinable&#39; column</span></span>
-<span id="cb43-3"><a href="data-manipulation.html#cb43-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">carnames=</span><span class="fu">rownames</span>(mtcars)) </span>
-<span id="cb43-4"><a href="data-manipulation.html#cb43-4" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(cyl)</span>
-<span id="cb43-5"><a href="data-manipulation.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># make the rownames into a &#39;joinable&#39; column</span></span>
-<span id="cb43-6"><a href="data-manipulation.html#cb43-6" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span></span>
-<span id="cb43-7"><a href="data-manipulation.html#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">carnames=</span><span class="fu">rownames</span>(mtcars_extradata)) </span>
-<span id="cb43-8"><a href="data-manipulation.html#cb43-8" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">valves=</span>cyl<span class="sc">*</span><span class="dv">4</span>)</span>
-<span id="cb43-9"><a href="data-manipulation.html#cb43-9" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>cyl)</span>
-<span id="cb43-10"><a href="data-manipulation.html#cb43-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-11"><a href="data-manipulation.html#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">glimpse</span>(mtcars_extradata<span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>))) <span class="sc">%&gt;%</span>  </span>
-<span id="cb43-12"><a href="data-manipulation.html#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb43-13"><a href="data-manipulation.html#cb43-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-manipulation.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare new dataset</span></span>
+<span id="cb55-2"><a href="data-manipulation.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co"># make the rownames into a &#39;joinable&#39; column</span></span>
+<span id="cb55-3"><a href="data-manipulation.html#cb55-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">carnames=</span><span class="fu">rownames</span>(mtcars)) </span>
+<span id="cb55-4"><a href="data-manipulation.html#cb55-4" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(cyl)</span>
+<span id="cb55-5"><a href="data-manipulation.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co"># make the rownames into a &#39;joinable&#39; column</span></span>
+<span id="cb55-6"><a href="data-manipulation.html#cb55-6" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span></span>
+<span id="cb55-7"><a href="data-manipulation.html#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">carnames=</span><span class="fu">rownames</span>(mtcars_extradata)) </span>
+<span id="cb55-8"><a href="data-manipulation.html#cb55-8" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">valves=</span>cyl<span class="sc">*</span><span class="dv">4</span>)</span>
+<span id="cb55-9"><a href="data-manipulation.html#cb55-9" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>cyl)</span>
+<span id="cb55-10"><a href="data-manipulation.html#cb55-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-11"><a href="data-manipulation.html#cb55-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">glimpse</span>(mtcars_extradata<span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>))) <span class="sc">%&gt;%</span>  </span>
+<span id="cb55-12"><a href="data-manipulation.html#cb55-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb55-13"><a href="data-manipulation.html#cb55-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <pre><code>## Rows: 6
 ## Columns: 2
 ## $ carnames &lt;chr&gt; &quot;Mazda RX4&quot;, &quot;Mazda RX4 Wag&quot;, &quot;Datsun 710&quot;, &quot;Hornet 4 Drive&quot;,~
@@ -486,10 +505,10 @@ Valiant
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-manipulation.html#cb45-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">left_join</span>(mtcars,mtcars_extradata,<span class="at">by =</span> <span class="st">&#39;carnames&#39;</span>)</span>
-<span id="cb45-2"><a href="data-manipulation.html#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="data-manipulation.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">glimpse</span>(mtcars <span class="sc">%&gt;%</span><span class="fu">select</span>(carb<span class="sc">:</span>valves) <span class="sc">%&gt;%</span>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>))) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb45-4"><a href="data-manipulation.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-manipulation.html#cb57-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">left_join</span>(mtcars,mtcars_extradata,<span class="at">by =</span> <span class="st">&#39;carnames&#39;</span>)</span>
+<span id="cb57-2"><a href="data-manipulation.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="data-manipulation.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">glimpse</span>(mtcars <span class="sc">%&gt;%</span><span class="fu">select</span>(carb<span class="sc">:</span>valves) <span class="sc">%&gt;%</span>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>))) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb57-4"><a href="data-manipulation.html#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <pre><code>## Rows: 6
 ## Columns: 7
 ## $ carb     &lt;dbl&gt; 4, 4, 1, 1, 2, 1
@@ -667,15 +686,47 @@ Valiant
 </tbody>
 </table>
 </div>
-<div id="merge-data-frames-by-adding-individuals-not-variables" class="section level3" number="2.5.13">
-<h3><span class="header-section-number">2.5.13</span> Merge data frames by adding individuals not variables</h3>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-manipulation.html#cb47-1" aria-hidden="true" tabindex="-1"></a>mtcarsmerged <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(mtcars2, mtcars3)</span>
-<span id="cb47-2"><a href="data-manipulation.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;mtcars&quot;</span>)) <span class="co"># clean environment</span></span></code></pre></div>
+<div id="merge-data-frames-by-adding-individuals-not-variables" class="section level3" number="2.5.14">
+<h3><span class="header-section-number">2.5.14</span> Merge data frames by adding individuals not variables</h3>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-manipulation.html#cb59-1" aria-hidden="true" tabindex="-1"></a>mtcarsmerged <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(mtcars2, mtcars3)</span>
+<span id="cb59-2"><a href="data-manipulation.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;mtcars&quot;</span>)) <span class="co"># clean environment</span></span></code></pre></div>
 <p><a href="https://dplyr.tidyverse.org/reference/bind.html">Reference</a></p>
 </div>
-<div id="create-a-new-factor-from-existing-factors" class="section level3" number="2.5.14">
-<h3><span class="header-section-number">2.5.14</span> Create a new factor from existing factors</h3>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-manipulation.html#cb48-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">cyc_carb =</span> <span class="fu">paste</span>(cyl,carb,<span class="at">sep=</span><span class="st">&quot;-&quot;</span>))</span></code></pre></div>
+<div id="create-a-new-factor-from-existing-factors" class="section level3" number="2.5.15">
+<h3><span class="header-section-number">2.5.15</span> Create a new factor from existing factors</h3>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-manipulation.html#cb60-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">cyc_carb =</span> <span class="fu">paste</span>(cyl,carb,<span class="at">sep=</span><span class="st">&quot;-&quot;</span>))</span></code></pre></div>
+</div>
+<div id="change-data-types-merging-fails-if-data-types-are-different" class="section level3" number="2.5.16">
+<h3><span class="header-section-number">2.5.16</span> change data types (merging fails if data types are different)</h3>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-manipulation.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adni_demog&lt;-adni_demog %&gt;% mutate(age_scan=as.numeric(age_scan))</span></span>
+<span id="cb61-2"><a href="data-manipulation.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ukbb&lt;-ukbb %&gt;% mutate(scan_no=as.numeric(scan_no))</span></span></code></pre></div>
+</div>
+<div id="calculate-dates-and-photoperiod-using-geosphere-library" class="section level3" number="2.5.17">
+<h3><span class="header-section-number">2.5.17</span> calculate dates and photoperiod (using geosphere library)</h3>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-manipulation.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import sample dataset</span></span>
+<span id="cb62-2"><a href="data-manipulation.html#cb62-2" aria-hidden="true" tabindex="-1"></a>dateslat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dateslat.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   `ID&#39;s` = col_double(),
+##   `date (dmy)` = col_character(),
+##   latitude = col_double()
+## )</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-manipulation.html#cb64-1" aria-hidden="true" tabindex="-1"></a>dateslat <span class="ot">&lt;-</span> dateslat <span class="sc">%&gt;%</span></span>
+<span id="cb64-2"><a href="data-manipulation.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb64-3"><a href="data-manipulation.html#cb64-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-4"><a href="data-manipulation.html#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="data-manipulation.html#cb64-5" aria-hidden="true" tabindex="-1"></a>dateslat <span class="ot">&lt;-</span> dateslat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">dateofscan=</span>(<span class="fu">as.Date</span>(date_dmy,<span class="at">format=</span><span class="st">&quot;%d/%m/%Y&quot;</span>)))</span>
+<span id="cb64-6"><a href="data-manipulation.html#cb64-6" aria-hidden="true" tabindex="-1"></a>dateslat <span class="ot">&lt;-</span> dateslat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">daylength=</span><span class="fu">daylength</span>(latitude,dateofscan))</span>
+<span id="cb64-7"><a href="data-manipulation.html#cb64-7" aria-hidden="true" tabindex="-1"></a>                                </span>
+<span id="cb64-8"><a href="data-manipulation.html#cb64-8" aria-hidden="true" tabindex="-1"></a>dateslat <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>dateofscan,<span class="at">y=</span>daylength)) <span class="sc">+</span><span class="fu">geom_line</span>() <span class="sc">+</span><span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+<div id="reduce-variables-using-pca" class="section level3" number="2.5.18">
+<h3><span class="header-section-number">2.5.18</span> Reduce variables using PCA</h3>
+<div id="to-be-completed-1" class="section level4" number="2.5.18.1">
+<h4><span class="header-section-number">2.5.18.1</span> To be completed</h4>
+</div>
 </div>
 </div>
             </section>
@@ -684,7 +735,7 @@ Valiant
         </div>
       </div>
 <a href="loading-and-manipulating-packages-and-data-frames.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="statistical-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="statistical-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

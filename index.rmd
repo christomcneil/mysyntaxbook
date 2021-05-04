@@ -1,6 +1,6 @@
 ---
 title: "Useful R Syntax"
-author: "Chris mcNeil"
+author: "Chris McNeil"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -9,5 +9,32 @@ biblio-style: apalike
 link-citations: yes
 description: "Useful R Syntax"
 ---
+# Overview
 
-# Indexxx
+## Structure of collection
+
+* Rmarkdown
+  + formatting basics
+* Rstudio 
+  + load/unload packages
+  + print figures to files
+* Libraries/packages
+  + essential/useful packaged
+* data wrangling
+  + load dataset (and basic cleaning)
+  + clean environment
+  + check for duplicates
+* data restructuring
+  + Merging datasheets (add variables)
+  + Merging datasets (add rows)
+  + Reshaping - Converting to longer or shorter format
+* data manipulation (creating new variables)
+  + recode factors
+  + dealing with missing data
+  + Data reduction with PCA
+  + Data standardisation
+  
+* statistical analysis – basic
+* statistical analysis - advanced
+* Tables
+* Graphs and Plots  

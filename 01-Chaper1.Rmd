@@ -1,56 +1,37 @@
 # Collection of useful R syntax and methods {#Title}
 ## Introduction
 
-**This document is a collection of useful code for Rmarkdown and R**
-### Structure of collection
+**This document is a collection of useful code for Rmarkdown and R**  
 
-* Rmarkdown
-  + formatting basics
-* Rstudio 
-  + load/unload packages
-  + print figures to files
-* Libraries/packages
-  + essential/useful packaged
-* data wrangling
-  + load dataset (and basic cleaning)
-  + clean environment
-  + check for duplicates
-* data restructuring
-  + Merging datasheets (add variables)
-  + Merging datasets (add rows)
-  + Reshaping - Converting to longer or shorter format
-* data manipulation (creating new variables)
-  + recode factors
-  + dealing with missing data
-  + Data reduction with PCA
-  + Data standardisation
-  
-* statistical analysis – basic
-* statistical analysis - advanced
-* Tables
-* Graphs and Plots
-**I will use the mtcars dataset as much as possible**
+**I have used the mtcars dataset if possible** 
 
+**I have used the Tidyverse and the pipe ( %>% ) if possible**
+
+**I recommend that the code is checked for warnings that is is not depreciated**
+
+![Don't Panic](figures/guide.jpg)
 
 ## RMarkdown
 ### Formatting basics
-'***' on it own, for a horizontal line
-'**text**' for **bold**
-'*text*' for *italics*
-'1. Item 1
+
+```
+*** on it own, for a horizontal line
+**text** for **bold**
+*text* for *italics*
+1. Item 1
 2. Item 2
 3. Item 3
     + Item 3a
-    + Item 3b' for ordered lists
+    + Item 3b for ordered lists
     
-'[linked phrase](http://example.com)' for links
- '![alt text](figures/img.png)' for images
+[linked phrase](http://example.com) for links
+ ![alt text](figures/img.png) for images
 
 ### R chunk basics 
-'message=FALSE, warning=FALSE, include=FALSE, ECHO=FALSE (show output), '
+message=FALSE, warning=FALSE, include=FALSE, ECHO=FALSE (show output), 
 
-To set document default 'knitr::opts_chunk$set(echo=FALSE)' for example
-
+To set document default knitr::opts_chunk$set(echo=FALSE) 
+```
 ## Rstudio
 ### Useful packages
 Load all libraries
@@ -60,6 +41,8 @@ library(janitor) #dataframe import cleaning
 library(knitr) #nice html tables
 library(kableExtra) # nicer knitr tables
 library(broom)
+library(readr) # load csv stored data
+library(geosphere) # for calc daylength
 ```
 ### Remove a package (library)
 ```{r}
@@ -95,8 +78,39 @@ rm(list=ls()) # Remove everything
 Reference:
 [Stackoverflow](https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r)
 
+### Save dataframe as CSV  or R data file (with unique date)
+
+*make date string*
+```{r}
+datenow <- format(Sys.time(), "_%Y_%m_%d")
+date
+data(mtcars)
+```
+
+*write these data to save file names*
+
+```{r}
+#create data directory
+dir.create("data_out")
+
+filenamecsv <- paste("data_out/mtcsvdata",datenow,".csv",sep="")
+filenamerda <- paste("data_out/mtrdadata",datenow,".rda",sep="")
+```
+*Save the files to directory*
+```{r}
+save(mtcars,file=filenamerda)
+write.csv(mtcars,file=filenamecsv)
+```
 
 
+### write these data to save files
+
+```{r}
+filenameallsav <- paste("data_amos/semdata_all",datenow,".sav",sep="")
+filenamemalesav <- paste("data_amos/semdata_male",datenow,".sav",sep="")
+filenamefemalesav <- paste("data_amos/semdata_female",datenow,".sav",sep="")
+filenameallsav
+```
 
 ### Recode a text variable
 *Tidyverse libraries are needed for the following examples.*
@@ -191,6 +205,11 @@ rm(list=setdiff(ls(), "mtcars")) # clean environment
 n_occur1 <- data.frame(table(mtcars$mpg)) 
 kable(n_occur1[n_occur1$Freq > 1,]) %>% kable_styling(full_width = F) %>% kable_minimal()
 ```
+
+### Impute missing valued
+#### To be completed
+
+
 ### Keep Distinct rows only based on a value (for example the prescription code)  using dplyr
 ```{r}
 mtcarsdistinct <- mtcars %>% 	distinct(cyl, .keep_all= TRUE)
@@ -214,9 +233,9 @@ mtcars <- mtcars %>% mutate(vs=ifelse(is.na(vs),(carb-am)/365.25,vs))
 ### Merge data frames by adding variables
 *left_join(x, y): returns all rows from x, and all columns from x and y. Rows in   x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all   combinations of the matches are returned.
 
-inner_join(x, y): returns all rows from x where there are matching values in y,   and all columns from x and y. If there are multiple matches between x and y, all combinations of the matches are returned.
+*inner_join(x, y): returns all rows from x where there are matching values in y,   and all columns from x and y. If there are multiple matches between x and y, all combinations of the matches are returned.
 
-full_join(x, y): returns all rows and all columns from both x and y. Where there are not matching values, the function returns NA for the one missing*
+*full_join(x, y): returns all rows and all columns from both x and y. Where there are not matching values, the function returns NA for the one missing
 
 * inner: only rows with matching keys in both x and y
 * left: all rows in x, adding matching columns from y
@@ -224,7 +243,7 @@ full_join(x, y): returns all rows and all columns from both x and y. Where there
 * full: all rows in x with matching columns in y, then the rows of y that don't match x.
 
 ```{r}
-#prepare new dataset
+# prepare new dataset
 # make the rownames into a 'joinable' column
 mtcars <- mtcars %>% mutate(carnames=rownames(mtcars)) 
 mtcars_extradata <- mtcars %>% select(cyl)
@@ -245,7 +264,6 @@ kable(glimpse(mtcars %>%select(carb:valves) %>%  slice(1:6))) %>% kable_styling(
 
 ```
 
-
 ### Merge data frames by adding individuals not variables
 ```{r}
 mtcarsmerged <- bind_rows(mtcars2, mtcars3)
@@ -258,18 +276,49 @@ rm(list=setdiff(ls(), "mtcars")) # clean environment
 mtcars <- mtcars %>% mutate(cyc_carb = paste(cyl,carb,sep="-"))
 ```
 
-## Statistical Methods
+### change data types (merging fails if data types are different)
 
+```{r}
+
+# adni_demog<-adni_demog %>% mutate(age_scan=as.numeric(age_scan))
+# ukbb<-ukbb %>% mutate(scan_no=as.numeric(scan_no))
+```
+
+
+### calculate dates and photoperiod (using geosphere library)
+```{r}
+#import sample dataset
+dateslat <- read_csv("dateslat.csv")
+dateslat <- dateslat %>%
+  clean_names()
+
+
+dateslat <- dateslat %>% mutate(dateofscan=(as.Date(date_dmy,format="%d/%m/%Y")))
+dateslat <- dateslat %>% mutate(daylength=daylength(latitude,dateofscan))
+                                
+dateslat %>% ggplot(aes(x=dateofscan,y=daylength)) +geom_line() +theme_minimal()
+
+```
+
+### Reduce variables using PCA
+
+#### To be completed
+
+
+
+
+
+## Statistical Analysis
 ### Linear Regression
 
-### Summarise and perform linear regression on multiple groups
+#### Summarise and perform linear regression on multiple groups
 ```{r}
 kable(mtcars %>%  group_by(as.factor(gear)) %>%
 summarise(mean = mean(qsec), sd = sd(qsec))) %>%
   kable_styling(full_width = F) %>%
   kable_minimal()
 
-#Rrun the same linear regression model by group levels? 
+#Run the same linear regression model by group levels? 
 #Instead of running #summary(lm(y~x)) for the number of levels 
 #you have, you can use the R package “broom” along with dplyr.
 
@@ -282,13 +331,31 @@ kable(mtcars%>% group_by(gear) %>%
 
 [Reference](https://stackoverflow.com/questions/22713325/fitting-several-regression-models-with-dplyr)
 
+### Logistic Regression
+
+#### to be completed
+
+
+### Survival Analysis and Visualisation
+
+#### To be completed
+
+### Receiver Operated Curves (ROC)
+#### To be completed
+
+
+
+
+## Data Visualisation
 ### Summary Tables
-Summarise by group
+
+#### Summarise by group
 ```{r}
 kable(mtcars %>% group_by(cyl) %>% summarise(Ave=mean(hp), StDev=sd(hp))) %>% 
   kable_styling(full_width = FALSE) %>% kable_minimal()
 ```
-###Summarise multiple functions across several variables
+
+#### Summarise multiple functions across several variables
 
 ```{r}
 # make sure brackets are correct
@@ -300,7 +367,8 @@ kable(df.sum,digits=2) %>% kable_styling(full_width = FALSE) %>% kable_minimal()
 df.longer <- df.sum%>% pivot_longer(col=everything(),  
 names_to = c("Attribute",".value"),
   names_sep = "_")
-kable(df.longer,digits=2) %>% kable_styling(full_width = FALSE) %>% kable_minimal()
+kable(df.longer,digits=2) %>%
+  kable_styling(full_width = FALSE) %>% kable_minimal()
 ```
 
 

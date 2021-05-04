@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="2.4 Loading and manipulating packages and data frames | Useful R Syntax" />
   
 
-<meta name="author" content="Chris mcNeil" />
+<meta name="author" content="Chris McNeil" />
 
 
-<meta name="date" content="2021-04-29" />
+<meta name="date" content="2021-05-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -132,14 +132,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Indexxx</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="structure-of-collection.html"><a href="structure-of-collection.html"><i class="fa fa-check"></i><b>1.1</b> Structure of collection</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="Title.html"><a href="Title.html"><i class="fa fa-check"></i><b>2</b> Collection of useful R syntax and methods</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
 <li class="chapter" data-level="2.2" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2.2</b> RMarkdown</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="rmarkdown.html"><a href="rmarkdown.html#formatting-basics"><i class="fa fa-check"></i><b>2.2.1</b> Formatting basics</a></li>
-<li class="chapter" data-level="2.2.2" data-path="rmarkdown.html"><a href="rmarkdown.html#r-chunk-basics"><i class="fa fa-check"></i><b>2.2.2</b> R chunk basics</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2.3</b> Rstudio</a>
 <ul>
@@ -150,8 +152,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#data-importing-using-janitor"><i class="fa fa-check"></i><b>2.4.1</b> Data importing using Janitor</a></li>
 <li class="chapter" data-level="2.4.2" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#remove-dataframe-from-environment"><i class="fa fa-check"></i><b>2.4.2</b> Remove dataframe from environment:</a></li>
-<li class="chapter" data-level="2.4.3" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#recode-a-text-variable"><i class="fa fa-check"></i><b>2.4.3</b> Recode a text variable</a></li>
-<li class="chapter" data-level="2.4.4" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#altering-variable-names"><i class="fa fa-check"></i><b>2.4.4</b> Altering variable names:</a></li>
+<li class="chapter" data-level="2.4.3" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#save-dataframe-as-csv-or-r-data-file-with-unique-date"><i class="fa fa-check"></i><b>2.4.3</b> Save dataframe as CSV or R data file (with unique date)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#write-these-data-to-save-files"><i class="fa fa-check"></i><b>2.4.4</b> write these data to save files</a></li>
+<li class="chapter" data-level="2.4.5" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#recode-a-text-variable"><i class="fa fa-check"></i><b>2.4.5</b> Recode a text variable</a></li>
+<li class="chapter" data-level="2.4.6" data-path="loading-and-manipulating-packages-and-data-frames.html"><a href="loading-and-manipulating-packages-and-data-frames.html#altering-variable-names"><i class="fa fa-check"></i><b>2.4.6</b> Altering variable names:</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>2.5</b> Data manipulation</a>
 <ul>
@@ -163,23 +167,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.6" data-path="data-manipulation.html"><a href="data-manipulation.html#filter-individuals-with-nas-in-specified-variable-or-retain-complete-cases"><i class="fa fa-check"></i><b>2.5.6</b> Filter individuals with na’s in specified variable, or retain complete cases</a></li>
 <li class="chapter" data-level="2.5.7" data-path="data-manipulation.html"><a href="data-manipulation.html#delete-specified-columns"><i class="fa fa-check"></i><b>2.5.7</b> Delete specified columns</a></li>
 <li class="chapter" data-level="2.5.8" data-path="data-manipulation.html"><a href="data-manipulation.html#find-duplicate-rows-e.g.-duplicated-participant-datasets"><i class="fa fa-check"></i><b>2.5.8</b> Find duplicate rows (e.g. duplicated participant datasets)</a></li>
-<li class="chapter" data-level="2.5.9" data-path="data-manipulation.html"><a href="data-manipulation.html#keep-distinct-rows-only-based-on-a-value-for-example-the-prescription-code-using-dplyr"><i class="fa fa-check"></i><b>2.5.9</b> Keep Distinct rows only based on a value (for example the prescription code) using dplyr</a></li>
-<li class="chapter" data-level="2.5.10" data-path="data-manipulation.html"><a href="data-manipulation.html#delete-rows-individuals-based-on-value-of-a-variable"><i class="fa fa-check"></i><b>2.5.10</b> Delete rows (individuals) based on value of a variable</a></li>
-<li class="chapter" data-level="2.5.11" data-path="data-manipulation.html"><a href="data-manipulation.html#use-if-else-to-calculate-based-on-values"><i class="fa fa-check"></i><b>2.5.11</b> Use if else to calculate based on values</a></li>
-<li class="chapter" data-level="2.5.12" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-variables"><i class="fa fa-check"></i><b>2.5.12</b> Merge data frames by adding variables</a></li>
-<li class="chapter" data-level="2.5.13" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-individuals-not-variables"><i class="fa fa-check"></i><b>2.5.13</b> Merge data frames by adding individuals not variables</a></li>
-<li class="chapter" data-level="2.5.14" data-path="data-manipulation.html"><a href="data-manipulation.html#create-a-new-factor-from-existing-factors"><i class="fa fa-check"></i><b>2.5.14</b> Create a new factor from existing factors</a></li>
+<li class="chapter" data-level="2.5.9" data-path="data-manipulation.html"><a href="data-manipulation.html#impute-missing-valued"><i class="fa fa-check"></i><b>2.5.9</b> Impute missing valued</a></li>
+<li class="chapter" data-level="2.5.10" data-path="data-manipulation.html"><a href="data-manipulation.html#keep-distinct-rows-only-based-on-a-value-for-example-the-prescription-code-using-dplyr"><i class="fa fa-check"></i><b>2.5.10</b> Keep Distinct rows only based on a value (for example the prescription code) using dplyr</a></li>
+<li class="chapter" data-level="2.5.11" data-path="data-manipulation.html"><a href="data-manipulation.html#delete-rows-individuals-based-on-value-of-a-variable"><i class="fa fa-check"></i><b>2.5.11</b> Delete rows (individuals) based on value of a variable</a></li>
+<li class="chapter" data-level="2.5.12" data-path="data-manipulation.html"><a href="data-manipulation.html#use-if-else-to-calculate-based-on-values"><i class="fa fa-check"></i><b>2.5.12</b> Use if else to calculate based on values</a></li>
+<li class="chapter" data-level="2.5.13" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-variables"><i class="fa fa-check"></i><b>2.5.13</b> Merge data frames by adding variables</a></li>
+<li class="chapter" data-level="2.5.14" data-path="data-manipulation.html"><a href="data-manipulation.html#merge-data-frames-by-adding-individuals-not-variables"><i class="fa fa-check"></i><b>2.5.14</b> Merge data frames by adding individuals not variables</a></li>
+<li class="chapter" data-level="2.5.15" data-path="data-manipulation.html"><a href="data-manipulation.html#create-a-new-factor-from-existing-factors"><i class="fa fa-check"></i><b>2.5.15</b> Create a new factor from existing factors</a></li>
+<li class="chapter" data-level="2.5.16" data-path="data-manipulation.html"><a href="data-manipulation.html#change-data-types-merging-fails-if-data-types-are-different"><i class="fa fa-check"></i><b>2.5.16</b> change data types (merging fails if data types are different)</a></li>
+<li class="chapter" data-level="2.5.17" data-path="data-manipulation.html"><a href="data-manipulation.html#calculate-dates-and-photoperiod-using-geosphere-library"><i class="fa fa-check"></i><b>2.5.17</b> calculate dates and photoperiod (using geosphere library)</a></li>
+<li class="chapter" data-level="2.5.18" data-path="data-manipulation.html"><a href="data-manipulation.html#reduce-variables-using-pca"><i class="fa fa-check"></i><b>2.5.18</b> Reduce variables using PCA</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="statistical-methods.html"><a href="statistical-methods.html"><i class="fa fa-check"></i><b>2.6</b> Statistical Methods</a>
+<li class="chapter" data-level="2.6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>2.6</b> Statistical Analysis</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="statistical-methods.html"><a href="statistical-methods.html#linear-regression"><i class="fa fa-check"></i><b>2.6.1</b> Linear Regression</a></li>
-<li class="chapter" data-level="2.6.2" data-path="statistical-methods.html"><a href="statistical-methods.html#summarise-and-perform-linear-regression-on-multiple-groups"><i class="fa fa-check"></i><b>2.6.2</b> Summarise and perform linear regression on multiple groups</a></li>
-<li class="chapter" data-level="2.6.3" data-path="statistical-methods.html"><a href="statistical-methods.html#summary-tables"><i class="fa fa-check"></i><b>2.6.3</b> Summary Tables</a></li>
+<li class="chapter" data-level="2.6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#linear-regression"><i class="fa fa-check"></i><b>2.6.1</b> Linear Regression</a></li>
+<li class="chapter" data-level="2.6.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>2.6.2</b> Logistic Regression</a></li>
+<li class="chapter" data-level="2.6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis-and-visualisation"><i class="fa fa-check"></i><b>2.6.3</b> Survival Analysis and Visualisation</a></li>
+<li class="chapter" data-level="2.6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#receiver-operated-curves-roc"><i class="fa fa-check"></i><b>2.6.4</b> Receiver Operated Curves (ROC)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>2.7</b> Data Visualisation</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="data-visualisation.html"><a href="data-visualisation.html#summary-tables"><i class="fa fa-check"></i><b>2.7.1</b> Summary Tables</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chapter-2-the-second-chapter.html"><a href="chapter-2-the-second-chapter.html"><i class="fa fa-check"></i>Chapter 2 (the second chapter)</a>
 <ul>
-<li class="chapter" data-level="2.7" data-path="this-is-the-second-chapter.html"><a href="this-is-the-second-chapter.html"><i class="fa fa-check"></i><b>2.7</b> this is the second chapter</a></li>
+<li class="chapter" data-level="2.8" data-path="ipso-lorum.html"><a href="ipso-lorum.html"><i class="fa fa-check"></i><b>2.8</b> Ipso Lorum</a></li>
 </ul></li>
 </ul>
 
@@ -202,37 +215,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.4</span> Loading and manipulating packages and data frames</h2>
 <div id="data-importing-using-janitor" class="section level3" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> Data importing using Janitor</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data.frame with dirty names</span></span>
-<span id="cb21-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb21-2" aria-hidden="true" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
-<span id="cb21-3"><a href="loading-and-manipulating-packages-and-data-frames.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;firstName&quot;</span>, <span class="st">&quot;ábc@!*&quot;</span>, <span class="st">&quot;% successful (2009)&quot;</span>,</span>
-<span id="cb21-4"><a href="loading-and-manipulating-packages-and-data-frames.html#cb21-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;REPEAT VALUE&quot;</span>, <span class="st">&quot;REPEAT VALUE&quot;</span>, <span class="st">&quot;&quot;</span>)</span>
-<span id="cb21-5"><a href="loading-and-manipulating-packages-and-data-frames.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test_df)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data.frame with dirty names</span></span>
+<span id="cb24-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb24-2" aria-hidden="true" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
+<span id="cb24-3"><a href="loading-and-manipulating-packages-and-data-frames.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;firstName&quot;</span>, <span class="st">&quot;ábc@!*&quot;</span>, <span class="st">&quot;% successful (2009)&quot;</span>,</span>
+<span id="cb24-4"><a href="loading-and-manipulating-packages-and-data-frames.html#cb24-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;REPEAT VALUE&quot;</span>, <span class="st">&quot;REPEAT VALUE&quot;</span>, <span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-5"><a href="loading-and-manipulating-packages-and-data-frames.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test_df)</span></code></pre></div>
 <pre><code>##   firstName ábc@!* % successful (2009) REPEAT VALUE REPEAT VALUE   
 ## 1        NA     NA                  NA           NA           NA NA</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb23-1" aria-hidden="true" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> test_df <span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
-<span id="cb23-3"><a href="loading-and-manipulating-packages-and-data-frames.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test_df)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb26-1" aria-hidden="true" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> test_df <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb26-3"><a href="loading-and-manipulating-packages-and-data-frames.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test_df)</span></code></pre></div>
 <pre><code>##   first_name abc percent_successful_2009 repeat_value repeat_value_2  x
 ## 1         NA  NA                      NA           NA             NA NA</code></pre>
 <p>Reference <a href="https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html">here</a></p>
 </div>
 <div id="remove-dataframe-from-environment" class="section level3" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Remove dataframe from environment:</h3>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
-<span id="cb25-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_instruments&quot;</span>)</span>
-<span id="cb25-3"><a href="loading-and-manipulating-packages-and-data-frames.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_instruments2&quot;</span>) <span class="co"># Load example datasets</span></span>
-<span id="cb25-4"><a href="loading-and-manipulating-packages-and-data-frames.html#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="loading-and-manipulating-packages-and-data-frames.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()[<span class="sc">!</span> <span class="fu">ls</span>() <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;band_instruments&quot;</span>,<span class="st">&quot;band_instruments2&quot;</span>)]) <span class="co"># Everything except Band instruments</span></span>
-<span id="cb25-6"><a href="loading-and-manipulating-packages-and-data-frames.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;band_instruments&quot;</span>)) <span class="co"># Everything except &quot;bandinstruments&quot;</span></span>
-<span id="cb25-7"><a href="loading-and-manipulating-packages-and-data-frames.html#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb28-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_instruments&quot;</span>)</span>
+<span id="cb28-3"><a href="loading-and-manipulating-packages-and-data-frames.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_instruments2&quot;</span>) <span class="co"># Load example datasets</span></span>
+<span id="cb28-4"><a href="loading-and-manipulating-packages-and-data-frames.html#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="loading-and-manipulating-packages-and-data-frames.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()[<span class="sc">!</span> <span class="fu">ls</span>() <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;band_instruments&quot;</span>,<span class="st">&quot;band_instruments2&quot;</span>)]) <span class="co"># Everything except Band instruments</span></span>
+<span id="cb28-6"><a href="loading-and-manipulating-packages-and-data-frames.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;band_instruments&quot;</span>)) <span class="co"># Everything except &quot;bandinstruments&quot;</span></span>
+<span id="cb28-7"><a href="loading-and-manipulating-packages-and-data-frames.html#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
 <p>Reference:
 <a href="https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r">Stackoverflow</a></p>
 </div>
-<div id="recode-a-text-variable" class="section level3" number="2.4.3">
-<h3><span class="header-section-number">2.4.3</span> Recode a text variable</h3>
+<div id="save-dataframe-as-csv-or-r-data-file-with-unique-date" class="section level3" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Save dataframe as CSV or R data file (with unique date)</h3>
+<p><em>make date string</em></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb29-1" aria-hidden="true" tabindex="-1"></a>datenow <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;_%Y_%m_%d&quot;</span>)</span>
+<span id="cb29-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb29-2" aria-hidden="true" tabindex="-1"></a>date</span></code></pre></div>
+<pre><code>## function () 
+## .Internal(date())
+## &lt;bytecode: 0x0000000020722e80&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
+<p><em>write these data to save file names</em></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create data directory</span></span>
+<span id="cb32-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;data_out&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning in dir.create(&quot;data_out&quot;): &#39;data_out&#39; already exists</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb34-1" aria-hidden="true" tabindex="-1"></a>filenamecsv <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtcsvdata&quot;</span>,datenow,<span class="st">&quot;.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb34-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb34-2" aria-hidden="true" tabindex="-1"></a>filenamerda <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtrdadata&quot;</span>,datenow,<span class="st">&quot;.rda&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><em>Save the files to directory</em></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(mtcars,<span class="at">file=</span>filenamerda)</span>
+<span id="cb35-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mtcars,<span class="at">file=</span>filenamecsv)</span></code></pre></div>
+</div>
+<div id="write-these-data-to-save-files" class="section level3" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> write these data to save files</h3>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb36-1" aria-hidden="true" tabindex="-1"></a>filenameallsav <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_amos/semdata_all&quot;</span>,datenow,<span class="st">&quot;.sav&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb36-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb36-2" aria-hidden="true" tabindex="-1"></a>filenamemalesav <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_amos/semdata_male&quot;</span>,datenow,<span class="st">&quot;.sav&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb36-3"><a href="loading-and-manipulating-packages-and-data-frames.html#cb36-3" aria-hidden="true" tabindex="-1"></a>filenamefemalesav <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_amos/semdata_female&quot;</span>,datenow,<span class="st">&quot;.sav&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb36-4"><a href="loading-and-manipulating-packages-and-data-frames.html#cb36-4" aria-hidden="true" tabindex="-1"></a>filenameallsav</span></code></pre></div>
+<pre><code>## [1] &quot;data_amos/semdata_all_2021_05_04.sav&quot;</code></pre>
+</div>
+<div id="recode-a-text-variable" class="section level3" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> Recode a text variable</h3>
 <p><em>Tidyverse libraries are needed for the following examples.</em></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_members&quot;</span>)</span>
-<span id="cb26-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(band_members)) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_members&quot;</span>)</span>
+<span id="cb38-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(band_members)) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -271,8 +312,8 @@ Beatles
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb27-1" aria-hidden="true" tabindex="-1"></a>band_members <span class="ot">&lt;-</span> band_members <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">name=</span><span class="fu">recode</span>(name, <span class="st">&quot;Mick&quot;</span><span class="ot">=</span> <span class="st">&quot;m&quot;</span>))</span>
-<span id="cb27-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((band_members))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb39-1" aria-hidden="true" tabindex="-1"></a>band_members <span class="ot">&lt;-</span> band_members <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">name=</span><span class="fu">recode</span>(name, <span class="st">&quot;Mick&quot;</span><span class="ot">=</span> <span class="st">&quot;m&quot;</span>))</span>
+<span id="cb39-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((band_members))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -311,16 +352,16 @@ Beatles
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
 <p>Reference for table formatting
 <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">Kable Extra</a></p>
 </div>
-<div id="altering-variable-names" class="section level3" number="2.4.4">
-<h3><span class="header-section-number">2.4.4</span> Altering variable names:</h3>
+<div id="altering-variable-names" class="section level3" number="2.4.6">
+<h3><span class="header-section-number">2.4.6</span> Altering variable names:</h3>
 <p><em>Remove all underscores from names</em></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
-<span id="cb29-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb29-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">hp_new=</span>hp)</span>
-<span id="cb29-3"><a href="loading-and-manipulating-packages-and-data-frames.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb41-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb41-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">hp_new=</span>hp)</span>
+<span id="cb41-3"><a href="loading-and-manipulating-packages-and-data-frames.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -592,8 +633,8 @@ Valiant
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb30-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>(<span class="at">.fn =</span> <span class="sc">~</span><span class="fu">str_replace</span>(., <span class="st">&quot;_&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
-<span id="cb30-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="loading-and-manipulating-packages-and-data-frames.html#cb42-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>(<span class="at">.fn =</span> <span class="sc">~</span><span class="fu">str_replace</span>(., <span class="st">&quot;_&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb42-2"><a href="loading-and-manipulating-packages-and-data-frames.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
