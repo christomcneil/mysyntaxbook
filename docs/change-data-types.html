@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Data Wrangling and manipulation | Useful R Syntax</title>
-  <meta name="description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <title>4.16 change data types | Useful R Syntax</title>
+  <meta name="description" content="4.16 change data types | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:title" content="4.16 change data types | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:description" content="4.16 change data types | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:title" content="4.16 change data types | Useful R Syntax" />
   
-  <meta name="twitter:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:description" content="4.16 change data types | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="alter-variable-names.html"/>
-<link rel="next" href="bin-variable-e-g-lowmediumhigh.html"/>
+<link rel="prev" href="create-a-new-factor-from-existing.html"/>
+<link rel="next" href="calculate-dates-and-photoperiod.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -217,16 +217,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-wrangling-and-manipulation" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Data Wrangling and manipulation</h1>
+<div id="change-data-types" class="section level2" number="4.16">
+<h2><span class="header-section-number">4.16</span> change data types</h2>
+<p>(merging fails if data types are different)</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="change-data-types.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adni_demog&lt;-adni_demog %&gt;% mutate(age_scan=as.numeric(age_scan))</span></span>
+<span id="cb59-2"><a href="change-data-types.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ukbb&lt;-ukbb %&gt;% mutate(scan_no=as.numeric(scan_no))</span></span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="alter-variable-names.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bin-variable-e-g-lowmediumhigh.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="create-a-new-factor-from-existing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="calculate-dates-and-photoperiod.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

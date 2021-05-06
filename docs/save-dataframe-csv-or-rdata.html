@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Data Wrangling and manipulation | Useful R Syntax</title>
-  <meta name="description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <title>3.5 Save dataframe (CSV or Rdata) | Useful R Syntax</title>
+  <meta name="description" content="3.5 Save dataframe (CSV or Rdata) | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:title" content="3.5 Save dataframe (CSV or Rdata) | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:description" content="3.5 Save dataframe (CSV or Rdata) | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:title" content="3.5 Save dataframe (CSV or Rdata) | Useful R Syntax" />
   
-  <meta name="twitter:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:description" content="3.5 Save dataframe (CSV or Rdata) | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="alter-variable-names.html"/>
-<link rel="next" href="bin-variable-e-g-lowmediumhigh.html"/>
+<link rel="prev" href="remove-dataframe.html"/>
+<link rel="next" href="recode-a-text-variable.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -217,16 +217,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-wrangling-and-manipulation" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Data Wrangling and manipulation</h1>
+<div id="save-dataframe-csv-or-rdata" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Save dataframe (CSV or Rdata)</h2>
+<p><em>make date string</em></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="save-dataframe-csv-or-rdata.html#cb29-1" aria-hidden="true" tabindex="-1"></a>datenow <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;_%Y_%m_%d&quot;</span>)</span>
+<span id="cb29-2"><a href="save-dataframe-csv-or-rdata.html#cb29-2" aria-hidden="true" tabindex="-1"></a>date</span></code></pre></div>
+<pre><code>## function () 
+## .Internal(date())
+## &lt;bytecode: 0x00000000206f28b8&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="save-dataframe-csv-or-rdata.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
+<p><em>Write file names</em></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="save-dataframe-csv-or-rdata.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create data directory</span></span>
+<span id="cb32-2"><a href="save-dataframe-csv-or-rdata.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;data_out&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning in dir.create(&quot;data_out&quot;): &#39;data_out&#39; already exists</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="save-dataframe-csv-or-rdata.html#cb34-1" aria-hidden="true" tabindex="-1"></a>filenamecsv <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtcsvdata&quot;</span>,datenow,<span class="st">&quot;.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb34-2"><a href="save-dataframe-csv-or-rdata.html#cb34-2" aria-hidden="true" tabindex="-1"></a>filenamerda <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtrdadata&quot;</span>,datenow,<span class="st">&quot;.rda&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><em>Save the files</em></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="save-dataframe-csv-or-rdata.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(mtcars,<span class="at">file=</span>filenamerda)</span>
+<span id="cb35-2"><a href="save-dataframe-csv-or-rdata.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mtcars,<span class="at">file=</span>filenamecsv)</span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="alter-variable-names.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bin-variable-e-g-lowmediumhigh.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="remove-dataframe.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="recode-a-text-variable.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

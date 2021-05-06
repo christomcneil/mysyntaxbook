@@ -1,11 +1,13 @@
 
 # RMarkdown
+This chapter contains syntax for the non-code rmarkdown sections.  
+
 ## Formatting basics
 
 ```
 *** on it own, for a horizontal line
-**text** for **bold**
-*text* for *italics*
+**text** for bold
+*text* for italics
 1. Item 1
 2. Item 2
 3. Item 3

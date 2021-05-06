@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Data Wrangling and manipulation | Useful R Syntax</title>
-  <meta name="description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <title>4.3 Sum across rows | Useful R Syntax</title>
+  <meta name="description" content="4.3 Sum across rows | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:title" content="4.3 Sum across rows | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:description" content="4.3 Sum across rows | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:title" content="4.3 Sum across rows | Useful R Syntax" />
   
-  <meta name="twitter:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:description" content="4.3 Sum across rows | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="alter-variable-names.html"/>
-<link rel="next" href="bin-variable-e-g-lowmediumhigh.html"/>
+<link rel="prev" href="conditional-function.html"/>
+<link rel="next" href="standardise-variable.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -217,16 +217,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-wrangling-and-manipulation" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Data Wrangling and manipulation</h1>
+<div id="sum-across-rows" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Sum across rows</h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="sum-across-rows.html#cb43-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">sum =</span> <span class="fu">select</span>(., disp<span class="sc">:</span>drat) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="sum-across-rows.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(<span class="dv">1</span>, sum, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb43-3"><a href="sum-across-rows.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co">#apply() takes Data frame or matrix as an input and gives output in vector </span></span>
+<span id="cb43-4"><a href="sum-across-rows.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(i.e.many columns to one list)</span></span>
+<span id="cb43-5"><a href="sum-across-rows.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the &#39;1&#39; sets the dataframe to use (already selected here)</span></span></code></pre></div>
+<p><a href="https://stackoverflow.com/questions/28873057/sum-across-multiple-columns-with-dplyr">Reference</a></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="alter-variable-names.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bin-variable-e-g-lowmediumhigh.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="conditional-function.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="standardise-variable.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

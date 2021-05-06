@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Data Wrangling and manipulation | Useful R Syntax</title>
-  <meta name="description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <title>4.2 Conditional function | Useful R Syntax</title>
+  <meta name="description" content="4.2 Conditional function | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:title" content="4.2 Conditional function | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:description" content="4.2 Conditional function | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:title" content="4.2 Conditional function | Useful R Syntax" />
   
-  <meta name="twitter:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:description" content="4.2 Conditional function | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="alter-variable-names.html"/>
-<link rel="next" href="bin-variable-e-g-lowmediumhigh.html"/>
+<link rel="prev" href="bin-variable-e-g-lowmediumhigh.html"/>
+<link rel="next" href="sum-across-rows.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -217,16 +217,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-wrangling-and-manipulation" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Data Wrangling and manipulation</h1>
+<div id="conditional-function" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Conditional function</h2>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="conditional-function.html#cb42-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp=</span><span class="fu">ifelse</span>(cyl<span class="sc">&gt;</span><span class="dv">4</span>,<span class="fu">log10</span>(hp),<span class="cn">NA</span>)) </span>
+<span id="cb42-2"><a href="conditional-function.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Nonsensical example, but log transformed all horse powers of cars with more</span></span>
+<span id="cb42-3"><a href="conditional-function.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># than four cylinders</span></span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="alter-variable-names.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bin-variable-e-g-lowmediumhigh.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="bin-variable-e-g-lowmediumhigh.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sum-across-rows.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

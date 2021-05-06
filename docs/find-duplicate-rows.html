@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Data Wrangling and manipulation | Useful R Syntax</title>
-  <meta name="description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <title>4.8 Find duplicate rows | Useful R Syntax</title>
+  <meta name="description" content="4.8 Find duplicate rows | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:title" content="4.8 Find duplicate rows | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:description" content="4.8 Find duplicate rows | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:title" content="4.8 Find duplicate rows | Useful R Syntax" />
   
-  <meta name="twitter:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:description" content="4.8 Find duplicate rows | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="alter-variable-names.html"/>
-<link rel="next" href="bin-variable-e-g-lowmediumhigh.html"/>
+<link rel="prev" href="delete-specified-columns.html"/>
+<link rel="next" href="impute-missing-values.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -217,16 +217,112 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-wrangling-and-manipulation" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Data Wrangling and manipulation</h1>
+<div id="find-duplicate-rows" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Find duplicate rows</h2>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="find-duplicate-rows.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify which variable to check for duplication</span></span>
+<span id="cb49-2"><a href="find-duplicate-rows.html#cb49-2" aria-hidden="true" tabindex="-1"></a>n_occur1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">table</span>(mtcars<span class="sc">$</span>mpg)) </span>
+<span id="cb49-3"><a href="find-duplicate-rows.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(n_occur1[n_occur1<span class="sc">$</span>Freq <span class="sc">&gt;</span> <span class="dv">1</span>,]) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Var1
+</th>
+<th style="text-align:right;">
+Freq
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+10.4
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+15.2
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+19.2
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+16
+</td>
+<td style="text-align:left;">
+21
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:left;">
+21.4
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+19
+</td>
+<td style="text-align:left;">
+22.8
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+23
+</td>
+<td style="text-align:left;">
+30.4
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="alter-variable-names.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bin-variable-e-g-lowmediumhigh.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="delete-specified-columns.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="impute-missing-values.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

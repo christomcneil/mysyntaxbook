@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Data Wrangling and manipulation | Useful R Syntax</title>
-  <meta name="description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <title>4.17 calculate dates and photoperiod | Useful R Syntax</title>
+  <meta name="description" content="4.17 calculate dates and photoperiod | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:title" content="4.17 calculate dates and photoperiod | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta property="og:description" content="4.17 calculate dates and photoperiod | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:title" content="4.17 calculate dates and photoperiod | Useful R Syntax" />
   
-  <meta name="twitter:description" content="4 Data Wrangling and manipulation | Useful R Syntax" />
+  <meta name="twitter:description" content="4.17 calculate dates and photoperiod | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="alter-variable-names.html"/>
-<link rel="next" href="bin-variable-e-g-lowmediumhigh.html"/>
+<link rel="prev" href="change-data-types.html"/>
+<link rel="next" href="reduce-variables-using-pca.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -217,16 +217,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-wrangling-and-manipulation" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Data Wrangling and manipulation</h1>
+<div id="calculate-dates-and-photoperiod" class="section level2" number="4.17">
+<h2><span class="header-section-number">4.17</span> calculate dates and photoperiod</h2>
+<p>(using geosphere library)</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="calculate-dates-and-photoperiod.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import sample dataset</span></span>
+<span id="cb60-2"><a href="calculate-dates-and-photoperiod.html#cb60-2" aria-hidden="true" tabindex="-1"></a>dateslat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dateslat.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   `ID&#39;s` = col_double(),
+##   `date (dmy)` = col_character(),
+##   latitude = col_double()
+## )</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="calculate-dates-and-photoperiod.html#cb62-1" aria-hidden="true" tabindex="-1"></a>dateslat <span class="ot">&lt;-</span> dateslat <span class="sc">%&gt;%</span></span>
+<span id="cb62-2"><a href="calculate-dates-and-photoperiod.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb62-3"><a href="calculate-dates-and-photoperiod.html#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-4"><a href="calculate-dates-and-photoperiod.html#cb62-4" aria-hidden="true" tabindex="-1"></a>dateslat <span class="ot">&lt;-</span> dateslat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">dateofscan=</span>(<span class="fu">as.Date</span>(date_dmy,<span class="at">format=</span><span class="st">&quot;%d/%m/%Y&quot;</span>)))</span>
+<span id="cb62-5"><a href="calculate-dates-and-photoperiod.html#cb62-5" aria-hidden="true" tabindex="-1"></a>dateslat <span class="ot">&lt;-</span> dateslat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">daylength=</span><span class="fu">daylength</span>(latitude,dateofscan))</span>
+<span id="cb62-6"><a href="calculate-dates-and-photoperiod.html#cb62-6" aria-hidden="true" tabindex="-1"></a>                                </span>
+<span id="cb62-7"><a href="calculate-dates-and-photoperiod.html#cb62-7" aria-hidden="true" tabindex="-1"></a>dateslat <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>dateofscan,<span class="at">y=</span>daylength)) <span class="sc">+</span><span class="fu">geom_line</span>() <span class="sc">+</span><span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="alter-variable-names.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bin-variable-e-g-lowmediumhigh.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="change-data-types.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reduce-variables-using-pca.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,32 +1,24 @@
-# Statistical Analysis
-##  Regression
-### Summarise and perform linear regression on multiple groups
+# Data Visualisation
+Tables and graphs, survival plots, missing values. 
+## Summary Tables
+### Summarise by group
 ```{r}
-kable(mtcars %>%  group_by(as.factor(gear)) %>%
-summarise(mean = mean(qsec), sd = sd(qsec))) %>%
-  kable_styling(full_width = F) %>%
-  kable_minimal()
-
-#Run the same linear regression model by group levels? 
-#Instead of running #summary(lm(y~x)) for the number of levels 
-#you have, you can use the R package “broom” along with dplyr.
-
-# Run the same regression model for gears ##
-kable(mtcars%>% group_by(gear) %>%
-  do(fitgear = glance(lm(hp~qsec, data = .))) %>% 
-  unnest(fitgear),digits=2) %>%   kable_styling(full_width = F) %>% 
-  kable_minimal()
+kable(mtcars %>% group_by(cyl) %>% summarise(Ave=mean(hp), StDev=sd(hp))) %>% 
+  kable_styling(full_width = FALSE) %>% kable_minimal()
 ```
-[Reference](https://stackoverflow.com/questions/22713325/fitting-several-regression-models-with-dplyr)
 
-## Logistic Regression
-### to be completed
+###  Multiple functions,  multiple variables
+```{r}
+# make sure brackets are correct
 
+df.sum <- mtcars %>%  select(mpg,cyl,hp) %>%
+  summarise(across(everything(),list(mean=mean,sd=sd)))
+kable(df.sum,digits=2) %>% kable_styling(full_width = FALSE) %>% kable_minimal()
 
-## Survival Analysis and Visualisation
-### To be completed
-
-## Receiver Operated Curves (ROC)
-### To be completed
-
+df.longer <- df.sum%>% pivot_longer(col=everything(),  
+names_to = c("Attribute",".value"),
+  names_sep = "_")
+kable(df.longer,digits=2) %>%
+  kable_styling(full_width = FALSE) %>% kable_minimal()
+```
 
