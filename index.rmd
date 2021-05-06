@@ -9,32 +9,40 @@ biblio-style: apalike
 link-citations: yes
 description: "Useful R Syntax"
 ---
-# Overview
+# Introduction
+
+**This document is a collection of useful code for Rmarkdown and R**  
+
+**I have used the mtcars dataset if possible** 
+
+**I have used the Tidyverse and the pipe ( %>% ) if possible**
+
+**I recommend that the code is checked for warnings that is is not depreciated**
+
+![Don't Panic](figures/guide.jpg)
 
 ## Structure of collection
 
-* Rmarkdown
+* 1. Rmarkdown
   + formatting basics
-* Rstudio 
+* 2. Rstudio 
   + load/unload packages
   + print figures to files
-* Libraries/packages
+  + Libraries/packages
   + essential/useful packaged
-* data wrangling
-  + load dataset (and basic cleaning)
+* 3. Data wrangling
+  + load dataset 
   + clean environment
   + check for duplicates
-* data restructuring
-  + Merging datasheets (add variables)
-  + Merging datasets (add rows)
-  + Reshaping - Converting to longer or shorter format
-* data manipulation (creating new variables)
+  + Merging datasheets 
+  + Merging datasets 
+  + Reshaping 
   + recode factors
   + dealing with missing data
   + Data reduction with PCA
   + Data standardisation
+* 4. Statistical analysis
+* 5. Data Visualisation
+  + Tables
+  + Plots
   
-* statistical analysis – basic
-* statistical analysis - advanced
-* Tables
-* Graphs and Plots  

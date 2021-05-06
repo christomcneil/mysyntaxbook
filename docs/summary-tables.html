@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Structure of collection | Useful R Syntax</title>
-  <meta name="description" content="1.1 Structure of collection | Useful R Syntax" />
+  <title>6.1 Summary Tables | Useful R Syntax</title>
+  <meta name="description" content="6.1 Summary Tables | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:title" content="6.1 Summary Tables | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:description" content="6.1 Summary Tables | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:title" content="6.1 Summary Tables | Useful R Syntax" />
   
-  <meta name="twitter:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:description" content="6.1 Summary Tables | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="rmarkdown.html"/>
+<link rel="prev" href="data-visualisation.html"/>
+
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -222,51 +222,173 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="structure-of-collection" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Structure of collection</h2>
-<ul>
-<li><ol style="list-style-type: decimal">
-<li>Rmarkdown</li>
-</ol>
-<ul>
-<li>formatting basics</li>
-</ul></li>
-<li><ol start="2" style="list-style-type: decimal">
-<li>Rstudio</li>
-</ol>
-<ul>
-<li>load/unload packages</li>
-<li>print figures to files</li>
-<li>Libraries/packages</li>
-<li>essential/useful packaged</li>
-</ul></li>
-<li><ol start="3" style="list-style-type: decimal">
-<li>Data wrangling</li>
-</ol>
-<ul>
-<li>load dataset</li>
-<li>clean environment</li>
-<li>check for duplicates</li>
-<li>Merging datasheets</li>
-<li>Merging datasets</li>
-<li>Reshaping</li>
-<li>recode factors</li>
-<li>dealing with missing data</li>
-<li>Data reduction with PCA</li>
-<li>Data standardisation</li>
-</ul></li>
-<li><ol start="4" style="list-style-type: decimal">
-<li>Statistical analysis</li>
-</ol></li>
-<li><ol start="5" style="list-style-type: decimal">
-<li>Data Visualisation</li>
-</ol>
-<ul>
-<li>Tables</li>
-<li>Plots</li>
-</ul></li>
-</ul>
+<div id="summary-tables" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Summary Tables</h2>
+<div id="summarise-by-group" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Summarise by group</h3>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="summary-tables.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">Ave=</span><span class="fu">mean</span>(hp), <span class="at">StDev=</span><span class="fu">sd</span>(hp))) <span class="sc">%&gt;%</span> </span>
+<span id="cb67-2"><a href="summary-tables.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+cyl
+</th>
+<th style="text-align:right;">
+Ave
+</th>
+<th style="text-align:right;">
+StDev
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+82.63636
+</td>
+<td style="text-align:right;">
+20.93453
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+122.28571
+</td>
+<td style="text-align:right;">
+24.26049
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+209.21429
+</td>
+<td style="text-align:right;">
+50.97689
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="summarise-multiple-functions-across-several-variables" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Summarise multiple functions across several variables</h3>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="summary-tables.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure brackets are correct</span></span>
+<span id="cb68-2"><a href="summary-tables.html#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="summary-tables.html#cb68-3" aria-hidden="true" tabindex="-1"></a>df.sum <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">select</span>(mpg,cyl,hp) <span class="sc">%&gt;%</span></span>
+<span id="cb68-4"><a href="summary-tables.html#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="fu">list</span>(<span class="at">mean=</span>mean,<span class="at">sd=</span>sd)))</span>
+<span id="cb68-5"><a href="summary-tables.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.sum,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+mpg_mean
+</th>
+<th style="text-align:right;">
+mpg_sd
+</th>
+<th style="text-align:right;">
+cyl_mean
+</th>
+<th style="text-align:right;">
+cyl_sd
+</th>
+<th style="text-align:right;">
+hp_mean
+</th>
+<th style="text-align:right;">
+hp_sd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+20.09
+</td>
+<td style="text-align:right;">
+6.03
+</td>
+<td style="text-align:right;">
+6.19
+</td>
+<td style="text-align:right;">
+1.79
+</td>
+<td style="text-align:right;">
+146.69
+</td>
+<td style="text-align:right;">
+68.56
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="summary-tables.html#cb69-1" aria-hidden="true" tabindex="-1"></a>df.longer <span class="ot">&lt;-</span> df.sum<span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">col=</span><span class="fu">everything</span>(),  </span>
+<span id="cb69-2"><a href="summary-tables.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;Attribute&quot;</span>,<span class="st">&quot;.value&quot;</span>),</span>
+<span id="cb69-3"><a href="summary-tables.html#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb69-4"><a href="summary-tables.html#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.longer,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb69-5"><a href="summary-tables.html#cb69-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Attribute
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:right;">
+20.09
+</td>
+<td style="text-align:right;">
+6.03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:right;">
+6.19
+</td>
+<td style="text-align:right;">
+1.79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:right;">
+146.69
+</td>
+<td style="text-align:right;">
+68.56
+</td>
+</tr>
+</tbody>
+</table>
 
+</div>
 </div>
 <!-- </div> -->
             </section>
@@ -274,8 +396,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rmarkdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-visualisation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

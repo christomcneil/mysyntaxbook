@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Structure of collection | Useful R Syntax</title>
-  <meta name="description" content="1.1 Structure of collection | Useful R Syntax" />
+  <title>4.10 Keep Distinct rows only based on a value (for example the prescription code) using dplyr | Useful R Syntax</title>
+  <meta name="description" content="4.10 Keep Distinct rows only based on a value (for example the prescription code) using dplyr | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:title" content="4.10 Keep Distinct rows only based on a value (for example the prescription code) using dplyr | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:description" content="4.10 Keep Distinct rows only based on a value (for example the prescription code) using dplyr | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:title" content="4.10 Keep Distinct rows only based on a value (for example the prescription code) using dplyr | Useful R Syntax" />
   
-  <meta name="twitter:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:description" content="4.10 Keep Distinct rows only based on a value (for example the prescription code) using dplyr | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="rmarkdown.html"/>
+<link rel="prev" href="impute-missing-valued.html"/>
+<link rel="next" href="delete-rows-individuals-based-on-value-of-a-variable.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -222,60 +222,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="structure-of-collection" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Structure of collection</h2>
-<ul>
-<li><ol style="list-style-type: decimal">
-<li>Rmarkdown</li>
-</ol>
-<ul>
-<li>formatting basics</li>
-</ul></li>
-<li><ol start="2" style="list-style-type: decimal">
-<li>Rstudio</li>
-</ol>
-<ul>
-<li>load/unload packages</li>
-<li>print figures to files</li>
-<li>Libraries/packages</li>
-<li>essential/useful packaged</li>
-</ul></li>
-<li><ol start="3" style="list-style-type: decimal">
-<li>Data wrangling</li>
-</ol>
-<ul>
-<li>load dataset</li>
-<li>clean environment</li>
-<li>check for duplicates</li>
-<li>Merging datasheets</li>
-<li>Merging datasets</li>
-<li>Reshaping</li>
-<li>recode factors</li>
-<li>dealing with missing data</li>
-<li>Data reduction with PCA</li>
-<li>Data standardisation</li>
-</ul></li>
-<li><ol start="4" style="list-style-type: decimal">
-<li>Statistical analysis</li>
-</ol></li>
-<li><ol start="5" style="list-style-type: decimal">
-<li>Data Visualisation</li>
-</ol>
-<ul>
-<li>Tables</li>
-<li>Plots</li>
-</ul></li>
-</ul>
-
+<div id="keep-distinct-rows-only-based-on-a-value-for-example-the-prescription-code-using-dplyr" class="section level2" number="4.10">
+<h2><span class="header-section-number">4.10</span> Keep Distinct rows only based on a value (for example the prescription code) using dplyr</h2>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="keep-distinct-rows-only-based-on-a-value-for-example-the-prescription-code-using-dplyr.html#cb52-1" aria-hidden="true" tabindex="-1"></a>mtcarsdistinct <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>    <span class="fu">distinct</span>(cyl, <span class="at">.keep_all=</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><a href="http://www.datasciencemadesimple.com/remove-duplicate-rows-r-using-dplyr-distinct-function">Reference</a></p>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rmarkdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="impute-missing-valued.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="delete-rows-individuals-based-on-value-of-a-variable.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

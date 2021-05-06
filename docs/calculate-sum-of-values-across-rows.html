@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Structure of collection | Useful R Syntax</title>
-  <meta name="description" content="1.1 Structure of collection | Useful R Syntax" />
+  <title>4.3 Calculate sum of values across rows | Useful R Syntax</title>
+  <meta name="description" content="4.3 Calculate sum of values across rows | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:title" content="4.3 Calculate sum of values across rows | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:description" content="4.3 Calculate sum of values across rows | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:title" content="4.3 Calculate sum of values across rows | Useful R Syntax" />
   
-  <meta name="twitter:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:description" content="4.3 Calculate sum of values across rows | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="rmarkdown.html"/>
+<link rel="prev" href="perform-conditional-function.html"/>
+<link rel="next" href="standardise-variable-mean-of-0-sd-of-1.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -222,60 +222,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="structure-of-collection" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Structure of collection</h2>
-<ul>
-<li><ol style="list-style-type: decimal">
-<li>Rmarkdown</li>
-</ol>
-<ul>
-<li>formatting basics</li>
-</ul></li>
-<li><ol start="2" style="list-style-type: decimal">
-<li>Rstudio</li>
-</ol>
-<ul>
-<li>load/unload packages</li>
-<li>print figures to files</li>
-<li>Libraries/packages</li>
-<li>essential/useful packaged</li>
-</ul></li>
-<li><ol start="3" style="list-style-type: decimal">
-<li>Data wrangling</li>
-</ol>
-<ul>
-<li>load dataset</li>
-<li>clean environment</li>
-<li>check for duplicates</li>
-<li>Merging datasheets</li>
-<li>Merging datasets</li>
-<li>Reshaping</li>
-<li>recode factors</li>
-<li>dealing with missing data</li>
-<li>Data reduction with PCA</li>
-<li>Data standardisation</li>
-</ul></li>
-<li><ol start="4" style="list-style-type: decimal">
-<li>Statistical analysis</li>
-</ol></li>
-<li><ol start="5" style="list-style-type: decimal">
-<li>Data Visualisation</li>
-</ol>
-<ul>
-<li>Tables</li>
-<li>Plots</li>
-</ul></li>
-</ul>
-
+<div id="calculate-sum-of-values-across-rows" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Calculate sum of values across rows</h2>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="calculate-sum-of-values-across-rows.html#cb45-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">sum =</span> <span class="fu">select</span>(., disp<span class="sc">:</span>drat) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-2"><a href="calculate-sum-of-values-across-rows.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(<span class="dv">1</span>, sum, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb45-3"><a href="calculate-sum-of-values-across-rows.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co">#apply() takes Data frame or matrix as an input and gives output in vector </span></span>
+<span id="cb45-4"><a href="calculate-sum-of-values-across-rows.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(i.e.many columns to one list)</span></span>
+<span id="cb45-5"><a href="calculate-sum-of-values-across-rows.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the &#39;1&#39; sets the dataframe to use (already selected here)</span></span></code></pre></div>
+<p><a href="https://stackoverflow.com/questions/28873057/sum-across-multiple-columns-with-dplyr">Reference for summation across rows</a></p>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rmarkdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="perform-conditional-function.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="standardise-variable-mean-of-0-sd-of-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

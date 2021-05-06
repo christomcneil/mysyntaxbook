@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Structure of collection | Useful R Syntax</title>
-  <meta name="description" content="1.1 Structure of collection | Useful R Syntax" />
+  <title>3.7 Recode a text variable | Useful R Syntax</title>
+  <meta name="description" content="3.7 Recode a text variable | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:title" content="3.7 Recode a text variable | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:description" content="3.7 Recode a text variable | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:title" content="3.7 Recode a text variable | Useful R Syntax" />
   
-  <meta name="twitter:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:description" content="3.7 Recode a text variable | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="rmarkdown.html"/>
+<link rel="prev" href="write-these-data-to-save-files.html"/>
+<link rel="next" href="altering-variable-names.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -222,60 +222,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="structure-of-collection" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Structure of collection</h2>
-<ul>
-<li><ol style="list-style-type: decimal">
-<li>Rmarkdown</li>
-</ol>
-<ul>
-<li>formatting basics</li>
-</ul></li>
-<li><ol start="2" style="list-style-type: decimal">
-<li>Rstudio</li>
-</ol>
-<ul>
-<li>load/unload packages</li>
-<li>print figures to files</li>
-<li>Libraries/packages</li>
-<li>essential/useful packaged</li>
-</ul></li>
-<li><ol start="3" style="list-style-type: decimal">
-<li>Data wrangling</li>
-</ol>
-<ul>
-<li>load dataset</li>
-<li>clean environment</li>
-<li>check for duplicates</li>
-<li>Merging datasheets</li>
-<li>Merging datasets</li>
-<li>Reshaping</li>
-<li>recode factors</li>
-<li>dealing with missing data</li>
-<li>Data reduction with PCA</li>
-<li>Data standardisation</li>
-</ul></li>
-<li><ol start="4" style="list-style-type: decimal">
-<li>Statistical analysis</li>
-</ol></li>
-<li><ol start="5" style="list-style-type: decimal">
-<li>Data Visualisation</li>
-</ol>
-<ul>
-<li>Tables</li>
-<li>Plots</li>
-</ul></li>
-</ul>
-
+<div id="recode-a-text-variable" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Recode a text variable</h2>
+<p><em>Tidyverse libraries are needed for the following examples.</em></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="recode-a-text-variable.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_members&quot;</span>)</span>
+<span id="cb38-2"><a href="recode-a-text-variable.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(band_members)) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:left;">
+band
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Mick
+</td>
+<td style="text-align:left;">
+Stones
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+John
+</td>
+<td style="text-align:left;">
+Beatles
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Paul
+</td>
+<td style="text-align:left;">
+Beatles
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="recode-a-text-variable.html#cb39-1" aria-hidden="true" tabindex="-1"></a>band_members <span class="ot">&lt;-</span> band_members <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">name=</span><span class="fu">recode</span>(name, <span class="st">&quot;Mick&quot;</span><span class="ot">=</span> <span class="st">&quot;m&quot;</span>))</span>
+<span id="cb39-2"><a href="recode-a-text-variable.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((band_members))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:left;">
+band
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+m
+</td>
+<td style="text-align:left;">
+Stones
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+John
+</td>
+<td style="text-align:left;">
+Beatles
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Paul
+</td>
+<td style="text-align:left;">
+Beatles
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="recode-a-text-variable.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
+<p>Reference for table formatting
+<a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">Kable Extra</a></p>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rmarkdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="write-these-data-to-save-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="altering-variable-names.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

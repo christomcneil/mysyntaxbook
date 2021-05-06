@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Structure of collection | Useful R Syntax</title>
-  <meta name="description" content="1.1 Structure of collection | Useful R Syntax" />
+  <title>5.1 Regression | Useful R Syntax</title>
+  <meta name="description" content="5.1 Regression | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:title" content="5.1 Regression | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:description" content="5.1 Regression | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:title" content="5.1 Regression | Useful R Syntax" />
   
-  <meta name="twitter:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:description" content="5.1 Regression | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="rmarkdown.html"/>
+<link rel="prev" href="statistical-analysis.html"/>
+<link rel="next" href="logistic-regression.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -222,60 +222,253 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="structure-of-collection" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Structure of collection</h2>
-<ul>
-<li><ol style="list-style-type: decimal">
-<li>Rmarkdown</li>
-</ol>
-<ul>
-<li>formatting basics</li>
-</ul></li>
-<li><ol start="2" style="list-style-type: decimal">
-<li>Rstudio</li>
-</ol>
-<ul>
-<li>load/unload packages</li>
-<li>print figures to files</li>
-<li>Libraries/packages</li>
-<li>essential/useful packaged</li>
-</ul></li>
-<li><ol start="3" style="list-style-type: decimal">
-<li>Data wrangling</li>
-</ol>
-<ul>
-<li>load dataset</li>
-<li>clean environment</li>
-<li>check for duplicates</li>
-<li>Merging datasheets</li>
-<li>Merging datasets</li>
-<li>Reshaping</li>
-<li>recode factors</li>
-<li>dealing with missing data</li>
-<li>Data reduction with PCA</li>
-<li>Data standardisation</li>
-</ul></li>
-<li><ol start="4" style="list-style-type: decimal">
-<li>Statistical analysis</li>
-</ol></li>
-<li><ol start="5" style="list-style-type: decimal">
-<li>Data Visualisation</li>
-</ol>
-<ul>
-<li>Tables</li>
-<li>Plots</li>
-</ul></li>
-</ul>
-
+<div id="regression" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Regression</h2>
+<div id="summarise-and-perform-linear-regression-on-multiple-groups" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Summarise and perform linear regression on multiple groups</h3>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="regression.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
+<span id="cb65-2"><a href="regression.html#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
+<span id="cb65-3"><a href="regression.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb65-4"><a href="regression.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+as.factor(gear)
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+17.692
+</td>
+<td style="text-align:right;">
+1.349916
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+18.965
+</td>
+<td style="text-align:right;">
+1.613880
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+15.640
+</td>
+<td style="text-align:right;">
+1.130487
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="regression.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Run the same linear regression model by group levels? </span></span>
+<span id="cb66-2"><a href="regression.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Instead of running #summary(lm(y~x)) for the number of levels </span></span>
+<span id="cb66-3"><a href="regression.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
+<span id="cb66-4"><a href="regression.html#cb66-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-5"><a href="regression.html#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
+<span id="cb66-6"><a href="regression.html#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
+<span id="cb66-7"><a href="regression.html#cb66-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
+<span id="cb66-8"><a href="regression.html#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
+<span id="cb66-9"><a href="regression.html#cb66-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+gear
+</th>
+<th style="text-align:right;">
+r.squared
+</th>
+<th style="text-align:right;">
+adj.r.squared
+</th>
+<th style="text-align:right;">
+sigma
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+<th style="text-align:right;">
+df
+</th>
+<th style="text-align:right;">
+logLik
+</th>
+<th style="text-align:right;">
+AIC
+</th>
+<th style="text-align:right;">
+BIC
+</th>
+<th style="text-align:right;">
+deviance
+</th>
+<th style="text-align:right;">
+df.residual
+</th>
+<th style="text-align:right;">
+nobs
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.66
+</td>
+<td style="text-align:right;">
+0.63
+</td>
+<td style="text-align:right;">
+28.87
+</td>
+<td style="text-align:right;">
+25.19
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+-70.65
+</td>
+<td style="text-align:right;">
+147.31
+</td>
+<td style="text-align:right;">
+149.43
+</td>
+<td style="text-align:right;">
+10837.12
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:right;">
+25.72
+</td>
+<td style="text-align:right;">
+1.15
+</td>
+<td style="text-align:right;">
+0.31
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+-54.90
+</td>
+<td style="text-align:right;">
+115.80
+</td>
+<td style="text-align:right;">
+117.26
+</td>
+<td style="text-align:right;">
+6616.46
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.88
+</td>
+<td style="text-align:right;">
+0.83
+</td>
+<td style="text-align:right;">
+41.95
+</td>
+<td style="text-align:right;">
+21.03
+</td>
+<td style="text-align:right;">
+0.02
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+-24.50
+</td>
+<td style="text-align:right;">
+55.00
+</td>
+<td style="text-align:right;">
+53.83
+</td>
+<td style="text-align:right;">
+5279.95
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://stackoverflow.com/questions/22713325/fitting-several-regression-models-with-dplyr">Reference</a></p>
 </div>
-<!-- </div> -->
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rmarkdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="statistical-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logistic-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

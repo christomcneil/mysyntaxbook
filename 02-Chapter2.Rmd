@@ -1,0 +1,98 @@
+# Rstudio
+## Useful packages
+Load all libraries
+```{r}
+library(tidyverse) # data handling and viz
+library(janitor) #dataframe import cleaning
+library(knitr) #nice html tables
+library(kableExtra) # nicer knitr tables
+library(broom)
+library(readr) # load csv stored data
+library(geosphere) # for calc daylength
+```
+## Remove a package (library)
+```{r}
+#Unload a module: 
+library(clipr) #load
+detach(package:clipr) #unload
+```
+
+
+## Data importing using Janitor
+```{r}
+# Create a data.frame with dirty names
+test_df <- as.data.frame(matrix(ncol = 6))
+names(test_df) <- c("firstName", "ábc@!*", "% successful (2009)",
+                    "REPEAT VALUE", "REPEAT VALUE", "")
+head(test_df)
+test_df <- test_df %>%
+  clean_names()
+head(test_df)
+```
+Reference [here](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html)
+
+## Remove dataframe from environment:### 
+```{r}
+data("mtcars")
+data("band_instruments")
+data("band_instruments2") # Load example datasets
+
+rm(list=ls()[! ls() %in% c("band_instruments","band_instruments2")]) # Everything except Band instruments
+rm(list=setdiff(ls(), "band_instruments")) # Everything except "bandinstruments"
+rm(list=ls()) # Remove everything
+```
+Reference:
+[Stackoverflow](https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r)
+
+## Save dataframe as CSV  or R data file (with unique date)
+*make date string*
+```{r}
+datenow <- format(Sys.time(), "_%Y_%m_%d")
+date
+data(mtcars)
+```
+*write these data to save file names*
+```{r}
+#create data directory
+dir.create("data_out")
+
+filenamecsv <- paste("data_out/mtcsvdata",datenow,".csv",sep="")
+filenamerda <- paste("data_out/mtrdadata",datenow,".rda",sep="")
+```
+*Save the files to directory*
+```{r}
+save(mtcars,file=filenamerda)
+write.csv(mtcars,file=filenamecsv)
+```
+
+## write these data to save files
+```{r}
+filenameallsav <- paste("data_amos/semdata_all",datenow,".sav",sep="")
+filenamemalesav <- paste("data_amos/semdata_male",datenow,".sav",sep="")
+filenamefemalesav <- paste("data_amos/semdata_female",datenow,".sav",sep="")
+filenameallsav
+```
+
+## Recode a text variable
+*Tidyverse libraries are needed for the following examples.*
+```{r message=FALSE}
+data("band_members")
+kable(head(band_members)) %>% kable_minimal(full_width = F)
+band_members <- band_members %>% mutate(name=recode(name, "Mick"= "m"))
+kable(head((band_members))) %>% kable_minimal(full_width = F)
+rm(list=ls()) # Remove everything
+```
+Reference for table formatting
+[Kable Extra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
+
+## Altering variable names:
+*Remove all underscores from names*
+```{r}
+data("mtcars")
+mtcars <- mtcars %>% rename(hp_new=hp)
+kable(head((mtcars))) %>% kable_minimal(full_width = F)
+
+mtcars <- mtcars %>% rename_with(.fn = ~str_replace(., "_", ""))
+kable(head((mtcars))) %>% kable_minimal(full_width = F)
+
+```

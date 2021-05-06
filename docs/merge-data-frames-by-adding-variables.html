@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Structure of collection | Useful R Syntax</title>
-  <meta name="description" content="1.1 Structure of collection | Useful R Syntax" />
+  <title>4.13 Merge data frames by adding variables | Useful R Syntax</title>
+  <meta name="description" content="4.13 Merge data frames by adding variables | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:title" content="4.13 Merge data frames by adding variables | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta property="og:description" content="4.13 Merge data frames by adding variables | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:title" content="4.13 Merge data frames by adding variables | Useful R Syntax" />
   
-  <meta name="twitter:description" content="1.1 Structure of collection | Useful R Syntax" />
+  <meta name="twitter:description" content="4.13 Merge data frames by adding variables | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="rmarkdown.html"/>
+<link rel="prev" href="use-if-else-to-calculate-based-on-values.html"/>
+<link rel="next" href="merge-data-frames-by-adding-individuals-not-variables.html"/>
 <script src="assets/header-attrs-2.7/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -222,60 +222,304 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="structure-of-collection" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Structure of collection</h2>
+<div id="merge-data-frames-by-adding-variables" class="section level2" number="4.13">
+<h2><span class="header-section-number">4.13</span> Merge data frames by adding variables</h2>
+<p>*left_join(x, y): returns all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.</p>
+<p>*inner_join(x, y): returns all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combinations of the matches are returned.</p>
+<p>*full_join(x, y): returns all rows and all columns from both x and y. Where there are not matching values, the function returns NA for the one missing</p>
 <ul>
-<li><ol style="list-style-type: decimal">
-<li>Rmarkdown</li>
-</ol>
-<ul>
-<li>formatting basics</li>
-</ul></li>
-<li><ol start="2" style="list-style-type: decimal">
-<li>Rstudio</li>
-</ol>
-<ul>
-<li>load/unload packages</li>
-<li>print figures to files</li>
-<li>Libraries/packages</li>
-<li>essential/useful packaged</li>
-</ul></li>
-<li><ol start="3" style="list-style-type: decimal">
-<li>Data wrangling</li>
-</ol>
-<ul>
-<li>load dataset</li>
-<li>clean environment</li>
-<li>check for duplicates</li>
-<li>Merging datasheets</li>
-<li>Merging datasets</li>
-<li>Reshaping</li>
-<li>recode factors</li>
-<li>dealing with missing data</li>
-<li>Data reduction with PCA</li>
-<li>Data standardisation</li>
-</ul></li>
-<li><ol start="4" style="list-style-type: decimal">
-<li>Statistical analysis</li>
-</ol></li>
-<li><ol start="5" style="list-style-type: decimal">
-<li>Data Visualisation</li>
-</ol>
-<ul>
-<li>Tables</li>
-<li>Plots</li>
-</ul></li>
+<li>inner: only rows with matching keys in both x and y</li>
+<li>left: all rows in x, adding matching columns from y</li>
+<li>right: all rows in y, adding matching columns from x</li>
+<li>full: all rows in x with matching columns in y, then the rows of y that don’t match x.</li>
 </ul>
-
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="merge-data-frames-by-adding-variables.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare new dataset</span></span>
+<span id="cb55-2"><a href="merge-data-frames-by-adding-variables.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co"># make the rownames into a &#39;joinable&#39; column</span></span>
+<span id="cb55-3"><a href="merge-data-frames-by-adding-variables.html#cb55-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">carnames=</span><span class="fu">rownames</span>(mtcars)) </span>
+<span id="cb55-4"><a href="merge-data-frames-by-adding-variables.html#cb55-4" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(cyl)</span>
+<span id="cb55-5"><a href="merge-data-frames-by-adding-variables.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co"># make the rownames into a &#39;joinable&#39; column</span></span>
+<span id="cb55-6"><a href="merge-data-frames-by-adding-variables.html#cb55-6" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span></span>
+<span id="cb55-7"><a href="merge-data-frames-by-adding-variables.html#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">carnames=</span><span class="fu">rownames</span>(mtcars_extradata)) </span>
+<span id="cb55-8"><a href="merge-data-frames-by-adding-variables.html#cb55-8" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">valves=</span>cyl<span class="sc">*</span><span class="dv">4</span>)</span>
+<span id="cb55-9"><a href="merge-data-frames-by-adding-variables.html#cb55-9" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>cyl)</span>
+<span id="cb55-10"><a href="merge-data-frames-by-adding-variables.html#cb55-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-11"><a href="merge-data-frames-by-adding-variables.html#cb55-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">glimpse</span>(mtcars_extradata<span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>))) <span class="sc">%&gt;%</span>  </span>
+<span id="cb55-12"><a href="merge-data-frames-by-adding-variables.html#cb55-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb55-13"><a href="merge-data-frames-by-adding-variables.html#cb55-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<pre><code>## Rows: 6
+## Columns: 2
+## $ carnames &lt;chr&gt; &quot;Mazda RX4&quot;, &quot;Mazda RX4 Wag&quot;, &quot;Datsun 710&quot;, &quot;Hornet 4 Drive&quot;,~
+## $ valves   &lt;dbl&gt; 24, 24, 16, 24, 32, 24</code></pre>
+<table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+carnames
+</th>
+<th style="text-align:right;">
+valves
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Mazda RX4
+</td>
+<td style="text-align:left;">
+Mazda RX4
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mazda RX4 Wag
+</td>
+<td style="text-align:left;">
+Mazda RX4 Wag
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Datsun 710
+</td>
+<td style="text-align:left;">
+Datsun 710
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hornet 4 Drive
+</td>
+<td style="text-align:left;">
+Hornet 4 Drive
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hornet Sportabout
+</td>
+<td style="text-align:left;">
+Hornet Sportabout
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Valiant
+</td>
+<td style="text-align:left;">
+Valiant
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="merge-data-frames-by-adding-variables.html#cb57-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">left_join</span>(mtcars,mtcars_extradata,<span class="at">by =</span> <span class="st">&#39;carnames&#39;</span>)</span>
+<span id="cb57-2"><a href="merge-data-frames-by-adding-variables.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="merge-data-frames-by-adding-variables.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">glimpse</span>(mtcars <span class="sc">%&gt;%</span><span class="fu">select</span>(carb<span class="sc">:</span>valves) <span class="sc">%&gt;%</span>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>))) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb57-4"><a href="merge-data-frames-by-adding-variables.html#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<pre><code>## Rows: 6
+## Columns: 7
+## $ carb     &lt;dbl&gt; 4, 4, 1, 1, 2, 1
+## $ hp_cat   &lt;fct&gt; high hp, high hp, low hp, high hp, high hp, high hp
+## $ loghp    &lt;chr&gt; &quot;2.04139268515822&quot;, &quot;2.04139268515822&quot;, &quot;missing&quot;, &quot;2.0413926~
+## $ sum      &lt;dbl&gt; 273.90, 273.90, 204.85, 371.08, 538.15, 332.76
+## $ loghp1   &lt;dbl&gt; 2.041393, 2.041393, 0.000000, 2.041393, 2.243038, 2.021189
+## $ carnames &lt;chr&gt; &quot;Mazda RX4&quot;, &quot;Mazda RX4 Wag&quot;, &quot;Datsun 710&quot;, &quot;Hornet 4 Drive&quot;,~
+## $ valves   &lt;dbl&gt; 24, 24, 16, 24, 32, 24</code></pre>
+<table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+carb
+</th>
+<th style="text-align:left;">
+hp_cat
+</th>
+<th style="text-align:left;">
+loghp
+</th>
+<th style="text-align:right;">
+sum
+</th>
+<th style="text-align:right;">
+loghp1
+</th>
+<th style="text-align:left;">
+carnames
+</th>
+<th style="text-align:right;">
+valves
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+high hp
+</td>
+<td style="text-align:left;">
+2.04139268515822
+</td>
+<td style="text-align:right;">
+273.90
+</td>
+<td style="text-align:right;">
+2.041393
+</td>
+<td style="text-align:left;">
+Mazda RX4
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+high hp
+</td>
+<td style="text-align:left;">
+2.04139268515822
+</td>
+<td style="text-align:right;">
+273.90
+</td>
+<td style="text-align:right;">
+2.041393
+</td>
+<td style="text-align:left;">
+Mazda RX4 Wag
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+low hp
+</td>
+<td style="text-align:left;">
+missing
+</td>
+<td style="text-align:right;">
+204.85
+</td>
+<td style="text-align:right;">
+0.000000
+</td>
+<td style="text-align:left;">
+Datsun 710
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+high hp
+</td>
+<td style="text-align:left;">
+2.04139268515822
+</td>
+<td style="text-align:right;">
+371.08
+</td>
+<td style="text-align:right;">
+2.041393
+</td>
+<td style="text-align:left;">
+Hornet 4 Drive
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+high hp
+</td>
+<td style="text-align:left;">
+2.24303804868629
+</td>
+<td style="text-align:right;">
+538.15
+</td>
+<td style="text-align:right;">
+2.243038
+</td>
+<td style="text-align:left;">
+Hornet Sportabout
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+high hp
+</td>
+<td style="text-align:left;">
+2.02118929906994
+</td>
+<td style="text-align:right;">
+332.76
+</td>
+<td style="text-align:right;">
+2.021189
+</td>
+<td style="text-align:left;">
+Valiant
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rmarkdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="use-if-else-to-calculate-based-on-values.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="merge-data-frames-by-adding-individuals-not-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
