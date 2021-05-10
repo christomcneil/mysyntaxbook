@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Statistical Analysis | Useful R Syntax</title>
-  <meta name="description" content="5 Statistical Analysis | Useful R Syntax" />
+  <title>Chapter 5 Statistical Analysis | Useful R Syntax</title>
+  <meta name="description" content="Chapter 5 Statistical Analysis | Useful R Syntax" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Statistical Analysis | Useful R Syntax" />
+  <meta property="og:title" content="Chapter 5 Statistical Analysis | Useful R Syntax" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="5 Statistical Analysis | Useful R Syntax" />
+  <meta property="og:description" content="Chapter 5 Statistical Analysis | Useful R Syntax" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Statistical Analysis | Useful R Syntax" />
+  <meta name="twitter:title" content="Chapter 5 Statistical Analysis | Useful R Syntax" />
   
-  <meta name="twitter:description" content="5 Statistical Analysis | Useful R Syntax" />
+  <meta name="twitter:description" content="Chapter 5 Statistical Analysis | Useful R Syntax" />
   
 
 <meta name="author" content="Chris McNeil" />
@@ -31,17 +31,17 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="reduce-variables-using-pca.html"/>
-<link rel="next" href="regression.html"/>
-<script src="assets/header-attrs-2.7/header-attrs.js"></script>
-<script src="assets/jquery-2.2.3/jquery.min.js"></script>
-<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<link rel="prev" href="data-wrangling-and-manipulation.html"/>
+<link rel="next" href="data-visualisation.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -51,8 +51,15 @@
 
 
 
-<script src="assets/kePrint-0.0.1/kePrint.js"></script>
-<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<meta property="og:title" content="psyTeachR Book Template">
+<meta property="og:description" content="Guide for psyTeachR course books.">
+<meta property="og:image" content="https://psyteachr.github.io/images/twitter/psyteachr.png">
+<meta property="og:url" content="https://psyteachr.github.io/book-template/">
+<meta property="twitter:card" content="summary_large_image">
+
+<link rel="shortcut icon" href="https://psyteachr.github.io/images/logo.png">
 
 
 <style type="text/css">
@@ -120,6 +127,8 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
 </head>
 
 <body>
@@ -132,69 +141,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">Book Template</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="structure-of-collection.html"><a href="structure-of-collection.html"><i class="fa fa-check"></i><b>1.1</b> Structure of collection</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#structure-of-collection"><i class="fa fa-check"></i><b>1.1</b> Structure of collection</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2</b> RMarkdown</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="formatting-basics.html"><a href="formatting-basics.html"><i class="fa fa-check"></i><b>2.1</b> Formatting basics</a></li>
+<li class="chapter" data-level="2.1" data-path="rmarkdown.html"><a href="rmarkdown.html#formatting-basics"><i class="fa fa-check"></i><b>2.1</b> Formatting basics</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>3</b> Rstudio</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="useful-packages.html"><a href="useful-packages.html"><i class="fa fa-check"></i><b>3.1</b> Useful packages</a></li>
-<li class="chapter" data-level="3.2" data-path="remove-a-package.html"><a href="remove-a-package.html"><i class="fa fa-check"></i><b>3.2</b> Remove a package</a></li>
-<li class="chapter" data-level="3.3" data-path="import-using-janitor.html"><a href="import-using-janitor.html"><i class="fa fa-check"></i><b>3.3</b> Import using Janitor</a></li>
-<li class="chapter" data-level="3.4" data-path="remove-dataframe.html"><a href="remove-dataframe.html"><i class="fa fa-check"></i><b>3.4</b> Remove dataframe</a></li>
-<li class="chapter" data-level="3.5" data-path="save-dataframe-csv-or-rdata.html"><a href="save-dataframe-csv-or-rdata.html"><i class="fa fa-check"></i><b>3.5</b> Save dataframe (CSV or Rdata)</a></li>
-<li class="chapter" data-level="3.6" data-path="save-a-diagram-or-plot.html"><a href="save-a-diagram-or-plot.html"><i class="fa fa-check"></i><b>3.6</b> Save a diagram or plot</a></li>
-<li class="chapter" data-level="3.7" data-path="recode-a-text-variable.html"><a href="recode-a-text-variable.html"><i class="fa fa-check"></i><b>3.7</b> Recode a text variable</a></li>
-<li class="chapter" data-level="3.8" data-path="alter-variable-names.html"><a href="alter-variable-names.html"><i class="fa fa-check"></i><b>3.8</b> Alter variable names:</a></li>
+<li class="chapter" data-level="3.1" data-path="rstudio.html"><a href="rstudio.html#useful-packages"><i class="fa fa-check"></i><b>3.1</b> Useful packages</a></li>
+<li class="chapter" data-level="3.2" data-path="rstudio.html"><a href="rstudio.html#remove-a-package"><i class="fa fa-check"></i><b>3.2</b> Remove a package</a></li>
+<li class="chapter" data-level="3.3" data-path="rstudio.html"><a href="rstudio.html#import-using-janitor"><i class="fa fa-check"></i><b>3.3</b> Import using Janitor</a></li>
+<li class="chapter" data-level="3.4" data-path="rstudio.html"><a href="rstudio.html#remove-dataframe"><i class="fa fa-check"></i><b>3.4</b> Remove dataframe</a></li>
+<li class="chapter" data-level="3.5" data-path="rstudio.html"><a href="rstudio.html#save-dataframe-csv-or-rdata"><i class="fa fa-check"></i><b>3.5</b> Save dataframe (CSV or Rdata)</a></li>
+<li class="chapter" data-level="3.6" data-path="rstudio.html"><a href="rstudio.html#save-a-diagram-or-plot"><i class="fa fa-check"></i><b>3.6</b> Save a diagram or plot</a></li>
+<li class="chapter" data-level="3.7" data-path="rstudio.html"><a href="rstudio.html#recode-a-text-variable"><i class="fa fa-check"></i><b>3.7</b> Recode a text variable</a></li>
+<li class="chapter" data-level="3.8" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.8</b> Alter variable names:</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling and manipulation</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="bin-variable-e-g-lowmediumhigh.html"><a href="bin-variable-e-g-lowmediumhigh.html"><i class="fa fa-check"></i><b>4.1</b> Bin variable ( e.g. Low/Medium/High)</a></li>
-<li class="chapter" data-level="4.2" data-path="conditional-function.html"><a href="conditional-function.html"><i class="fa fa-check"></i><b>4.2</b> Conditional function</a></li>
-<li class="chapter" data-level="4.3" data-path="sum-across-rows.html"><a href="sum-across-rows.html"><i class="fa fa-check"></i><b>4.3</b> Sum across rows</a></li>
-<li class="chapter" data-level="4.4" data-path="standardise-variable.html"><a href="standardise-variable.html"><i class="fa fa-check"></i><b>4.4</b> Standardise variable</a></li>
-<li class="chapter" data-level="4.5" data-path="conditional-replacement.html"><a href="conditional-replacement.html"><i class="fa fa-check"></i><b>4.5</b> Conditional Replacement</a></li>
-<li class="chapter" data-level="4.6" data-path="filter-nas-or-retain-complete-cases.html"><a href="filter-nas-or-retain-complete-cases.html"><i class="fa fa-check"></i><b>4.6</b> Filter na’s or retain complete cases</a></li>
-<li class="chapter" data-level="4.7" data-path="delete-specified-columns.html"><a href="delete-specified-columns.html"><i class="fa fa-check"></i><b>4.7</b> Delete specified columns</a></li>
-<li class="chapter" data-level="4.8" data-path="find-duplicate-rows.html"><a href="find-duplicate-rows.html"><i class="fa fa-check"></i><b>4.8</b> Find duplicate rows</a></li>
-<li class="chapter" data-level="4.9" data-path="impute-missing-values.html"><a href="impute-missing-values.html"><i class="fa fa-check"></i><b>4.9</b> Impute missing values</a>
+<li class="chapter" data-level="4.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#bin-variable-e.g.-lowmediumhigh"><i class="fa fa-check"></i><b>4.1</b> Bin variable ( e.g. Low/Medium/High)</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#conditional-function"><i class="fa fa-check"></i><b>4.2</b> Conditional function</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#sum-across-rows"><i class="fa fa-check"></i><b>4.3</b> Sum across rows</a></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#standardise-variable"><i class="fa fa-check"></i><b>4.4</b> Standardise variable</a></li>
+<li class="chapter" data-level="4.5" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#conditional-replacement"><i class="fa fa-check"></i><b>4.5</b> Conditional Replacement</a></li>
+<li class="chapter" data-level="4.6" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#filter-nas-or-retain-complete-cases"><i class="fa fa-check"></i><b>4.6</b> Filter na’s or retain complete cases</a></li>
+<li class="chapter" data-level="4.7" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#delete-specified-columns"><i class="fa fa-check"></i><b>4.7</b> Delete specified columns</a></li>
+<li class="chapter" data-level="4.8" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#find-duplicate-rows"><i class="fa fa-check"></i><b>4.8</b> Find duplicate rows</a></li>
+<li class="chapter" data-level="4.9" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#impute-missing-values"><i class="fa fa-check"></i><b>4.9</b> Impute missing values</a>
 <ul>
-<li class="chapter" data-level="4.9.1" data-path="impute-missing-values.html"><a href="impute-missing-values.html#to-be-completedimputing-missing-values-using-the-mean"><i class="fa fa-check"></i><b>4.9.1</b> To be completedImputing missing values using the mean:</a></li>
+<li class="chapter" data-level="4.9.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#to-be-completedimputing-missing-values-using-the-mean"><i class="fa fa-check"></i><b>4.9.1</b> To be completedImputing missing values using the mean:</a></li>
 </ul></li>
-<li class="chapter" data-level="4.10" data-path="keep-rows-based-on-a-unique-value-.html"><a href="keep-rows-based-on-a-unique-value-.html"><i class="fa fa-check"></i><b>4.10</b> Keep rows based on a unique value.</a></li>
-<li class="chapter" data-level="4.11" data-path="delete-rows-on-a-variable-value.html"><a href="delete-rows-on-a-variable-value.html"><i class="fa fa-check"></i><b>4.11</b> Delete rows on a variable value</a></li>
-<li class="chapter" data-level="4.12" data-path="use-if-else-to-calculate-on-values.html"><a href="use-if-else-to-calculate-on-values.html"><i class="fa fa-check"></i><b>4.12</b> Use if else to calculate on values</a></li>
-<li class="chapter" data-level="4.13" data-path="merge-data-frames-variables.html"><a href="merge-data-frames-variables.html"><i class="fa fa-check"></i><b>4.13</b> Merge data frames (variables)</a></li>
-<li class="chapter" data-level="4.14" data-path="merge-data-frames-individuals.html"><a href="merge-data-frames-individuals.html"><i class="fa fa-check"></i><b>4.14</b> Merge data frames (individuals)</a></li>
-<li class="chapter" data-level="4.15" data-path="create-a-new-factor-from-existing.html"><a href="create-a-new-factor-from-existing.html"><i class="fa fa-check"></i><b>4.15</b> Create a new factor from existing</a></li>
-<li class="chapter" data-level="4.16" data-path="change-data-types.html"><a href="change-data-types.html"><i class="fa fa-check"></i><b>4.16</b> change data types</a></li>
-<li class="chapter" data-level="4.17" data-path="calculate-dates-and-photoperiod.html"><a href="calculate-dates-and-photoperiod.html"><i class="fa fa-check"></i><b>4.17</b> calculate dates and photoperiod</a></li>
-<li class="chapter" data-level="4.18" data-path="reduce-variables-using-pca.html"><a href="reduce-variables-using-pca.html"><i class="fa fa-check"></i><b>4.18</b> Reduce variables using PCA</a>
+<li class="chapter" data-level="4.10" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#keep-rows-based-on-a-unique-value."><i class="fa fa-check"></i><b>4.10</b> Keep rows based on a unique value.</a></li>
+<li class="chapter" data-level="4.11" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#delete-rows-on-a-variable-value"><i class="fa fa-check"></i><b>4.11</b> Delete rows on a variable value</a></li>
+<li class="chapter" data-level="4.12" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#use-if-else-to-calculate-on-values"><i class="fa fa-check"></i><b>4.12</b> Use if else to calculate on values</a></li>
+<li class="chapter" data-level="4.13" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-variables"><i class="fa fa-check"></i><b>4.13</b> Merge data frames (variables)</a></li>
+<li class="chapter" data-level="4.14" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-individuals"><i class="fa fa-check"></i><b>4.14</b> Merge data frames (individuals)</a></li>
+<li class="chapter" data-level="4.15" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#create-a-new-factor-from-existing"><i class="fa fa-check"></i><b>4.15</b> Create a new factor from existing</a></li>
+<li class="chapter" data-level="4.16" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#change-data-types"><i class="fa fa-check"></i><b>4.16</b> change data types</a></li>
+<li class="chapter" data-level="4.17" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#calculate-dates-and-photoperiod"><i class="fa fa-check"></i><b>4.17</b> calculate dates and photoperiod</a></li>
+<li class="chapter" data-level="4.18" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#reduce-variables-using-pca"><i class="fa fa-check"></i><b>4.18</b> Reduce variables using PCA</a>
 <ul>
-<li class="chapter" data-level="4.18.1" data-path="reduce-variables-using-pca.html"><a href="reduce-variables-using-pca.html#to-be-completed"><i class="fa fa-check"></i><b>4.18.1</b> To be completed</a></li>
+<li class="chapter" data-level="4.18.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#to-be-completed"><i class="fa fa-check"></i><b>4.18.1</b> To be completed</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>5</b> Statistical Analysis</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>5.1</b> Regression</a>
+<li class="chapter" data-level="5.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression"><i class="fa fa-check"></i><b>5.1</b> Regression</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="regression.html"><a href="regression.html#linear-regression-on-groups"><i class="fa fa-check"></i><b>5.1.1</b> Linear regression on groups</a></li>
+<li class="chapter" data-level="5.1.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#linear-regression-on-groups"><i class="fa fa-check"></i><b>5.1.1</b> Linear regression on groups</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>5.2</b> Logistic Regression</a>
+<li class="chapter" data-level="5.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>5.2</b> Logistic Regression</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="logistic-regression.html"><a href="logistic-regression.html#to-be-completed-1"><i class="fa fa-check"></i><b>5.2.1</b> to be completed</a></li>
+<li class="chapter" data-level="5.2.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-1"><i class="fa fa-check"></i><b>5.2.1</b> to be completed</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="survival-analysis-and-visualisation.html"><a href="survival-analysis-and-visualisation.html"><i class="fa fa-check"></i><b>5.3</b> Survival Analysis and Visualisation</a>
+<li class="chapter" data-level="5.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis-and-visualisation"><i class="fa fa-check"></i><b>5.3</b> Survival Analysis and Visualisation</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="survival-analysis-and-visualisation.html"><a href="survival-analysis-and-visualisation.html#to-be-completed-2"><i class="fa fa-check"></i><b>5.3.1</b> To be completed</a></li>
+<li class="chapter" data-level="5.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-2"><i class="fa fa-check"></i><b>5.3.1</b> To be completed</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="receiver-operated-curves-roc.html"><a href="receiver-operated-curves-roc.html"><i class="fa fa-check"></i><b>5.4</b> Receiver Operated Curves (ROC)</a>
+<li class="chapter" data-level="5.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#receiver-operated-curves-roc"><i class="fa fa-check"></i><b>5.4</b> Receiver Operated Curves (ROC)</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="receiver-operated-curves-roc.html"><a href="receiver-operated-curves-roc.html#to-be-completed-3"><i class="fa fa-check"></i><b>5.4.1</b> To be completed</a></li>
+<li class="chapter" data-level="5.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-3"><i class="fa fa-check"></i><b>5.4.1</b> To be completed</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>6</b> Data Visualisation</a>
@@ -202,27 +214,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.0.1" data-path="data-visualisation.html"><a href="data-visualisation.html#packages-needed"><i class="fa fa-check"></i><b>6.0.1</b> Packages needed</a></li>
 <li class="chapter" data-level="6.0.2" data-path="data-visualisation.html"><a href="data-visualisation.html#summarise-by-group"><i class="fa fa-check"></i><b>6.0.2</b> Summarise by group</a></li>
 <li class="chapter" data-level="6.0.3" data-path="data-visualisation.html"><a href="data-visualisation.html#summary-table---multiple-functions-variables"><i class="fa fa-check"></i><b>6.0.3</b> Summary Table - Multiple functions, variables</a></li>
-<li class="chapter" data-level="6.1" data-path="specific-package-for-summary-tables.html"><a href="specific-package-for-summary-tables.html"><i class="fa fa-check"></i><b>6.1</b> Specific package for summary tables:</a>
+<li class="chapter" data-level="6.1" data-path="data-visualisation.html"><a href="data-visualisation.html#specific-package-for-summary-tables"><i class="fa fa-check"></i><b>6.1</b> Specific package for summary tables:</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="specific-package-for-summary-tables.html"><a href="specific-package-for-summary-tables.html#arsenal-package"><i class="fa fa-check"></i><b>6.1.1</b> Arsenal package</a></li>
-<li class="chapter" data-level="6.1.2" data-path="specific-package-for-summary-tables.html"><a href="specific-package-for-summary-tables.html#summary-tools-package"><i class="fa fa-check"></i><b>6.1.2</b> Summary tools package</a></li>
+<li class="chapter" data-level="6.1.1" data-path="data-visualisation.html"><a href="data-visualisation.html#arsenal-package"><i class="fa fa-check"></i><b>6.1.1</b> Arsenal package</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-visualisation.html"><a href="data-visualisation.html#summary-tools-package"><i class="fa fa-check"></i><b>6.1.2</b> Summary tools package</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="visual-summary-of-data.html"><a href="visual-summary-of-data.html"><i class="fa fa-check"></i><b>6.2</b> Visual summary of data</a>
+<li class="chapter" data-level="6.2" data-path="data-visualisation.html"><a href="data-visualisation.html#visual-summary-of-data"><i class="fa fa-check"></i><b>6.2</b> Visual summary of data</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="visual-summary-of-data.html"><a href="visual-summary-of-data.html#data-frame-summary"><i class="fa fa-check"></i><b>6.2.1</b> Data Frame Summary</a></li>
+<li class="chapter" data-level="6.2.1" data-path="data-visualisation.html"><a href="data-visualisation.html#data-frame-summary"><i class="fa fa-check"></i><b>6.2.1</b> Data Frame Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="correlation-matrix.html"><a href="correlation-matrix.html"><i class="fa fa-check"></i><b>6.3</b> Correlation matrix</a>
+<li class="chapter" data-level="6.3" data-path="data-visualisation.html"><a href="data-visualisation.html#correlation-matrix"><i class="fa fa-check"></i><b>6.3</b> Correlation matrix</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="correlation-matrix.html"><a href="correlation-matrix.html#ellipse-style"><i class="fa fa-check"></i><b>6.3.1</b> Ellipse style</a></li>
+<li class="chapter" data-level="6.3.1" data-path="data-visualisation.html"><a href="data-visualisation.html#ellipse-style"><i class="fa fa-check"></i><b>6.3.1</b> Ellipse style</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="graphing.html"><a href="graphing.html"><i class="fa fa-check"></i><b>6.4</b> Graphing</a>
+<li class="chapter" data-level="6.4" data-path="data-visualisation.html"><a href="data-visualisation.html#graphing"><i class="fa fa-check"></i><b>6.4</b> Graphing</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="graphing.html"><a href="graphing.html#frequency-histogram---basic"><i class="fa fa-check"></i><b>6.4.1</b> Frequency Histogram - basic</a></li>
-<li class="chapter" data-level="6.4.2" data-path="graphing.html"><a href="graphing.html#multiple-plot-of-all-distributions"><i class="fa fa-check"></i><b>6.4.2</b> multiple plot of all distributions</a></li>
-<li class="chapter" data-level="6.4.3" data-path="graphing.html"><a href="graphing.html#xy-scatterplot-with-linear-regression-or-polynomial-regression"><i class="fa fa-check"></i><b>6.4.3</b> x*y scatterplot with linear regression or polynomial regression</a></li>
-<li class="chapter" data-level="6.4.4" data-path="graphing.html"><a href="graphing.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.4.4</b> Add formula to plot.</a></li>
+<li class="chapter" data-level="6.4.1" data-path="data-visualisation.html"><a href="data-visualisation.html#frequency-histogram---basic"><i class="fa fa-check"></i><b>6.4.1</b> Frequency Histogram - basic</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-visualisation.html"><a href="data-visualisation.html#frequency-histogram-normal-distribution"><i class="fa fa-check"></i><b>6.4.2</b> Frequency Histogram + normal distribution</a></li>
+<li class="chapter" data-level="6.4.3" data-path="data-visualisation.html"><a href="data-visualisation.html#multiple-plot-of-all-distributions"><i class="fa fa-check"></i><b>6.4.3</b> multiple plot of all distributions</a></li>
+<li class="chapter" data-level="6.4.4" data-path="data-visualisation.html"><a href="data-visualisation.html#xy-scatterplot-with-linear-regression-or-polynomial-regression"><i class="fa fa-check"></i><b>6.4.4</b> x*y scatterplot with linear regression or polynomial regression</a></li>
+<li class="chapter" data-level="6.4.5" data-path="data-visualisation.html"><a href="data-visualisation.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.4.5</b> Add formula to plot.</a></li>
 </ul></li>
 </ul></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+
 </ul>
 
       </nav>
@@ -241,26 +261,391 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="statistical-analysis" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Statistical Analysis</h1>
+<h1><span class="header-section-number">Chapter 5</span> Statistical Analysis</h1>
+<div id="regression" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Regression</h2>
+<div id="linear-regression-on-groups" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Linear regression on groups</h3>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="statistical-analysis.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
+<span id="cb81-2"><a href="statistical-analysis.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
+<span id="cb81-3"><a href="statistical-analysis.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb81-4"><a href="statistical-analysis.html#cb81-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span>
+<span id="cb81-5"><a href="statistical-analysis.html#cb81-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-6"><a href="statistical-analysis.html#cb81-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Run the same linear regression model by group levels? </span></span>
+<span id="cb81-7"><a href="statistical-analysis.html#cb81-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Instead of running #summary(lm(y~x)) for the number of levels </span></span>
+<span id="cb81-8"><a href="statistical-analysis.html#cb81-8" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
+<span id="cb81-9"><a href="statistical-analysis.html#cb81-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-10"><a href="statistical-analysis.html#cb81-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
+<span id="cb81-11"><a href="statistical-analysis.html#cb81-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
+<span id="cb81-12"><a href="statistical-analysis.html#cb81-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
+<span id="cb81-13"><a href="statistical-analysis.html#cb81-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
+<span id="cb81-14"><a href="statistical-analysis.html#cb81-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+as.factor(gear)
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+17.692
+</td>
+<td style="text-align:right;">
+1.349916
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+18.965
+</td>
+<td style="text-align:right;">
+1.613880
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+15.640
+</td>
+<td style="text-align:right;">
+1.130487
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+gear
+</th>
+<th style="text-align:right;">
+r.squared
+</th>
+<th style="text-align:right;">
+adj.r.squared
+</th>
+<th style="text-align:right;">
+sigma
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+<th style="text-align:right;">
+df
+</th>
+<th style="text-align:right;">
+logLik
+</th>
+<th style="text-align:right;">
+AIC
+</th>
+<th style="text-align:right;">
+BIC
+</th>
+<th style="text-align:right;">
+deviance
+</th>
+<th style="text-align:right;">
+df.residual
+</th>
+<th style="text-align:right;">
+nobs
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.66
+</td>
+<td style="text-align:right;">
+0.63
+</td>
+<td style="text-align:right;">
+28.87
+</td>
+<td style="text-align:right;">
+25.19
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+-70.65
+</td>
+<td style="text-align:right;">
+147.31
+</td>
+<td style="text-align:right;">
+149.43
+</td>
+<td style="text-align:right;">
+10837.12
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:right;">
+25.72
+</td>
+<td style="text-align:right;">
+1.15
+</td>
+<td style="text-align:right;">
+0.31
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+-54.90
+</td>
+<td style="text-align:right;">
+115.80
+</td>
+<td style="text-align:right;">
+117.26
+</td>
+<td style="text-align:right;">
+6616.46
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.88
+</td>
+<td style="text-align:right;">
+0.83
+</td>
+<td style="text-align:right;">
+41.95
+</td>
+<td style="text-align:right;">
+21.03
+</td>
+<td style="text-align:right;">
+0.02
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+-24.50
+</td>
+<td style="text-align:right;">
+55.00
+</td>
+<td style="text-align:right;">
+53.83
+</td>
+<td style="text-align:right;">
+5279.95
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://stackoverflow.com/questions/22713325/fitting-several-regression-models-with-dplyr">Reference</a></p>
 </div>
+</div>
+<div id="logistic-regression" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Logistic Regression</h2>
+<div id="to-be-completed-1" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> to be completed</h3>
+</div>
+</div>
+<div id="survival-analysis-and-visualisation" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Survival Analysis and Visualisation</h2>
+<div id="to-be-completed-2" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> To be completed</h3>
+</div>
+</div>
+<div id="receiver-operated-curves-roc" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Receiver Operated Curves (ROC)</h2>
+<div id="to-be-completed-3" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> To be completed</h3>
+
+</div>
+</div>
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol>0){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("correct");
+    } else {
+      cl.remove("correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
             </section>
 
           </div>
         </div>
       </div>
-<a href="reduce-variables-using-pca.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-wrangling-and-manipulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualisation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -272,7 +657,8 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"google": false
 },
 "fontsettings": {
 "theme": "white",
@@ -291,12 +677,10 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": {},
 "toc": {
-"collapse": "subsection"
-},
-"toolbar": {
-"position": "static"
+"collapse": "section",
+"scroll_highlight": true
 }
 });
 });

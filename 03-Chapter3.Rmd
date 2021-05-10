@@ -3,6 +3,14 @@
 ```{r}
 library(Hmisc) #impute values
 library(naniar) # deal with NAs
+library(geosphere)
+library(tidyverse) # data handling and viz
+library(janitor) #dataframe import cleaning
+library(knitr) #nice html tables
+library(kableExtra) # nicer knitr tables
+library(broom)
+library(readr) # load csv stored data
+library(geosphere) # for calc daylength
 ```
 
 

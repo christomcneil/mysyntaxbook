@@ -1,0 +1,24 @@
+
+# RMarkdown
+This chapter contains syntax for the non-code rmarkdown sections.  
+
+## Formatting basics
+
+```
+*** on it own, for a horizontal line
+**text** for bold
+*text* for italics
+1. Item 1
+2. Item 2
+3. Item 3
+    + Item 3a
+    + Item 3b for ordered lists
+    
+[linked phrase](http://example.com) for links
+ ![alt text](figures/img.png) for images
+
+### R chunk basics 
+message=FALSE, warning=FALSE, include=FALSE, ECHO=FALSE (show output), 
+
+To set document default knitr::opts_chunk$set(echo=FALSE) 
+```

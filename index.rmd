@@ -9,6 +9,7 @@ biblio-style: apalike
 link-citations: yes
 description: "Useful R Syntax"
 ---
+------
 # Introduction
 
 **This document is a collection of useful code for Rmarkdown and R**  
