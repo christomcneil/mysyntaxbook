@@ -243,9 +243,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="conditional-replacement" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Conditional Replacement</h2>
 <p><em>Replace all ’NA’s in a specified variable with 0.</em></p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="conditional-replacement.html#cb58-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp1 =</span> <span class="fu">coalesce</span>(loghp, <span class="dv">0</span>))</span>
-<span id="cb58-2"><a href="conditional-replacement.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
-<span id="cb58-3"><a href="conditional-replacement.html#cb58-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp =</span> <span class="fu">replace_na</span>(loghp, <span class="st">&quot;missing&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="conditional-replacement.html#cb59-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp1 =</span> <span class="fu">coalesce</span>(loghp, <span class="dv">0</span>))</span>
+<span id="cb59-2"><a href="conditional-replacement.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
+<span id="cb59-3"><a href="conditional-replacement.html#cb59-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp =</span> <span class="fu">replace_na</span>(loghp, <span class="st">&quot;missing&quot;</span>))</span></code></pre></div>
 </div>
             </section>
 

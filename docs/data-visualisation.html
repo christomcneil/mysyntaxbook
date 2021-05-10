@@ -246,15 +246,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Summary Tables</p>
 <div id="packages-needed" class="section level3" number="6.0.1">
 <h3><span class="header-section-number">6.0.1</span> Packages needed</h3>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-visualisation.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb79-2"><a href="data-visualisation.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arsenal) <span class="co"># for summary tables</span></span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="data-visualisation.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb80-2"><a href="data-visualisation.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arsenal) <span class="co"># for summary tables</span></span></code></pre></div>
 <pre><code>## Warning: package &#39;arsenal&#39; was built under R version 4.0.5</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;arsenal&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:Hmisc&#39;:
 ## 
 ##     %nin%</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-visualisation.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools) <span class="co"># for summary tables</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data-visualisation.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools) <span class="co"># for summary tables</span></span></code></pre></div>
 <pre><code>## Warning: package &#39;summarytools&#39; was built under R version 4.0.5</code></pre>
 <pre><code>## Registered S3 method overwritten by &#39;pryr&#39;:
 ##   method      from
@@ -268,31 +268,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following object is masked from &#39;package:tibble&#39;:
 ## 
 ##     view</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-visualisation.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb90-2"><a href="data-visualisation.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb90-3"><a href="data-visualisation.html#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra) <span class="co"># print multiple plots as grid</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-visualisation.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb91-2"><a href="data-visualisation.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb91-3"><a href="data-visualisation.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra) <span class="co"># print multiple plots as grid</span></span></code></pre></div>
 <pre><code>## Warning: package &#39;gridExtra&#39; was built under R version 4.0.5</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;gridExtra&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:dplyr&#39;:
 ## 
 ##     combine</code></pre>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-visualisation.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpmisc) <span class="co"># add formulas and p values to scatterplots</span></span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-visualisation.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpmisc) <span class="co"># add formulas and p values to scatterplots</span></span></code></pre></div>
 <pre><code>## Warning: package &#39;ggpmisc&#39; was built under R version 4.0.5</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;ggpmisc&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
 ## 
 ##     annotate</code></pre>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-visualisation.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot) <span class="co">#plotting correlations</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-visualisation.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot) <span class="co">#plotting correlations</span></span></code></pre></div>
 <pre><code>## corrplot 0.87 loaded</code></pre>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-visualisation.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(Hmisc) # calculation correlation plots</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-visualisation.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(Hmisc) # calculation correlation plots</span></span></code></pre></div>
 </div>
 <div id="summarise-by-group" class="section level3" number="6.0.2">
 <h3><span class="header-section-number">6.0.2</span> Summarise by group</h3>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-visualisation.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
-<span id="cb101-2"><a href="data-visualisation.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">Ave=</span><span class="fu">mean</span>(hp), <span class="at">StDev=</span><span class="fu">sd</span>(hp))) <span class="sc">%&gt;%</span> </span>
-<span id="cb101-3"><a href="data-visualisation.html#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-visualisation.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb102-2"><a href="data-visualisation.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">Ave=</span><span class="fu">mean</span>(hp), <span class="at">StDev=</span><span class="fu">sd</span>(hp))) <span class="sc">%&gt;%</span> </span>
+<span id="cb102-3"><a href="data-visualisation.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -346,12 +346,12 @@ StDev
 </div>
 <div id="summary-table---multiple-functions-variables" class="section level3" number="6.0.3">
 <h3><span class="header-section-number">6.0.3</span> Summary Table - Multiple functions, variables</h3>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-visualisation.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure brackets are correct</span></span>
-<span id="cb102-2"><a href="data-visualisation.html#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-3"><a href="data-visualisation.html#cb102-3" aria-hidden="true" tabindex="-1"></a>df.sum <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">select</span>(mpg,cyl,hp) <span class="sc">%&gt;%</span></span>
-<span id="cb102-4"><a href="data-visualisation.html#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="fu">list</span>(<span class="at">mean=</span>mean,<span class="at">sd=</span>sd)))</span>
-<span id="cb102-5"><a href="data-visualisation.html#cb102-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.sum,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb102-6"><a href="data-visualisation.html#cb102-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>() <span class="co"># perform the analysis</span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-visualisation.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure brackets are correct</span></span>
+<span id="cb103-2"><a href="data-visualisation.html#cb103-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-3"><a href="data-visualisation.html#cb103-3" aria-hidden="true" tabindex="-1"></a>df.sum <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">select</span>(mpg,cyl,hp) <span class="sc">%&gt;%</span></span>
+<span id="cb103-4"><a href="data-visualisation.html#cb103-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="fu">list</span>(<span class="at">mean=</span>mean,<span class="at">sd=</span>sd)))</span>
+<span id="cb103-5"><a href="data-visualisation.html#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.sum,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb103-6"><a href="data-visualisation.html#cb103-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>() <span class="co"># perform the analysis</span></span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -398,12 +398,12 @@ hp_sd
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-visualisation.html#cb103-1" aria-hidden="true" tabindex="-1"></a>df.longer <span class="ot">&lt;-</span> df.sum<span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">col=</span><span class="fu">everything</span>(),  </span>
-<span id="cb103-2"><a href="data-visualisation.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;Attribute&quot;</span>,<span class="st">&quot;.value&quot;</span>),</span>
-<span id="cb103-3"><a href="data-visualisation.html#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span>)</span>
-<span id="cb103-4"><a href="data-visualisation.html#cb103-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.longer,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb103-5"><a href="data-visualisation.html#cb103-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb103-6"><a href="data-visualisation.html#cb103-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>() <span class="co"># pivot longer the analysis to make it readable</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-visualisation.html#cb104-1" aria-hidden="true" tabindex="-1"></a>df.longer <span class="ot">&lt;-</span> df.sum<span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">col=</span><span class="fu">everything</span>(),  </span>
+<span id="cb104-2"><a href="data-visualisation.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;Attribute&quot;</span>,<span class="st">&quot;.value&quot;</span>),</span>
+<span id="cb104-3"><a href="data-visualisation.html#cb104-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb104-4"><a href="data-visualisation.html#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.longer,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb104-5"><a href="data-visualisation.html#cb104-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb104-6"><a href="data-visualisation.html#cb104-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>() <span class="co"># pivot longer the analysis to make it readable</span></span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>

@@ -244,22 +244,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.3</span> Correlation matrix</h2>
 <div id="ellipse-style" class="section level3" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Ellipse style</h3>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="correlation-matrix.html#cb114-1" aria-hidden="true" tabindex="-1"></a>corrdata <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(cyl,disp,vs,am,gear,carb)) </span>
-<span id="cb114-2"><a href="correlation-matrix.html#cb114-2" aria-hidden="true" tabindex="-1"></a>corr1 <span class="ot">&lt;-</span> Hmisc<span class="sc">::</span><span class="fu">rcorr</span>(<span class="fu">as.matrix</span>(corrdata))</span>
-<span id="cb114-3"><a href="correlation-matrix.html#cb114-3" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> corr1<span class="sc">$</span>r</span>
-<span id="cb114-4"><a href="correlation-matrix.html#cb114-4" aria-hidden="true" tabindex="-1"></a>M</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="correlation-matrix.html#cb115-1" aria-hidden="true" tabindex="-1"></a>corrdata <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(cyl,disp,vs,am,gear,carb)) </span>
+<span id="cb115-2"><a href="correlation-matrix.html#cb115-2" aria-hidden="true" tabindex="-1"></a>corr1 <span class="ot">&lt;-</span> Hmisc<span class="sc">::</span><span class="fu">rcorr</span>(<span class="fu">as.matrix</span>(corrdata))</span>
+<span id="cb115-3"><a href="correlation-matrix.html#cb115-3" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> corr1<span class="sc">$</span>r</span>
+<span id="cb115-4"><a href="correlation-matrix.html#cb115-4" aria-hidden="true" tabindex="-1"></a>M</span></code></pre></div>
 <pre><code>##             mpg         hp        drat         wt        qsec
 ## mpg   1.0000000 -0.7761684  0.68117191 -0.8676594  0.41868403
 ## hp   -0.7761684  1.0000000 -0.44875912  0.6587479 -0.70822339
 ## drat  0.6811719 -0.4487591  1.00000000 -0.7124406  0.09120476
 ## wt   -0.8676594  0.6587479 -0.71244065  1.0000000 -0.17471588
 ## qsec  0.4186840 -0.7082234  0.09120476 -0.1747159  1.00000000</code></pre>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="correlation-matrix.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(M) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;HP&quot;</span>, <span class="st">&quot;Axle Ratio&quot;</span>, <span class="st">&quot;Weight (kPounds)&quot;</span>, <span class="st">&quot;Quarter Mile (s)&quot;</span>)</span>
-<span id="cb116-2"><a href="correlation-matrix.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(M) <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;HP&quot;</span>, <span class="st">&quot;Axle Ratio&quot;</span>, <span class="st">&quot;Weight (kPounds)&quot;</span>, <span class="st">&quot;Quarter Mile (s)&quot;</span>)</span>
-<span id="cb116-3"><a href="correlation-matrix.html#cb116-3" aria-hidden="true" tabindex="-1"></a>p_mat <span class="ot">&lt;-</span> corr1<span class="sc">$</span>P</span>
-<span id="cb116-4"><a href="correlation-matrix.html#cb116-4" aria-hidden="true" tabindex="-1"></a>corr <span class="ot">&lt;-</span> <span class="fu">corrplot</span>(M, <span class="at">type =</span> <span class="st">&quot;upper&quot;</span>,<span class="at">method=</span><span class="st">&quot;ellipse&quot;</span>, <span class="at">order =</span> <span class="st">&quot;hclust&quot;</span>, </span>
-<span id="cb116-5"><a href="correlation-matrix.html#cb116-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">p.mat =</span> p_mat, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">insig =</span> <span class="st">&quot;blank&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="correlation-matrix.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(M) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;HP&quot;</span>, <span class="st">&quot;Axle Ratio&quot;</span>, <span class="st">&quot;Weight (kPounds)&quot;</span>, <span class="st">&quot;Quarter Mile (s)&quot;</span>)</span>
+<span id="cb117-2"><a href="correlation-matrix.html#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(M) <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;HP&quot;</span>, <span class="st">&quot;Axle Ratio&quot;</span>, <span class="st">&quot;Weight (kPounds)&quot;</span>, <span class="st">&quot;Quarter Mile (s)&quot;</span>)</span>
+<span id="cb117-3"><a href="correlation-matrix.html#cb117-3" aria-hidden="true" tabindex="-1"></a>p_mat <span class="ot">&lt;-</span> corr1<span class="sc">$</span>P</span>
+<span id="cb117-4"><a href="correlation-matrix.html#cb117-4" aria-hidden="true" tabindex="-1"></a>corr <span class="ot">&lt;-</span> <span class="fu">corrplot</span>(M, <span class="at">type =</span> <span class="st">&quot;upper&quot;</span>,<span class="at">method=</span><span class="st">&quot;ellipse&quot;</span>, <span class="at">order =</span> <span class="st">&quot;hclust&quot;</span>, </span>
+<span id="cb117-5"><a href="correlation-matrix.html#cb117-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">p.mat =</span> p_mat, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">insig =</span> <span class="st">&quot;blank&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <ul>
 <li>Red is -ve correlation</li>
 <li>Blue is + ve correlation</li>

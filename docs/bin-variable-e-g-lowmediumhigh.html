@@ -242,9 +242,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="bin-variable-e.g.-lowmediumhigh" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Bin variable ( e.g. Low/Medium/High)</h2>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="bin-variable-e-g-lowmediumhigh.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
-<span id="cb53-2"><a href="bin-variable-e-g-lowmediumhigh.html#cb53-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">hp_cat=</span><span class="fu">cut</span>(hp, <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">100</span>, <span class="cn">Inf</span>), </span>
-<span id="cb53-3"><a href="bin-variable-e-g-lowmediumhigh.html#cb53-3" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;low hp&quot;</span>,<span class="st">&quot;high hp&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="bin-variable-e-g-lowmediumhigh.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb54-2"><a href="bin-variable-e-g-lowmediumhigh.html#cb54-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">hp_cat=</span><span class="fu">cut</span>(hp, <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">100</span>, <span class="cn">Inf</span>), </span>
+<span id="cb54-3"><a href="bin-variable-e-g-lowmediumhigh.html#cb54-3" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;low hp&quot;</span>,<span class="st">&quot;high hp&quot;</span>)))</span></code></pre></div>
 </div>
             </section>
 

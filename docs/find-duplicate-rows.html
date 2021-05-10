@@ -242,9 +242,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="find-duplicate-rows" class="section level2" number="4.8">
 <h2><span class="header-section-number">4.8</span> Find duplicate rows</h2>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="find-duplicate-rows.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify which variable to check for duplication</span></span>
-<span id="cb62-2"><a href="find-duplicate-rows.html#cb62-2" aria-hidden="true" tabindex="-1"></a>n_occur1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">table</span>(mtcars<span class="sc">$</span>mpg)) </span>
-<span id="cb62-3"><a href="find-duplicate-rows.html#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(n_occur1[n_occur1<span class="sc">$</span>Freq <span class="sc">&gt;</span> <span class="dv">1</span>,]) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="find-duplicate-rows.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify which variable to check for duplication</span></span>
+<span id="cb63-2"><a href="find-duplicate-rows.html#cb63-2" aria-hidden="true" tabindex="-1"></a>n_occur1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">table</span>(mtcars<span class="sc">$</span>mpg)) </span>
+<span id="cb63-3"><a href="find-duplicate-rows.html#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(n_occur1[n_occur1<span class="sc">$</span>Freq <span class="sc">&gt;</span> <span class="dv">1</span>,]) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>

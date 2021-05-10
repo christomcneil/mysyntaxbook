@@ -251,19 +251,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>right: all rows in y, adding matching columns from x</li>
 <li>full: all rows in x with matching columns in y, then the rows of y that don’t match x.</li>
 </ul>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="merge-data-frames-variables.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare new dataset</span></span>
-<span id="cb67-2"><a href="merge-data-frames-variables.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="co"># make the rownames into a &#39;joinable&#39; column</span></span>
-<span id="cb67-3"><a href="merge-data-frames-variables.html#cb67-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">carnames=</span><span class="fu">rownames</span>(mtcars)) </span>
-<span id="cb67-4"><a href="merge-data-frames-variables.html#cb67-4" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(cyl)</span>
-<span id="cb67-5"><a href="merge-data-frames-variables.html#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="co"># make the rownames into a &#39;joinable&#39; column</span></span>
-<span id="cb67-6"><a href="merge-data-frames-variables.html#cb67-6" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span></span>
-<span id="cb67-7"><a href="merge-data-frames-variables.html#cb67-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">carnames=</span><span class="fu">rownames</span>(mtcars_extradata)) </span>
-<span id="cb67-8"><a href="merge-data-frames-variables.html#cb67-8" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">valves=</span>cyl<span class="sc">*</span><span class="dv">4</span>)</span>
-<span id="cb67-9"><a href="merge-data-frames-variables.html#cb67-9" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>cyl)</span>
-<span id="cb67-10"><a href="merge-data-frames-variables.html#cb67-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-11"><a href="merge-data-frames-variables.html#cb67-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">glimpse</span>(mtcars_extradata<span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>))) <span class="sc">%&gt;%</span>  </span>
-<span id="cb67-12"><a href="merge-data-frames-variables.html#cb67-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb67-13"><a href="merge-data-frames-variables.html#cb67-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="merge-data-frames-variables.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare new dataset</span></span>
+<span id="cb68-2"><a href="merge-data-frames-variables.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co"># make the rownames into a &#39;joinable&#39; column</span></span>
+<span id="cb68-3"><a href="merge-data-frames-variables.html#cb68-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">carnames=</span><span class="fu">rownames</span>(mtcars)) </span>
+<span id="cb68-4"><a href="merge-data-frames-variables.html#cb68-4" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(cyl)</span>
+<span id="cb68-5"><a href="merge-data-frames-variables.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co"># make the rownames into a &#39;joinable&#39; column</span></span>
+<span id="cb68-6"><a href="merge-data-frames-variables.html#cb68-6" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span></span>
+<span id="cb68-7"><a href="merge-data-frames-variables.html#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">carnames=</span><span class="fu">rownames</span>(mtcars_extradata)) </span>
+<span id="cb68-8"><a href="merge-data-frames-variables.html#cb68-8" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">valves=</span>cyl<span class="sc">*</span><span class="dv">4</span>)</span>
+<span id="cb68-9"><a href="merge-data-frames-variables.html#cb68-9" aria-hidden="true" tabindex="-1"></a>mtcars_extradata <span class="ot">&lt;-</span> mtcars_extradata <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>cyl)</span>
+<span id="cb68-10"><a href="merge-data-frames-variables.html#cb68-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-11"><a href="merge-data-frames-variables.html#cb68-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">glimpse</span>(mtcars_extradata<span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>))) <span class="sc">%&gt;%</span>  </span>
+<span id="cb68-12"><a href="merge-data-frames-variables.html#cb68-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb68-13"><a href="merge-data-frames-variables.html#cb68-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <pre><code>## Rows: 6
 ## Columns: 2
 ## $ carnames &lt;chr&gt; &quot;Mazda RX4&quot;, &quot;Mazda RX4 Wag&quot;, &quot;Datsun 710&quot;, &quot;Hornet 4 Drive&quot;,~
@@ -350,10 +350,10 @@ Valiant
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="merge-data-frames-variables.html#cb69-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">left_join</span>(mtcars,mtcars_extradata,<span class="at">by =</span> <span class="st">&#39;carnames&#39;</span>)</span>
-<span id="cb69-2"><a href="merge-data-frames-variables.html#cb69-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-3"><a href="merge-data-frames-variables.html#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">glimpse</span>(mtcars <span class="sc">%&gt;%</span><span class="fu">select</span>(carb<span class="sc">:</span>valves) <span class="sc">%&gt;%</span>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>))) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb69-4"><a href="merge-data-frames-variables.html#cb69-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="merge-data-frames-variables.html#cb70-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">left_join</span>(mtcars,mtcars_extradata,<span class="at">by =</span> <span class="st">&#39;carnames&#39;</span>)</span>
+<span id="cb70-2"><a href="merge-data-frames-variables.html#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-3"><a href="merge-data-frames-variables.html#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">glimpse</span>(mtcars <span class="sc">%&gt;%</span><span class="fu">select</span>(carb<span class="sc">:</span>valves) <span class="sc">%&gt;%</span>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>))) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb70-4"><a href="merge-data-frames-variables.html#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <pre><code>## Rows: 6
 ## Columns: 7
 ## $ carb     &lt;dbl&gt; 4, 4, 1, 1, 2, 1

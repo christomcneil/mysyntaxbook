@@ -242,11 +242,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="sum-across-rows" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Sum across rows</h2>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="sum-across-rows.html#cb55-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">sum =</span> <span class="fu">select</span>(., disp<span class="sc">:</span>drat) <span class="sc">%&gt;%</span> </span>
-<span id="cb55-2"><a href="sum-across-rows.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(<span class="dv">1</span>, sum, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
-<span id="cb55-3"><a href="sum-across-rows.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="co">#apply() takes Data frame or matrix as an input and gives output in vector </span></span>
-<span id="cb55-4"><a href="sum-across-rows.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(i.e.many columns to one list)</span></span>
-<span id="cb55-5"><a href="sum-across-rows.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the &#39;1&#39; sets the dataframe to use (already selected here)</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="sum-across-rows.html#cb56-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">sum =</span> <span class="fu">select</span>(., disp<span class="sc">:</span>drat) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-2"><a href="sum-across-rows.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(<span class="dv">1</span>, sum, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb56-3"><a href="sum-across-rows.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co">#apply() takes Data frame or matrix as an input and gives output in vector </span></span>
+<span id="cb56-4"><a href="sum-across-rows.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(i.e.many columns to one list)</span></span>
+<span id="cb56-5"><a href="sum-across-rows.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the &#39;1&#39; sets the dataframe to use (already selected here)</span></span></code></pre></div>
 <p><a href="https://stackoverflow.com/questions/28873057/sum-across-multiple-columns-with-dplyr">Reference</a></p>
 </div>
             </section>

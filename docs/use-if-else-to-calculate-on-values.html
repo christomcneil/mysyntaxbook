@@ -242,8 +242,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="use-if-else-to-calculate-on-values" class="section level2" number="4.12">
 <h2><span class="header-section-number">4.12</span> Use if else to calculate on values</h2>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="use-if-else-to-calculate-on-values.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># no NA&#39;s so all values unchanged.</span></span>
-<span id="cb66-2"><a href="use-if-else-to-calculate-on-values.html#cb66-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">vs=</span><span class="fu">ifelse</span>(<span class="fu">is.na</span>(vs),(carb<span class="sc">-</span>am)<span class="sc">/</span><span class="fl">365.25</span>,vs)) </span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="use-if-else-to-calculate-on-values.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># no NA&#39;s so all values unchanged.</span></span>
+<span id="cb67-2"><a href="use-if-else-to-calculate-on-values.html#cb67-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">vs=</span><span class="fu">ifelse</span>(<span class="fu">is.na</span>(vs),(carb<span class="sc">-</span>am)<span class="sc">/</span><span class="fl">365.25</span>,vs)) </span></code></pre></div>
 </div>
             </section>
 

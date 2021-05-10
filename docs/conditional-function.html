@@ -242,9 +242,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="conditional-function" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Conditional function</h2>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="conditional-function.html#cb54-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp=</span><span class="fu">ifelse</span>(cyl<span class="sc">&gt;</span><span class="dv">4</span>,<span class="fu">log10</span>(hp),<span class="cn">NA</span>)) </span>
-<span id="cb54-2"><a href="conditional-function.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Nonsensical example, but log transformed all horse powers of cars with more</span></span>
-<span id="cb54-3"><a href="conditional-function.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co"># than four cylinders</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="conditional-function.html#cb55-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">loghp=</span><span class="fu">ifelse</span>(cyl<span class="sc">&gt;</span><span class="dv">4</span>,<span class="fu">log10</span>(hp),<span class="cn">NA</span>)) </span>
+<span id="cb55-2"><a href="conditional-function.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Nonsensical example, but log transformed all horse powers of cars with more</span></span>
+<span id="cb55-3"><a href="conditional-function.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="co"># than four cylinders</span></span></code></pre></div>
 </div>
             </section>
 

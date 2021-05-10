@@ -242,8 +242,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="filter-nas-or-retain-complete-cases" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Filter na’s or retain complete cases</h2>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="filter-nas-or-retain-complete-cases.html#cb59-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(hp)) <span class="co"># no missing values found</span></span>
-<span id="cb59-2"><a href="filter-nas-or-retain-complete-cases.html#cb59-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span><span class="fu">filter</span>(<span class="fu">complete.cases</span>(.)) <span class="co"># no missing values found</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="filter-nas-or-retain-complete-cases.html#cb60-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(hp)) <span class="co"># no missing values found</span></span>
+<span id="cb60-2"><a href="filter-nas-or-retain-complete-cases.html#cb60-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span><span class="fu">filter</span>(<span class="fu">complete.cases</span>(.)) <span class="co"># no missing values found</span></span></code></pre></div>
 </div>
             </section>
 

@@ -244,8 +244,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.1</span> Specific package for summary tables:</h2>
 <div id="arsenal-package" class="section level3" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Arsenal package</h3>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="specific-package-for-summary-tables.html#cb104-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">tableby</span>(cyl<span class="sc">~</span>gear<span class="sc">+</span>hp<span class="sc">+</span>wt,<span class="at">data=</span>mtcars)</span>
-<span id="cb104-2"><a href="specific-package-for-summary-tables.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tab1, <span class="at">text=</span><span class="cn">TRUE</span>, <span class="at">digits=</span><span class="dv">2</span>, <span class="at">digits.p=</span><span class="dv">2</span>, <span class="at">digits.pct=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="specific-package-for-summary-tables.html#cb105-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">tableby</span>(cyl<span class="sc">~</span>gear<span class="sc">+</span>hp<span class="sc">+</span>wt,<span class="at">data=</span>mtcars)</span>
+<span id="cb105-2"><a href="specific-package-for-summary-tables.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tab1, <span class="at">text=</span><span class="cn">TRUE</span>, <span class="at">digits=</span><span class="dv">2</span>, <span class="at">digits.p=</span><span class="dv">2</span>, <span class="at">digits.pct=</span><span class="dv">1</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -335,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="summary-tools-package" class="section level3" number="6.1.2">
 <h3><span class="header-section-number">6.1.2</span> Summary tools package</h3>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="specific-package-for-summary-tables.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(mtcars, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>), <span class="at">transpose =</span> <span class="cn">TRUE</span>, <span class="at">headings =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="specific-package-for-summary-tables.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(mtcars, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>), <span class="at">transpose =</span> <span class="cn">TRUE</span>, <span class="at">headings =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##                Mean   Std.Dev
 ## ---------- -------- ---------
@@ -350,7 +350,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##       qsec    17.85      1.79
 ##         vs     0.44      0.50
 ##         wt     3.22      0.98</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="specific-package-for-summary-tables.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">descr</span>(mtcars, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>, <span class="st">&quot;n.valid&quot;</span>), <span class="at">transpose =</span> <span class="cn">TRUE</span>, <span class="at">headings =</span> <span class="cn">FALSE</span>),<span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)<span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="specific-package-for-summary-tables.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">descr</span>(mtcars, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>, <span class="st">&quot;n.valid&quot;</span>), <span class="at">transpose =</span> <span class="cn">TRUE</span>, <span class="at">headings =</span> <span class="cn">FALSE</span>),<span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)<span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <pre><code>## Warning in if (grepl(re1, str, perl = TRUE)) {: the condition has length &gt; 1 and
 ## only the first element will be used</code></pre>
 <pre><code>## Warning in if (grepl(re2, str, perl = TRUE)) {: the condition has length &gt; 1 and
