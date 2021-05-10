@@ -68,6 +68,16 @@ save(mtcars,file=filenamerda)
 write.csv(mtcars,file=filenamecsv)
 ```
 
+## Save a diagram or plot
+```{r}
+plot1 <- mtcars %>% ggplot(aes(hp,qsec))+geom_point()
+#plot1 #print plot if required
+pdf("plot.pdf")
+plot1
+dev.off()
+```
+pdf 'device' off.
+
 ## Recode a text variable
 ```{r message=FALSE}
 data("band_members")
@@ -76,8 +86,7 @@ band_members <- band_members %>% mutate(name=recode(name, "Mick"= "m"))
 kable(head((band_members))) %>% kable_minimal(full_width = F)
 rm(list=ls()) # Remove everything
 ```
-Reference for table formatting
-[Kable Extra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
+Reference: [Kable Extra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
 
 ## Alter variable names:
 *Remove underscores*

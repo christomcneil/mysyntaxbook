@@ -1,24 +1,139 @@
 # Data Visualisation
 Tables and graphs, survival plots, missing values. 
 ## Summary Tables
+
+### Packages needed
+```{r}
+library(tidyverse) 
+library(arsenal) # for summary tables
+library(summarytools) # for summary tables
+library(knitr)
+library(kableExtra)
+library(gridExtra) # print multiple plots as grid
+library(ggpmisc) # add formulas and p values to scatterplots
+library(corrplot) #plotting correlations
+#library(Hmisc) # calculation correlation plots
+
+```
+
 ### Summarise by group
 ```{r}
+data(mtcars)
 kable(mtcars %>% group_by(cyl) %>% summarise(Ave=mean(hp), StDev=sd(hp))) %>% 
   kable_styling(full_width = FALSE) %>% kable_minimal()
 ```
 
-###  Multiple functions,  multiple variables
+###  Summary Table - Multiple functions, variables
 ```{r}
 # make sure brackets are correct
 
 df.sum <- mtcars %>%  select(mpg,cyl,hp) %>%
   summarise(across(everything(),list(mean=mean,sd=sd)))
-kable(df.sum,digits=2) %>% kable_styling(full_width = FALSE) %>% kable_minimal()
+kable(df.sum,digits=2) %>% kable_styling(full_width = FALSE) %>%
+  kable_minimal() # perform the analysis
 
 df.longer <- df.sum%>% pivot_longer(col=everything(),  
 names_to = c("Attribute",".value"),
   names_sep = "_")
 kable(df.longer,digits=2) %>%
-  kable_styling(full_width = FALSE) %>% kable_minimal()
+  kable_styling(full_width = FALSE) %>%
+  kable_minimal() # pivot longer the analysis to make it readable
 ```
+## Specific package for summary tables:
+### Arsenal package
+
+
+```{r, results='asis'}
+tab1 <- tableby(cyl~gear+hp+wt,data=mtcars)
+summary(tab1, text=TRUE, digits=2, digits.p=2, digits.pct=1)
+```
+### Summary tools package
+```{r}
+descr(mtcars, stats = c("mean", "sd"), transpose = TRUE, headings = FALSE)
+
+kable(descr(mtcars, stats = c("mean", "sd", "n.valid"), transpose = TRUE, headings = FALSE),digits = 3) %>% kable_styling(full_width = FALSE)%>% kable_minimal()
+```
+
+## Visual summary of data
+
+Options are for markdown
+```{r, results='asis'}
+
+dfSummary(mtcars, plain.ascii = FALSE, style = "grid", 
+          graph.magnif = 0.5, valid.col = FALSE, tmp.img.dir = "/tmp")
+```
+## Correlation matrix
+
+### Ellipse style
+```{r}
+corrdata <- mtcars %>% select(-c(cyl,disp,vs,am,gear,carb)) 
+corr1 <- Hmisc::rcorr(as.matrix(corrdata))
+M <- corr1$r
+M
+
+colnames(M) <- c("mpg", "HP", "Axle Ratio", "Weight (kPounds)", "Quarter Mile (s)")
+rownames(M) <-  c("mpg", "HP", "Axle Ratio", "Weight (kPounds)", "Quarter Mile (s)")
+p_mat <- corr1$P
+corr <- corrplot(M, type = "upper",method="ellipse", order = "hclust", 
+         p.mat = p_mat, sig.level = 0.05, insig = "blank")
+```
+
+* Red is -ve correlation
+* Blue is + ve correlation
+* Blank is no correlation
+
+[Reference](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)
+
+
+
+## Graphing
+### Frequency Histogram - basic
+```{r}
+plot1 <- mtcars %>% ggplot(aes(qsec))+geom_histogram()
+plot1
+```
+### Frequency Histogram + normal distribution
+```{r}
+plot1 <- mtcars %>% ggplot(aes(qsec))
+plot1+geom_histogram()
+# add normal plot
+plot1 + geom_histogram(aes( y=..density..))+stat_function(fun = dnorm, args = list(mean =mean(mtcars$qsec), sd=sd(mtcars$qsec))) + theme_bw()
+# ..density.. changes y axis to density, not count. stat function defines normal line based on data provided.
+```
+### multiple plot of all distributions
+
+```{r}
+mtcars %>% keep(is.numeric) %>% gather() %>% ggplot(aes(value)) + facet_wrap(~ key, scales = "free") + geom_histogram()
+```
+
+### x*y scatterplot with linear regression or polynomial regression
+```{r echo=TRUE}
+plot2<- mtcars %>% ggplot(aes(x=wt,y=qsec))
+plot2a <- plot2 +geom_point()+stat_smooth(method='lm',formula=y~x) + theme_bw()
+plot2b <- plot2 +geom_point()+stat_smooth(method='lm',formula = y ~ poly(x, 2)) + theme_bw()
+plot2c <- plot2 +geom_point()+stat_smooth(method='lm',formula = y ~ poly(x, 3)) + theme_bw()
+plot2d <- plot2 +geom_point()+stat_smooth(method='lm',formula = y ~ poly(x, 4)) + theme_bw()
+
+grid.arrange(plot2a,plot2b,plot2c,plot2d,nrow=2,ncol=2)
+```
+
+### Add formula to plot.
+```{r}
+my.formula <- y ~ x
+a <- plot2 +geom_point()+geom_smooth(method='lm',formula=my.formula)+stat_poly_eq(formula = my.formula, aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), parse = TRUE) + theme_bw()
+
+my.formula2 <- y ~ poly(x, 2)
+b <- plot2 +geom_point()+geom_smooth(method='lm',formula=my.formula2)+stat_poly_eq(formula = my.formula2, aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), parse = TRUE) + theme_bw()
+
+grid.arrange(a,b,nrow=1)
+```
+
+
+
+
+
+
+
+
+
 

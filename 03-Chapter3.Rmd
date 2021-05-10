@@ -1,5 +1,11 @@
 # Data Wrangling and manipulation
 
+```{r}
+library(Hmisc) #impute values
+library(naniar) # deal with NAs
+```
+
+
 ## Bin variable  ( e.g. Low/Medium/High)
 ```{r}
 data(mtcars)
@@ -58,6 +64,12 @@ mtcars2 <- mtcars %>% select(-c(drat,hp,vs:gear)) # multiple columns
 rm(list=setdiff(ls(), "mtcars")) # clean environment
 ```
 
+##Change specific datapoint
+
+```{r}
+mtcarsmissingvalues <- mtcars %>% mutate(gear=ifelse(gear==5,"missing",gear))
+```
+
 ## Find duplicate rows
 ```{r}
 # specify which variable to check for duplication
@@ -66,7 +78,21 @@ kable(n_occur1[n_occur1$Freq > 1,]) %>% kable_styling(full_width = F) %>% kable_
 ```
 
 ## Impute missing values
-### To be completed
+### To be completedImputing missing values using the mean:
+
+```{r}
+#create missing values
+#mtcarsmissingvalues <- mtcars %>% mutate(gear=ifelse(gear==5,"",gear))
+
+mtcarsmissingvalues <- mtcars %>% replace_with_na(replace = list(gear = 5))
+mtcarsmissingvalues$gear <- impute(mtcarsmissingvalues$gear, mean)  # replace with mean
+mtcarsmissingvalues$gear <- impute(mtcarsmissingvalues$gear, median) # median
+mtcarsmissingvalues$gear <- impute(mtcarsmissingvalues$gear, 4) # replace specific number
+
+```
+
+[Reference:](http://r-statistics.co/Missing-Value-Treatment-With-R.html)
+
 
 ## Keep rows based on a unique value.
 e.g. prescription code
