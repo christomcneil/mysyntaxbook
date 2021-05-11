@@ -83,7 +83,6 @@ library(clipr) #load
 detach(package:clipr) #unload
 ```
 
-
 ## Import using Janitor
 
 ```r
@@ -103,7 +102,7 @@ head(test_df)
 ##   first_name abc percent_successful_2009 repeat_value repeat_value_2  x
 ## 1         NA  NA                      NA           NA             NA NA
 ```
-Reference [here](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html)
+[Reference](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html)
 
 ## Remove dataframe 
 
@@ -116,8 +115,7 @@ rm(list=ls()[! ls() %in% c("band_instruments","band_instruments2")]) # Everythin
 rm(list=setdiff(ls(), "band_instruments")) # Everything except "bandinstruments"
 rm(list=ls()) # Remove everything
 ```
-Reference:
-[Stackoverflow](https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r)
+[Reference:Stackoverflow](https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r)
 
 ## Save dataframe  (CSV or Rdata)
 *make date string*
@@ -131,7 +129,7 @@ data(mtcars)
 ```
 ## function () 
 ## .Internal(date())
-## <bytecode: 0x000000002192b1d0>
+## <bytecode: 0x000000000e4256c0>
 ## <environment: namespace:base>
 ```
 *Write file names*
@@ -267,16 +265,4 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 \end{tabular}
 \end{table}
 
-```r
-plot(cars)
-```
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{02-Chapter2_files/figure-latex/unnamed-chunk-11-1} 
-
-}
-
-\caption{**CAPTION THIS FIGURE!!**}(\#fig:unnamed-chunk-11)
-\end{figure}
 

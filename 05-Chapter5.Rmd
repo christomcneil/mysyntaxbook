@@ -71,7 +71,7 @@ dfSummary(mtcars, plain.ascii = FALSE, style = "grid",
 ## Correlation matrix
 
 ### Ellipse style
-```{r}
+```{r, fig.cap="Correlation Plot"}
 corrdata <- mtcars %>% select(-c(cyl,disp,vs,am,gear,carb)) 
 corr1 <- Hmisc::rcorr(as.matrix(corrdata))
 M <- corr1$r

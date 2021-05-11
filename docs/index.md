@@ -1,7 +1,7 @@
 ---
 title: "Useful R Syntax"
 author: "Chris McNeil"
-date: "2021-05-10"
+date: "2021-05-11"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [packages.bib]

@@ -24,7 +24,7 @@
 <meta name="author" content="Chris McNeil" />
 
 
-<meta name="date" content="2021-05-10" />
+<meta name="date" content="2021-05-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,9 +141,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Book Template</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#structure-of-collection"><i class="fa fa-check"></i><b>1.1</b> Structure of collection</a></li>
@@ -236,13 +233,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.5" data-path="data-visualisation.html"><a href="data-visualisation.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.4.5</b> Add formula to plot.</a></li>
 </ul></li>
 </ul></li>
-<li class="divider"></li>
-<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
-    target="blank"><img alt="Creative Commons License" 
-    style="border-width:0" 
-    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
-<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
-
 </ul>
 
       </nav>
@@ -266,20 +256,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.1</span> Regression</h2>
 <div id="linear-regression-on-groups" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Linear regression on groups</h3>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="statistical-analysis.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
-<span id="cb81-2"><a href="statistical-analysis.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
-<span id="cb81-3"><a href="statistical-analysis.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb81-4"><a href="statistical-analysis.html#cb81-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span>
-<span id="cb81-5"><a href="statistical-analysis.html#cb81-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-6"><a href="statistical-analysis.html#cb81-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Run the same linear regression model by group levels? </span></span>
-<span id="cb81-7"><a href="statistical-analysis.html#cb81-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Instead of running #summary(lm(y~x)) for the number of levels </span></span>
-<span id="cb81-8"><a href="statistical-analysis.html#cb81-8" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
-<span id="cb81-9"><a href="statistical-analysis.html#cb81-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-10"><a href="statistical-analysis.html#cb81-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
-<span id="cb81-11"><a href="statistical-analysis.html#cb81-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
-<span id="cb81-12"><a href="statistical-analysis.html#cb81-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
-<span id="cb81-13"><a href="statistical-analysis.html#cb81-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
-<span id="cb81-14"><a href="statistical-analysis.html#cb81-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="statistical-analysis.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
+<span id="cb80-2"><a href="statistical-analysis.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
+<span id="cb80-3"><a href="statistical-analysis.html#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb80-4"><a href="statistical-analysis.html#cb80-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span>
+<span id="cb80-5"><a href="statistical-analysis.html#cb80-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-6"><a href="statistical-analysis.html#cb80-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Run the same linear regression model by group levels? </span></span>
+<span id="cb80-7"><a href="statistical-analysis.html#cb80-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Instead of running #summary(lm(y~x)) for the number of levels </span></span>
+<span id="cb80-8"><a href="statistical-analysis.html#cb80-8" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
+<span id="cb80-9"><a href="statistical-analysis.html#cb80-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-10"><a href="statistical-analysis.html#cb80-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
+<span id="cb80-11"><a href="statistical-analysis.html#cb80-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
+<span id="cb80-12"><a href="statistical-analysis.html#cb80-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
+<span id="cb80-13"><a href="statistical-analysis.html#cb80-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
+<span id="cb80-14"><a href="statistical-analysis.html#cb80-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>

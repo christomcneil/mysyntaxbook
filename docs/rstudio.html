@@ -24,7 +24,7 @@
 <meta name="author" content="Chris McNeil" />
 
 
-<meta name="date" content="2021-05-10" />
+<meta name="date" content="2021-05-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,9 +141,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Book Template</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#structure-of-collection"><i class="fa fa-check"></i><b>1.1</b> Structure of collection</a></li>
@@ -236,13 +233,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.5" data-path="data-visualisation.html"><a href="data-visualisation.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.4.5</b> Add formula to plot.</a></li>
 </ul></li>
 </ul></li>
-<li class="divider"></li>
-<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
-    target="blank"><img alt="Creative Commons License" 
-    style="border-width:0" 
-    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
-<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
-
 </ul>
 
       </nav>
@@ -311,7 +301,7 @@ R studio environment.</p>
 ## 1        NA     NA                  NA           NA           NA NA
 ##   first_name abc percent_successful_2009 repeat_value repeat_value_2  x
 ## 1         NA  NA                      NA           NA             NA NA</code></pre>
-<p>Reference <a href="https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html">here</a></p>
+<p><a href="https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html">Reference</a></p>
 </div>
 <div id="remove-dataframe" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Remove dataframe</h2>
@@ -322,8 +312,7 @@ R studio environment.</p>
 <span id="cb21-5"><a href="rstudio.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()[<span class="sc">!</span> <span class="fu">ls</span>() <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;band_instruments&quot;</span>,<span class="st">&quot;band_instruments2&quot;</span>)]) <span class="co"># Everything except Band instruments</span></span>
 <span id="cb21-6"><a href="rstudio.html#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;band_instruments&quot;</span>)) <span class="co"># Everything except &quot;bandinstruments&quot;</span></span>
 <span id="cb21-7"><a href="rstudio.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
-<p>Reference:
-<a href="https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r">Stackoverflow</a></p>
+<p><a href="https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r">Reference:Stackoverflow</a></p>
 </div>
 <div id="save-dataframe-csv-or-rdata" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Save dataframe (CSV or Rdata)</h2>
@@ -333,7 +322,7 @@ R studio environment.</p>
 <span id="cb22-3"><a href="rstudio.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
 <pre><code>## function () 
 ## .Internal(date())
-## &lt;bytecode: 0x0000000021b63158&gt;
+## &lt;bytecode: 0x00000000229f0a60&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p><em>Write file names</em></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rstudio.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create data directory</span></span>
@@ -992,13 +981,6 @@ Valiant
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rstudio.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
-<img src="02-Chapter2_files/figure-html/unnamed-chunk-11-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">
-Figure 3.1: <strong>CAPTION THIS FIGURE!!</strong>
-</p>
-</div>
 
 </div>
 </div>

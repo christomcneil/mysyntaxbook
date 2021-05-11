@@ -20,7 +20,6 @@ library(clipr) #load
 detach(package:clipr) #unload
 ```
 
-
 ## Import using Janitor
 ```{r}
 # Create a data.frame with dirty names
@@ -32,7 +31,7 @@ test_df <- test_df %>%
   clean_names()
 head(test_df)
 ```
-Reference [here](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html)
+[Reference](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html)
 
 ## Remove dataframe 
 ```{r}
@@ -44,8 +43,7 @@ rm(list=ls()[! ls() %in% c("band_instruments","band_instruments2")]) # Everythin
 rm(list=setdiff(ls(), "band_instruments")) # Everything except "bandinstruments"
 rm(list=ls()) # Remove everything
 ```
-Reference:
-[Stackoverflow](https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r)
+[Reference:Stackoverflow](https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r)
 
 ## Save dataframe  (CSV or Rdata)
 *make date string*
@@ -98,7 +96,5 @@ kable(head((mtcars))) %>% kable_minimal(full_width = F)
 mtcars <- mtcars %>% rename_with(.fn = ~str_replace(., "_", ""))
 kable(head((mtcars))) %>% kable_minimal(full_width = F)
 ```
-```{r}
-plot(cars)
-```
+
 
