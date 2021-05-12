@@ -1,4 +1,3 @@
-
 # RMarkdown
 This chapter contains syntax for the non-code rmarkdown sections.  
 

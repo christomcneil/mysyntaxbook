@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="Chapter 5 Statistical Analysis | Useful R Syntax" />
   
 
-<meta name="author" content="Chris McNeil" />
+<meta name="author" content="Dr Chris McNeil" />
 
 
-<meta name="date" content="2021-05-11" />
+<meta name="date" content="2021-05-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,13 +53,8 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<meta property="og:title" content="psyTeachR Book Template">
-<meta property="og:description" content="Guide for psyTeachR course books.">
-<meta property="og:image" content="https://psyteachr.github.io/images/twitter/psyteachr.png">
-<meta property="og:url" content="https://psyteachr.github.io/book-template/">
-<meta property="twitter:card" content="summary_large_image">
-
-<link rel="shortcut icon" href="https://psyteachr.github.io/images/logo.png">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -127,8 +122,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
-<link rel="stylesheet" href="include/style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -141,6 +135,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#structure-of-collection"><i class="fa fa-check"></i><b>1.1</b> Structure of collection</a></li>
@@ -227,12 +224,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="data-visualisation.html"><a href="data-visualisation.html#graphing"><i class="fa fa-check"></i><b>6.4</b> Graphing</a>
 <ul>
 <li class="chapter" data-level="6.4.1" data-path="data-visualisation.html"><a href="data-visualisation.html#frequency-histogram---basic"><i class="fa fa-check"></i><b>6.4.1</b> Frequency Histogram - basic</a></li>
-<li class="chapter" data-level="6.4.2" data-path="data-visualisation.html"><a href="data-visualisation.html#frequency-histogram-normal-distribution"><i class="fa fa-check"></i><b>6.4.2</b> Frequency Histogram + normal distribution</a></li>
-<li class="chapter" data-level="6.4.3" data-path="data-visualisation.html"><a href="data-visualisation.html#multiple-plot-of-all-distributions"><i class="fa fa-check"></i><b>6.4.3</b> multiple plot of all distributions</a></li>
-<li class="chapter" data-level="6.4.4" data-path="data-visualisation.html"><a href="data-visualisation.html#xy-scatterplot-with-linear-regression-or-polynomial-regression"><i class="fa fa-check"></i><b>6.4.4</b> x*y scatterplot with linear regression or polynomial regression</a></li>
-<li class="chapter" data-level="6.4.5" data-path="data-visualisation.html"><a href="data-visualisation.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.4.5</b> Add formula to plot.</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-visualisation.html"><a href="data-visualisation.html#multiple-plot-of-all-distributions"><i class="fa fa-check"></i><b>6.4.2</b> multiple plot of all distributions</a></li>
+<li class="chapter" data-level="6.4.3" data-path="data-visualisation.html"><a href="data-visualisation.html#xy-scatterplot-with-linear-regression-or-polynomial-regression"><i class="fa fa-check"></i><b>6.4.3</b> x*y scatterplot with linear regression or polynomial regression</a></li>
+<li class="chapter" data-level="6.4.4" data-path="data-visualisation.html"><a href="data-visualisation.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.4.4</b> Add formula to plot.</a></li>
 </ul></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -256,20 +255,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.1</span> Regression</h2>
 <div id="linear-regression-on-groups" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Linear regression on groups</h3>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="statistical-analysis.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
-<span id="cb80-2"><a href="statistical-analysis.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
-<span id="cb80-3"><a href="statistical-analysis.html#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb80-4"><a href="statistical-analysis.html#cb80-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span>
-<span id="cb80-5"><a href="statistical-analysis.html#cb80-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-6"><a href="statistical-analysis.html#cb80-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Run the same linear regression model by group levels? </span></span>
-<span id="cb80-7"><a href="statistical-analysis.html#cb80-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Instead of running #summary(lm(y~x)) for the number of levels </span></span>
-<span id="cb80-8"><a href="statistical-analysis.html#cb80-8" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
-<span id="cb80-9"><a href="statistical-analysis.html#cb80-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-10"><a href="statistical-analysis.html#cb80-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
-<span id="cb80-11"><a href="statistical-analysis.html#cb80-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
-<span id="cb80-12"><a href="statistical-analysis.html#cb80-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
-<span id="cb80-13"><a href="statistical-analysis.html#cb80-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
-<span id="cb80-14"><a href="statistical-analysis.html#cb80-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="statistical-analysis.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
+<span id="cb78-2"><a href="statistical-analysis.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
+<span id="cb78-3"><a href="statistical-analysis.html#cb78-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb78-4"><a href="statistical-analysis.html#cb78-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -320,6 +309,15 @@ sd
 </tr>
 </tbody>
 </table>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="statistical-analysis.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Run the same linear regression model by group levels? </span></span>
+<span id="cb79-2"><a href="statistical-analysis.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Instead of running #summary(lm(y~x)) for the number of levels </span></span>
+<span id="cb79-3"><a href="statistical-analysis.html#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
+<span id="cb79-4"><a href="statistical-analysis.html#cb79-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-5"><a href="statistical-analysis.html#cb79-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
+<span id="cb79-6"><a href="statistical-analysis.html#cb79-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
+<span id="cb79-7"><a href="statistical-analysis.html#cb79-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
+<span id="cb79-8"><a href="statistical-analysis.html#cb79-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
+<span id="cb79-9"><a href="statistical-analysis.html#cb79-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -513,111 +511,6 @@ nobs
 </div>
 </div>
 </div>
-<div class="psyteachr_footer">
-  
-</div>
-<script>
-
-/* update total correct if #total_correct exists */
-update_total_correct = function() {
-  if (t = document.getElementById("total_correct")) {
-    t.innerHTML =
-      document.getElementsByClassName("correct").length + " of " +
-      document.getElementsByClassName("solveme").length + " correct";
-  }
-}
-
-/* solution button toggling function */
-b_func = function() {
-  var cl = this.parentElement.classList;
-  if (cl.contains('open')) {
-    cl.remove("open");
-  } else {
-    cl.add("open");
-  }
-}
-
-/* function for checking solveme answers */
-solveme_func = function(e) {
-  var real_answers = JSON.parse(this.dataset.answer);
-  var my_answer = this.value;
-  var cl = this.classList;
-  if (cl.contains("ignorecase")) {
-    my_answer = my_answer.toLowerCase();
-  }
-  if (cl.contains("nospaces")) {
-    my_answer = my_answer.replace(/ /g, "");
-  }
-  
-  if (my_answer !== "" & real_answers.includes(my_answer)) {
-    cl.add("correct");
-  } else {
-    cl.remove("correct");
-  }
-
-  // match numeric answers within a specified tolerance
-  if(this.dataset.tol>0){
-    var tol = JSON.parse(this.dataset.tol);  
-    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
-    if (matches.reduce((a, b) => a + b, 0) > 0) {
-      cl.add("correct");
-    } else {
-      cl.remove("correct");
-    }  
-  }
-
-  // added regex bit
-  if (cl.contains("regex")){
-    answer_regex = RegExp(real_answers.join("|"))
-    if (answer_regex.test(my_answer)) {
-      cl.add("correct");
-    }  
-  }
-  
-  update_total_correct();
-}
-
-window.onload = function() {
-  /* set up solution buttons */
-  var buttons = document.getElementsByTagName("button");
-
-  for (var i = 0; i < buttons.length; i++) {
-    if (buttons[i].parentElement.classList.contains('solution')) {
-      buttons[i].onclick = b_func;
-    }
-  }
-  
-  /* set up solveme inputs */
-  var solveme = document.getElementsByClassName("solveme");
-
-  for (var i = 0; i < solveme.length; i++) {
-    /* make sure input boxes don't auto-anything */
-    solveme[i].setAttribute("autocomplete","off");
-    solveme[i].setAttribute("autocorrect", "off");
-    solveme[i].setAttribute("autocapitalize", "off"); 
-    solveme[i].setAttribute("spellcheck", "false");
-    solveme[i].value = "";
-    
-    /* adjust answer for ignorecase or nospaces */
-    var cl = solveme[i].classList;
-    var real_answer = solveme[i].dataset.answer;
-    if (cl.contains("ignorecase")) {
-      real_answer = real_answer.toLowerCase();
-    }
-    if (cl.contains("nospaces")) {
-      real_answer = real_answer.replace(/ /g, "");
-    }
-    solveme[i].dataset.answer = real_answer;
-    
-    /* attach checking function */
-    solveme[i].onkeyup = solveme_func;
-    solveme[i].onchange = solveme_func;
-  }
-  
-  update_total_correct();
-}
-
-</script>
             </section>
 
           </div>
@@ -647,8 +540,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
-"google": false
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -656,8 +548,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-Chapter4.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -667,10 +559,9 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": {},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
 "toc": {
-"collapse": "section",
-"scroll_highlight": true
+"collapse": "subsection"
 }
 });
 });

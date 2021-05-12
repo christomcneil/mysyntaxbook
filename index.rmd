@@ -1,15 +1,16 @@
----
+--- 
 title: "Useful R Syntax"
-author: "Chris McNeil"
+author: "Dr Chris McNeil"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+output: bookdown::gitbook
 documentclass: book
-bibliography: [packages.bib]
+bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 description: "Useful R Syntax"
 ---
-------
+
 # Introduction
 
 **This document is a collection of useful code for Rmarkdown and R**  
@@ -46,4 +47,3 @@ description: "Useful R Syntax"
 * 5. Data Visualisation
   + Tables
   + Plots
-  
