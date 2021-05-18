@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Rstudio | Useful R syntax</title>
-  <meta name="description" content="Chapter 3 Rstudio | Useful R syntax" />
+  <title>3 Rstudio | A Book</title>
+  <meta name="description" content="3 Rstudio | A Book" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Rstudio | Useful R syntax" />
+  <meta property="og:title" content="3 Rstudio | A Book" />
   <meta property="og:type" content="book" />
   
   
@@ -16,12 +16,12 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Rstudio | Useful R syntax" />
+  <meta name="twitter:title" content="3 Rstudio | A Book" />
   
   
   
 
-<meta name="author" content="Dr Chris McNeil" />
+<meta name="author" content="Frida Gomam" />
 
 
 
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="rmarkdown.html"/>
-<link rel="next" href="data-wrangling-and-manipulation.html"/>
+
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -134,10 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#structure-of-collection"><i class="fa fa-check"></i><b>1.1</b> Structure of collection</a></li>
-</ul></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Hello World</a></li>
 <li class="chapter" data-level="2" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2</b> RMarkdown</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="rmarkdown.html"><a href="rmarkdown.html#formatting-basics"><i class="fa fa-check"></i><b>2.1</b> Formatting basics</a></li>
@@ -153,78 +150,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="rstudio.html"><a href="rstudio.html#recode-a-text-variable"><i class="fa fa-check"></i><b>3.7</b> Recode a text variable</a></li>
 <li class="chapter" data-level="3.8" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.8</b> Alter variable names:</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling and manipulation</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#bin-variable-e.g.-lowmediumhigh"><i class="fa fa-check"></i><b>4.1</b> Bin variable ( e.g. Low/Medium/High)</a></li>
-<li class="chapter" data-level="4.2" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#conditional-function"><i class="fa fa-check"></i><b>4.2</b> Conditional function</a></li>
-<li class="chapter" data-level="4.3" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#sum-across-rows"><i class="fa fa-check"></i><b>4.3</b> Sum across rows</a></li>
-<li class="chapter" data-level="4.4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#standardise-variable"><i class="fa fa-check"></i><b>4.4</b> Standardise variable</a></li>
-<li class="chapter" data-level="4.5" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#conditional-replacement"><i class="fa fa-check"></i><b>4.5</b> Conditional Replacement</a></li>
-<li class="chapter" data-level="4.6" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#filter-nas-or-retain-complete-cases"><i class="fa fa-check"></i><b>4.6</b> Filter na’s or retain complete cases</a></li>
-<li class="chapter" data-level="4.7" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#delete-specified-columns"><i class="fa fa-check"></i><b>4.7</b> Delete specified columns</a></li>
-<li class="chapter" data-level="4.8" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#find-duplicate-rows"><i class="fa fa-check"></i><b>4.8</b> Find duplicate rows</a></li>
-<li class="chapter" data-level="4.9" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#impute-missing-values"><i class="fa fa-check"></i><b>4.9</b> Impute missing values</a>
-<ul>
-<li class="chapter" data-level="4.9.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#to-be-completedimputing-missing-values-using-the-mean"><i class="fa fa-check"></i><b>4.9.1</b> To be completedImputing missing values using the mean:</a></li>
-</ul></li>
-<li class="chapter" data-level="4.10" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#keep-rows-based-on-a-unique-value."><i class="fa fa-check"></i><b>4.10</b> Keep rows based on a unique value.</a></li>
-<li class="chapter" data-level="4.11" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#delete-rows-on-a-variable-value"><i class="fa fa-check"></i><b>4.11</b> Delete rows on a variable value</a></li>
-<li class="chapter" data-level="4.12" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#use-if-else-to-calculate-on-values"><i class="fa fa-check"></i><b>4.12</b> Use if else to calculate on values</a></li>
-<li class="chapter" data-level="4.13" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-variables"><i class="fa fa-check"></i><b>4.13</b> Merge data frames (variables)</a></li>
-<li class="chapter" data-level="4.14" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-individuals"><i class="fa fa-check"></i><b>4.14</b> Merge data frames (individuals)</a></li>
-<li class="chapter" data-level="4.15" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#create-a-new-factor-from-existing"><i class="fa fa-check"></i><b>4.15</b> Create a new factor from existing</a></li>
-<li class="chapter" data-level="4.16" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#change-data-types"><i class="fa fa-check"></i><b>4.16</b> change data types</a></li>
-<li class="chapter" data-level="4.17" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#calculate-dates-and-photoperiod"><i class="fa fa-check"></i><b>4.17</b> calculate dates and photoperiod</a></li>
-<li class="chapter" data-level="4.18" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#reduce-variables-using-pca"><i class="fa fa-check"></i><b>4.18</b> Reduce variables using PCA</a>
-<ul>
-<li class="chapter" data-level="4.18.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#to-be-completed"><i class="fa fa-check"></i><b>4.18.1</b> To be completed</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>5</b> Statistical Analysis</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression"><i class="fa fa-check"></i><b>5.1</b> Regression</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#linear-regression-on-groups"><i class="fa fa-check"></i><b>5.1.1</b> Linear regression on groups</a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>5.2</b> Logistic Regression</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-1"><i class="fa fa-check"></i><b>5.2.1</b> to be completed</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis-and-visualisation"><i class="fa fa-check"></i><b>5.3</b> Survival Analysis and Visualisation</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-2"><i class="fa fa-check"></i><b>5.3.1</b> To be completed</a></li>
-</ul></li>
-<li class="chapter" data-level="5.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#receiver-operated-curves-roc"><i class="fa fa-check"></i><b>5.4</b> Receiver Operated Curves (ROC)</a>
-<ul>
-<li class="chapter" data-level="5.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-3"><i class="fa fa-check"></i><b>5.4.1</b> To be completed</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>6</b> Data Visualisation</a>
-<ul>
-<li class="chapter" data-level="6.0.1" data-path="data-visualisation.html"><a href="data-visualisation.html#packages-needed"><i class="fa fa-check"></i><b>6.0.1</b> Packages needed</a></li>
-<li class="chapter" data-level="6.0.2" data-path="data-visualisation.html"><a href="data-visualisation.html#summarise-by-group"><i class="fa fa-check"></i><b>6.0.2</b> Summarise by group</a></li>
-<li class="chapter" data-level="6.0.3" data-path="data-visualisation.html"><a href="data-visualisation.html#summary-table---multiple-functions-variables"><i class="fa fa-check"></i><b>6.0.3</b> Summary Table - Multiple functions, variables</a></li>
-<li class="chapter" data-level="6.1" data-path="data-visualisation.html"><a href="data-visualisation.html#specific-package-for-summary-tables"><i class="fa fa-check"></i><b>6.1</b> Specific package for summary tables:</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="data-visualisation.html"><a href="data-visualisation.html#arsenal-package"><i class="fa fa-check"></i><b>6.1.1</b> Arsenal package</a></li>
-<li class="chapter" data-level="6.1.2" data-path="data-visualisation.html"><a href="data-visualisation.html#summary-tools-package"><i class="fa fa-check"></i><b>6.1.2</b> Summary tools package</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="data-visualisation.html"><a href="data-visualisation.html#visual-summary-of-data"><i class="fa fa-check"></i><b>6.2</b> Visual summary of data</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="data-visualisation.html"><a href="data-visualisation.html#data-frame-summary"><i class="fa fa-check"></i><b>6.2.1</b> Data Frame Summary</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="data-visualisation.html"><a href="data-visualisation.html#correlation-matrix"><i class="fa fa-check"></i><b>6.3</b> Correlation matrix</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="data-visualisation.html"><a href="data-visualisation.html#ellipse-style"><i class="fa fa-check"></i><b>6.3.1</b> Ellipse style</a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="data-visualisation.html"><a href="data-visualisation.html#graphing"><i class="fa fa-check"></i><b>6.4</b> Graphing</a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="data-visualisation.html"><a href="data-visualisation.html#frequency-histogram---basic"><i class="fa fa-check"></i><b>6.4.1</b> Frequency Histogram - basic</a></li>
-<li class="chapter" data-level="6.4.2" data-path="data-visualisation.html"><a href="data-visualisation.html#multiple-plot-of-all-distributions"><i class="fa fa-check"></i><b>6.4.2</b> multiple plot of all distributions</a></li>
-<li class="chapter" data-level="6.4.3" data-path="data-visualisation.html"><a href="data-visualisation.html#xy-scatterplot-with-linear-regression-or-polynomial-regression"><i class="fa fa-check"></i><b>6.4.3</b> x*y scatterplot with linear regression or polynomial regression</a></li>
-<li class="chapter" data-level="6.4.4" data-path="data-visualisation.html"><a href="data-visualisation.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.4.4</b> Add formula to plot.</a></li>
-</ul></li>
-</ul></li>
 </ul>
 
       </nav>
@@ -234,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Useful R syntax</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Book</a>
           </h1>
         </div>
 
@@ -243,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="rstudio" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Rstudio</h1>
+<h1><span class="header-section-number">3</span> Rstudio</h1>
 <p>This chapter contains syntax for manipulating data and packages within the<br />
 R studio environment.</p>
 <div id="useful-packages" class="section level2" number="3.1">
@@ -316,34 +241,34 @@ R studio environment.</p>
 <span id="cb21-2"><a href="rstudio.html#cb21-2" aria-hidden="true" tabindex="-1"></a>date</span></code></pre></div>
 <pre><code>## function () 
 ## .Internal(date())
-## &lt;bytecode: 0x00000000151490f0&gt;
+## &lt;bytecode: 0x000000002290f458&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rstudio.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
 <p><em>Write file names</em></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rstudio.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create data directory</span></span>
-<span id="cb24-2"><a href="rstudio.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;data_out&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning in dir.create(&quot;data_out&quot;): &#39;data_out&#39; already exists</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="rstudio.html#cb26-1" aria-hidden="true" tabindex="-1"></a>filenamecsv <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtcsvdata&quot;</span>,datenow,<span class="st">&quot;.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb26-2"><a href="rstudio.html#cb26-2" aria-hidden="true" tabindex="-1"></a>filenamerda <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtrdadata&quot;</span>,datenow,<span class="st">&quot;.rda&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<span id="cb24-2"><a href="rstudio.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;data_out&quot;</span>)</span>
+<span id="cb24-3"><a href="rstudio.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="rstudio.html#cb24-4" aria-hidden="true" tabindex="-1"></a>filenamecsv <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtcsvdata&quot;</span>,datenow,<span class="st">&quot;.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb24-5"><a href="rstudio.html#cb24-5" aria-hidden="true" tabindex="-1"></a>filenamerda <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtrdadata&quot;</span>,datenow,<span class="st">&quot;.rda&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <p><em>Save the files</em></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="rstudio.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(mtcars,<span class="at">file=</span>filenamerda)</span>
-<span id="cb27-2"><a href="rstudio.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mtcars,<span class="at">file=</span>filenamecsv)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rstudio.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(mtcars,<span class="at">file=</span>filenamerda)</span>
+<span id="cb25-2"><a href="rstudio.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mtcars,<span class="at">file=</span>filenamecsv)</span></code></pre></div>
 </div>
 <div id="save-a-diagram-or-plot" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Save a diagram or plot</h2>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="rstudio.html#cb28-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(hp,qsec))<span class="sc">+</span><span class="fu">geom_point</span>()</span>
-<span id="cb28-2"><a href="rstudio.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plot1 #print plot if required</span></span>
-<span id="cb28-3"><a href="rstudio.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;plot.pdf&quot;</span>)</span>
-<span id="cb28-4"><a href="rstudio.html#cb28-4" aria-hidden="true" tabindex="-1"></a>plot1</span>
-<span id="cb28-5"><a href="rstudio.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="rstudio.html#cb26-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(hp,qsec))<span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb26-2"><a href="rstudio.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plot1 #print plot if required</span></span>
+<span id="cb26-3"><a href="rstudio.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;plot.pdf&quot;</span>)</span>
+<span id="cb26-4"><a href="rstudio.html#cb26-4" aria-hidden="true" tabindex="-1"></a>plot1</span>
+<span id="cb26-5"><a href="rstudio.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <pre><code>## png 
 ##   2</code></pre>
 <p>pdf ‘device’ off.</p>
 </div>
 <div id="recode-a-text-variable" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> Recode a text variable</h2>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="rstudio.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_members&quot;</span>)</span>
-<span id="cb30-2"><a href="rstudio.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(band_members)) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="rstudio.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_members&quot;</span>)</span>
+<span id="cb28-2"><a href="rstudio.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(band_members)) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -382,8 +307,8 @@ Beatles
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="rstudio.html#cb31-1" aria-hidden="true" tabindex="-1"></a>band_members <span class="ot">&lt;-</span> band_members <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">name=</span><span class="fu">recode</span>(name, <span class="st">&quot;Mick&quot;</span><span class="ot">=</span> <span class="st">&quot;m&quot;</span>))</span>
-<span id="cb31-2"><a href="rstudio.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((band_members))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="rstudio.html#cb29-1" aria-hidden="true" tabindex="-1"></a>band_members <span class="ot">&lt;-</span> band_members <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">name=</span><span class="fu">recode</span>(name, <span class="st">&quot;Mick&quot;</span><span class="ot">=</span> <span class="st">&quot;m&quot;</span>))</span>
+<span id="cb29-2"><a href="rstudio.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((band_members))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -422,15 +347,15 @@ Beatles
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rstudio.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="rstudio.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
 <p>Reference: <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">Kable Extra</a></p>
 </div>
 <div id="alter-variable-names" class="section level2" number="3.8">
 <h2><span class="header-section-number">3.8</span> Alter variable names:</h2>
 <p><em>Remove underscores</em></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="rstudio.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
-<span id="cb33-2"><a href="rstudio.html#cb33-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">hp_new=</span>hp)</span>
-<span id="cb33-3"><a href="rstudio.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="rstudio.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb31-2"><a href="rstudio.html#cb31-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">hp_new=</span>hp)</span>
+<span id="cb31-3"><a href="rstudio.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -702,8 +627,8 @@ Valiant
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="rstudio.html#cb34-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>(<span class="at">.fn =</span> <span class="sc">~</span><span class="fu">str_replace</span>(., <span class="st">&quot;_&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
-<span id="cb34-2"><a href="rstudio.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rstudio.html#cb32-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>(<span class="at">.fn =</span> <span class="sc">~</span><span class="fu">str_replace</span>(., <span class="st">&quot;_&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb32-2"><a href="rstudio.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -983,8 +908,8 @@ Valiant
           </div>
         </div>
       </div>
-<a href="rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-wrangling-and-manipulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rmarkdown.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

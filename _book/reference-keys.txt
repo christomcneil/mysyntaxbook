@@ -1,0 +1,12 @@
+hello-world
+rmarkdown
+formatting-basics
+rstudio
+useful-packages
+remove-a-package
+import-using-janitor
+remove-dataframe
+save-dataframe-csv-or-rdata
+save-a-diagram-or-plot
+recode-a-text-variable
+alter-variable-names

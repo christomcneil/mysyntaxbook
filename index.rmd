@@ -1,14 +1,11 @@
---- 
-title: "Useful R Syntax"
+---
+title: "Useful R syntax"
 author: "Dr Chris McNeil"
-date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
-link-citations: yes
-description: "Useful R Syntax"
+output:
+  bookdown::gitbook: default
+#  bookdown::pdf_book: default
 ---
 
 # Introduction
