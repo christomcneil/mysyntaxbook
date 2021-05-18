@@ -82,7 +82,8 @@ mtcarsmissingvalues <- mtcars %>% mutate(gear=ifelse(gear==5,"missing",gear))
 ```{r}
 # specify which variable to check for duplication
 n_occur1 <- data.frame(table(mtcars$mpg)) 
-kable(n_occur1[n_occur1$Freq > 1,]) %>% kable_styling(full_width = F) %>% kable_minimal()
+kable(n_occur1[n_occur1$Freq > 1,]) %>% kable_styling(full_width = F) %>%
+  kable_minimal()
 ```
 
 ## Impute missing values
@@ -128,7 +129,7 @@ mtcars <- mtcars %>% mutate(vs=ifelse(is.na(vs),(carb-am)/365.25,vs))
 
 *inner_join(x, y): returns all rows from x where there are matching values in y,   and all columns from x and y. If there are multiple matches between x and y, all combinations of the matches are returned.
 
-*full_join(x, y): returns all rows and all columns from both x and y. Where there are not matching values, the function returns NA for the one missing
+*full_join(x, y): returns all rows and all columns from both x and y.  Where there are not matching values, the function returns NA for the one missing
 
 * inner: only rows with matching keys in both x and y
 * left: all rows in x, adding matching columns from y
@@ -152,7 +153,8 @@ kable(glimpse(mtcars_extradata%>% slice(1:6))) %>%
 
 mtcars <- left_join(mtcars,mtcars_extradata,by = 'carnames')
 
-kable(glimpse(mtcars %>%select(carb:valves) %>%  slice(1:6))) %>% kable_styling(full_width = F) %>%
+kable(glimpse(mtcars %>%select(carb:valves) %>%  slice(1:6))) %>%
+  kable_styling(full_width = F) %>%
   kable_minimal()
 
 ```

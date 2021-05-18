@@ -57,7 +57,8 @@ summary(tab1, text=TRUE, digits=2, digits.p=2, digits.pct=1)
 ```{r}
 descr(mtcars, stats = c("mean", "sd"), transpose = TRUE, headings = FALSE)
 
-kable(descr(mtcars, stats = c("mean", "sd", "n.valid"), transpose = TRUE, headings = FALSE),digits = 3) %>% kable_styling(full_width = FALSE)%>% kable_minimal()
+kable(descr(mtcars, stats = c("mean", "sd", "n.valid"), transpose = TRUE, headings = FALSE),digits = 3) %>% 
+  kable_styling(full_width = FALSE)%>% kable_minimal()
 ```
 
 ## Visual summary of data
@@ -103,13 +104,16 @@ plot1
 plot1 <- mtcars %>% ggplot(aes(qsec))
 plot1+geom_histogram()
 # add normal plot
-plot1 + geom_histogram(aes( y=..density..))+stat_function(fun = dnorm, args = list(mean =mean(mtcars$qsec), sd=sd(mtcars$qsec))) + theme_bw()
+plot1 + geom_histogram(aes( y=..density..))+
+  stat_function(fun = dnorm, args = list(mean =mean(mtcars$qsec), sd=sd(mtcars$qsec))) + 
+  theme_bw()
 # ..density.. changes y axis to density, not count. stat function defines normal line based on data provided.
 ```
 ### multiple plot of all distributions
 
 ```{r}
-mtcars %>% keep(is.numeric) %>% gather() %>% ggplot(aes(value)) + facet_wrap(~ key, scales = "free") + geom_histogram()
+mtcars %>% keep(is.numeric) %>% gather() %>% ggplot(aes(value)) +
+  facet_wrap(~ key, scales = "free") + geom_histogram()
 ```
 
 ### x*y scatterplot with linear regression or polynomial regression
@@ -126,10 +130,14 @@ grid.arrange(plot2a,plot2b,plot2c,plot2d,nrow=2,ncol=2)
 ### Add formula to plot.
 ```{r}
 my.formula <- y ~ x
-a <- plot2 +geom_point()+geom_smooth(method='lm',formula=my.formula)+stat_poly_eq(formula = my.formula, aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), parse = TRUE) + theme_bw()
+a <- plot2 +geom_point()+geom_smooth(method='lm',formula=my.formula)+
+  stat_poly_eq(formula = my.formula, aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), parse = TRUE) +
+  theme_bw()
 
 my.formula2 <- y ~ poly(x, 2)
-b <- plot2 +geom_point()+geom_smooth(method='lm',formula=my.formula2)+stat_poly_eq(formula = my.formula2, aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), parse = TRUE) + theme_bw()
+b <- plot2 +geom_point()+geom_smooth(method='lm',formula=my.formula2)+
+  stat_poly_eq(formula = my.formula2, aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), parse = TRUE) +
+  theme_bw()
 
 grid.arrange(a,b,nrow=1)
 ```

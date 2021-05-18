@@ -39,7 +39,8 @@ data("mtcars")
 data("band_instruments")
 data("band_instruments2") # Load example datasets
 
-rm(list=ls()[! ls() %in% c("band_instruments","band_instruments2")]) # Everything except Band instruments
+rm(list=ls()[! ls() %in% c("band_instruments","band_instruments2")]) 
+# Everything except Band instruments
 rm(list=setdiff(ls(), "band_instruments")) # Everything except "bandinstruments"
 rm(list=ls()) # Remove everything
 ```
