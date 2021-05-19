@@ -307,9 +307,10 @@ R studio environment.</p>
 <span id="cb28-2"><a href="rstudio.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_instruments&quot;</span>)</span>
 <span id="cb28-3"><a href="rstudio.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_instruments2&quot;</span>) <span class="co"># Load example datasets</span></span>
 <span id="cb28-4"><a href="rstudio.html#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="rstudio.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()[<span class="sc">!</span> <span class="fu">ls</span>() <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;band_instruments&quot;</span>,<span class="st">&quot;band_instruments2&quot;</span>)]) <span class="co"># Everything except Band instruments</span></span>
-<span id="cb28-6"><a href="rstudio.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;band_instruments&quot;</span>)) <span class="co"># Everything except &quot;bandinstruments&quot;</span></span>
-<span id="cb28-7"><a href="rstudio.html#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
+<span id="cb28-5"><a href="rstudio.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()[<span class="sc">!</span> <span class="fu">ls</span>() <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;band_instruments&quot;</span>,<span class="st">&quot;band_instruments2&quot;</span>)]) </span>
+<span id="cb28-6"><a href="rstudio.html#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Everything except Band instruments</span></span>
+<span id="cb28-7"><a href="rstudio.html#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;band_instruments&quot;</span>)) <span class="co"># Everything except &quot;bandinstruments&quot;</span></span>
+<span id="cb28-8"><a href="rstudio.html#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
 <p><a href="https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r">Reference:Stackoverflow</a></p>
 </div>
 <div id="save-dataframe-csv-or-rdata" class="section level2" number="3.5">
@@ -319,7 +320,7 @@ R studio environment.</p>
 <span id="cb29-2"><a href="rstudio.html#cb29-2" aria-hidden="true" tabindex="-1"></a>date</span></code></pre></div>
 <pre><code>## function () 
 ## .Internal(date())
-## &lt;bytecode: 0x00000000209b03b0&gt;
+## &lt;bytecode: 0x00000000209d8f90&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="rstudio.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
 <p><em>Write file names</em></p>
