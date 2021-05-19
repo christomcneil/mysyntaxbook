@@ -35,7 +35,11 @@ kable(mtcars%>% group_by(gear) %>%
 [Reference](https://stackoverflow.com/questions/22713325/fitting-several-regression-models-with-dplyr)
 
 ## Logistic Regression
-### to be completed
+### Create the LR model
+```{r}
+
+```
+
 
 
 ## Survival Analysis and Visualisation

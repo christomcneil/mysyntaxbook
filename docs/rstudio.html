@@ -148,7 +148,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5" data-path="rstudio.html"><a href="rstudio.html#save-dataframe-csv-or-rdata"><i class="fa fa-check"></i><b>3.5</b> Save dataframe (CSV or Rdata)</a></li>
 <li class="chapter" data-level="3.6" data-path="rstudio.html"><a href="rstudio.html#save-a-diagram-or-plot"><i class="fa fa-check"></i><b>3.6</b> Save a diagram or plot</a></li>
 <li class="chapter" data-level="3.7" data-path="rstudio.html"><a href="rstudio.html#recode-a-text-variable"><i class="fa fa-check"></i><b>3.7</b> Recode a text variable</a></li>
-<li class="chapter" data-level="3.8" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.8</b> Alter variable names:</a></li>
+<li class="chapter" data-level="3.8" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.8</b> Alter variable names:</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="rstudio.html"><a href="rstudio.html#list-datasets-available"><i class="fa fa-check"></i><b>3.8.1</b> list datasets available</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling and manipulation</a>
 <ul>
@@ -185,15 +188,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>5.2</b> Logistic Regression</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-1"><i class="fa fa-check"></i><b>5.2.1</b> to be completed</a></li>
+<li class="chapter" data-level="5.2.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#create-the-lr-model"><i class="fa fa-check"></i><b>5.2.1</b> Create the LR model</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis-and-visualisation"><i class="fa fa-check"></i><b>5.3</b> Survival Analysis and Visualisation</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-2"><i class="fa fa-check"></i><b>5.3.1</b> To be completed</a></li>
+<li class="chapter" data-level="5.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-1"><i class="fa fa-check"></i><b>5.3.1</b> To be completed</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#receiver-operated-curves-roc"><i class="fa fa-check"></i><b>5.4</b> Receiver Operated Curves (ROC)</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-3"><i class="fa fa-check"></i><b>5.4.1</b> To be completed</a></li>
+<li class="chapter" data-level="5.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-2"><i class="fa fa-check"></i><b>5.4.1</b> To be completed</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>6</b> Data Visualisation</a>
@@ -220,6 +223,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.2" data-path="data-visualisation.html"><a href="data-visualisation.html#multiple-plot-of-all-distributions"><i class="fa fa-check"></i><b>6.4.2</b> multiple plot of all distributions</a></li>
 <li class="chapter" data-level="6.4.3" data-path="data-visualisation.html"><a href="data-visualisation.html#xy-scatterplot-with-linear-regression-or-polynomial-regression"><i class="fa fa-check"></i><b>6.4.3</b> x*y scatterplot with linear regression or polynomial regression</a></li>
 <li class="chapter" data-level="6.4.4" data-path="data-visualisation.html"><a href="data-visualisation.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.4.4</b> Add formula to plot.</a></li>
+<li class="chapter" data-level="6.4.5" data-path="data-visualisation.html"><a href="data-visualisation.html#raincloud-plots-ggplot"><i class="fa fa-check"></i><b>6.4.5</b> Raincloud plots (ggplot)</a></li>
+<li class="chapter" data-level="6.4.6" data-path="data-visualisation.html"><a href="data-visualisation.html#raincloud-plot-diamonds"><i class="fa fa-check"></i><b>6.4.6</b> raincloud plot (diamonds)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -320,7 +325,7 @@ R studio environment.</p>
 <span id="cb29-2"><a href="rstudio.html#cb29-2" aria-hidden="true" tabindex="-1"></a>date</span></code></pre></div>
 <pre><code>## function () 
 ## .Internal(date())
-## &lt;bytecode: 0x00000000209d8f90&gt;
+## &lt;bytecode: 0x000000001233c7c0&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="rstudio.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
 <p><em>Write file names</em></p>
@@ -979,7 +984,12 @@ Valiant
 </tr>
 </tbody>
 </table>
+<div id="list-datasets-available" class="section level3" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> list datasets available</h3>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="rstudio.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#data() # list all available datasets</span></span>
+<span id="cb43-2"><a href="rstudio.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;diamonds&quot;</span>)</span></code></pre></div>
 
+</div>
 </div>
 </div>
             </section>

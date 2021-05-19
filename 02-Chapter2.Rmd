@@ -98,4 +98,8 @@ mtcars <- mtcars %>% rename_with(.fn = ~str_replace(., "_", ""))
 kable(head((mtcars))) %>% kable_minimal(full_width = F)
 ```
 
-
+### list datasets available
+```{r}
+#data() # list all available datasets
+data("diamonds")
+```

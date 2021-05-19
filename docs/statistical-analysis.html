@@ -148,7 +148,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5" data-path="rstudio.html"><a href="rstudio.html#save-dataframe-csv-or-rdata"><i class="fa fa-check"></i><b>3.5</b> Save dataframe (CSV or Rdata)</a></li>
 <li class="chapter" data-level="3.6" data-path="rstudio.html"><a href="rstudio.html#save-a-diagram-or-plot"><i class="fa fa-check"></i><b>3.6</b> Save a diagram or plot</a></li>
 <li class="chapter" data-level="3.7" data-path="rstudio.html"><a href="rstudio.html#recode-a-text-variable"><i class="fa fa-check"></i><b>3.7</b> Recode a text variable</a></li>
-<li class="chapter" data-level="3.8" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.8</b> Alter variable names:</a></li>
+<li class="chapter" data-level="3.8" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.8</b> Alter variable names:</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="rstudio.html"><a href="rstudio.html#list-datasets-available"><i class="fa fa-check"></i><b>3.8.1</b> list datasets available</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling and manipulation</a>
 <ul>
@@ -185,15 +188,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>5.2</b> Logistic Regression</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-1"><i class="fa fa-check"></i><b>5.2.1</b> to be completed</a></li>
+<li class="chapter" data-level="5.2.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#create-the-lr-model"><i class="fa fa-check"></i><b>5.2.1</b> Create the LR model</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis-and-visualisation"><i class="fa fa-check"></i><b>5.3</b> Survival Analysis and Visualisation</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-2"><i class="fa fa-check"></i><b>5.3.1</b> To be completed</a></li>
+<li class="chapter" data-level="5.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-1"><i class="fa fa-check"></i><b>5.3.1</b> To be completed</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#receiver-operated-curves-roc"><i class="fa fa-check"></i><b>5.4</b> Receiver Operated Curves (ROC)</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-3"><i class="fa fa-check"></i><b>5.4.1</b> To be completed</a></li>
+<li class="chapter" data-level="5.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-2"><i class="fa fa-check"></i><b>5.4.1</b> To be completed</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>6</b> Data Visualisation</a>
@@ -220,6 +223,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.2" data-path="data-visualisation.html"><a href="data-visualisation.html#multiple-plot-of-all-distributions"><i class="fa fa-check"></i><b>6.4.2</b> multiple plot of all distributions</a></li>
 <li class="chapter" data-level="6.4.3" data-path="data-visualisation.html"><a href="data-visualisation.html#xy-scatterplot-with-linear-regression-or-polynomial-regression"><i class="fa fa-check"></i><b>6.4.3</b> x*y scatterplot with linear regression or polynomial regression</a></li>
 <li class="chapter" data-level="6.4.4" data-path="data-visualisation.html"><a href="data-visualisation.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.4.4</b> Add formula to plot.</a></li>
+<li class="chapter" data-level="6.4.5" data-path="data-visualisation.html"><a href="data-visualisation.html#raincloud-plots-ggplot"><i class="fa fa-check"></i><b>6.4.5</b> Raincloud plots (ggplot)</a></li>
+<li class="chapter" data-level="6.4.6" data-path="data-visualisation.html"><a href="data-visualisation.html#raincloud-plot-diamonds"><i class="fa fa-check"></i><b>6.4.6</b> raincloud plot (diamonds)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -245,10 +250,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.1</span> Regression</h2>
 <div id="linear-regression-on-groups" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Linear regression on groups</h3>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="statistical-analysis.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
-<span id="cb78-2"><a href="statistical-analysis.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
-<span id="cb78-3"><a href="statistical-analysis.html#cb78-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb78-4"><a href="statistical-analysis.html#cb78-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="statistical-analysis.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
+<span id="cb79-2"><a href="statistical-analysis.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
+<span id="cb79-3"><a href="statistical-analysis.html#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb79-4"><a href="statistical-analysis.html#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -299,15 +304,15 @@ sd
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="statistical-analysis.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Run the same linear regression model by group levels? </span></span>
-<span id="cb79-2"><a href="statistical-analysis.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Instead of running #summary(lm(y~x)) for the number of levels </span></span>
-<span id="cb79-3"><a href="statistical-analysis.html#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
-<span id="cb79-4"><a href="statistical-analysis.html#cb79-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb79-5"><a href="statistical-analysis.html#cb79-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
-<span id="cb79-6"><a href="statistical-analysis.html#cb79-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
-<span id="cb79-7"><a href="statistical-analysis.html#cb79-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
-<span id="cb79-8"><a href="statistical-analysis.html#cb79-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
-<span id="cb79-9"><a href="statistical-analysis.html#cb79-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="statistical-analysis.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Run the same linear regression model by group levels? </span></span>
+<span id="cb80-2"><a href="statistical-analysis.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Instead of running #summary(lm(y~x)) for the number of levels </span></span>
+<span id="cb80-3"><a href="statistical-analysis.html#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
+<span id="cb80-4"><a href="statistical-analysis.html#cb80-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-5"><a href="statistical-analysis.html#cb80-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
+<span id="cb80-6"><a href="statistical-analysis.html#cb80-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
+<span id="cb80-7"><a href="statistical-analysis.html#cb80-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
+<span id="cb80-8"><a href="statistical-analysis.html#cb80-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
+<span id="cb80-9"><a href="statistical-analysis.html#cb80-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -483,19 +488,19 @@ nobs
 </div>
 <div id="logistic-regression" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Logistic Regression</h2>
-<div id="to-be-completed-1" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> to be completed</h3>
+<div id="create-the-lr-model" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Create the LR model</h3>
 </div>
 </div>
 <div id="survival-analysis-and-visualisation" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Survival Analysis and Visualisation</h2>
-<div id="to-be-completed-2" class="section level3" number="5.3.1">
+<div id="to-be-completed-1" class="section level3" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> To be completed</h3>
 </div>
 </div>
 <div id="receiver-operated-curves-roc" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Receiver Operated Curves (ROC)</h2>
-<div id="to-be-completed-3" class="section level3" number="5.4.1">
+<div id="to-be-completed-2" class="section level3" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> To be completed</h3>
 
 </div>
