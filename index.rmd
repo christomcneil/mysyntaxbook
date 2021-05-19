@@ -1,12 +1,12 @@
----
-title: "Useful R syntax"
-author: "Dr Chris McNeil"
-site: bookdown::bookdown_site
-documentclass: book
-output:
-  bookdown::gitbook: default
-  bookdown::pdf_book: default
----
+#---
+#title: "Useful R syntax"
+#author: "Dr Chris McNeil"
+#site: bookdown::bookdown_site
+#documentclass: book
+#output:
+#  bookdown::gitbook: default
+#  bookdown::pdf_book: default
+#---
 
 # Introduction
 

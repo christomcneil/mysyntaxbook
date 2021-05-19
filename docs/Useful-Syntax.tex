@@ -1,0 +1,1785 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\#---
+\#title: ``Useful R syntax''
+\#author: ``Dr Chris McNeil''
+\#site: bookdown::bookdown\_site
+\#documentclass: book
+\#output:
+\# bookdown::gitbook: default
+\# bookdown::pdf\_book: default
+\#---
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\textbf{This document is a collection of useful code for Rmarkdown and R}
+
+\textbf{I have used the mtcars dataset if possible}
+
+\textbf{I have used the Tidyverse and the pipe ( \%\textgreater\% ) if possible}
+
+\textbf{I recommend that the code is checked for warnings that is is not depreciated}
+
+\begin{figure}
+\centering
+\includegraphics{figures/guide.jpg}
+\caption{Don't Panic}
+\end{figure}
+
+\hypertarget{structure-of-collection}{%
+\subsection{Structure of collection}\label{structure-of-collection}}
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Rmarkdown
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    formatting basics
+  \end{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Rstudio
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    load/unload packages
+  \item
+    print figures to files
+  \item
+    Libraries/packages
+  \item
+    essential/useful packaged
+  \end{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Data wrangling
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    load dataset
+  \item
+    clean environment
+  \item
+    check for duplicates
+  \item
+    Merging datasheets
+  \item
+    Merging datasets
+  \item
+    Reshaping
+  \item
+    recode factors
+  \item
+    dealing with missing data
+  \item
+    Data reduction with PCA
+  \item
+    Data standardisation
+  \end{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Statistical analysis
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{4}
+  \tightlist
+  \item
+    Data Visualisation
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Tables
+  \item
+    Plots
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{rmarkdown}{%
+\section{RMarkdown}\label{rmarkdown}}
+
+This chapter contains syntax for the non-code rmarkdown sections.
+
+\hypertarget{formatting-basics}{%
+\subsection{Formatting basics}\label{formatting-basics}}
+
+\begin{verbatim}
+*** on it own, for a horizontal line
+**text** for bold
+*text* for italics
+1. Item 1
+2. Item 2
+3. Item 3
+    + Item 3a
+    + Item 3b for ordered lists
+    
+[linked phrase](http://example.com) for links
+ ![alt text](figures/img.png) for images
+
+### R chunk basics 
+message=FALSE, warning=FALSE, include=FALSE, ECHO=FALSE (show output), 
+
+To set document default knitr::opts_chunk$set(echo=FALSE) 
+\end{verbatim}
+
+\hypertarget{rstudio}{%
+\section{Rstudio}\label{rstudio}}
+
+This chapter contains syntax for manipulating data and packages within the\\
+R studio environment.
+
+\hypertarget{useful-packages}{%
+\subsection{Useful packages}\label{useful-packages}}
+
+Load all libraries
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse) }\CommentTok{\# data handling and viz}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyverse' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+\end{verbatim}
+
+\begin{verbatim}
+## v ggplot2 3.3.3     v purrr   0.3.4
+## v tibble  3.1.0     v dplyr   1.0.5
+## v tidyr   1.1.3     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(janitor) }\CommentTok{\#dataframe import cleaning}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'janitor' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'janitor'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     chisq.test, fisher.test
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(knitr) }\CommentTok{\#nice html tables}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'knitr' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(kableExtra) }\CommentTok{\# nicer knitr tables}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'kableExtra' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'kableExtra'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     group_rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(broom)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'broom' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr) }\CommentTok{\# load csv stored data}
+\FunctionTok{library}\NormalTok{(geosphere) }\CommentTok{\# for calc daylength}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'geosphere' was built under R version 4.0.5
+\end{verbatim}
+
+\hypertarget{remove-a-package}{%
+\subsection{Remove a package}\label{remove-a-package}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Unload a module: }
+\FunctionTok{library}\NormalTok{(clipr) }\CommentTok{\#load}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Welcome to clipr. See ?write_clip for advisories on writing to the clipboard in R.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{detach}\NormalTok{(package}\SpecialCharTok{:}\NormalTok{clipr) }\CommentTok{\#unload}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{import-using-janitor}{%
+\subsection{Import using Janitor}\label{import-using-janitor}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a data.frame with dirty names}
+\NormalTok{test\_df }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{matrix}\NormalTok{(}\AttributeTok{ncol =} \DecValTok{6}\NormalTok{))}
+\FunctionTok{names}\NormalTok{(test\_df) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"firstName"}\NormalTok{, }\StringTok{"ábc@!*"}\NormalTok{, }\StringTok{"\% successful (2009)"}\NormalTok{,}
+                    \StringTok{"REPEAT VALUE"}\NormalTok{, }\StringTok{"REPEAT VALUE"}\NormalTok{, }\StringTok{""}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(test\_df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   firstName ábc@!* % successful (2009) REPEAT VALUE REPEAT VALUE   
+## 1        NA     NA                  NA           NA           NA NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test\_df }\OtherTok{\textless{}{-}}\NormalTok{ test\_df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{clean\_names}\NormalTok{()}
+\FunctionTok{head}\NormalTok{(test\_df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   first_name abc percent_successful_2009 repeat_value repeat_value_2  x
+## 1         NA  NA                      NA           NA             NA NA
+\end{verbatim}
+
+\href{https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html}{Reference}
+
+\hypertarget{remove-dataframe}{%
+\subsection{Remove dataframe}\label{remove-dataframe}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(}\StringTok{"mtcars"}\NormalTok{)}
+\FunctionTok{data}\NormalTok{(}\StringTok{"band\_instruments"}\NormalTok{)}
+\FunctionTok{data}\NormalTok{(}\StringTok{"band\_instruments2"}\NormalTok{) }\CommentTok{\# Load example datasets}
+
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list=}\FunctionTok{ls}\NormalTok{()[}\SpecialCharTok{!} \FunctionTok{ls}\NormalTok{() }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"band\_instruments"}\NormalTok{,}\StringTok{"band\_instruments2"}\NormalTok{)]) }
+\CommentTok{\# Everything except Band instruments}
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list=}\FunctionTok{setdiff}\NormalTok{(}\FunctionTok{ls}\NormalTok{(), }\StringTok{"band\_instruments"}\NormalTok{)) }\CommentTok{\# Everything except "bandinstruments"}
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list=}\FunctionTok{ls}\NormalTok{()) }\CommentTok{\# Remove everything}
+\end{Highlighting}
+\end{Shaded}
+
+\href{https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r}{Reference:Stackoverflow}
+
+\hypertarget{save-dataframe-csv-or-rdata}{%
+\subsection{Save dataframe (CSV or Rdata)}\label{save-dataframe-csv-or-rdata}}
+
+\emph{make date string}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datenow }\OtherTok{\textless{}{-}} \FunctionTok{format}\NormalTok{(}\FunctionTok{Sys.time}\NormalTok{(), }\StringTok{"\_\%Y\_\%m\_\%d"}\NormalTok{)}
+\NormalTok{date}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function () 
+## .Internal(date())
+## <bytecode: 0x0000000023770db8>
+## <environment: namespace:base>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(mtcars)}
+\end{Highlighting}
+\end{Shaded}
+
+\emph{Write file names}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#create data directory}
+\FunctionTok{dir.create}\NormalTok{(}\StringTok{"data\_out"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in dir.create("data_out"): 'data_out' already exists
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{filenamecsv }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"data\_out/mtcsvdata"}\NormalTok{,datenow,}\StringTok{".csv"}\NormalTok{,}\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{filenamerda }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"data\_out/mtrdadata"}\NormalTok{,datenow,}\StringTok{".rda"}\NormalTok{,}\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\emph{Save the files}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{save}\NormalTok{(mtcars,}\AttributeTok{file=}\NormalTok{filenamerda)}
+\FunctionTok{write.csv}\NormalTok{(mtcars,}\AttributeTok{file=}\NormalTok{filenamecsv)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{save-a-diagram-or-plot}{%
+\subsection{Save a diagram or plot}\label{save-a-diagram-or-plot}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot1 }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(hp,qsec))}\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}
+\CommentTok{\#plot1 \#print plot if required}
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"plot.pdf"}\NormalTok{)}
+\NormalTok{plot1}
+\FunctionTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+pdf `device' off.
+
+\hypertarget{recode-a-text-variable}{%
+\subsection{Recode a text variable}\label{recode-a-text-variable}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(}\StringTok{"band\_members"}\NormalTok{)}
+\FunctionTok{kable}\NormalTok{(}\FunctionTok{head}\NormalTok{(band\_members)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_minimal}\NormalTok{(}\AttributeTok{full\_width =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{l|l}
+\hline
+name & band\\
+\hline
+Mick & Stones\\
+\hline
+John & Beatles\\
+\hline
+Paul & Beatles\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{band\_members }\OtherTok{\textless{}{-}}\NormalTok{ band\_members }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{name=}\FunctionTok{recode}\NormalTok{(name, }\StringTok{"Mick"}\OtherTok{=} \StringTok{"m"}\NormalTok{))}
+\FunctionTok{kable}\NormalTok{(}\FunctionTok{head}\NormalTok{((band\_members))) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_minimal}\NormalTok{(}\AttributeTok{full\_width =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{l|l}
+\hline
+name & band\\
+\hline
+m & Stones\\
+\hline
+John & Beatles\\
+\hline
+Paul & Beatles\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list=}\FunctionTok{ls}\NormalTok{()) }\CommentTok{\# Remove everything}
+\end{Highlighting}
+\end{Shaded}
+
+Reference: \href{https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html}{Kable Extra}
+
+\hypertarget{alter-variable-names}{%
+\subsection{Alter variable names:}\label{alter-variable-names}}
+
+\emph{Remove underscores}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(}\StringTok{"mtcars"}\NormalTok{)}
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rename}\NormalTok{(}\AttributeTok{hp\_new=}\NormalTok{hp)}
+\FunctionTok{kable}\NormalTok{(}\FunctionTok{head}\NormalTok{((mtcars))) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_minimal}\NormalTok{(}\AttributeTok{full\_width =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{l|r|r|r|r|r|r|r|r|r|r|r}
+\hline
+  & mpg & cyl & disp & hp\_new & drat & wt & qsec & vs & am & gear & carb\\
+\hline
+Mazda RX4 & 21.0 & 6 & 160 & 110 & 3.90 & 2.620 & 16.46 & 0 & 1 & 4 & 4\\
+\hline
+Mazda RX4 Wag & 21.0 & 6 & 160 & 110 & 3.90 & 2.875 & 17.02 & 0 & 1 & 4 & 4\\
+\hline
+Datsun 710 & 22.8 & 4 & 108 & 93 & 3.85 & 2.320 & 18.61 & 1 & 1 & 4 & 1\\
+\hline
+Hornet 4 Drive & 21.4 & 6 & 258 & 110 & 3.08 & 3.215 & 19.44 & 1 & 0 & 3 & 1\\
+\hline
+Hornet Sportabout & 18.7 & 8 & 360 & 175 & 3.15 & 3.440 & 17.02 & 0 & 0 & 3 & 2\\
+\hline
+Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rename\_with}\NormalTok{(}\AttributeTok{.fn =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{str\_replace}\NormalTok{(., }\StringTok{"\_"}\NormalTok{, }\StringTok{""}\NormalTok{))}
+\FunctionTok{kable}\NormalTok{(}\FunctionTok{head}\NormalTok{((mtcars))) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_minimal}\NormalTok{(}\AttributeTok{full\_width =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{l|r|r|r|r|r|r|r|r|r|r|r}
+\hline
+  & mpg & cyl & disp & hpnew & drat & wt & qsec & vs & am & gear & carb\\
+\hline
+Mazda RX4 & 21.0 & 6 & 160 & 110 & 3.90 & 2.620 & 16.46 & 0 & 1 & 4 & 4\\
+\hline
+Mazda RX4 Wag & 21.0 & 6 & 160 & 110 & 3.90 & 2.875 & 17.02 & 0 & 1 & 4 & 4\\
+\hline
+Datsun 710 & 22.8 & 4 & 108 & 93 & 3.85 & 2.320 & 18.61 & 1 & 1 & 4 & 1\\
+\hline
+Hornet 4 Drive & 21.4 & 6 & 258 & 110 & 3.08 & 3.215 & 19.44 & 1 & 0 & 3 & 1\\
+\hline
+Hornet Sportabout & 18.7 & 8 & 360 & 175 & 3.15 & 3.440 & 17.02 & 0 & 0 & 3 & 2\\
+\hline
+Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{list-datasets-available}{%
+\subsubsection{list datasets available}\label{list-datasets-available}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#data() \# list all available datasets}
+\FunctionTok{data}\NormalTok{(}\StringTok{"diamonds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{data-wrangling-and-manipulation}{%
+\section{Data Wrangling and manipulation}\label{data-wrangling-and-manipulation}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(Hmisc) }\CommentTok{\#impute values}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'Hmisc' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: survival
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: Formula
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'Hmisc'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:dplyr':
+## 
+##     src, summarize
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     format.pval, units
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(naniar) }\CommentTok{\# deal with NAs}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'naniar' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(geosphere)}
+\FunctionTok{library}\NormalTok{(tidyverse) }\CommentTok{\# data handling and viz}
+\FunctionTok{library}\NormalTok{(janitor) }\CommentTok{\#dataframe import cleaning}
+\FunctionTok{library}\NormalTok{(knitr) }\CommentTok{\#nice html tables}
+\FunctionTok{library}\NormalTok{(kableExtra) }\CommentTok{\# nicer knitr tables}
+\FunctionTok{library}\NormalTok{(broom)}
+\FunctionTok{library}\NormalTok{(readr) }\CommentTok{\# load csv stored data}
+\FunctionTok{library}\NormalTok{(geosphere) }\CommentTok{\# for calc daylength}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{bin-variable-e.g.-lowmediumhigh}{%
+\subsection{Bin variable ( e.g.~Low/Medium/High)}\label{bin-variable-e.g.-lowmediumhigh}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(mtcars)}
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{hp\_cat=}\FunctionTok{cut}\NormalTok{(hp, }\AttributeTok{breaks=}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\ConstantTok{Inf}\NormalTok{, }\DecValTok{100}\NormalTok{, }\ConstantTok{Inf}\NormalTok{), }
+                                       \AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"low hp"}\NormalTok{,}\StringTok{"high hp"}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{conditional-function}{%
+\subsection{Conditional function}\label{conditional-function}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{loghp=}\FunctionTok{ifelse}\NormalTok{(cyl}\SpecialCharTok{\textgreater{}}\DecValTok{4}\NormalTok{,}\FunctionTok{log10}\NormalTok{(hp),}\ConstantTok{NA}\NormalTok{)) }
+\CommentTok{\# Nonsensical example, but log transformed all horse powers of cars with more}
+\CommentTok{\# than four cylinders}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sum-across-rows}{%
+\subsection{Sum across rows}\label{sum-across-rows}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%}  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{sum =} \FunctionTok{select}\NormalTok{(., disp}\SpecialCharTok{:}\NormalTok{drat) }\SpecialCharTok{\%\textgreater{}\%} 
+\FunctionTok{apply}\NormalTok{(}\DecValTok{1}\NormalTok{, sum, }\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{))}
+\CommentTok{\#apply() takes Data frame or matrix as an input and gives output in vector }
+\CommentTok{\#(i.e.many columns to one list)}
+\CommentTok{\# the \textquotesingle{}1\textquotesingle{} sets the dataframe to use (already selected here)}
+\end{Highlighting}
+\end{Shaded}
+
+\href{https://stackoverflow.com/questions/28873057/sum-across-multiple-columns-with-dplyr}{Reference}
+
+\hypertarget{standardise-variable}{%
+\subsection{Standardise variable}\label{standardise-variable}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat2 }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{as\_tibble}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric), scale))}
+
+\NormalTok{funcs }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{mean =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{mean}\NormalTok{(.x,}\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }
+  \AttributeTok{sd =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{sd}\NormalTok{(.x,}\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{dat2 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric),funcs))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 26
+##   mpg_mean mpg_sd  cyl_mean cyl_sd disp_mean disp_sd  hp_mean hp_sd drat_mean
+##      <dbl>  <dbl>     <dbl>  <dbl>     <dbl>   <dbl>    <dbl> <dbl>     <dbl>
+## 1 7.11e-17      1 -1.47e-17      1 -9.08e-17       1 1.04e-17     1 -2.92e-16
+## # ... with 17 more variables: drat_sd <dbl>, wt_mean <dbl>, wt_sd <dbl>,
+## #   qsec_mean <dbl>, qsec_sd <dbl>, vs_mean <dbl>, vs_sd <dbl>, am_mean <dbl>,
+## #   am_sd <dbl>, gear_mean <dbl>, gear_sd <dbl>, carb_mean <dbl>,
+## #   carb_sd <dbl>, loghp_mean <dbl>, loghp_sd <dbl>, sum_mean <dbl>,
+## #   sum_sd <dbl>
+\end{verbatim}
+
+\hypertarget{conditional-replacement}{%
+\subsection{Conditional Replacement}\label{conditional-replacement}}
+
+\emph{Replace all 'NA's in a specified variable with 0.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{loghp1 =} \FunctionTok{coalesce}\NormalTok{(loghp, }\DecValTok{0}\NormalTok{))}
+\CommentTok{\#or}
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{loghp =} \FunctionTok{replace\_na}\NormalTok{(loghp, }\StringTok{"missing"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{filter-nas-or-retain-complete-cases}{%
+\subsection{Filter na's or retain complete cases}\label{filter-nas-or-retain-complete-cases}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(hp)) }\CommentTok{\# no missing values found}
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{filter}\NormalTok{(}\FunctionTok{complete.cases}\NormalTok{(.)) }\CommentTok{\# no missing values found}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{delete-specified-columns}{%
+\subsection{Delete specified columns}\label{delete-specified-columns}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars1 }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{(drat)) }\CommentTok{\# single column}
+\NormalTok{mtcars2 }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(drat,hp,vs}\SpecialCharTok{:}\NormalTok{gear)) }\CommentTok{\# multiple columns}
+
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list=}\FunctionTok{setdiff}\NormalTok{(}\FunctionTok{ls}\NormalTok{(), }\StringTok{"mtcars"}\NormalTok{)) }\CommentTok{\# clean environment}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#Change specific datapoint
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcarsmissingvalues }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{gear=}\FunctionTok{ifelse}\NormalTok{(gear}\SpecialCharTok{==}\DecValTok{5}\NormalTok{,}\StringTok{"missing"}\NormalTok{,gear))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{find-duplicate-rows}{%
+\subsection{Find duplicate rows}\label{find-duplicate-rows}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# specify which variable to check for duplication}
+\NormalTok{n\_occur1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{mpg)) }
+\FunctionTok{kable}\NormalTok{(n\_occur1[n\_occur1}\SpecialCharTok{$}\NormalTok{Freq }\SpecialCharTok{\textgreater{}} \DecValTok{1}\NormalTok{,]) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =}\NormalTok{ F) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{l|l|r}
+\hline
+  & Var1 & Freq\\
+\hline
+1 & 10.4 & 2\\
+\hline
+6 & 15.2 & 2\\
+\hline
+14 & 19.2 & 2\\
+\hline
+16 & 21 & 2\\
+\hline
+17 & 21.4 & 2\\
+\hline
+19 & 22.8 & 2\\
+\hline
+23 & 30.4 & 2\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{impute-missing-values}{%
+\subsection{Impute missing values}\label{impute-missing-values}}
+
+\hypertarget{to-be-completedimputing-missing-values-using-the-mean}{%
+\subsubsection{To be completedImputing missing values using the mean:}\label{to-be-completedimputing-missing-values-using-the-mean}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#create missing values}
+\CommentTok{\#mtcarsmissingvalues \textless{}{-} mtcars \%\textgreater{}\% mutate(gear=ifelse(gear==5,"",gear))}
+
+\NormalTok{mtcarsmissingvalues }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{replace\_with\_na}\NormalTok{(}\AttributeTok{replace =} \FunctionTok{list}\NormalTok{(}\AttributeTok{gear =} \DecValTok{5}\NormalTok{))}
+\NormalTok{mtcarsmissingvalues}\SpecialCharTok{$}\NormalTok{gear }\OtherTok{\textless{}{-}} \FunctionTok{impute}\NormalTok{(mtcarsmissingvalues}\SpecialCharTok{$}\NormalTok{gear, mean)  }\CommentTok{\# replace with mean}
+\NormalTok{mtcarsmissingvalues}\SpecialCharTok{$}\NormalTok{gear }\OtherTok{\textless{}{-}} \FunctionTok{impute}\NormalTok{(mtcarsmissingvalues}\SpecialCharTok{$}\NormalTok{gear, median) }\CommentTok{\# median}
+\NormalTok{mtcarsmissingvalues}\SpecialCharTok{$}\NormalTok{gear }\OtherTok{\textless{}{-}} \FunctionTok{impute}\NormalTok{(mtcarsmissingvalues}\SpecialCharTok{$}\NormalTok{gear, }\DecValTok{4}\NormalTok{) }\CommentTok{\# replace specific number}
+\end{Highlighting}
+\end{Shaded}
+
+\href{http://r-statistics.co/Missing-Value-Treatment-With-R.html}{Reference:}
+
+\hypertarget{keep-rows-based-on-a-unique-value.}{%
+\subsection{Keep rows based on a unique value.}\label{keep-rows-based-on-a-unique-value.}}
+
+e.g.~prescription code
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcarsdistinct }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%}    \FunctionTok{distinct}\NormalTok{(cyl, }\AttributeTok{.keep\_all=} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\href{http://www.datasciencemadesimple.com/remove-duplicate-rows-r-using-dplyr-distinct-function}{Reference}
+
+\hypertarget{delete-rows-on-a-variable-value}{%
+\subsection{Delete rows on a variable value}\label{delete-rows-on-a-variable-value}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars1}\OtherTok{\textless{}{-}}\NormalTok{mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{(cyl}\SpecialCharTok{==}\DecValTok{6}\NormalTok{))}
+\NormalTok{mtcars2}\OtherTok{\textless{}{-}}\NormalTok{mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{(cyl}\SpecialCharTok{==}\DecValTok{6} \SpecialCharTok{|}\NormalTok{ hp}\SpecialCharTok{==}\DecValTok{180}\NormalTok{)) }\CommentTok{\# | is the \textquotesingle{}or\textquotesingle{} operator}
+\NormalTok{mtcars3}\OtherTok{\textless{}{-}}\NormalTok{mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{(cyl}\SpecialCharTok{==}\DecValTok{8} \SpecialCharTok{\&}\NormalTok{ hp}\SpecialCharTok{==}\DecValTok{215}\NormalTok{)) }\CommentTok{\# \& is the \textquotesingle{}and\textquotesingle{} operator}
+\CommentTok{\# remove the ! To select the individuals with the specified conditions}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{use-if-else-to-calculate-on-values}{%
+\subsection{Use if else to calculate on values}\label{use-if-else-to-calculate-on-values}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# no NA\textquotesingle{}s so all values unchanged.}
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{vs=}\FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(vs),(carb}\SpecialCharTok{{-}}\NormalTok{am)}\SpecialCharTok{/}\FloatTok{365.25}\NormalTok{,vs)) }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{merge-data-frames-variables}{%
+\subsection{Merge data frames (variables)}\label{merge-data-frames-variables}}
+
+*left\_join(x, y): returns all rows from x, and all columns from x and y. Rows in x with no match in y will have NA values in the new columns. If there are multiple matches between x and y, all combinations of the matches are returned.
+
+*inner\_join(x, y): returns all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combinations of the matches are returned.
+
+*full\_join(x, y): returns all rows and all columns from both x and y. Where there are not matching values, the function returns NA for the one missing
+
+\begin{itemize}
+\tightlist
+\item
+  inner: only rows with matching keys in both x and y
+\item
+  left: all rows in x, adding matching columns from y
+\item
+  right: all rows in y, adding matching columns from x
+\item
+  full: all rows in x with matching columns in y, then the rows of y that don't match x.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# prepare new dataset}
+\CommentTok{\# make the rownames into a \textquotesingle{}joinable\textquotesingle{} column}
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{carnames=}\FunctionTok{rownames}\NormalTok{(mtcars)) }
+\NormalTok{mtcars\_extradata }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(cyl)}
+\CommentTok{\# make the rownames into a \textquotesingle{}joinable\textquotesingle{} column}
+\NormalTok{mtcars\_extradata }\OtherTok{\textless{}{-}}\NormalTok{ mtcars\_extradata }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{mutate}\NormalTok{(}\AttributeTok{carnames=}\FunctionTok{rownames}\NormalTok{(mtcars\_extradata)) }
+\NormalTok{mtcars\_extradata }\OtherTok{\textless{}{-}}\NormalTok{ mtcars\_extradata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{valves=}\NormalTok{cyl}\SpecialCharTok{*}\DecValTok{4}\NormalTok{)}
+\NormalTok{mtcars\_extradata }\OtherTok{\textless{}{-}}\NormalTok{ mtcars\_extradata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{cyl)}
+
+\FunctionTok{kable}\NormalTok{(}\FunctionTok{glimpse}\NormalTok{(mtcars\_extradata}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{slice}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%}  
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =}\NormalTok{ F) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 6
+## Columns: 2
+## $ carnames <chr> "Mazda RX4", "Mazda RX4 Wag", "Datsun 710", "Hornet 4 Drive",~
+## $ valves   <dbl> 24, 24, 16, 24, 32, 24
+\end{verbatim}
+
+\begin{table}
+\centering
+\begin{tabular}{l|l|r}
+\hline
+  & carnames & valves\\
+\hline
+Mazda RX4 & Mazda RX4 & 24\\
+\hline
+Mazda RX4 Wag & Mazda RX4 Wag & 24\\
+\hline
+Datsun 710 & Datsun 710 & 16\\
+\hline
+Hornet 4 Drive & Hornet 4 Drive & 24\\
+\hline
+Hornet Sportabout & Hornet Sportabout & 32\\
+\hline
+Valiant & Valiant & 24\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(mtcars,mtcars\_extradata,}\AttributeTok{by =} \StringTok{\textquotesingle{}carnames\textquotesingle{}}\NormalTok{)}
+
+\FunctionTok{kable}\NormalTok{(}\FunctionTok{glimpse}\NormalTok{(mtcars }\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{select}\NormalTok{(carb}\SpecialCharTok{:}\NormalTok{valves) }\SpecialCharTok{\%\textgreater{}\%}  \FunctionTok{slice}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =}\NormalTok{ F) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 6
+## Columns: 7
+## $ carb     <dbl> 4, 4, 1, 1, 2, 1
+## $ hp_cat   <fct> high hp, high hp, low hp, high hp, high hp, high hp
+## $ loghp    <chr> "2.04139268515822", "2.04139268515822", "missing", "2.0413926~
+## $ sum      <dbl> 273.90, 273.90, 204.85, 371.08, 538.15, 332.76
+## $ loghp1   <dbl> 2.041393, 2.041393, 0.000000, 2.041393, 2.243038, 2.021189
+## $ carnames <chr> "Mazda RX4", "Mazda RX4 Wag", "Datsun 710", "Hornet 4 Drive",~
+## $ valves   <dbl> 24, 24, 16, 24, 32, 24
+\end{verbatim}
+
+\begin{table}
+\centering
+\begin{tabular}{r|l|l|r|r|l|r}
+\hline
+carb & hp\_cat & loghp & sum & loghp1 & carnames & valves\\
+\hline
+4 & high hp & 2.04139268515822 & 273.90 & 2.041393 & Mazda RX4 & 24\\
+\hline
+4 & high hp & 2.04139268515822 & 273.90 & 2.041393 & Mazda RX4 Wag & 24\\
+\hline
+1 & low hp & missing & 204.85 & 0.000000 & Datsun 710 & 16\\
+\hline
+1 & high hp & 2.04139268515822 & 371.08 & 2.041393 & Hornet 4 Drive & 24\\
+\hline
+2 & high hp & 2.24303804868629 & 538.15 & 2.243038 & Hornet Sportabout & 32\\
+\hline
+1 & high hp & 2.02118929906994 & 332.76 & 2.021189 & Valiant & 24\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{merge-data-frames-individuals}{%
+\subsection{Merge data frames (individuals)}\label{merge-data-frames-individuals}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcarsmerged }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(mtcars2, mtcars3)}
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list=}\FunctionTok{setdiff}\NormalTok{(}\FunctionTok{ls}\NormalTok{(), }\StringTok{"mtcars"}\NormalTok{)) }\CommentTok{\# clean environment}
+\end{Highlighting}
+\end{Shaded}
+
+\href{https://dplyr.tidyverse.org/reference/bind.html}{Reference}
+
+\hypertarget{create-a-new-factor-from-existing}{%
+\subsection{Create a new factor from existing}\label{create-a-new-factor-from-existing}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{cyc\_carb =} \FunctionTok{paste}\NormalTok{(cyl,carb,}\AttributeTok{sep=}\StringTok{"{-}"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{change-data-types}{%
+\subsection{change data types}\label{change-data-types}}
+
+(merging fails if data types are different)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# adni\_demog\textless{}{-}adni\_demog \%\textgreater{}\% mutate(age\_scan=as.numeric(age\_scan))}
+\CommentTok{\# ukbb\textless{}{-}ukbb \%\textgreater{}\% mutate(scan\_no=as.numeric(scan\_no))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{calculate-dates-and-photoperiod}{%
+\subsection{calculate dates and photoperiod}\label{calculate-dates-and-photoperiod}}
+
+(using geosphere library)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#import sample dataset}
+\NormalTok{dateslat }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"dateslat.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   `ID's` = col_double(),
+##   `date (dmy)` = col_character(),
+##   latitude = col_double()
+## )
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dateslat }\OtherTok{\textless{}{-}}\NormalTok{ dateslat }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{clean\_names}\NormalTok{()}
+
+\NormalTok{dateslat }\OtherTok{\textless{}{-}}\NormalTok{ dateslat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{dateofscan=}\NormalTok{(}\FunctionTok{as.Date}\NormalTok{(date\_dmy,}\AttributeTok{format=}\StringTok{"\%d/\%m/\%Y"}\NormalTok{)))}
+\NormalTok{dateslat }\OtherTok{\textless{}{-}}\NormalTok{ dateslat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{daylength=}\FunctionTok{daylength}\NormalTok{(latitude,dateofscan))}
+                                
+\NormalTok{dateslat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{dateofscan,}\AttributeTok{y=}\NormalTok{daylength)) }\SpecialCharTok{+}\FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}\FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-29-1.pdf}
+
+\hypertarget{reduce-variables-using-pca}{%
+\subsection{Reduce variables using PCA}\label{reduce-variables-using-pca}}
+
+\hypertarget{to-be-completed}{%
+\subsubsection{To be completed}\label{to-be-completed}}
+
+\hypertarget{statistical-analysis}{%
+\section{Statistical Analysis}\label{statistical-analysis}}
+
+\hypertarget{regression}{%
+\subsection{Regression}\label{regression}}
+
+\hypertarget{linear-regression-on-groups}{%
+\subsubsection{Linear regression on groups}\label{linear-regression-on-groups}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kable}\NormalTok{(mtcars }\SpecialCharTok{\%\textgreater{}\%}  \FunctionTok{group\_by}\NormalTok{(}\FunctionTok{as.factor}\NormalTok{(gear)) }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(qsec), }\AttributeTok{sd =} \FunctionTok{sd}\NormalTok{(qsec))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =}\NormalTok{ F) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{l|r|r}
+\hline
+as.factor(gear) & mean & sd\\
+\hline
+3 & 17.692 & 1.349916\\
+\hline
+4 & 18.965 & 1.613880\\
+\hline
+5 & 15.640 & 1.130487\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Run the same linear regression model by group levels? }
+\CommentTok{\#Instead of running \#summary(lm(y\textasciitilde{}x)) for the number of levels }
+\CommentTok{\#you have, you can use the R package “broom” along with dplyr.}
+
+\CommentTok{\# Run the same regression model for gears \#\#}
+\FunctionTok{kable}\NormalTok{(mtcars}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(gear) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{do}\NormalTok{(}\AttributeTok{fitgear =} \FunctionTok{glance}\NormalTok{(}\FunctionTok{lm}\NormalTok{(hp}\SpecialCharTok{\textasciitilde{}}\NormalTok{qsec, }\AttributeTok{data =}\NormalTok{ .))) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{unnest}\NormalTok{(fitgear),}\AttributeTok{digits=}\DecValTok{2}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}   \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =}\NormalTok{ F) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{kable\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{r|r|r|r|r|r|r|r|r|r|r|r|r}
+\hline
+gear & r.squared & adj.r.squared & sigma & statistic & p.value & df & logLik & AIC & BIC & deviance & df.residual & nobs\\
+\hline
+3 & 0.66 & 0.63 & 28.87 & 25.19 & 0.00 & 1 & -70.65 & 147.31 & 149.43 & 10837.12 & 13 & 15\\
+\hline
+4 & 0.10 & 0.01 & 25.72 & 1.15 & 0.31 & 1 & -54.90 & 115.80 & 117.26 & 6616.46 & 10 & 12\\
+\hline
+5 & 0.88 & 0.83 & 41.95 & 21.03 & 0.02 & 1 & -24.50 & 55.00 & 53.83 & 5279.95 & 3 & 5\\
+\hline
+\end{tabular}
+\end{table}
+
+\href{https://stackoverflow.com/questions/22713325/fitting-several-regression-models-with-dplyr}{Reference}
+
+\hypertarget{logistic-regression}{%
+\subsection{Logistic Regression}\label{logistic-regression}}
+
+\hypertarget{create-the-lr-model}{%
+\subsubsection{Create the LR model}\label{create-the-lr-model}}
+
+\hypertarget{survival-analysis-and-visualisation}{%
+\subsection{Survival Analysis and Visualisation}\label{survival-analysis-and-visualisation}}
+
+\hypertarget{to-be-completed-1}{%
+\subsubsection{To be completed}\label{to-be-completed-1}}
+
+\hypertarget{receiver-operated-curves-roc}{%
+\subsection{Receiver Operated Curves (ROC)}\label{receiver-operated-curves-roc}}
+
+\hypertarget{to-be-completed-2}{%
+\subsubsection{To be completed}\label{to-be-completed-2}}
+
+\hypertarget{data-visualisation}{%
+\section{Data Visualisation}\label{data-visualisation}}
+
+Tables and graphs, survival plots, missing values.
+\#\# Summary Tables
+
+\hypertarget{packages-needed}{%
+\subsubsection{Packages needed}\label{packages-needed}}
+
+\hypertarget{summarise-by-group}{%
+\subsubsection{Summarise by group}\label{summarise-by-group}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(mtcars)}
+\FunctionTok{kable}\NormalTok{(mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(cyl) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Ave=}\FunctionTok{mean}\NormalTok{(hp), }\AttributeTok{StDev=}\FunctionTok{sd}\NormalTok{(hp))) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{r|r|r}
+\hline
+cyl & Ave & StDev\\
+\hline
+4 & 82.63636 & 20.93453\\
+\hline
+6 & 122.28571 & 24.26049\\
+\hline
+8 & 209.21429 & 50.97689\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{summary-table---multiple-functions-variables}{%
+\subsubsection{Summary Table - Multiple functions, variables}\label{summary-table---multiple-functions-variables}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# make sure brackets are correct}
+
+\NormalTok{df.sum }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%}  \FunctionTok{select}\NormalTok{(mpg,cyl,hp) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(),}\FunctionTok{list}\NormalTok{(}\AttributeTok{mean=}\NormalTok{mean,}\AttributeTok{sd=}\NormalTok{sd)))}
+\FunctionTok{kable}\NormalTok{(df.sum,}\AttributeTok{digits=}\DecValTok{2}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_minimal}\NormalTok{() }\CommentTok{\# perform the analysis}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{r|r|r|r|r|r}
+\hline
+mpg\_mean & mpg\_sd & cyl\_mean & cyl\_sd & hp\_mean & hp\_sd\\
+\hline
+20.09 & 6.03 & 6.19 & 1.79 & 146.69 & 68.56\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df.longer }\OtherTok{\textless{}{-}}\NormalTok{ df.sum}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{col=}\FunctionTok{everything}\NormalTok{(),  }
+\AttributeTok{names\_to =} \FunctionTok{c}\NormalTok{(}\StringTok{"Attribute"}\NormalTok{,}\StringTok{".value"}\NormalTok{),}
+  \AttributeTok{names\_sep =} \StringTok{"\_"}\NormalTok{)}
+\FunctionTok{kable}\NormalTok{(df.longer,}\AttributeTok{digits=}\DecValTok{2}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_minimal}\NormalTok{() }\CommentTok{\# pivot longer the analysis to make it readable}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{l|r|r}
+\hline
+Attribute & mean & sd\\
+\hline
+mpg & 20.09 & 6.03\\
+\hline
+cyl & 6.19 & 1.79\\
+\hline
+hp & 146.69 & 68.56\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{specific-package-for-summary-tables}{%
+\subsection{Specific package for summary tables:}\label{specific-package-for-summary-tables}}
+
+\hypertarget{arsenal-package}{%
+\subsubsection{Arsenal package}\label{arsenal-package}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab1 }\OtherTok{\textless{}{-}} \FunctionTok{tableby}\NormalTok{(cyl}\SpecialCharTok{\textasciitilde{}}\NormalTok{gear}\SpecialCharTok{+}\NormalTok{hp}\SpecialCharTok{+}\NormalTok{wt,}\AttributeTok{data=}\NormalTok{mtcars)}
+\FunctionTok{summary}\NormalTok{(tab1, }\AttributeTok{text=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{digits=}\DecValTok{2}\NormalTok{, }\AttributeTok{digits.p=}\DecValTok{2}\NormalTok{, }\AttributeTok{digits.pct=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lccccr@{}}
+\toprule
+& 4 (N=11) & 6 (N=7) & 8 (N=14) & Total (N=32) & p value \\
+\midrule
+\endhead
+gear & & & & & 0.01 \\
+- Mean (SD) & 4.09 (0.54) & 3.86 (0.69) & 3.29 (0.73) & 3.69 (0.74) & \\
+- Range & 3.00 - 5.00 & 3.00 - 5.00 & 3.00 - 5.00 & 3.00 - 5.00 & \\
+hp & & & & & \textless{} 0.01 \\
+- Mean (SD) & 82.64 (20.93) & 122.29 (24.26) & 209.21 (50.98) & 146.69 (68.56) & \\
+- Range & 52.00 - 113.00 & 105.00 - 175.00 & 150.00 - 335.00 & 52.00 - 335.00 & \\
+wt & & & & & \textless{} 0.01 \\
+- Mean (SD) & 2.29 (0.57) & 3.12 (0.36) & 4.00 (0.76) & 3.22 (0.98) & \\
+- Range & 1.51 - 3.19 & 2.62 - 3.46 & 3.17 - 5.42 & 1.51 - 5.42 & \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{summary-tools-package}{%
+\subsubsection{Summary tools package}\label{summary-tools-package}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{descr}\NormalTok{(mtcars, }\AttributeTok{stats =} \FunctionTok{c}\NormalTok{(}\StringTok{"mean"}\NormalTok{, }\StringTok{"sd"}\NormalTok{), }\AttributeTok{transpose =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{headings =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##                Mean   Std.Dev
+## ---------- -------- ---------
+##         am     0.41      0.50
+##       carb     2.81      1.62
+##        cyl     6.19      1.79
+##       disp   230.72    123.94
+##       drat     3.60      0.53
+##       gear     3.69      0.74
+##         hp   146.69     68.56
+##        mpg    20.09      6.03
+##       qsec    17.85      1.79
+##         vs     0.44      0.50
+##         wt     3.22      0.98
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kable}\NormalTok{(}\FunctionTok{descr}\NormalTok{(mtcars, }\AttributeTok{stats =} \FunctionTok{c}\NormalTok{(}\StringTok{"mean"}\NormalTok{, }\StringTok{"sd"}\NormalTok{, }\StringTok{"n.valid"}\NormalTok{), }\AttributeTok{transpose =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{headings =} \ConstantTok{FALSE}\NormalTok{),}\AttributeTok{digits =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{)}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in if (grepl(re1, str, perl = TRUE)) {: the condition has length > 1 and
+## only the first element will be used
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in if (grepl(re2, str, perl = TRUE)) {: the condition has length > 1 and
+## only the first element will be used
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in if (grepl(re3, str, perl = TRUE)) {: the condition has length > 1 and
+## only the first element will be used
+\end{verbatim}
+
+\begin{verbatim}
+## Error in pryr::where(obj_name) : length(name) == 1 is not TRUE
+\end{verbatim}
+
+\begin{table}
+\centering
+\begin{tabular}{l|r|r|r}
+\hline
+  & Mean & Std.Dev & N.Valid\\
+\hline
+am & 0.406 & 0.499 & 32\\
+\hline
+carb & 2.812 & 1.615 & 32\\
+\hline
+cyl & 6.188 & 1.786 & 32\\
+\hline
+disp & 230.722 & 123.939 & 32\\
+\hline
+drat & 3.597 & 0.535 & 32\\
+\hline
+gear & 3.688 & 0.738 & 32\\
+\hline
+hp & 146.688 & 68.563 & 32\\
+\hline
+mpg & 20.091 & 6.027 & 32\\
+\hline
+qsec & 17.849 & 1.787 & 32\\
+\hline
+vs & 0.438 & 0.504 & 32\\
+\hline
+wt & 3.217 & 0.978 & 32\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{visual-summary-of-data}{%
+\subsection{Visual summary of data}\label{visual-summary-of-data}}
+
+Options are for markdown
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dfSummary}\NormalTok{(mtcars, }\AttributeTok{plain.ascii =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{style =} \StringTok{"grid"}\NormalTok{, }
+          \AttributeTok{graph.magnif =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{valid.col =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{tmp.img.dir =} \StringTok{"/tmp"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## temporary images written to 'C:\tmp'
+\end{verbatim}
+
+\hypertarget{data-frame-summary}{%
+\subsubsection{Data Frame Summary}\label{data-frame-summary}}
+
+\hypertarget{mtcars}{%
+\paragraph{mtcars}\label{mtcars}}
+
+\textbf{Dimensions:} 32 x 11\\
+\textbf{Duplicates:} 0
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.05}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.12}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.29}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.21}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.23}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.10}}@{}}
+\toprule
+No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
+\midrule
+\endhead
+1 & \vtop{\hbox{\strut mpg}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 20.1 (6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 10.4 \textless{} 19.2 \textless{} 33.9}\hbox{\strut IQR (CV) : 7.4 (0.3)}} & 25 distinct values & \includegraphics{/tmp/ds0812.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+2 & \vtop{\hbox{\strut cyl}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 6.2 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 4 \textless{} 6 \textless{} 8}\hbox{\strut IQR (CV) : 4 (0.3)}} & \vtop{\hbox{\strut 4 : 11 (34.4\%)}\hbox{\strut 6 : 7 (21.9\%)}\hbox{\strut 8 : 14 (43.8\%)}} & \includegraphics{/tmp/ds0813.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+3 & \vtop{\hbox{\strut disp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 230.7 (123.9)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 71.1 \textless{} 196.3 \textless{} 472}\hbox{\strut IQR (CV) : 205.2 (0.5)}} & 27 distinct values & \includegraphics{/tmp/ds0814.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+4 & \vtop{\hbox{\strut hp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 146.7 (68.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 52 \textless{} 123 \textless{} 335}\hbox{\strut IQR (CV) : 83.5 (0.5)}} & 22 distinct values & \includegraphics{/tmp/ds0815.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+5 & \vtop{\hbox{\strut drat}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.6 (0.5)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 2.8 \textless{} 3.7 \textless{} 4.9}\hbox{\strut IQR (CV) : 0.8 (0.1)}} & 22 distinct values & \includegraphics{/tmp/ds0816.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+6 & \vtop{\hbox{\strut wt}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.2 (1)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1.5 \textless{} 3.3 \textless{} 5.4}\hbox{\strut IQR (CV) : 1 (0.3)}} & 29 distinct values & \includegraphics{/tmp/ds0817.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+7 & \vtop{\hbox{\strut qsec}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 17.8 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 14.5 \textless{} 17.7 \textless{} 22.9}\hbox{\strut IQR (CV) : 2 (0.1)}} & 30 distinct values & \includegraphics{/tmp/ds0818.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+8 & \vtop{\hbox{\strut vs}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 18 (56.2\%)}\hbox{\strut 1 : 14 (43.8\%)}} & \includegraphics{/tmp/ds0819.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+9 & \vtop{\hbox{\strut am}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 19 (59.4\%)}\hbox{\strut 1 : 13 (40.6\%)}} & \includegraphics{/tmp/ds0820.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+10 & \vtop{\hbox{\strut gear}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.7 (0.7)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 3 \textless{} 4 \textless{} 5}\hbox{\strut IQR (CV) : 1 (0.2)}} & \vtop{\hbox{\strut 3 : 15 (46.9\%)}\hbox{\strut 4 : 12 (37.5\%)}\hbox{\strut 5 : 5 (15.6\%)}} & \includegraphics{/tmp/ds0821.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+11 & \vtop{\hbox{\strut carb}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 2.8 (1.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1 \textless{} 2 \textless{} 8}\hbox{\strut IQR (CV) : 2 (0.6)}} & \vtop{\hbox{\strut 1 : 7 (21.9\%)}\hbox{\strut 2 : 10 (31.2\%)}\hbox{\strut 3 : 3 ( 9.4\%)}\hbox{\strut 4 : 10 (31.2\%)}\hbox{\strut 6 : 1 ( 3.1\%)}\hbox{\strut 8 : 1 ( 3.1\%)}} & \includegraphics{/tmp/ds0822.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{correlation-matrix}{%
+\subsection{Correlation matrix}\label{correlation-matrix}}
+
+\hypertarget{ellipse-style}{%
+\subsubsection{Ellipse style}\label{ellipse-style}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{corrdata }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(cyl,disp,vs,am,gear,carb)) }
+\NormalTok{corr1 }\OtherTok{\textless{}{-}}\NormalTok{ Hmisc}\SpecialCharTok{::}\FunctionTok{rcorr}\NormalTok{(}\FunctionTok{as.matrix}\NormalTok{(corrdata))}
+\NormalTok{M }\OtherTok{\textless{}{-}}\NormalTok{ corr1}\SpecialCharTok{$}\NormalTok{r}
+\NormalTok{M}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             mpg         hp        drat         wt        qsec
+## mpg   1.0000000 -0.7761684  0.68117191 -0.8676594  0.41868403
+## hp   -0.7761684  1.0000000 -0.44875912  0.6587479 -0.70822339
+## drat  0.6811719 -0.4487591  1.00000000 -0.7124406  0.09120476
+## wt   -0.8676594  0.6587479 -0.71244065  1.0000000 -0.17471588
+## qsec  0.4186840 -0.7082234  0.09120476 -0.1747159  1.00000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(M) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"mpg"}\NormalTok{, }\StringTok{"HP"}\NormalTok{, }\StringTok{"Axle Ratio"}\NormalTok{, }\StringTok{"Weight (kPounds)"}\NormalTok{, }\StringTok{"Quarter Mile (s)"}\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(M) }\OtherTok{\textless{}{-}}  \FunctionTok{c}\NormalTok{(}\StringTok{"mpg"}\NormalTok{, }\StringTok{"HP"}\NormalTok{, }\StringTok{"Axle Ratio"}\NormalTok{, }\StringTok{"Weight (kPounds)"}\NormalTok{, }\StringTok{"Quarter Mile (s)"}\NormalTok{)}
+\NormalTok{p\_mat }\OtherTok{\textless{}{-}}\NormalTok{ corr1}\SpecialCharTok{$}\NormalTok{P}
+\NormalTok{corr }\OtherTok{\textless{}{-}} \FunctionTok{corrplot}\NormalTok{(M, }\AttributeTok{type =} \StringTok{"upper"}\NormalTok{,}\AttributeTok{method=}\StringTok{"ellipse"}\NormalTok{, }\AttributeTok{order =} \StringTok{"hclust"}\NormalTok{, }
+         \AttributeTok{p.mat =}\NormalTok{ p\_mat, }\AttributeTok{sig.level =} \FloatTok{0.05}\NormalTok{, }\AttributeTok{insig =} \StringTok{"blank"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-39-1.pdf}
+\caption{\label{fig:unnamed-chunk-39}Correlation Plot}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  Red is -ve correlation
+\item
+  Blue is + ve correlation
+\item
+  Blank is no correlation
+\end{itemize}
+
+\href{https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html}{Reference}
+
+\hypertarget{graphing}{%
+\subsection{Graphing}\label{graphing}}
+
+\hypertarget{frequency-histogram---basic}{%
+\subsubsection{Frequency Histogram - basic}\label{frequency-histogram---basic}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot1 }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(qsec))}\SpecialCharTok{+}\FunctionTok{geom\_histogram}\NormalTok{()}
+\NormalTok{plot1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-40-1.pdf}
+\#\#\# Frequency Histogram + normal distribution
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot1 }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(qsec))}
+\NormalTok{plot1}\SpecialCharTok{+}\FunctionTok{geom\_histogram}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-41-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# add normal plot}
+\NormalTok{plot1 }\SpecialCharTok{+} \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{( }\AttributeTok{y=}\NormalTok{..density..))}\SpecialCharTok{+}
+  \FunctionTok{stat\_function}\NormalTok{(}\AttributeTok{fun =}\NormalTok{ dnorm, }\AttributeTok{args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{mean =}\FunctionTok{mean}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{qsec), }\AttributeTok{sd=}\FunctionTok{sd}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{qsec))) }\SpecialCharTok{+} 
+  \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-41-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ..density.. changes y axis to density, not count. stat function defines normal line based on data provided.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{multiple-plot-of-all-distributions}{%
+\subsubsection{multiple plot of all distributions}\label{multiple-plot-of-all-distributions}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{keep}\NormalTok{(is.numeric) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{gather}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(value)) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ key, }\AttributeTok{scales =} \StringTok{"free"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{geom\_histogram}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-42-1.pdf}
+
+\hypertarget{xy-scatterplot-with-linear-regression-or-polynomial-regression}{%
+\subsubsection{x*y scatterplot with linear regression or polynomial regression}\label{xy-scatterplot-with-linear-regression-or-polynomial-regression}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot2}\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{wt,}\AttributeTok{y=}\NormalTok{qsec))}
+\NormalTok{plot2a }\OtherTok{\textless{}{-}}\NormalTok{ plot2 }\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{stat\_smooth}\NormalTok{(}\AttributeTok{method=}\StringTok{\textquotesingle{}lm\textquotesingle{}}\NormalTok{,}\AttributeTok{formula=}\NormalTok{y}\SpecialCharTok{\textasciitilde{}}\NormalTok{x) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{()}
+\NormalTok{plot2b }\OtherTok{\textless{}{-}}\NormalTok{ plot2 }\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{stat\_smooth}\NormalTok{(}\AttributeTok{method=}\StringTok{\textquotesingle{}lm\textquotesingle{}}\NormalTok{,}\AttributeTok{formula =}\NormalTok{ y }\SpecialCharTok{\textasciitilde{}} \FunctionTok{poly}\NormalTok{(x, }\DecValTok{2}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{()}
+\NormalTok{plot2c }\OtherTok{\textless{}{-}}\NormalTok{ plot2 }\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{stat\_smooth}\NormalTok{(}\AttributeTok{method=}\StringTok{\textquotesingle{}lm\textquotesingle{}}\NormalTok{,}\AttributeTok{formula =}\NormalTok{ y }\SpecialCharTok{\textasciitilde{}} \FunctionTok{poly}\NormalTok{(x, }\DecValTok{3}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{()}
+\NormalTok{plot2d }\OtherTok{\textless{}{-}}\NormalTok{ plot2 }\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{stat\_smooth}\NormalTok{(}\AttributeTok{method=}\StringTok{\textquotesingle{}lm\textquotesingle{}}\NormalTok{,}\AttributeTok{formula =}\NormalTok{ y }\SpecialCharTok{\textasciitilde{}} \FunctionTok{poly}\NormalTok{(x, }\DecValTok{4}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{()}
+
+\FunctionTok{grid.arrange}\NormalTok{(plot2a,plot2b,plot2c,plot2d,}\AttributeTok{nrow=}\DecValTok{2}\NormalTok{,}\AttributeTok{ncol=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-43-1.pdf}
+
+\hypertarget{add-formula-to-plot.}{%
+\subsubsection{Add formula to plot.}\label{add-formula-to-plot.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my.formula }\OtherTok{\textless{}{-}}\NormalTok{ y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ x}
+\NormalTok{a }\OtherTok{\textless{}{-}}\NormalTok{ plot2 }\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method=}\StringTok{\textquotesingle{}lm\textquotesingle{}}\NormalTok{,}\AttributeTok{formula=}\NormalTok{my.formula)}\SpecialCharTok{+}
+  \FunctionTok{stat\_poly\_eq}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ my.formula, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{paste}\NormalTok{(..eq.label.., ..rr.label.., }\AttributeTok{sep =} \StringTok{"\textasciitilde{}\textasciitilde{}\textasciitilde{}"}\NormalTok{)), }\AttributeTok{parse =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+
+\NormalTok{my.formula2 }\OtherTok{\textless{}{-}}\NormalTok{ y }\SpecialCharTok{\textasciitilde{}} \FunctionTok{poly}\NormalTok{(x, }\DecValTok{2}\NormalTok{)}
+\NormalTok{b }\OtherTok{\textless{}{-}}\NormalTok{ plot2 }\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method=}\StringTok{\textquotesingle{}lm\textquotesingle{}}\NormalTok{,}\AttributeTok{formula=}\NormalTok{my.formula2)}\SpecialCharTok{+}
+  \FunctionTok{stat\_poly\_eq}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ my.formula2, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{paste}\NormalTok{(..eq.label.., ..rr.label.., }\AttributeTok{sep =} \StringTok{"\textasciitilde{}\textasciitilde{}\textasciitilde{}"}\NormalTok{)), }\AttributeTok{parse =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+
+\FunctionTok{grid.arrange}\NormalTok{(a,b,}\AttributeTok{nrow=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-44-1.pdf}
+
+\hypertarget{raincloud-plots-ggplot}{%
+\subsubsection{Raincloud plots (ggplot)}\label{raincloud-plots-ggplot}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(plyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'plyr' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{verbatim}
+## ------------------------------------------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+## You have loaded plyr after dplyr - this is likely to cause problems.
+## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+## library(plyr); library(dplyr)
+\end{verbatim}
+
+\begin{verbatim}
+## ------------------------------------------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'plyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:Hmisc':
+## 
+##     is.discrete, summarize
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:dplyr':
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:purrr':
+## 
+##     compact
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{custom-theme-creation}{%
+\paragraph{custom theme creation}\label{custom-theme-creation}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{theme\_rain }\OtherTok{=} \FunctionTok{theme}\NormalTok{(}
+\AttributeTok{text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{),}
+\AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{16}\NormalTok{),}
+\AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{16}\NormalTok{),}
+\AttributeTok{axis.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{),}
+\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{0}\NormalTok{, }\AttributeTok{vjust =} \FloatTok{0.5}\NormalTok{),}
+\AttributeTok{legend.title=}\FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size=}\DecValTok{16}\NormalTok{),}
+\AttributeTok{legend.text=}\FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size=}\DecValTok{16}\NormalTok{),}
+\AttributeTok{legend.position =} \StringTok{"right"}\NormalTok{,}
+\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{lineheight=}\NormalTok{.}\DecValTok{8}\NormalTok{, }\AttributeTok{face=}\StringTok{"bold"}\NormalTok{, }\AttributeTok{size =} \DecValTok{16}\NormalTok{),}
+\AttributeTok{panel.border =} \FunctionTok{element\_blank}\NormalTok{(),}
+\AttributeTok{panel.grid.minor =} \FunctionTok{element\_blank}\NormalTok{(),}
+\AttributeTok{panel.grid.major =} \FunctionTok{element\_blank}\NormalTok{(),}
+\AttributeTok{axis.line.x =} \FunctionTok{element\_line}\NormalTok{(}\AttributeTok{colour =} \StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{, }\AttributeTok{size=}\FloatTok{0.5}\NormalTok{, }\AttributeTok{linetype=}\StringTok{\textquotesingle{}solid\textquotesingle{}}\NormalTok{),}
+\AttributeTok{axis.line.y =} \FunctionTok{element\_line}\NormalTok{(}\AttributeTok{colour =} \StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{, }\AttributeTok{size=}\FloatTok{0.5}\NormalTok{, }\AttributeTok{linetype=}\StringTok{\textquotesingle{}solid\textquotesingle{}}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{make-summary-functions}{%
+\paragraph{make summary functions}\label{make-summary-functions}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lb }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{mean}\NormalTok{(x) }\SpecialCharTok{{-}} \FunctionTok{sd}\NormalTok{(x)}
+\NormalTok{ub }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{mean}\NormalTok{(x) }\SpecialCharTok{+} \FunctionTok{sd}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{row-names-as-real-column}{%
+\paragraph{row names as real column}\label{row-names-as-real-column}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ tibble}\SpecialCharTok{::}\FunctionTok{rownames\_to\_column}\NormalTok{(mtcars, }\StringTok{"car\_name"}\NormalTok{)}
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{cyl=}\FunctionTok{as\_factor}\NormalTok{(cyl))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{calc-summary-data}{%
+\paragraph{calc summary data}\label{calc-summary-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(}\StringTok{"diamonds"}\NormalTok{)}
+\NormalTok{sumld}\OtherTok{\textless{}{-}} \FunctionTok{ddply}\NormalTok{(diamonds, }\SpecialCharTok{\textasciitilde{}}\NormalTok{cut, summarise, }\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(carat), }\AttributeTok{median =} \FunctionTok{median}\NormalTok{(carat), }\AttributeTok{lower =} \FunctionTok{lb}\NormalTok{(carat), }\AttributeTok{upper =} \FunctionTok{ub}\NormalTok{(carat))}
+\FunctionTok{head}\NormalTok{(sumld)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         cut      mean median     lower    upper
+## 1      Fair 1.0461366   1.00 0.5297323 1.562541
+## 2      Good 0.8491847   0.82 0.3951303 1.303239
+## 3 Very Good 0.8063814   0.71 0.3469460 1.265817
+## 4   Premium 0.8919549   0.86 0.3766933 1.407217
+## 5     Ideal 0.7028370   0.54 0.2699607 1.135713
+\end{verbatim}
+
+\hypertarget{raincloud-plot-diamonds}{%
+\subsubsection{raincloud plot (diamonds)}\label{raincloud-plot-diamonds}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ diamonds, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ carat, }\AttributeTok{x =}\NormalTok{ cut, }\AttributeTok{fill =}\NormalTok{ cut)) }\SpecialCharTok{+}
+\FunctionTok{geom\_flat\_violin}\NormalTok{(}\AttributeTok{position =} \FunctionTok{position\_nudge}\NormalTok{(}\AttributeTok{x =}\NormalTok{ .}\DecValTok{2}\NormalTok{, }\AttributeTok{y =} \DecValTok{0}\NormalTok{), }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ carat, }\AttributeTok{color =}\NormalTok{ cut), }\AttributeTok{position =} \FunctionTok{position\_jitter}\NormalTok{(}\AttributeTok{width =}\NormalTok{ .}\DecValTok{15}\NormalTok{), }\AttributeTok{size =}\NormalTok{ .}\DecValTok{5}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{width =}\NormalTok{ .}\DecValTok{2}\NormalTok{, }\AttributeTok{guides =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{outlier.shape =} \ConstantTok{NA}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.9}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{expand\_limits}\NormalTok{(}\AttributeTok{x =} \FloatTok{5.25}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{scale\_color\_viridis\_d}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{scale\_fill\_viridis\_d}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+\NormalTok{theme\_rain}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Ignoring unknown parameters: guides
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-50-1.pdf}
+\#\#\# Alternative raincloud
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#calculations needed}
+\NormalTok{sumld}\OtherTok{\textless{}{-}} \FunctionTok{ddply}\NormalTok{(diamonds, }\SpecialCharTok{\textasciitilde{}}\NormalTok{cut, summarise, }\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(carat), }\AttributeTok{median =} \FunctionTok{median}\NormalTok{(carat), }\AttributeTok{lower =} \FunctionTok{lb}\NormalTok{(carat), }\AttributeTok{upper =} \FunctionTok{ub}\NormalTok{(carat))}
+
+\NormalTok{g }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ diamonds, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ carat, }\AttributeTok{x =}\NormalTok{ cut, }\AttributeTok{fill =}\NormalTok{ cut)) }\SpecialCharTok{+}
+\FunctionTok{geom\_flat\_violin}\NormalTok{(}\AttributeTok{position =} \FunctionTok{position\_nudge}\NormalTok{(}\AttributeTok{x =}\NormalTok{ .}\DecValTok{2}\NormalTok{, }\AttributeTok{y =} \DecValTok{0}\NormalTok{), }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{8}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ carat, }\AttributeTok{color =}\NormalTok{ cut), }\AttributeTok{position =} \FunctionTok{position\_jitter}\NormalTok{(}\AttributeTok{width =}\NormalTok{ .}\DecValTok{15}\NormalTok{), }\AttributeTok{size =}\NormalTok{ .}\DecValTok{5}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data =}\NormalTok{ sumld, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ cut, }\AttributeTok{y =}\NormalTok{ mean), }\AttributeTok{position =} \FunctionTok{position\_nudge}\NormalTok{(}\AttributeTok{x =} \FloatTok{0.3}\NormalTok{), }\AttributeTok{size =} \FloatTok{2.5}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{geom\_errorbar}\NormalTok{(}\AttributeTok{data =}\NormalTok{ sumld, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ lower, }\AttributeTok{ymax =}\NormalTok{ upper, }\AttributeTok{y =}\NormalTok{ mean), }\AttributeTok{position =} \FunctionTok{position\_nudge}\NormalTok{(}\AttributeTok{x =} \FloatTok{0.3}\NormalTok{), }\AttributeTok{width =} \DecValTok{0}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{expand\_limits}\NormalTok{(}\AttributeTok{x =} \FloatTok{5.25}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{guides}\NormalTok{(}\AttributeTok{fill =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{guides}\NormalTok{(}\AttributeTok{color =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{scale\_color\_viridis\_d}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{scale\_fill\_viridis\_d}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+\NormalTok{theme\_rain}
+
+\NormalTok{g}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-51-1.pdf}
+
+\end{document}
