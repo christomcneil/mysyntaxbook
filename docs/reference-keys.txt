@@ -1,4 +1,9 @@
 fig:unnamed-chunk-39
+fig:unnamed-chunk-51
+fig:unnamed-chunk-53
+fig:unnamed-chunk-55
+fig:unnamed-chunk-56
+fig:unnamed-chunk-59
 introduction
 structure-of-collection
 rmarkdown
@@ -45,11 +50,11 @@ receiver-operated-curves-roc
 to-be-completed-2
 data-visualisation
 packages-needed
+summary-tables
 summarise-by-group
 summary-table---multiple-functions-variables
-specific-package-for-summary-tables
-arsenal-package
-summary-tools-package
+arsenal-summary-table
+summarytools-tables
 visual-summary-of-data
 data-frame-summary
 mtcars
@@ -58,7 +63,7 @@ ellipse-style
 graphing
 frequency-histogram---basic
 multiple-plot-of-all-distributions
-xy-scatterplot-with-linear-regression-or-polynomial-regression
+xy-scatterplot-with-linear-or-polynomial-regression
 add-formula-to-plot.
 raincloud-plots-ggplot
 custom-theme-creation
@@ -66,3 +71,11 @@ make-summary-functions
 row-names-as-real-column
 calc-summary-data
 raincloud-plot-diamonds
+scatterplot-theme
+scatterplots
+make-axis-logarithmic
+add-a-trendline
+add-a-trendline-1
+add-multiple-trendlines
+residuals-id-those-1sd-from-barx
+only-label-extreme-residuals

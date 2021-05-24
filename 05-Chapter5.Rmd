@@ -1,8 +1,7 @@
 # Data Visualisation
-Tables and graphs, survival plots, missing values. 
-## Summary Tables
+**Tables and graphs, survival plots, missing values.**
 
-### Packages needed
+## Packages needed
 ```{r include=FALSE}
 
 library(arsenal) # for summary tables
@@ -20,13 +19,14 @@ library(kableExtra) # nicer knitr tables
 library(broom)
 library(readr) # load csv stored data
 library(geosphere) # for calc daylength
-library(RColorBrewer)
+#library(RColorBrewer)
 library(viridis)
 library(reshape2)
+library(ggrepel) # label points on ggplot
 source("https://gist.githubusercontent.com/benmarwick/2a1bb0133ff568cbe28d/raw/fb53bd97121f7f9ce947837ef1a4c65a73bffb3f/geom_flat_violin.R")
           
 ```
-
+## Summary Tables
 ### Summarise by group
 ```{r}
 data(mtcars)
@@ -50,39 +50,37 @@ kable(df.longer,digits=2) %>%
   kable_styling(full_width = FALSE) %>%
   kable_minimal() # pivot longer the analysis to make it readable
 ```
-## Specific package for summary tables:
-### Arsenal package
+
+### 'Arsenal' summary table
 
 
 ```{r, results='asis'}
 tab1 <- tableby(cyl~gear+hp+wt,data=mtcars)
 summary(tab1, text=TRUE, digits=2, digits.p=2, digits.pct=1)
 ```
-### Summary tools package
+### Summarytools tables
 ```{r}
 descr(mtcars, stats = c("mean", "sd"), transpose = TRUE, headings = FALSE)
 
-kable(descr(mtcars, stats = c("mean", "sd", "n.valid"), transpose = TRUE, headings = FALSE),digits = 3) %>% 
+kable(descr(mtcars, stats = c("mean", "sd", "n.valid"), transpose = TRUE,
+              headings = FALSE),digits = 3) %>% 
   kable_styling(full_width = FALSE)%>% kable_minimal()
 ```
 
 ## Visual summary of data
-
-Options are for markdown
+*Options are for markdown*
 ```{r, results='asis'}
 
 dfSummary(mtcars, plain.ascii = FALSE, style = "grid", 
           graph.magnif = 0.5, valid.col = FALSE, tmp.img.dir = "/tmp")
 ```
 ## Correlation matrix
-
 ### Ellipse style
 ```{r, fig.cap="Correlation Plot"}
 corrdata <- mtcars %>% select(-c(cyl,disp,vs,am,gear,carb)) 
 corr1 <- Hmisc::rcorr(as.matrix(corrdata))
 M <- corr1$r
-M
-
+#M
 colnames(M) <- c("mpg", "HP", "Axle Ratio", "Weight (kPounds)", "Quarter Mile (s)")
 rownames(M) <-  c("mpg", "HP", "Axle Ratio", "Weight (kPounds)", "Quarter Mile (s)")
 p_mat <- corr1$P
@@ -96,8 +94,6 @@ corr <- corrplot(M, type = "upper",method="ellipse", order = "hclust",
 
 [Reference](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)
 
-
-
 ## Graphing
 ### Frequency Histogram - basic
 ```{r}
@@ -107,21 +103,22 @@ plot1
 ### Frequency Histogram + normal distribution
 ```{r}
 plot1 <- mtcars %>% ggplot(aes(qsec))
-plot1+geom_histogram()
+#plot1+geom_histogram()
 # add normal plot
 plot1 + geom_histogram(aes( y=..density..))+
   stat_function(fun = dnorm, args = list(mean =mean(mtcars$qsec), sd=sd(mtcars$qsec))) + 
   theme_bw()
-# ..density.. changes y axis to density, not count. stat function defines normal line based on data provided.
+# ..density.. changes y axis to density, not count. stat function defines normal
+# line based on data provided.
 ```
-### multiple plot of all distributions
 
+### multiple plot of all distributions
 ```{r}
 mtcars %>% keep(is.numeric) %>% gather() %>% ggplot(aes(value)) +
   facet_wrap(~ key, scales = "free") + geom_histogram()
 ```
 
-### x*y scatterplot with linear regression or polynomial regression
+### x*y scatterplot with  linear or polynomial regression
 ```{r echo=TRUE}
 plot2<- mtcars %>% ggplot(aes(x=wt,y=qsec))
 plot2a <- plot2 +geom_point()+stat_smooth(method='lm',formula=y~x) + theme_bw()
@@ -136,12 +133,14 @@ grid.arrange(plot2a,plot2b,plot2c,plot2d,nrow=2,ncol=2)
 ```{r}
 my.formula <- y ~ x
 a <- plot2 +geom_point()+geom_smooth(method='lm',formula=my.formula)+
-  stat_poly_eq(formula = my.formula, aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), parse = TRUE) +
+  stat_poly_eq(formula = my.formula, aes(label = paste(..eq.label.., ..rr.label..,
+                                                       sep = "~~~")), parse = TRUE) +
   theme_bw()
 
 my.formula2 <- y ~ poly(x, 2)
 b <- plot2 +geom_point()+geom_smooth(method='lm',formula=my.formula2)+
-  stat_poly_eq(formula = my.formula2, aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), parse = TRUE) +
+  stat_poly_eq(formula = my.formula2, aes(label = paste(..eq.label.., ..rr.label..,
+                                                        sep = "~~~")), parse = TRUE) +
   theme_bw()
 
 grid.arrange(a,b,nrow=1)
@@ -186,8 +185,9 @@ mtcars <- mtcars %>% mutate(cyl=as_factor(cyl))
 #### calc summary data
 ```{r}
 data("diamonds")
-sumld<- ddply(diamonds, ~cut, summarise, mean = mean(carat), median = median(carat), lower = lb(carat), upper = ub(carat))
-head(sumld)
+sumld<- ddply(diamonds, ~cut, summarise, mean = mean(carat), median = median(carat), 
+              lower = lb(carat), upper = ub(carat))
+kable(head(sumld)) %>% kable_minimal()
 ```
 
 ### raincloud plot (diamonds)
@@ -210,7 +210,7 @@ g
 ```
 ### Alternative raincloud
 
-```{r}
+```{r, fig.cap="Raincoud plot of means"}
 #calculations needed
 sumld<- ddply(diamonds, ~cut, summarise, mean = mean(carat), median = median(carat), lower = lb(carat), upper = ub(carat))
 
@@ -230,10 +230,151 @@ theme_rain
 g
 ```
 
+### Scatterplot theme
+```{r}
+theme_scatter = theme(
+text = element_text(size = 10),
+axis.title.x = element_text(size = 12),
+axis.title.y = element_text(size = 12, angle = 0,vjust = .5),
+axis.text = element_text(size = 10),
+axis.text.x = element_text(angle = 0, vjust = 0.5),
+legend.title=element_text(size=12,hjust = .5),
+legend.text=element_text(size=10),
+#legend.position = "right",
+legend.background = element_rect(colour='light grey'),
+plot.title = element_text(lineheight=.8, face="bold", size = 16),
+panel.border = element_blank(),
+panel.grid.minor = element_blank(),
+panel.grid.major = element_blank(),
+axis.line.x = element_line(colour = 'black', size=0.5, linetype='solid'),
+axis.line.y = element_line(colour = 'black', size=0.5, linetype='solid'))
+```
 
 
 
+### Scatterplots
+```{r, fig.cap="Scatterplots"}
+
+sp <- diamonds %>% ggplot(aes(x=carat,y=price))
+sp1 <- sp+geom_point()
+sp2 <- sp+geom_point() +theme_bw()
+sp3 <- sp+geom_point() +theme_bw() +theme_scatter
+sp4 <- sp+geom_point(alpha=.01)+ylab('(£)') +theme_bw() +theme_scatter
 
 
+grid.arrange(sp1,sp2,sp3,sp4,nrow=2,ncol=2)
+```
 
+### make axis logarithmic
+```{r}
+sp5 <- sp+geom_point(alpha=.01)+ylab('(£)') +theme_bw() +theme_scatter
+sp5+ scale_x_continuous(trans='log10') +
+  scale_y_continuous(trans='log10')
+```
+
+### add a trendline
+```{r, fig.cap='linear Trendline'}
+my.formula <- y ~ x # calc formula for display
+
+sp5+ylim(0,20000)+xlim(0,3)+geom_smooth(method='lm',formula =my.formula,
+                                        colour='black', size=.4,alpha=.6)+
+  stat_poly_eq(formula = my.formula,
+               aes(label = paste(..eq.label.., ..rr.label..,
+                                                        sep = "~~~")), parse = TRUE)
+```
+
+### add a trendline
+```{r, fig.cap='Polynomial trendline'}
+formula <- y ~ poly(x, 2,raw=TRUE) # calc formula for display
+
+sp5+ylim(0,20000)+xlim(0,3)+geom_smooth(method='lm',formula =formula,
+                                        colour='black', size=.4,alpha=.6)+
+  stat_poly_eq(formula = formula,
+               aes(label = paste(..eq.label.., ..rr.label..,
+                                                        sep = "~~~")), parse = TRUE)
+```
+
+### add multiple trendlines
+```{r message=FALSE, warning=FALSE}
+sp <- diamonds %>% ggplot(aes(x=carat,y=price,colour=clarity))
+sp5 <- sp+geom_point(alpha=.01)+ylab('(£)') +theme_bw() +theme_scatter
+sp6 <- sp5+ylim(0,20000)+xlim(0,3)+ guides(colour = guide_legend(override.aes = list(alpha = 1)))
+my.formula4 <- y ~ poly(x, 2,raw = TRUE) # calc formula for display
+
+sp7 <- sp6+geom_smooth(aes(colour=clarity),method='lm',formula = my.formula4,se=F, size=.4,alpha=.6)
+sp7
+
+sp8 <- sp7+
+  stat_poly_eq(aes(label =  paste(stat(eq.label),
+                                  stat(adj.rr.label), sep = "*\", \"*")),
+               formula = my.formula4, parse = TRUE,size=3,  geom = "label_npc")
+sp8
+
+```
+### add deviation from regression
+```{r,}
+data(mtcars)
+mtcars <- tibble::rownames_to_column(mtcars, "car_name")
+```
+
+
+```{r, fig.cap='Deviation from predection'}
+formula <- y ~ poly(x, 2,raw=TRUE) # calc formula for display
+
+hpvmpg <- mtcars %>% ggplot(aes(x=hp,y=mpg,label=rownames(mtcars)))
+# p1 <- hpvmpg+geom_point()+geom_smooth(method='lm',formula =formula,colour='black', size=.4,alpha=.6,se=F)+
+#   stat_fit_deviations(formula = formula, colour = "red")+geom_label_repel(aes(label =rownames(mtcars)),
+#                   box.padding   = 0.1, 
+#                   point.padding = 0.3,
+#                   segment.color = 'grey50')
+
+p2 <- hpvmpg+geom_point()+geom_smooth(method='lm',formula =formula,colour='black', size=.4,alpha=.6,se=F)+
+  stat_fit_deviations(formula = formula, colour = "red")+geom_label_repel(aes(label =rownames(mtcars)),
+    arrow = arrow(length = unit(0.02, "npc")),
+    box.padding = .5,min.segment.length = 0,max.overlaps = Inf)
+
+ p2
+ 
+#grid.arrange(p1,p2)
+```
+### residuals (ID those >1SD from $bar{X})
+```{r}
+lm <- lm(hp ~ poly(disp, 2,raw=TRUE),data=mtcars) # make lin model
+resids <- resid(lm) # extract resids as vector
+mtcars <- mtcars %>% mutate(lmresids=resids) # add to df
+
+
+low <- mtcars %>% summarise(low=mean(lmresids)-sd(lmresids))#calc low limit
+low <- low[1,1] # assign as variable
+high <- mtcars %>% summarise(high=mean(lmresids)+sd(lmresids))
+high <- high[1,1]                   
+mtcars <- mtcars %>% mutate(sds=ifelse(lmresids>low & lmresids<high,0,1)) #create new var
+kable(head(mtcars[-c(6:12)]))%>% 
+  kable_styling(full_width = FALSE) %>% kable_minimal()
+
+p2 <- hpvmpg+geom_point()+geom_smooth(method='lm',formula =formula,colour='black', size=.4,alpha=.6,se=F)+
+  stat_fit_deviations(formula = formula, colour = "red")+geom_label_repel(aes(label =car_name),
+    arrow = arrow(length = unit(0.02, "npc")),
+    box.padding = .5,min.segment.length = 0,max.overlaps = Inf)
+
+```
+ 
+ 
+### only label extreme residuals
+```{r}
+formula <- y ~ poly(x, 2,raw=TRUE) # calc formula for display
+dat2 <- mtcars
+dat2$car_name <- ""
+ix_label <- which(mtcars$sds == 1)
+dat2$car_name[ix_label] <- mtcars$car_name[ix_label]
+hpvmpg <- dat2 %>% ggplot(aes(x=disp,y=hp,label=car_name))
+
+hpvmpg+geom_point(color = ifelse(dat2$car_name == "", "grey50", "red"),size = ifelse(dat2$car_name == "", 1, 3))+geom_text_repel(aes(label =car_name),
+    box.padding = .55)+geom_smooth(method='lm',formula =formula,colour='black', size=.3,alpha=.6,se=F)+
+  stat_fit_deviations(formula = formula, colour = "red",size=.5,alpha=.4)+
+  stat_poly_eq(aes(label =  paste(stat(eq.label),
+                                  stat(adj.rr.label), sep = "*\", \"*")),
+               formula = formula, parse = TRUE,size=3,  geom = "label_npc")+theme_minimal()
+
+```
 
