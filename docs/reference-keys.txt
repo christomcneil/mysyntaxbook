@@ -1,9 +1,9 @@
-fig:unnamed-chunk-39
-fig:unnamed-chunk-51
-fig:unnamed-chunk-53
-fig:unnamed-chunk-55
+fig:unnamed-chunk-40
+fig:unnamed-chunk-52
+fig:unnamed-chunk-54
 fig:unnamed-chunk-56
-fig:unnamed-chunk-59
+fig:unnamed-chunk-57
+fig:unnamed-chunk-60
 introduction
 structure-of-collection
 rmarkdown
@@ -13,6 +13,7 @@ useful-packages
 remove-a-package
 import-using-janitor
 remove-dataframe
+new-vars-by-concatination
 save-dataframe-csv-or-rdata
 save-a-diagram-or-plot
 recode-a-text-variable
@@ -79,3 +80,4 @@ add-a-trendline-1
 add-multiple-trendlines
 residuals-id-those-1sd-from-barx
 only-label-extreme-residuals
+line-defined-by-equation-to-scatterplot

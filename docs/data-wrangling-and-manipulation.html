@@ -147,12 +147,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="rstudio.html"><a href="rstudio.html#remove-a-package"><i class="fa fa-check"></i><b>3.2</b> Remove a package</a></li>
 <li class="chapter" data-level="3.3" data-path="rstudio.html"><a href="rstudio.html#import-using-janitor"><i class="fa fa-check"></i><b>3.3</b> Import using Janitor</a></li>
 <li class="chapter" data-level="3.4" data-path="rstudio.html"><a href="rstudio.html#remove-dataframe"><i class="fa fa-check"></i><b>3.4</b> Remove dataframe</a></li>
-<li class="chapter" data-level="3.5" data-path="rstudio.html"><a href="rstudio.html#save-dataframe-csv-or-rdata"><i class="fa fa-check"></i><b>3.5</b> Save dataframe (CSV or Rdata)</a></li>
-<li class="chapter" data-level="3.6" data-path="rstudio.html"><a href="rstudio.html#save-a-diagram-or-plot"><i class="fa fa-check"></i><b>3.6</b> Save a diagram or plot</a></li>
-<li class="chapter" data-level="3.7" data-path="rstudio.html"><a href="rstudio.html#recode-a-text-variable"><i class="fa fa-check"></i><b>3.7</b> Recode a text variable</a></li>
-<li class="chapter" data-level="3.8" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.8</b> Alter variable names:</a>
+<li class="chapter" data-level="3.5" data-path="rstudio.html"><a href="rstudio.html#new-vars-by-concatination"><i class="fa fa-check"></i><b>3.5</b> New vars by concatination</a></li>
+<li class="chapter" data-level="3.6" data-path="rstudio.html"><a href="rstudio.html#save-dataframe-csv-or-rdata"><i class="fa fa-check"></i><b>3.6</b> Save dataframe (CSV or Rdata)</a></li>
+<li class="chapter" data-level="3.7" data-path="rstudio.html"><a href="rstudio.html#save-a-diagram-or-plot"><i class="fa fa-check"></i><b>3.7</b> Save a diagram or plot</a></li>
+<li class="chapter" data-level="3.8" data-path="rstudio.html"><a href="rstudio.html#recode-a-text-variable"><i class="fa fa-check"></i><b>3.8</b> Recode a text variable</a></li>
+<li class="chapter" data-level="3.9" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.9</b> Alter variable names:</a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="rstudio.html"><a href="rstudio.html#list-datasets-available"><i class="fa fa-check"></i><b>3.8.1</b> list datasets available</a></li>
+<li class="chapter" data-level="3.9.1" data-path="rstudio.html"><a href="rstudio.html#list-datasets-available"><i class="fa fa-check"></i><b>3.9.1</b> list datasets available</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling and manipulation</a>
@@ -236,6 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.13" data-path="data-visualisation.html"><a href="data-visualisation.html#residuals-id-those-1sd-from-barx"><i class="fa fa-check"></i><b>6.5.13</b> residuals (ID those &gt;1SD from $bar{X})</a></li>
 <li class="chapter" data-level="6.5.14" data-path="data-visualisation.html"><a href="data-visualisation.html#only-label-extreme-residuals"><i class="fa fa-check"></i><b>6.5.14</b> only label extreme residuals</a></li>
 </ul></li>
+<li class="chapter" data-level="6.6" data-path="data-visualisation.html"><a href="data-visualisation.html#line-defined-by-equation-to-scatterplot"><i class="fa fa-check"></i><b>6.6</b> line defined by equation to scatterplot</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -803,7 +805,7 @@ Valiant
 <span id="cb78-5"><a href="data-wrangling-and-manipulation.html#cb78-5" aria-hidden="true" tabindex="-1"></a>dateslat <span class="ot">&lt;-</span> dateslat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">daylength=</span><span class="fu">daylength</span>(latitude,dateofscan))</span>
 <span id="cb78-6"><a href="data-wrangling-and-manipulation.html#cb78-6" aria-hidden="true" tabindex="-1"></a>                                </span>
 <span id="cb78-7"><a href="data-wrangling-and-manipulation.html#cb78-7" aria-hidden="true" tabindex="-1"></a>dateslat <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>dateofscan,<span class="at">y=</span>daylength)) <span class="sc">+</span><span class="fu">geom_line</span>() <span class="sc">+</span><span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 </div>
 <div id="reduce-variables-using-pca" class="section level2" number="4.18">
 <h2><span class="header-section-number">4.18</span> Reduce variables using PCA</h2>

@@ -467,6 +467,9 @@ Load all libraries
 
 \href{https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r}{Reference:Stackoverflow}
 
+\hypertarget{new-vars-by-concatination}{%
+\subsection{New vars by concatination}\label{new-vars-by-concatination}}
+
 \hypertarget{save-dataframe-csv-or-rdata}{%
 \subsection{Save dataframe (CSV or Rdata)}\label{save-dataframe-csv-or-rdata}}
 
@@ -482,7 +485,7 @@ Load all libraries
 \begin{verbatim}
 ## function () 
 ## .Internal(date())
-## <bytecode: 0x000000001c0c0790>
+## <bytecode: 0x000000001a0921b0>
 ## <environment: namespace:base>
 \end{verbatim}
 
@@ -1108,7 +1111,7 @@ carb & hp\_cat & loghp & sum & loghp1 & carnames & valves\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-29-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-30-1.pdf}
 
 \hypertarget{reduce-variables-using-pca}{%
 \subsection{Reduce variables using PCA}\label{reduce-variables-using-pca}}
@@ -1433,17 +1436,17 @@ wt & 3.217 & 0.978 & 32\\
 No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \midrule
 \endhead
-1 & \vtop{\hbox{\strut mpg}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 20.1 (6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 10.4 \textless{} 19.2 \textless{} 33.9}\hbox{\strut IQR (CV) : 7.4 (0.3)}} & 25 distinct values & \includegraphics{/tmp/ds1032.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-2 & \vtop{\hbox{\strut cyl}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 6.2 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 4 \textless{} 6 \textless{} 8}\hbox{\strut IQR (CV) : 4 (0.3)}} & \vtop{\hbox{\strut 4 : 11 (34.4\%)}\hbox{\strut 6 : 7 (21.9\%)}\hbox{\strut 8 : 14 (43.8\%)}} & \includegraphics{/tmp/ds1033.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-3 & \vtop{\hbox{\strut disp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 230.7 (123.9)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 71.1 \textless{} 196.3 \textless{} 472}\hbox{\strut IQR (CV) : 205.2 (0.5)}} & 27 distinct values & \includegraphics{/tmp/ds1034.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-4 & \vtop{\hbox{\strut hp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 146.7 (68.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 52 \textless{} 123 \textless{} 335}\hbox{\strut IQR (CV) : 83.5 (0.5)}} & 22 distinct values & \includegraphics{/tmp/ds1035.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-5 & \vtop{\hbox{\strut drat}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.6 (0.5)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 2.8 \textless{} 3.7 \textless{} 4.9}\hbox{\strut IQR (CV) : 0.8 (0.1)}} & 22 distinct values & \includegraphics{/tmp/ds1036.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-6 & \vtop{\hbox{\strut wt}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.2 (1)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1.5 \textless{} 3.3 \textless{} 5.4}\hbox{\strut IQR (CV) : 1 (0.3)}} & 29 distinct values & \includegraphics{/tmp/ds1037.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-7 & \vtop{\hbox{\strut qsec}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 17.8 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 14.5 \textless{} 17.7 \textless{} 22.9}\hbox{\strut IQR (CV) : 2 (0.1)}} & 30 distinct values & \includegraphics{/tmp/ds1038.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-8 & \vtop{\hbox{\strut vs}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 18 (56.2\%)}\hbox{\strut 1 : 14 (43.8\%)}} & \includegraphics{/tmp/ds1039.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-9 & \vtop{\hbox{\strut am}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 19 (59.4\%)}\hbox{\strut 1 : 13 (40.6\%)}} & \includegraphics{/tmp/ds1040.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-10 & \vtop{\hbox{\strut gear}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.7 (0.7)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 3 \textless{} 4 \textless{} 5}\hbox{\strut IQR (CV) : 1 (0.2)}} & \vtop{\hbox{\strut 3 : 15 (46.9\%)}\hbox{\strut 4 : 12 (37.5\%)}\hbox{\strut 5 : 5 (15.6\%)}} & \includegraphics{/tmp/ds1041.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-11 & \vtop{\hbox{\strut carb}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 2.8 (1.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1 \textless{} 2 \textless{} 8}\hbox{\strut IQR (CV) : 2 (0.6)}} & \vtop{\hbox{\strut 1 : 7 (21.9\%)}\hbox{\strut 2 : 10 (31.2\%)}\hbox{\strut 3 : 3 ( 9.4\%)}\hbox{\strut 4 : 10 (31.2\%)}\hbox{\strut 6 : 1 ( 3.1\%)}\hbox{\strut 8 : 1 ( 3.1\%)}} & \includegraphics{/tmp/ds1042.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+1 & \vtop{\hbox{\strut mpg}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 20.1 (6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 10.4 \textless{} 19.2 \textless{} 33.9}\hbox{\strut IQR (CV) : 7.4 (0.3)}} & 25 distinct values & \includegraphics{/tmp/ds1076.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+2 & \vtop{\hbox{\strut cyl}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 6.2 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 4 \textless{} 6 \textless{} 8}\hbox{\strut IQR (CV) : 4 (0.3)}} & \vtop{\hbox{\strut 4 : 11 (34.4\%)}\hbox{\strut 6 : 7 (21.9\%)}\hbox{\strut 8 : 14 (43.8\%)}} & \includegraphics{/tmp/ds1077.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+3 & \vtop{\hbox{\strut disp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 230.7 (123.9)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 71.1 \textless{} 196.3 \textless{} 472}\hbox{\strut IQR (CV) : 205.2 (0.5)}} & 27 distinct values & \includegraphics{/tmp/ds1078.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+4 & \vtop{\hbox{\strut hp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 146.7 (68.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 52 \textless{} 123 \textless{} 335}\hbox{\strut IQR (CV) : 83.5 (0.5)}} & 22 distinct values & \includegraphics{/tmp/ds1079.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+5 & \vtop{\hbox{\strut drat}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.6 (0.5)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 2.8 \textless{} 3.7 \textless{} 4.9}\hbox{\strut IQR (CV) : 0.8 (0.1)}} & 22 distinct values & \includegraphics{/tmp/ds1080.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+6 & \vtop{\hbox{\strut wt}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.2 (1)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1.5 \textless{} 3.3 \textless{} 5.4}\hbox{\strut IQR (CV) : 1 (0.3)}} & 29 distinct values & \includegraphics{/tmp/ds1081.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+7 & \vtop{\hbox{\strut qsec}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 17.8 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 14.5 \textless{} 17.7 \textless{} 22.9}\hbox{\strut IQR (CV) : 2 (0.1)}} & 30 distinct values & \includegraphics{/tmp/ds1082.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+8 & \vtop{\hbox{\strut vs}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 18 (56.2\%)}\hbox{\strut 1 : 14 (43.8\%)}} & \includegraphics{/tmp/ds1083.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+9 & \vtop{\hbox{\strut am}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 19 (59.4\%)}\hbox{\strut 1 : 13 (40.6\%)}} & \includegraphics{/tmp/ds1084.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+10 & \vtop{\hbox{\strut gear}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.7 (0.7)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 3 \textless{} 4 \textless{} 5}\hbox{\strut IQR (CV) : 1 (0.2)}} & \vtop{\hbox{\strut 3 : 15 (46.9\%)}\hbox{\strut 4 : 12 (37.5\%)}\hbox{\strut 5 : 5 (15.6\%)}} & \includegraphics{/tmp/ds1085.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+11 & \vtop{\hbox{\strut carb}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 2.8 (1.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1 \textless{} 2 \textless{} 8}\hbox{\strut IQR (CV) : 2 (0.6)}} & \vtop{\hbox{\strut 1 : 7 (21.9\%)}\hbox{\strut 2 : 10 (31.2\%)}\hbox{\strut 3 : 3 ( 9.4\%)}\hbox{\strut 4 : 10 (31.2\%)}\hbox{\strut 6 : 1 ( 3.1\%)}\hbox{\strut 8 : 1 ( 3.1\%)}} & \includegraphics{/tmp/ds1086.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
 \bottomrule
 \end{longtable}
 
@@ -1469,8 +1472,8 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-39-1.pdf}
-\caption{\label{fig:unnamed-chunk-39}Correlation Plot}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-40-1.pdf}
+\caption{\label{fig:unnamed-chunk-40}Correlation Plot}
 \end{figure}
 
 \begin{itemize}
@@ -1502,7 +1505,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-40-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-41-1.pdf}
 \#\#\# Frequency Histogram + normal distribution
 
 \begin{Shaded}
@@ -1520,7 +1523,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-41-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-42-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1543,7 +1546,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-42-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-43-1.pdf}
 
 \hypertarget{xy-scatterplot-with-linear-or-polynomial-regression}{%
 \subsubsection{x*y scatterplot with linear or polynomial regression}\label{xy-scatterplot-with-linear-or-polynomial-regression}}
@@ -1560,7 +1563,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-43-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-44-1.pdf}
 
 \hypertarget{add-formula-to-plot.}{%
 \subsubsection{Add formula to plot.}\label{add-formula-to-plot.}}
@@ -1583,7 +1586,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-44-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-45-1.pdf}
 
 \hypertarget{raincloud-plots-ggplot}{%
 \subsubsection{Raincloud plots (ggplot)}\label{raincloud-plots-ggplot}}
@@ -1744,7 +1747,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-50-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-51-1.pdf}
 \#\#\# Alternative raincloud
 
 \begin{Shaded}
@@ -1771,8 +1774,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-51-1.pdf}
-\caption{\label{fig:unnamed-chunk-51}Raincoud plot of means}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-52-1.pdf}
+\caption{\label{fig:unnamed-chunk-52}Raincoud plot of means}
 \end{figure}
 
 \hypertarget{scatterplot-theme}{%
@@ -1817,8 +1820,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-53-1.pdf}
-\caption{\label{fig:unnamed-chunk-53}Scatterplots}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-54-1.pdf}
+\caption{\label{fig:unnamed-chunk-54}Scatterplots}
 \end{figure}
 
 \hypertarget{make-axis-logarithmic}{%
@@ -1832,7 +1835,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-54-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-55-1.pdf}
 
 \hypertarget{add-a-trendline}{%
 \subsubsection{add a trendline}\label{add-a-trendline}}
@@ -1867,8 +1870,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-55-1.pdf}
-\caption{\label{fig:unnamed-chunk-55}linear Trendline}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-56-1.pdf}
+\caption{\label{fig:unnamed-chunk-56}linear Trendline}
 \end{figure}
 
 \hypertarget{add-a-trendline-1}{%
@@ -1904,8 +1907,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-56-1.pdf}
-\caption{\label{fig:unnamed-chunk-56}Polynomial trendline}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-57-1.pdf}
+\caption{\label{fig:unnamed-chunk-57}Polynomial trendline}
 \end{figure}
 
 \hypertarget{add-multiple-trendlines}{%
@@ -1923,7 +1926,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-57-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-58-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1935,7 +1938,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-57-2.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-58-2.pdf}
 \#\#\# add deviation from regression
 
 \begin{Shaded}
@@ -1967,8 +1970,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-59-1.pdf}
-\caption{\label{fig:unnamed-chunk-59}Deviation from predection}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-60-1.pdf}
+\caption{\label{fig:unnamed-chunk-60}Deviation from predection}
 \end{figure}
 
 \begin{Shaded}
@@ -1988,9 +1991,10 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 
 \NormalTok{low }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{low=}\FunctionTok{mean}\NormalTok{(lmresids)}\SpecialCharTok{{-}}\FunctionTok{sd}\NormalTok{(lmresids))}\CommentTok{\#calc low limit}
-\NormalTok{low }\OtherTok{\textless{}{-}}\NormalTok{ low[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{] }\CommentTok{\# assign as variable}
+ \CommentTok{\# assign as variable}
 \NormalTok{high }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{high=}\FunctionTok{mean}\NormalTok{(lmresids)}\SpecialCharTok{+}\FunctionTok{sd}\NormalTok{(lmresids))}
-\NormalTok{high }\OtherTok{\textless{}{-}}\NormalTok{ high[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]                   }
+\NormalTok{low }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{pull}\NormalTok{(low)}
+\NormalTok{high }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{pull}\NormalTok{(high)                   }
 \NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{sds=}\FunctionTok{ifelse}\NormalTok{(lmresids}\SpecialCharTok{\textgreater{}}\NormalTok{low }\SpecialCharTok{\&}\NormalTok{ lmresids}\SpecialCharTok{\textless{}}\NormalTok{high,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{)) }\CommentTok{\#create new var}
 \FunctionTok{kable}\NormalTok{(}\FunctionTok{head}\NormalTok{(mtcars[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{6}\SpecialCharTok{:}\DecValTok{12}\NormalTok{)]))}\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_minimal}\NormalTok{()}
@@ -2048,6 +2052,24 @@ Valiant & 18.1 & 6 & 225 & 105 & -52.832288 & 1\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-61-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-62-1.pdf}
+
+\hypertarget{line-defined-by-equation-to-scatterplot}{%
+\subsection{line defined by equation to scatterplot}\label{line-defined-by-equation-to-scatterplot}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot2}\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{hp,}\AttributeTok{y=}\NormalTok{qsec))}
+\NormalTok{q1 }\OtherTok{\textless{}{-}}\NormalTok{ plot2}\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}
+    \FunctionTok{stat\_function}\NormalTok{(}\AttributeTok{fun =} \ControlFlowTok{function}\NormalTok{(x) }\DecValTok{20}\SpecialCharTok{{-}}\NormalTok{(.}\DecValTok{013}\SpecialCharTok{*}\NormalTok{x)) }\CommentTok{\# linear function}
+\NormalTok{fun }\OtherTok{=} \StringTok{\textquotesingle{}y = 20 {-} 0.013x {-} 0.00003x\^{}2\textquotesingle{}}
+\NormalTok{q2 }\OtherTok{\textless{}{-}}\NormalTok{ plot2}\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}    \FunctionTok{stat\_function}\NormalTok{(}\AttributeTok{fun =} \ControlFlowTok{function}\NormalTok{(x) }\DecValTok{20}\SpecialCharTok{{-}}\NormalTok{(.}\DecValTok{013}\SpecialCharTok{*}\NormalTok{x}\FloatTok{+.00003}\SpecialCharTok{*}\NormalTok{x}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{))}\CommentTok{\# poly function}
+ \CommentTok{\# poly function}
+\NormalTok{q2 }\OtherTok{\textless{}{-}}\NormalTok{ q2}\SpecialCharTok{+} \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =} \DecValTok{175}\NormalTok{, }\AttributeTok{y =} \DecValTok{22}\NormalTok{, }\AttributeTok{label =}\NormalTok{ fun,}\AttributeTok{size=}\DecValTok{4}\NormalTok{)}
+\FunctionTok{grid.arrange}\NormalTok{(q1,q2,}\AttributeTok{nrow=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-63-1.pdf}
 
 \end{document}

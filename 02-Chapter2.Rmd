@@ -33,6 +33,8 @@ head(test_df)
 ```
 [Reference](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html)
 
+
+
 ## Remove dataframe 
 ```{r}
 data("mtcars")
@@ -45,6 +47,11 @@ rm(list=setdiff(ls(), "band_instruments")) # Everything except "bandinstruments"
 rm(list=ls()) # Remove everything
 ```
 [Reference:Stackoverflow](https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r)
+
+## New vars by concatination
+```{r}
+
+```
 
 ## Save dataframe  (CSV or Rdata)
 *make date string*

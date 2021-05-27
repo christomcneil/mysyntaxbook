@@ -345,9 +345,10 @@ mtcars <- mtcars %>% mutate(lmresids=resids) # add to df
 
 
 low <- mtcars %>% summarise(low=mean(lmresids)-sd(lmresids))#calc low limit
-low <- low[1,1] # assign as variable
+ # assign as variable
 high <- mtcars %>% summarise(high=mean(lmresids)+sd(lmresids))
-high <- high[1,1]                   
+low <- dplyr::pull(low)
+high <- dplyr::pull(high)                   
 mtcars <- mtcars %>% mutate(sds=ifelse(lmresids>low & lmresids<high,0,1)) #create new var
 kable(head(mtcars[-c(6:12)]))%>% 
   kable_styling(full_width = FALSE) %>% kable_minimal()
@@ -377,4 +378,20 @@ hpvmpg+geom_point(color = ifelse(dat2$car_name == "", "grey50", "red"),size = if
                formula = formula, parse = TRUE,size=3,  geom = "label_npc")+theme_minimal()
 
 ```
+
+## line defined by equation to scatterplot
+```{r}
+plot2<- mtcars %>% ggplot(aes(x=hp,y=qsec))
+q1 <- plot2+geom_point()+
+    stat_function(fun = function(x) 20-(.013*x)) # linear function
+fun = 'y = 20 - 0.013x - 0.00003x^2'
+q2 <- plot2+geom_point()+    stat_function(fun = function(x) 20-(.013*x+.00003*x^2))# poly function
+ # poly function
+q2 <- q2+ annotate("text", x = 175, y = 22, label = fun,size=4)
+grid.arrange(q1,q2,nrow=1)
+```
+
+
+
+
 

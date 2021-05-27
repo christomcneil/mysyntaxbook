@@ -147,12 +147,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="rstudio.html"><a href="rstudio.html#remove-a-package"><i class="fa fa-check"></i><b>3.2</b> Remove a package</a></li>
 <li class="chapter" data-level="3.3" data-path="rstudio.html"><a href="rstudio.html#import-using-janitor"><i class="fa fa-check"></i><b>3.3</b> Import using Janitor</a></li>
 <li class="chapter" data-level="3.4" data-path="rstudio.html"><a href="rstudio.html#remove-dataframe"><i class="fa fa-check"></i><b>3.4</b> Remove dataframe</a></li>
-<li class="chapter" data-level="3.5" data-path="rstudio.html"><a href="rstudio.html#save-dataframe-csv-or-rdata"><i class="fa fa-check"></i><b>3.5</b> Save dataframe (CSV or Rdata)</a></li>
-<li class="chapter" data-level="3.6" data-path="rstudio.html"><a href="rstudio.html#save-a-diagram-or-plot"><i class="fa fa-check"></i><b>3.6</b> Save a diagram or plot</a></li>
-<li class="chapter" data-level="3.7" data-path="rstudio.html"><a href="rstudio.html#recode-a-text-variable"><i class="fa fa-check"></i><b>3.7</b> Recode a text variable</a></li>
-<li class="chapter" data-level="3.8" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.8</b> Alter variable names:</a>
+<li class="chapter" data-level="3.5" data-path="rstudio.html"><a href="rstudio.html#new-vars-by-concatination"><i class="fa fa-check"></i><b>3.5</b> New vars by concatination</a></li>
+<li class="chapter" data-level="3.6" data-path="rstudio.html"><a href="rstudio.html#save-dataframe-csv-or-rdata"><i class="fa fa-check"></i><b>3.6</b> Save dataframe (CSV or Rdata)</a></li>
+<li class="chapter" data-level="3.7" data-path="rstudio.html"><a href="rstudio.html#save-a-diagram-or-plot"><i class="fa fa-check"></i><b>3.7</b> Save a diagram or plot</a></li>
+<li class="chapter" data-level="3.8" data-path="rstudio.html"><a href="rstudio.html#recode-a-text-variable"><i class="fa fa-check"></i><b>3.8</b> Recode a text variable</a></li>
+<li class="chapter" data-level="3.9" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.9</b> Alter variable names:</a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="rstudio.html"><a href="rstudio.html#list-datasets-available"><i class="fa fa-check"></i><b>3.8.1</b> list datasets available</a></li>
+<li class="chapter" data-level="3.9.1" data-path="rstudio.html"><a href="rstudio.html#list-datasets-available"><i class="fa fa-check"></i><b>3.9.1</b> list datasets available</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling and manipulation</a>
@@ -236,6 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.13" data-path="data-visualisation.html"><a href="data-visualisation.html#residuals-id-those-1sd-from-barx"><i class="fa fa-check"></i><b>6.5.13</b> residuals (ID those &gt;1SD from $bar{X})</a></li>
 <li class="chapter" data-level="6.5.14" data-path="data-visualisation.html"><a href="data-visualisation.html#only-label-extreme-residuals"><i class="fa fa-check"></i><b>6.5.14</b> only label extreme residuals</a></li>
 </ul></li>
+<li class="chapter" data-level="6.6" data-path="data-visualisation.html"><a href="data-visualisation.html#line-defined-by-equation-to-scatterplot"><i class="fa fa-check"></i><b>6.6</b> line defined by equation to scatterplot</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -331,14 +333,17 @@ R studio environment.</p>
 <span id="cb28-8"><a href="rstudio.html#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
 <p><a href="https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r">Reference:Stackoverflow</a></p>
 </div>
-<div id="save-dataframe-csv-or-rdata" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Save dataframe (CSV or Rdata)</h2>
+<div id="new-vars-by-concatination" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> New vars by concatination</h2>
+</div>
+<div id="save-dataframe-csv-or-rdata" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Save dataframe (CSV or Rdata)</h2>
 <p><em>make date string</em></p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="rstudio.html#cb29-1" aria-hidden="true" tabindex="-1"></a>datenow <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;_%Y_%m_%d&quot;</span>)</span>
 <span id="cb29-2"><a href="rstudio.html#cb29-2" aria-hidden="true" tabindex="-1"></a>date</span></code></pre></div>
 <pre><code>## function () 
 ## .Internal(date())
-## &lt;bytecode: 0x000000001e9aba60&gt;
+## &lt;bytecode: 0x0000000022a161e8&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="rstudio.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
 <p><em>Write file names</em></p>
@@ -351,8 +356,8 @@ R studio environment.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="rstudio.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(mtcars,<span class="at">file=</span>filenamerda)</span>
 <span id="cb35-2"><a href="rstudio.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mtcars,<span class="at">file=</span>filenamecsv)</span></code></pre></div>
 </div>
-<div id="save-a-diagram-or-plot" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Save a diagram or plot</h2>
+<div id="save-a-diagram-or-plot" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Save a diagram or plot</h2>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="rstudio.html#cb36-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(hp,qsec))<span class="sc">+</span><span class="fu">geom_point</span>()</span>
 <span id="cb36-2"><a href="rstudio.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plot1 #print plot if required</span></span>
 <span id="cb36-3"><a href="rstudio.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;plot.pdf&quot;</span>)</span>
@@ -362,8 +367,8 @@ R studio environment.</p>
 ##   2</code></pre>
 <p>pdf ‘device’ off.</p>
 </div>
-<div id="recode-a-text-variable" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> Recode a text variable</h2>
+<div id="recode-a-text-variable" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Recode a text variable</h2>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="rstudio.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_members&quot;</span>)</span>
 <span id="cb38-2"><a href="rstudio.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(band_members)) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
@@ -447,8 +452,8 @@ Beatles
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="rstudio.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
 <p>Reference: <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">Kable Extra</a></p>
 </div>
-<div id="alter-variable-names" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> Alter variable names:</h2>
+<div id="alter-variable-names" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> Alter variable names:</h2>
 <p><em>Remove underscores</em></p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="rstudio.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
 <span id="cb41-2"><a href="rstudio.html#cb41-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">hp_new=</span>hp)</span>
@@ -997,8 +1002,8 @@ Valiant
 </tr>
 </tbody>
 </table>
-<div id="list-datasets-available" class="section level3" number="3.8.1">
-<h3><span class="header-section-number">3.8.1</span> list datasets available</h3>
+<div id="list-datasets-available" class="section level3" number="3.9.1">
+<h3><span class="header-section-number">3.9.1</span> list datasets available</h3>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="rstudio.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#data() # list all available datasets</span></span>
 <span id="cb43-2"><a href="rstudio.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;diamonds&quot;</span>)</span></code></pre></div>
 
