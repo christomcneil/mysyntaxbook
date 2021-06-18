@@ -2,7 +2,7 @@
 **Tables and graphs, survival plots, missing values.**
 
 ## Packages needed
-```{r include=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 library(arsenal) # for summary tables
 library(summarytools) # for summary tables
@@ -34,7 +34,7 @@ kable(mtcars %>% group_by(cyl) %>% summarise(Ave=mean(hp), StDev=sd(hp))) %>%
   kable_styling(full_width = FALSE) %>% kable_minimal()
 ```
 
-###  Summary Table - Multiple functions, variables
+### Multiple functions, variables
 ```{r}
 # make sure brackets are correct
 
@@ -67,7 +67,7 @@ kable(descr(mtcars, stats = c("mean", "sd", "n.valid"), transpose = TRUE,
   kable_styling(full_width = FALSE)%>% kable_minimal()
 ```
 
-## Visual summary of data
+### Visual summary of data
 *Options are for markdown*
 ```{r, results='asis'}
 
@@ -95,17 +95,17 @@ corr <- corrplot(M, type = "upper",method="ellipse", order = "hclust",
 [Reference](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)
 
 ## Graphing
-### Frequency Histogram - basic
+### Basic distribution Histogram
 ```{r}
 plot1 <- mtcars %>% ggplot(aes(qsec))+geom_histogram()
 plot1
 ```
-### Frequency Histogram + normal distribution
+### Distribution + Normal line
 ```{r}
 plot1 <- mtcars %>% ggplot(aes(qsec))
-#plot1+geom_histogram()
+# plot1+geom_histogram()
 # add normal plot
-plot1 + geom_histogram(aes( y=..density..))+
+plot1 + geom_histogram(aes( y=..density..),bins = 20)+
   stat_function(fun = dnorm, args = list(mean =mean(mtcars$qsec), sd=sd(mtcars$qsec))) + 
   theme_bw()
 # ..density.. changes y axis to density, not count. stat function defines normal
@@ -115,7 +115,7 @@ plot1 + geom_histogram(aes( y=..density..))+
 ### multiple plot of all distributions
 ```{r}
 mtcars %>% keep(is.numeric) %>% gather() %>% ggplot(aes(value)) +
-  facet_wrap(~ key, scales = "free") + geom_histogram()
+  facet_wrap(~ key, scales = "free") + geom_histogram(bins = 15)
 ```
 
 ### x*y scatterplot with  linear or polynomial regression

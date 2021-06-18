@@ -1,0 +1,42 @@
+# BBC style
+
+
+
+## load packages
+```{r}
+library(tidyverse)
+library(gapminder)
+library(ggalt)
+library(R.utils)
+library(png)
+library(ggpubr)
+library(grid)
+library(scales)
+library(bbplot)
+
+
+
+```
+```{r}
+
+
+#Prepare data
+dumbbell_df <- gapminder %>%
+  filter(year == 1967 | year == 2007) %>%
+  select(country, year, lifeExp) %>%
+  spread(year, lifeExp) %>%
+  mutate(gap = `2007` - `1967`) %>%
+  arrange(desc(gap)) %>%
+  head(10)
+
+#Make plot
+ggplot(dumbbell_df, aes(x = `1967`, xend = `2007`, y = reorder(country, gap), group = country)) + 
+  geom_dumbbell(colour = "#dddddd",
+                size = 3,
+                colour_x = "#FAAB18",
+                colour_xend = "#1380A1") +
+  bbc_style() + 
+  labs(title="We're living longer",
+       subtitle="Biggest life expectancy rise, 1967-2007")
+```
+

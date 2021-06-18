@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Data Visualisation | Useful-Syntax.utf8</title>
+  <title>Chapter 6 Data Visualisation | Useful-Syntax.knit</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Data Visualisation | Useful-Syntax.utf8" />
+  <meta property="og:title" content="Chapter 6 Data Visualisation | Useful-Syntax.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Data Visualisation | Useful-Syntax.utf8" />
+  <meta name="twitter:title" content="Chapter 6 Data Visualisation | Useful-Syntax.knit" />
   
   
   
@@ -30,8 +30,8 @@
   
   
 <link rel="prev" href="statistical-analysis.html"/>
-
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<link rel="next" href="bbc-style.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,6 +49,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -118,6 +120,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 </head>
 
 <body>
@@ -154,6 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.9" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.9</b> Alter variable names:</a>
 <ul>
 <li class="chapter" data-level="3.9.1" data-path="rstudio.html"><a href="rstudio.html#list-datasets-available"><i class="fa fa-check"></i><b>3.9.1</b> list datasets available</a></li>
+<li class="chapter" data-level="3.9.2" data-path="rstudio.html"><a href="rstudio.html#render-book"><i class="fa fa-check"></i><b>3.9.2</b> Render book</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling and manipulation</a>
@@ -163,24 +167,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#sum-across-rows"><i class="fa fa-check"></i><b>4.3</b> Sum across rows</a></li>
 <li class="chapter" data-level="4.4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#standardise-variable"><i class="fa fa-check"></i><b>4.4</b> Standardise variable</a></li>
 <li class="chapter" data-level="4.5" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#conditional-replacement"><i class="fa fa-check"></i><b>4.5</b> Conditional Replacement</a></li>
-<li class="chapter" data-level="4.6" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#filter-nas-or-retain-complete-cases"><i class="fa fa-check"></i><b>4.6</b> Filter na’s or retain complete cases</a></li>
-<li class="chapter" data-level="4.7" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#delete-specified-columns"><i class="fa fa-check"></i><b>4.7</b> Delete specified columns</a></li>
-<li class="chapter" data-level="4.8" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#find-duplicate-rows"><i class="fa fa-check"></i><b>4.8</b> Find duplicate rows</a></li>
-<li class="chapter" data-level="4.9" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#impute-missing-values"><i class="fa fa-check"></i><b>4.9</b> Impute missing values</a>
+<li class="chapter" data-level="4.6" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#replace-a-specfic-value"><i class="fa fa-check"></i><b>4.6</b> replace a specfic value</a></li>
+<li class="chapter" data-level="4.7" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#filter-nas-or-retain-complete-cases"><i class="fa fa-check"></i><b>4.7</b> Filter na’s or retain complete cases</a></li>
+<li class="chapter" data-level="4.8" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#delete-specified-columns"><i class="fa fa-check"></i><b>4.8</b> Delete specified columns</a></li>
+<li class="chapter" data-level="4.9" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#change-specific-datapoint"><i class="fa fa-check"></i><b>4.9</b> Change specific datapoint</a></li>
+<li class="chapter" data-level="4.10" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#work-with-dates"><i class="fa fa-check"></i><b>4.10</b> Work with dates</a></li>
+<li class="chapter" data-level="4.11" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#find-duplicate-rows"><i class="fa fa-check"></i><b>4.11</b> Find duplicate rows</a></li>
+<li class="chapter" data-level="4.12" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#impute-missing-values"><i class="fa fa-check"></i><b>4.12</b> Impute missing values</a>
 <ul>
-<li class="chapter" data-level="4.9.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#to-be-completedimputing-missing-values-using-the-mean"><i class="fa fa-check"></i><b>4.9.1</b> To be completedImputing missing values using the mean:</a></li>
+<li class="chapter" data-level="4.12.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#to-be-completedimputing-missing-values-using-the-mean"><i class="fa fa-check"></i><b>4.12.1</b> To be completedImputing missing values using the mean:</a></li>
 </ul></li>
-<li class="chapter" data-level="4.10" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#keep-rows-based-on-a-unique-value."><i class="fa fa-check"></i><b>4.10</b> Keep rows based on a unique value.</a></li>
-<li class="chapter" data-level="4.11" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#delete-rows-on-a-variable-value"><i class="fa fa-check"></i><b>4.11</b> Delete rows on a variable value</a></li>
-<li class="chapter" data-level="4.12" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#use-if-else-to-calculate-on-values"><i class="fa fa-check"></i><b>4.12</b> Use if else to calculate on values</a></li>
-<li class="chapter" data-level="4.13" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-variables"><i class="fa fa-check"></i><b>4.13</b> Merge data frames (variables)</a></li>
-<li class="chapter" data-level="4.14" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-individuals"><i class="fa fa-check"></i><b>4.14</b> Merge data frames (individuals)</a></li>
-<li class="chapter" data-level="4.15" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#create-a-new-factor-from-existing"><i class="fa fa-check"></i><b>4.15</b> Create a new factor from existing</a></li>
-<li class="chapter" data-level="4.16" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#change-data-types"><i class="fa fa-check"></i><b>4.16</b> change data types</a></li>
-<li class="chapter" data-level="4.17" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#calculate-dates-and-photoperiod"><i class="fa fa-check"></i><b>4.17</b> calculate dates and photoperiod</a></li>
-<li class="chapter" data-level="4.18" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#reduce-variables-using-pca"><i class="fa fa-check"></i><b>4.18</b> Reduce variables using PCA</a>
+<li class="chapter" data-level="4.13" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#keep-rows-based-on-a-unique-value."><i class="fa fa-check"></i><b>4.13</b> Keep rows based on a unique value.</a></li>
+<li class="chapter" data-level="4.14" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#delete-rows-on-a-variable-value"><i class="fa fa-check"></i><b>4.14</b> Delete rows on a variable value</a></li>
+<li class="chapter" data-level="4.15" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#use-if-else-to-calculate-on-values"><i class="fa fa-check"></i><b>4.15</b> Use if else to calculate on values</a></li>
+<li class="chapter" data-level="4.16" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-variables"><i class="fa fa-check"></i><b>4.16</b> Merge data frames (variables)</a></li>
+<li class="chapter" data-level="4.17" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-individuals"><i class="fa fa-check"></i><b>4.17</b> Merge data frames (individuals)</a></li>
+<li class="chapter" data-level="4.18" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#create-a-new-factor-from-existing"><i class="fa fa-check"></i><b>4.18</b> Create a new factor from existing</a></li>
+<li class="chapter" data-level="4.19" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#change-data-types"><i class="fa fa-check"></i><b>4.19</b> change data types</a></li>
+<li class="chapter" data-level="4.20" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#calculate-dates-and-photoperiod"><i class="fa fa-check"></i><b>4.20</b> calculate dates and photoperiod</a></li>
+<li class="chapter" data-level="4.21" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#reduce-variables-using-pca"><i class="fa fa-check"></i><b>4.21</b> Reduce variables using PCA</a>
 <ul>
-<li class="chapter" data-level="4.18.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#to-be-completed"><i class="fa fa-check"></i><b>4.18.1</b> To be completed</a></li>
+<li class="chapter" data-level="4.21.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#to-be-completed"><i class="fa fa-check"></i><b>4.21.1</b> To be completed</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>5</b> Statistical Analysis</a>
@@ -189,17 +196,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#linear-regression-on-groups"><i class="fa fa-check"></i><b>5.1.1</b> Linear regression on groups</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>5.2</b> Logistic Regression</a>
+<li class="chapter" data-level="5.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#linear-regression"><i class="fa fa-check"></i><b>5.2</b> Linear Regression</a></li>
+<li class="chapter" data-level="5.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>5.3</b> Logistic Regression</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#create-the-lr-model"><i class="fa fa-check"></i><b>5.2.1</b> Create the LR model</a></li>
+<li class="chapter" data-level="5.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#create-the-logr-model"><i class="fa fa-check"></i><b>5.3.1</b> Create the LogR model</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis-and-visualisation"><i class="fa fa-check"></i><b>5.3</b> Survival Analysis and Visualisation</a>
+<li class="chapter" data-level="5.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#principle-component-analysis"><i class="fa fa-check"></i><b>5.4</b> Principle Component Analysis</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-1"><i class="fa fa-check"></i><b>5.3.1</b> To be completed</a></li>
+<li class="chapter" data-level="5.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#extracting-1st-component"><i class="fa fa-check"></i><b>5.4.1</b> Extracting 1st component</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#receiver-operated-curves-roc"><i class="fa fa-check"></i><b>5.4</b> Receiver Operated Curves (ROC)</a>
+<li class="chapter" data-level="5.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis-and-visualisation"><i class="fa fa-check"></i><b>5.5</b> Survival Analysis and Visualisation</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-2"><i class="fa fa-check"></i><b>5.4.1</b> To be completed</a></li>
+<li class="chapter" data-level="5.5.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-1"><i class="fa fa-check"></i><b>5.5.1</b> To be completed</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="statistical-analysis.html"><a href="statistical-analysis.html#receiver-operated-curves-roc"><i class="fa fa-check"></i><b>5.6</b> Receiver Operated Curves (ROC)</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-2"><i class="fa fa-check"></i><b>5.6.1</b> To be completed</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>6</b> Data Visualisation</a>
@@ -208,36 +220,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="data-visualisation.html"><a href="data-visualisation.html#summary-tables"><i class="fa fa-check"></i><b>6.2</b> Summary Tables</a>
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="data-visualisation.html"><a href="data-visualisation.html#summarise-by-group"><i class="fa fa-check"></i><b>6.2.1</b> Summarise by group</a></li>
-<li class="chapter" data-level="6.2.2" data-path="data-visualisation.html"><a href="data-visualisation.html#summary-table---multiple-functions-variables"><i class="fa fa-check"></i><b>6.2.2</b> Summary Table - Multiple functions, variables</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-visualisation.html"><a href="data-visualisation.html#multiple-functions-variables"><i class="fa fa-check"></i><b>6.2.2</b> Multiple functions, variables</a></li>
 <li class="chapter" data-level="6.2.3" data-path="data-visualisation.html"><a href="data-visualisation.html#arsenal-summary-table"><i class="fa fa-check"></i><b>6.2.3</b> ‘Arsenal’ summary table</a></li>
 <li class="chapter" data-level="6.2.4" data-path="data-visualisation.html"><a href="data-visualisation.html#summarytools-tables"><i class="fa fa-check"></i><b>6.2.4</b> Summarytools tables</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-visualisation.html"><a href="data-visualisation.html#visual-summary-of-data"><i class="fa fa-check"></i><b>6.2.5</b> Visual summary of data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-visualisation.html"><a href="data-visualisation.html#data-frame-summary"><i class="fa fa-check"></i><b>6.2.6</b> Data Frame Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="data-visualisation.html"><a href="data-visualisation.html#visual-summary-of-data"><i class="fa fa-check"></i><b>6.3</b> Visual summary of data</a>
+<li class="chapter" data-level="6.3" data-path="data-visualisation.html"><a href="data-visualisation.html#correlation-matrix"><i class="fa fa-check"></i><b>6.3</b> Correlation matrix</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="data-visualisation.html"><a href="data-visualisation.html#data-frame-summary"><i class="fa fa-check"></i><b>6.3.1</b> Data Frame Summary</a></li>
+<li class="chapter" data-level="6.3.1" data-path="data-visualisation.html"><a href="data-visualisation.html#ellipse-style"><i class="fa fa-check"></i><b>6.3.1</b> Ellipse style</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="data-visualisation.html"><a href="data-visualisation.html#correlation-matrix"><i class="fa fa-check"></i><b>6.4</b> Correlation matrix</a>
+<li class="chapter" data-level="6.4" data-path="data-visualisation.html"><a href="data-visualisation.html#graphing"><i class="fa fa-check"></i><b>6.4</b> Graphing</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="data-visualisation.html"><a href="data-visualisation.html#ellipse-style"><i class="fa fa-check"></i><b>6.4.1</b> Ellipse style</a></li>
+<li class="chapter" data-level="6.4.1" data-path="data-visualisation.html"><a href="data-visualisation.html#basic-distribution-histogram"><i class="fa fa-check"></i><b>6.4.1</b> Basic distribution Histogram</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-visualisation.html"><a href="data-visualisation.html#multiple-plot-of-all-distributions"><i class="fa fa-check"></i><b>6.4.2</b> multiple plot of all distributions</a></li>
+<li class="chapter" data-level="6.4.3" data-path="data-visualisation.html"><a href="data-visualisation.html#xy-scatterplot-with-linear-or-polynomial-regression"><i class="fa fa-check"></i><b>6.4.3</b> x*y scatterplot with linear or polynomial regression</a></li>
+<li class="chapter" data-level="6.4.4" data-path="data-visualisation.html"><a href="data-visualisation.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.4.4</b> Add formula to plot.</a></li>
+<li class="chapter" data-level="6.4.5" data-path="data-visualisation.html"><a href="data-visualisation.html#raincloud-plots-ggplot"><i class="fa fa-check"></i><b>6.4.5</b> Raincloud plots (ggplot)</a></li>
+<li class="chapter" data-level="6.4.6" data-path="data-visualisation.html"><a href="data-visualisation.html#raincloud-plot-diamonds"><i class="fa fa-check"></i><b>6.4.6</b> raincloud plot (diamonds)</a></li>
+<li class="chapter" data-level="6.4.7" data-path="data-visualisation.html"><a href="data-visualisation.html#scatterplot-theme"><i class="fa fa-check"></i><b>6.4.7</b> Scatterplot theme</a></li>
+<li class="chapter" data-level="6.4.8" data-path="data-visualisation.html"><a href="data-visualisation.html#scatterplots"><i class="fa fa-check"></i><b>6.4.8</b> Scatterplots</a></li>
+<li class="chapter" data-level="6.4.9" data-path="data-visualisation.html"><a href="data-visualisation.html#make-axis-logarithmic"><i class="fa fa-check"></i><b>6.4.9</b> make axis logarithmic</a></li>
+<li class="chapter" data-level="6.4.10" data-path="data-visualisation.html"><a href="data-visualisation.html#add-a-trendline"><i class="fa fa-check"></i><b>6.4.10</b> add a trendline</a></li>
+<li class="chapter" data-level="6.4.11" data-path="data-visualisation.html"><a href="data-visualisation.html#add-a-trendline-1"><i class="fa fa-check"></i><b>6.4.11</b> add a trendline</a></li>
+<li class="chapter" data-level="6.4.12" data-path="data-visualisation.html"><a href="data-visualisation.html#add-multiple-trendlines"><i class="fa fa-check"></i><b>6.4.12</b> add multiple trendlines</a></li>
+<li class="chapter" data-level="6.4.13" data-path="data-visualisation.html"><a href="data-visualisation.html#residuals-id-those-1sd-from-barx"><i class="fa fa-check"></i><b>6.4.13</b> residuals (ID those &gt;1SD from $bar{X})</a></li>
+<li class="chapter" data-level="6.4.14" data-path="data-visualisation.html"><a href="data-visualisation.html#only-label-extreme-residuals"><i class="fa fa-check"></i><b>6.4.14</b> only label extreme residuals</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="data-visualisation.html"><a href="data-visualisation.html#graphing"><i class="fa fa-check"></i><b>6.5</b> Graphing</a>
+<li class="chapter" data-level="6.5" data-path="data-visualisation.html"><a href="data-visualisation.html#line-defined-by-equation-to-scatterplot"><i class="fa fa-check"></i><b>6.5</b> line defined by equation to scatterplot</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="bbc-style.html"><a href="bbc-style.html"><i class="fa fa-check"></i><b>7</b> BBC style</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="data-visualisation.html"><a href="data-visualisation.html#frequency-histogram---basic"><i class="fa fa-check"></i><b>6.5.1</b> Frequency Histogram - basic</a></li>
-<li class="chapter" data-level="6.5.2" data-path="data-visualisation.html"><a href="data-visualisation.html#multiple-plot-of-all-distributions"><i class="fa fa-check"></i><b>6.5.2</b> multiple plot of all distributions</a></li>
-<li class="chapter" data-level="6.5.3" data-path="data-visualisation.html"><a href="data-visualisation.html#xy-scatterplot-with-linear-or-polynomial-regression"><i class="fa fa-check"></i><b>6.5.3</b> x*y scatterplot with linear or polynomial regression</a></li>
-<li class="chapter" data-level="6.5.4" data-path="data-visualisation.html"><a href="data-visualisation.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.5.4</b> Add formula to plot.</a></li>
-<li class="chapter" data-level="6.5.5" data-path="data-visualisation.html"><a href="data-visualisation.html#raincloud-plots-ggplot"><i class="fa fa-check"></i><b>6.5.5</b> Raincloud plots (ggplot)</a></li>
-<li class="chapter" data-level="6.5.6" data-path="data-visualisation.html"><a href="data-visualisation.html#raincloud-plot-diamonds"><i class="fa fa-check"></i><b>6.5.6</b> raincloud plot (diamonds)</a></li>
-<li class="chapter" data-level="6.5.7" data-path="data-visualisation.html"><a href="data-visualisation.html#scatterplot-theme"><i class="fa fa-check"></i><b>6.5.7</b> Scatterplot theme</a></li>
-<li class="chapter" data-level="6.5.8" data-path="data-visualisation.html"><a href="data-visualisation.html#scatterplots"><i class="fa fa-check"></i><b>6.5.8</b> Scatterplots</a></li>
-<li class="chapter" data-level="6.5.9" data-path="data-visualisation.html"><a href="data-visualisation.html#make-axis-logarithmic"><i class="fa fa-check"></i><b>6.5.9</b> make axis logarithmic</a></li>
-<li class="chapter" data-level="6.5.10" data-path="data-visualisation.html"><a href="data-visualisation.html#add-a-trendline"><i class="fa fa-check"></i><b>6.5.10</b> add a trendline</a></li>
-<li class="chapter" data-level="6.5.11" data-path="data-visualisation.html"><a href="data-visualisation.html#add-a-trendline-1"><i class="fa fa-check"></i><b>6.5.11</b> add a trendline</a></li>
-<li class="chapter" data-level="6.5.12" data-path="data-visualisation.html"><a href="data-visualisation.html#add-multiple-trendlines"><i class="fa fa-check"></i><b>6.5.12</b> add multiple trendlines</a></li>
-<li class="chapter" data-level="6.5.13" data-path="data-visualisation.html"><a href="data-visualisation.html#residuals-id-those-1sd-from-barx"><i class="fa fa-check"></i><b>6.5.13</b> residuals (ID those &gt;1SD from $bar{X})</a></li>
-<li class="chapter" data-level="6.5.14" data-path="data-visualisation.html"><a href="data-visualisation.html#only-label-extreme-residuals"><i class="fa fa-check"></i><b>6.5.14</b> only label extreme residuals</a></li>
-</ul></li>
-<li class="chapter" data-level="6.6" data-path="data-visualisation.html"><a href="data-visualisation.html#line-defined-by-equation-to-scatterplot"><i class="fa fa-check"></i><b>6.6</b> line defined by equation to scatterplot</a></li>
+<li class="chapter" data-level="7.1" data-path="bbc-style.html"><a href="bbc-style.html#load-packages"><i class="fa fa-check"></i><b>7.1</b> load packages</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -264,14 +278,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Tables and graphs, survival plots, missing values.</strong></p>
 <div id="packages-needed" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Packages needed</h2>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-visualisation.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arsenal) <span class="co"># for summary tables</span></span>
+<span id="cb95-2"><a href="data-visualisation.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools) <span class="co"># for summary tables</span></span>
+<span id="cb95-3"><a href="data-visualisation.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra) <span class="co"># print multiple plots as grid</span></span>
+<span id="cb95-4"><a href="data-visualisation.html#cb95-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpmisc) <span class="co"># add formulas and p values to scatterplots</span></span>
+<span id="cb95-5"><a href="data-visualisation.html#cb95-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot) <span class="co">#plotting correlations</span></span>
+<span id="cb95-6"><a href="data-visualisation.html#cb95-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc) <span class="co">#impute values</span></span>
+<span id="cb95-7"><a href="data-visualisation.html#cb95-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar) <span class="co"># deal with NAs</span></span>
+<span id="cb95-8"><a href="data-visualisation.html#cb95-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geosphere)</span>
+<span id="cb95-9"><a href="data-visualisation.html#cb95-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># data handling and viz</span></span>
+<span id="cb95-10"><a href="data-visualisation.html#cb95-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor) <span class="co">#dataframe import cleaning</span></span>
+<span id="cb95-11"><a href="data-visualisation.html#cb95-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr) <span class="co">#nice html tables</span></span>
+<span id="cb95-12"><a href="data-visualisation.html#cb95-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra) <span class="co"># nicer knitr tables</span></span>
+<span id="cb95-13"><a href="data-visualisation.html#cb95-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb95-14"><a href="data-visualisation.html#cb95-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr) <span class="co"># load csv stored data</span></span>
+<span id="cb95-15"><a href="data-visualisation.html#cb95-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geosphere) <span class="co"># for calc daylength</span></span>
+<span id="cb95-16"><a href="data-visualisation.html#cb95-16" aria-hidden="true" tabindex="-1"></a><span class="co">#library(RColorBrewer)</span></span>
+<span id="cb95-17"><a href="data-visualisation.html#cb95-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb95-18"><a href="data-visualisation.html#cb95-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb95-19"><a href="data-visualisation.html#cb95-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel) <span class="co"># label points on ggplot</span></span>
+<span id="cb95-20"><a href="data-visualisation.html#cb95-20" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;https://gist.githubusercontent.com/benmarwick/2a1bb0133ff568cbe28d/raw/fb53bd97121f7f9ce947837ef1a4c65a73bffb3f/geom_flat_violin.R&quot;</span>)</span></code></pre></div>
 </div>
 <div id="summary-tables" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Summary Tables</h2>
 <div id="summarise-by-group" class="section level3" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Summarise by group</h3>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-visualisation.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
-<span id="cb81-2"><a href="data-visualisation.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">Ave=</span><span class="fu">mean</span>(hp), <span class="at">StDev=</span><span class="fu">sd</span>(hp))) <span class="sc">%&gt;%</span> </span>
-<span id="cb81-3"><a href="data-visualisation.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-visualisation.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb96-2"><a href="data-visualisation.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">Ave=</span><span class="fu">mean</span>(hp), <span class="at">StDev=</span><span class="fu">sd</span>(hp))) <span class="sc">%&gt;%</span> </span>
+<span id="cb96-3"><a href="data-visualisation.html#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -323,14 +357,14 @@ StDev
 </tbody>
 </table>
 </div>
-<div id="summary-table---multiple-functions-variables" class="section level3" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Summary Table - Multiple functions, variables</h3>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data-visualisation.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure brackets are correct</span></span>
-<span id="cb82-2"><a href="data-visualisation.html#cb82-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-3"><a href="data-visualisation.html#cb82-3" aria-hidden="true" tabindex="-1"></a>df.sum <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">select</span>(mpg,cyl,hp) <span class="sc">%&gt;%</span></span>
-<span id="cb82-4"><a href="data-visualisation.html#cb82-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="fu">list</span>(<span class="at">mean=</span>mean,<span class="at">sd=</span>sd)))</span>
-<span id="cb82-5"><a href="data-visualisation.html#cb82-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.sum,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb82-6"><a href="data-visualisation.html#cb82-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>() <span class="co"># perform the analysis</span></span></code></pre></div>
+<div id="multiple-functions-variables" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Multiple functions, variables</h3>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-visualisation.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure brackets are correct</span></span>
+<span id="cb97-2"><a href="data-visualisation.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="data-visualisation.html#cb97-3" aria-hidden="true" tabindex="-1"></a>df.sum <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span>  <span class="fu">select</span>(mpg,cyl,hp) <span class="sc">%&gt;%</span></span>
+<span id="cb97-4"><a href="data-visualisation.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="fu">list</span>(<span class="at">mean=</span>mean,<span class="at">sd=</span>sd)))</span>
+<span id="cb97-5"><a href="data-visualisation.html#cb97-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.sum,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb97-6"><a href="data-visualisation.html#cb97-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>() <span class="co"># perform the analysis</span></span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -377,12 +411,12 @@ hp_sd
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-visualisation.html#cb83-1" aria-hidden="true" tabindex="-1"></a>df.longer <span class="ot">&lt;-</span> df.sum<span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">col=</span><span class="fu">everything</span>(),  </span>
-<span id="cb83-2"><a href="data-visualisation.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;Attribute&quot;</span>,<span class="st">&quot;.value&quot;</span>),</span>
-<span id="cb83-3"><a href="data-visualisation.html#cb83-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span>)</span>
-<span id="cb83-4"><a href="data-visualisation.html#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.longer,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb83-5"><a href="data-visualisation.html#cb83-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb83-6"><a href="data-visualisation.html#cb83-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>() <span class="co"># pivot longer the analysis to make it readable</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-visualisation.html#cb98-1" aria-hidden="true" tabindex="-1"></a>df.longer <span class="ot">&lt;-</span> df.sum<span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">col=</span><span class="fu">everything</span>(),  </span>
+<span id="cb98-2"><a href="data-visualisation.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;Attribute&quot;</span>,<span class="st">&quot;.value&quot;</span>),</span>
+<span id="cb98-3"><a href="data-visualisation.html#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb98-4"><a href="data-visualisation.html#cb98-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df.longer,<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb98-5"><a href="data-visualisation.html#cb98-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb98-6"><a href="data-visualisation.html#cb98-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>() <span class="co"># pivot longer the analysis to make it readable</span></span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -436,8 +470,8 @@ hp
 </div>
 <div id="arsenal-summary-table" class="section level3" number="6.2.3">
 <h3><span class="header-section-number">6.2.3</span> ‘Arsenal’ summary table</h3>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data-visualisation.html#cb84-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">tableby</span>(cyl<span class="sc">~</span>gear<span class="sc">+</span>hp<span class="sc">+</span>wt,<span class="at">data=</span>mtcars)</span>
-<span id="cb84-2"><a href="data-visualisation.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tab1, <span class="at">text=</span><span class="cn">TRUE</span>, <span class="at">digits=</span><span class="dv">2</span>, <span class="at">digits.p=</span><span class="dv">2</span>, <span class="at">digits.pct=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-visualisation.html#cb99-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">tableby</span>(cyl<span class="sc">~</span>gear<span class="sc">+</span>hp<span class="sc">+</span>wt,<span class="at">data=</span>mtcars)</span>
+<span id="cb99-2"><a href="data-visualisation.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tab1, <span class="at">text=</span><span class="cn">TRUE</span>, <span class="at">digits=</span><span class="dv">2</span>, <span class="at">digits.p=</span><span class="dv">2</span>, <span class="at">digits.pct=</span><span class="dv">1</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -527,7 +561,7 @@ hp
 </div>
 <div id="summarytools-tables" class="section level3" number="6.2.4">
 <h3><span class="header-section-number">6.2.4</span> Summarytools tables</h3>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-visualisation.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(mtcars, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>), <span class="at">transpose =</span> <span class="cn">TRUE</span>, <span class="at">headings =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-visualisation.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(mtcars, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>), <span class="at">transpose =</span> <span class="cn">TRUE</span>, <span class="at">headings =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##                Mean   Std.Dev
 ## ---------- -------- ---------
@@ -542,9 +576,9 @@ hp
 ##       qsec    17.85      1.79
 ##         vs     0.44      0.50
 ##         wt     3.22      0.98</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-visualisation.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">descr</span>(mtcars, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>, <span class="st">&quot;n.valid&quot;</span>), <span class="at">transpose =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb87-2"><a href="data-visualisation.html#cb87-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">headings =</span> <span class="cn">FALSE</span>),<span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb87-3"><a href="data-visualisation.html#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)<span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-visualisation.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">descr</span>(mtcars, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>, <span class="st">&quot;n.valid&quot;</span>), <span class="at">transpose =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb102-2"><a href="data-visualisation.html#cb102-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">headings =</span> <span class="cn">FALSE</span>),<span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb102-3"><a href="data-visualisation.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)<span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <pre><code>## Warning in if (grepl(re1, str, perl = TRUE)) {: the condition has length &gt; 1 and
 ## only the first element will be used</code></pre>
 <pre><code>## Warning in if (grepl(re2, str, perl = TRUE)) {: the condition has length &gt; 1 and
@@ -726,17 +760,17 @@ wt
 </tbody>
 </table>
 </div>
-</div>
-<div id="visual-summary-of-data" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Visual summary of data</h2>
+<div id="visual-summary-of-data" class="section level3" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> Visual summary of data</h3>
 <p><em>Options are for markdown</em></p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-visualisation.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dfSummary</span>(mtcars, <span class="at">plain.ascii =</span> <span class="cn">FALSE</span>, <span class="at">style =</span> <span class="st">&quot;grid&quot;</span>, </span>
-<span id="cb92-2"><a href="data-visualisation.html#cb92-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">graph.magnif =</span> <span class="fl">0.5</span>, <span class="at">valid.col =</span> <span class="cn">FALSE</span>, <span class="at">tmp.img.dir =</span> <span class="st">&quot;/tmp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-visualisation.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dfSummary</span>(mtcars, <span class="at">plain.ascii =</span> <span class="cn">FALSE</span>, <span class="at">style =</span> <span class="st">&quot;grid&quot;</span>, </span>
+<span id="cb107-2"><a href="data-visualisation.html#cb107-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">graph.magnif =</span> <span class="fl">0.5</span>, <span class="at">valid.col =</span> <span class="cn">FALSE</span>, <span class="at">tmp.img.dir =</span> <span class="st">&quot;/tmp&quot;</span>)</span></code></pre></div>
 <pre><code>## temporary images written to &#39;C:\tmp&#39;</code></pre>
-<div id="data-frame-summary" class="section level3" number="6.3.1">
-<h3><span class="header-section-number">6.3.1</span> Data Frame Summary</h3>
-<div id="mtcars" class="section level4" number="6.3.1.1">
-<h4><span class="header-section-number">6.3.1.1</span> mtcars</h4>
+</div>
+<div id="data-frame-summary" class="section level3" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> Data Frame Summary</h3>
+<div id="mtcars" class="section level4" number="6.2.6.1">
+<h4><span class="header-section-number">6.2.6.1</span> mtcars</h4>
 <p><strong>Dimensions:</strong> 32 x 11<br />
 <strong>Duplicates:</strong> 0</p>
 <table style="width:100%;">
@@ -768,7 +802,7 @@ min &lt; med &lt; max:<br />
 10.4 &lt; 19.2 &lt; 33.9<br />
 IQR (CV) : 7.4 (0.3)</td>
 <td>25 distinct values</td>
-<td><img src="C:/tmp/ds1087.png" /></td>
+<td><img src="C:/tmp/ds1131.png" /></td>
 <td>0<br />
 (0.0%)</td>
 </tr>
@@ -783,7 +817,7 @@ IQR (CV) : 4 (0.3)</td>
 <td>4 : 11 (34.4%)<br />
 6 : 7 (21.9%)<br />
 8 : 14 (43.8%)</td>
-<td><img src="C:/tmp/ds1088.png" /></td>
+<td><img src="C:/tmp/ds1132.png" /></td>
 <td>0<br />
 (0.0%)</td>
 </tr>
@@ -796,7 +830,7 @@ min &lt; med &lt; max:<br />
 71.1 &lt; 196.3 &lt; 472<br />
 IQR (CV) : 205.2 (0.5)</td>
 <td>27 distinct values</td>
-<td><img src="C:/tmp/ds1089.png" /></td>
+<td><img src="C:/tmp/ds1133.png" /></td>
 <td>0<br />
 (0.0%)</td>
 </tr>
@@ -809,7 +843,7 @@ min &lt; med &lt; max:<br />
 52 &lt; 123 &lt; 335<br />
 IQR (CV) : 83.5 (0.5)</td>
 <td>22 distinct values</td>
-<td><img src="C:/tmp/ds1090.png" /></td>
+<td><img src="C:/tmp/ds1134.png" /></td>
 <td>0<br />
 (0.0%)</td>
 </tr>
@@ -822,7 +856,7 @@ min &lt; med &lt; max:<br />
 2.8 &lt; 3.7 &lt; 4.9<br />
 IQR (CV) : 0.8 (0.1)</td>
 <td>22 distinct values</td>
-<td><img src="C:/tmp/ds1091.png" /></td>
+<td><img src="C:/tmp/ds1135.png" /></td>
 <td>0<br />
 (0.0%)</td>
 </tr>
@@ -835,7 +869,7 @@ min &lt; med &lt; max:<br />
 1.5 &lt; 3.3 &lt; 5.4<br />
 IQR (CV) : 1 (0.3)</td>
 <td>29 distinct values</td>
-<td><img src="C:/tmp/ds1092.png" /></td>
+<td><img src="C:/tmp/ds1136.png" /></td>
 <td>0<br />
 (0.0%)</td>
 </tr>
@@ -848,7 +882,7 @@ min &lt; med &lt; max:<br />
 14.5 &lt; 17.7 &lt; 22.9<br />
 IQR (CV) : 2 (0.1)</td>
 <td>30 distinct values</td>
-<td><img src="C:/tmp/ds1093.png" /></td>
+<td><img src="C:/tmp/ds1137.png" /></td>
 <td>0<br />
 (0.0%)</td>
 </tr>
@@ -861,7 +895,7 @@ Mean : 0.4<br />
 Max : 1</td>
 <td>0 : 18 (56.2%)<br />
 1 : 14 (43.8%)</td>
-<td><img src="C:/tmp/ds1094.png" /></td>
+<td><img src="C:/tmp/ds1138.png" /></td>
 <td>0<br />
 (0.0%)</td>
 </tr>
@@ -874,7 +908,7 @@ Mean : 0.4<br />
 Max : 1</td>
 <td>0 : 19 (59.4%)<br />
 1 : 13 (40.6%)</td>
-<td><img src="C:/tmp/ds1095.png" /></td>
+<td><img src="C:/tmp/ds1139.png" /></td>
 <td>0<br />
 (0.0%)</td>
 </tr>
@@ -889,7 +923,7 @@ IQR (CV) : 1 (0.2)</td>
 <td>3 : 15 (46.9%)<br />
 4 : 12 (37.5%)<br />
 5 : 5 (15.6%)</td>
-<td><img src="C:/tmp/ds1096.png" /></td>
+<td><img src="C:/tmp/ds1140.png" /></td>
 <td>0<br />
 (0.0%)</td>
 </tr>
@@ -907,7 +941,7 @@ IQR (CV) : 2 (0.6)</td>
 4 : 10 (31.2%)<br />
 6 : 1 ( 3.1%)<br />
 8 : 1 ( 3.1%)</td>
-<td><img src="C:/tmp/ds1097.png" /></td>
+<td><img src="C:/tmp/ds1141.png" /></td>
 <td>0<br />
 (0.0%)</td>
 </tr>
@@ -916,21 +950,21 @@ IQR (CV) : 2 (0.6)</td>
 </div>
 </div>
 </div>
-<div id="correlation-matrix" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Correlation matrix</h2>
-<div id="ellipse-style" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Ellipse style</h3>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-visualisation.html#cb94-1" aria-hidden="true" tabindex="-1"></a>corrdata <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(cyl,disp,vs,am,gear,carb)) </span>
-<span id="cb94-2"><a href="data-visualisation.html#cb94-2" aria-hidden="true" tabindex="-1"></a>corr1 <span class="ot">&lt;-</span> Hmisc<span class="sc">::</span><span class="fu">rcorr</span>(<span class="fu">as.matrix</span>(corrdata))</span>
-<span id="cb94-3"><a href="data-visualisation.html#cb94-3" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> corr1<span class="sc">$</span>r</span>
-<span id="cb94-4"><a href="data-visualisation.html#cb94-4" aria-hidden="true" tabindex="-1"></a><span class="co">#M</span></span>
-<span id="cb94-5"><a href="data-visualisation.html#cb94-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(M) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;HP&quot;</span>, <span class="st">&quot;Axle Ratio&quot;</span>, <span class="st">&quot;Weight (kPounds)&quot;</span>, <span class="st">&quot;Quarter Mile (s)&quot;</span>)</span>
-<span id="cb94-6"><a href="data-visualisation.html#cb94-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(M) <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;HP&quot;</span>, <span class="st">&quot;Axle Ratio&quot;</span>, <span class="st">&quot;Weight (kPounds)&quot;</span>, <span class="st">&quot;Quarter Mile (s)&quot;</span>)</span>
-<span id="cb94-7"><a href="data-visualisation.html#cb94-7" aria-hidden="true" tabindex="-1"></a>p_mat <span class="ot">&lt;-</span> corr1<span class="sc">$</span>P</span>
-<span id="cb94-8"><a href="data-visualisation.html#cb94-8" aria-hidden="true" tabindex="-1"></a>corr <span class="ot">&lt;-</span> <span class="fu">corrplot</span>(M, <span class="at">type =</span> <span class="st">&quot;upper&quot;</span>,<span class="at">method=</span><span class="st">&quot;ellipse&quot;</span>, <span class="at">order =</span> <span class="st">&quot;hclust&quot;</span>, </span>
-<span id="cb94-9"><a href="data-visualisation.html#cb94-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">p.mat =</span> p_mat, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">insig =</span> <span class="st">&quot;blank&quot;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-40"></span>
-<img src="Useful-Syntax_files/figure-html/unnamed-chunk-40-1.png" alt="Correlation Plot" width="672" />
+<div id="correlation-matrix" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Correlation matrix</h2>
+<div id="ellipse-style" class="section level3" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Ellipse style</h3>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="data-visualisation.html#cb109-1" aria-hidden="true" tabindex="-1"></a>corrdata <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(cyl,disp,vs,am,gear,carb)) </span>
+<span id="cb109-2"><a href="data-visualisation.html#cb109-2" aria-hidden="true" tabindex="-1"></a>corr1 <span class="ot">&lt;-</span> Hmisc<span class="sc">::</span><span class="fu">rcorr</span>(<span class="fu">as.matrix</span>(corrdata))</span>
+<span id="cb109-3"><a href="data-visualisation.html#cb109-3" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> corr1<span class="sc">$</span>r</span>
+<span id="cb109-4"><a href="data-visualisation.html#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="co">#M</span></span>
+<span id="cb109-5"><a href="data-visualisation.html#cb109-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(M) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;HP&quot;</span>, <span class="st">&quot;Axle Ratio&quot;</span>, <span class="st">&quot;Weight (kPounds)&quot;</span>, <span class="st">&quot;Quarter Mile (s)&quot;</span>)</span>
+<span id="cb109-6"><a href="data-visualisation.html#cb109-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(M) <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;HP&quot;</span>, <span class="st">&quot;Axle Ratio&quot;</span>, <span class="st">&quot;Weight (kPounds)&quot;</span>, <span class="st">&quot;Quarter Mile (s)&quot;</span>)</span>
+<span id="cb109-7"><a href="data-visualisation.html#cb109-7" aria-hidden="true" tabindex="-1"></a>p_mat <span class="ot">&lt;-</span> corr1<span class="sc">$</span>P</span>
+<span id="cb109-8"><a href="data-visualisation.html#cb109-8" aria-hidden="true" tabindex="-1"></a>corr <span class="ot">&lt;-</span> <span class="fu">corrplot</span>(M, <span class="at">type =</span> <span class="st">&quot;upper&quot;</span>,<span class="at">method=</span><span class="st">&quot;ellipse&quot;</span>, <span class="at">order =</span> <span class="st">&quot;hclust&quot;</span>, </span>
+<span id="cb109-9"><a href="data-visualisation.html#cb109-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">p.mat =</span> p_mat, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">insig =</span> <span class="st">&quot;blank&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-45"></span>
+<img src="Useful-Syntax_files/figure-html/unnamed-chunk-45-1.png" alt="Correlation Plot" width="672" />
 <p class="caption">
 Figure 6.1: Correlation Plot
 </p>
@@ -943,64 +977,62 @@ Figure 6.1: Correlation Plot
 <p><a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">Reference</a></p>
 </div>
 </div>
-<div id="graphing" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Graphing</h2>
-<div id="frequency-histogram---basic" class="section level3" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> Frequency Histogram - basic</h3>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-visualisation.html#cb95-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(qsec))<span class="sc">+</span><span class="fu">geom_histogram</span>()</span>
-<span id="cb95-2"><a href="data-visualisation.html#cb95-2" aria-hidden="true" tabindex="-1"></a>plot1</span></code></pre></div>
+<div id="graphing" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Graphing</h2>
+<div id="basic-distribution-histogram" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Basic distribution Histogram</h3>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="data-visualisation.html#cb110-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(qsec))<span class="sc">+</span><span class="fu">geom_histogram</span>()</span>
+<span id="cb110-2"><a href="data-visualisation.html#cb110-2" aria-hidden="true" tabindex="-1"></a>plot1</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-41-1.png" width="672" />
-### Frequency Histogram + normal distribution</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-visualisation.html#cb97-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(qsec))</span>
-<span id="cb97-2"><a href="data-visualisation.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plot1+geom_histogram()</span></span>
-<span id="cb97-3"><a href="data-visualisation.html#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="co"># add normal plot</span></span>
-<span id="cb97-4"><a href="data-visualisation.html#cb97-4" aria-hidden="true" tabindex="-1"></a>plot1 <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>( <span class="at">y=</span>..density..))<span class="sc">+</span></span>
-<span id="cb97-5"><a href="data-visualisation.html#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span><span class="fu">mean</span>(mtcars<span class="sc">$</span>qsec), <span class="at">sd=</span><span class="fu">sd</span>(mtcars<span class="sc">$</span>qsec))) <span class="sc">+</span> </span>
-<span id="cb97-6"><a href="data-visualisation.html#cb97-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-visualisation.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ..density.. changes y axis to density, not count. stat function defines normal</span></span>
-<span id="cb99-2"><a href="data-visualisation.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="co"># line based on data provided.</span></span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-46-1.png" width="672" />
+### Distribution + Normal line</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="data-visualisation.html#cb112-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(qsec))</span>
+<span id="cb112-2"><a href="data-visualisation.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plot1+geom_histogram()</span></span>
+<span id="cb112-3"><a href="data-visualisation.html#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="co"># add normal plot</span></span>
+<span id="cb112-4"><a href="data-visualisation.html#cb112-4" aria-hidden="true" tabindex="-1"></a>plot1 <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>( <span class="at">y=</span>..density..),<span class="at">bins =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb112-5"><a href="data-visualisation.html#cb112-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span><span class="fu">mean</span>(mtcars<span class="sc">$</span>qsec), <span class="at">sd=</span><span class="fu">sd</span>(mtcars<span class="sc">$</span>qsec))) <span class="sc">+</span> </span>
+<span id="cb112-6"><a href="data-visualisation.html#cb112-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="data-visualisation.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ..density.. changes y axis to density, not count. stat function defines normal</span></span>
+<span id="cb113-2"><a href="data-visualisation.html#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="co"># line based on data provided.</span></span></code></pre></div>
 </div>
-<div id="multiple-plot-of-all-distributions" class="section level3" number="6.5.2">
-<h3><span class="header-section-number">6.5.2</span> multiple plot of all distributions</h3>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-visualisation.html#cb100-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">keep</span>(is.numeric) <span class="sc">%&gt;%</span> <span class="fu">gather</span>() <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(value)) <span class="sc">+</span></span>
-<span id="cb100-2"><a href="data-visualisation.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> key, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<div id="multiple-plot-of-all-distributions" class="section level3" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> multiple plot of all distributions</h3>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="data-visualisation.html#cb114-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">keep</span>(is.numeric) <span class="sc">%&gt;%</span> <span class="fu">gather</span>() <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(value)) <span class="sc">+</span></span>
+<span id="cb114-2"><a href="data-visualisation.html#cb114-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> key, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
 </div>
-<div id="xy-scatterplot-with-linear-or-polynomial-regression" class="section level3" number="6.5.3">
-<h3><span class="header-section-number">6.5.3</span> x*y scatterplot with linear or polynomial regression</h3>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-visualisation.html#cb102-1" aria-hidden="true" tabindex="-1"></a>plot2<span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>wt,<span class="at">y=</span>qsec))</span>
-<span id="cb102-2"><a href="data-visualisation.html#cb102-2" aria-hidden="true" tabindex="-1"></a>plot2a <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula=</span>y<span class="sc">~</span>x) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
-<span id="cb102-3"><a href="data-visualisation.html#cb102-3" aria-hidden="true" tabindex="-1"></a>plot2b <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
-<span id="cb102-4"><a href="data-visualisation.html#cb102-4" aria-hidden="true" tabindex="-1"></a>plot2c <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">3</span>)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
-<span id="cb102-5"><a href="data-visualisation.html#cb102-5" aria-hidden="true" tabindex="-1"></a>plot2d <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">4</span>)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
-<span id="cb102-6"><a href="data-visualisation.html#cb102-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-7"><a href="data-visualisation.html#cb102-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(plot2a,plot2b,plot2c,plot2d,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<div id="xy-scatterplot-with-linear-or-polynomial-regression" class="section level3" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> x*y scatterplot with linear or polynomial regression</h3>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="data-visualisation.html#cb115-1" aria-hidden="true" tabindex="-1"></a>plot2<span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>wt,<span class="at">y=</span>qsec))</span>
+<span id="cb115-2"><a href="data-visualisation.html#cb115-2" aria-hidden="true" tabindex="-1"></a>plot2a <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula=</span>y<span class="sc">~</span>x) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
+<span id="cb115-3"><a href="data-visualisation.html#cb115-3" aria-hidden="true" tabindex="-1"></a>plot2b <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
+<span id="cb115-4"><a href="data-visualisation.html#cb115-4" aria-hidden="true" tabindex="-1"></a>plot2c <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">3</span>)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
+<span id="cb115-5"><a href="data-visualisation.html#cb115-5" aria-hidden="true" tabindex="-1"></a>plot2d <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">4</span>)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
+<span id="cb115-6"><a href="data-visualisation.html#cb115-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-7"><a href="data-visualisation.html#cb115-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(plot2a,plot2b,plot2c,plot2d,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 </div>
-<div id="add-formula-to-plot." class="section level3" number="6.5.4">
-<h3><span class="header-section-number">6.5.4</span> Add formula to plot.</h3>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-visualisation.html#cb103-1" aria-hidden="true" tabindex="-1"></a>my.formula <span class="ot">&lt;-</span> y <span class="sc">~</span> x</span>
-<span id="cb103-2"><a href="data-visualisation.html#cb103-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula=</span>my.formula)<span class="sc">+</span></span>
-<span id="cb103-3"><a href="data-visualisation.html#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> my.formula, <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label..,</span>
-<span id="cb103-4"><a href="data-visualisation.html#cb103-4" aria-hidden="true" tabindex="-1"></a>                                                       <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb103-5"><a href="data-visualisation.html#cb103-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb103-6"><a href="data-visualisation.html#cb103-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb103-7"><a href="data-visualisation.html#cb103-7" aria-hidden="true" tabindex="-1"></a>my.formula2 <span class="ot">&lt;-</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>)</span>
-<span id="cb103-8"><a href="data-visualisation.html#cb103-8" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula=</span>my.formula2)<span class="sc">+</span></span>
-<span id="cb103-9"><a href="data-visualisation.html#cb103-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> my.formula2, <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label..,</span>
-<span id="cb103-10"><a href="data-visualisation.html#cb103-10" aria-hidden="true" tabindex="-1"></a>                                                        <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb103-11"><a href="data-visualisation.html#cb103-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb103-12"><a href="data-visualisation.html#cb103-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb103-13"><a href="data-visualisation.html#cb103-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(a,b,<span class="at">nrow=</span><span class="dv">1</span>)</span></code></pre></div>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<div id="add-formula-to-plot." class="section level3" number="6.4.4">
+<h3><span class="header-section-number">6.4.4</span> Add formula to plot.</h3>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="data-visualisation.html#cb116-1" aria-hidden="true" tabindex="-1"></a>my.formula <span class="ot">&lt;-</span> y <span class="sc">~</span> x</span>
+<span id="cb116-2"><a href="data-visualisation.html#cb116-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula=</span>my.formula)<span class="sc">+</span></span>
+<span id="cb116-3"><a href="data-visualisation.html#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> my.formula, <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label..,</span>
+<span id="cb116-4"><a href="data-visualisation.html#cb116-4" aria-hidden="true" tabindex="-1"></a>                                                       <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb116-5"><a href="data-visualisation.html#cb116-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb116-6"><a href="data-visualisation.html#cb116-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-7"><a href="data-visualisation.html#cb116-7" aria-hidden="true" tabindex="-1"></a>my.formula2 <span class="ot">&lt;-</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>)</span>
+<span id="cb116-8"><a href="data-visualisation.html#cb116-8" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> plot2 <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula=</span>my.formula2)<span class="sc">+</span></span>
+<span id="cb116-9"><a href="data-visualisation.html#cb116-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> my.formula2, <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label..,</span>
+<span id="cb116-10"><a href="data-visualisation.html#cb116-10" aria-hidden="true" tabindex="-1"></a>                                                        <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb116-11"><a href="data-visualisation.html#cb116-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb116-12"><a href="data-visualisation.html#cb116-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-13"><a href="data-visualisation.html#cb116-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(a,b,<span class="at">nrow=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 </div>
-<div id="raincloud-plots-ggplot" class="section level3" number="6.5.5">
-<h3><span class="header-section-number">6.5.5</span> Raincloud plots (ggplot)</h3>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-visualisation.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span></code></pre></div>
+<div id="raincloud-plots-ggplot" class="section level3" number="6.4.5">
+<h3><span class="header-section-number">6.4.5</span> Raincloud plots (ggplot)</h3>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="data-visualisation.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyr)</span></code></pre></div>
 <pre><code>## Warning: package &#39;plyr&#39; was built under R version 4.0.5</code></pre>
 <pre><code>## ------------------------------------------------------------------------------</code></pre>
 <pre><code>## You have loaded plyr after dplyr - this is likely to cause problems.
@@ -1019,41 +1051,41 @@ Figure 6.1: Correlation Plot
 <pre><code>## The following object is masked from &#39;package:purrr&#39;:
 ## 
 ##     compact</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="data-visualisation.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
-<div id="custom-theme-creation" class="section level4" number="6.5.5.1">
-<h4><span class="header-section-number">6.5.5.1</span> custom theme creation</h4>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="data-visualisation.html#cb114-1" aria-hidden="true" tabindex="-1"></a>theme_rain <span class="ot">=</span> <span class="fu">theme</span>(</span>
-<span id="cb114-2"><a href="data-visualisation.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb114-3"><a href="data-visualisation.html#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb114-4"><a href="data-visualisation.html#cb114-4" aria-hidden="true" tabindex="-1"></a><span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb114-5"><a href="data-visualisation.html#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb114-6"><a href="data-visualisation.html#cb114-6" aria-hidden="true" tabindex="-1"></a><span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb114-7"><a href="data-visualisation.html#cb114-7" aria-hidden="true" tabindex="-1"></a><span class="at">legend.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>),</span>
-<span id="cb114-8"><a href="data-visualisation.html#cb114-8" aria-hidden="true" tabindex="-1"></a><span class="at">legend.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>),</span>
-<span id="cb114-9"><a href="data-visualisation.html#cb114-9" aria-hidden="true" tabindex="-1"></a><span class="at">legend.position =</span> <span class="st">&quot;right&quot;</span>,</span>
-<span id="cb114-10"><a href="data-visualisation.html#cb114-10" aria-hidden="true" tabindex="-1"></a><span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">lineheight=</span>.<span class="dv">8</span>, <span class="at">face=</span><span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb114-11"><a href="data-visualisation.html#cb114-11" aria-hidden="true" tabindex="-1"></a><span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb114-12"><a href="data-visualisation.html#cb114-12" aria-hidden="true" tabindex="-1"></a><span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb114-13"><a href="data-visualisation.html#cb114-13" aria-hidden="true" tabindex="-1"></a><span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb114-14"><a href="data-visualisation.html#cb114-14" aria-hidden="true" tabindex="-1"></a><span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">&#39;solid&#39;</span>),</span>
-<span id="cb114-15"><a href="data-visualisation.html#cb114-15" aria-hidden="true" tabindex="-1"></a><span class="at">axis.line.y =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">&#39;solid&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="data-visualisation.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div id="custom-theme-creation" class="section level4" number="6.4.5.1">
+<h4><span class="header-section-number">6.4.5.1</span> custom theme creation</h4>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="data-visualisation.html#cb127-1" aria-hidden="true" tabindex="-1"></a>theme_rain <span class="ot">=</span> <span class="fu">theme</span>(</span>
+<span id="cb127-2"><a href="data-visualisation.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb127-3"><a href="data-visualisation.html#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb127-4"><a href="data-visualisation.html#cb127-4" aria-hidden="true" tabindex="-1"></a><span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb127-5"><a href="data-visualisation.html#cb127-5" aria-hidden="true" tabindex="-1"></a><span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb127-6"><a href="data-visualisation.html#cb127-6" aria-hidden="true" tabindex="-1"></a><span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb127-7"><a href="data-visualisation.html#cb127-7" aria-hidden="true" tabindex="-1"></a><span class="at">legend.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>),</span>
+<span id="cb127-8"><a href="data-visualisation.html#cb127-8" aria-hidden="true" tabindex="-1"></a><span class="at">legend.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>),</span>
+<span id="cb127-9"><a href="data-visualisation.html#cb127-9" aria-hidden="true" tabindex="-1"></a><span class="at">legend.position =</span> <span class="st">&quot;right&quot;</span>,</span>
+<span id="cb127-10"><a href="data-visualisation.html#cb127-10" aria-hidden="true" tabindex="-1"></a><span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">lineheight=</span>.<span class="dv">8</span>, <span class="at">face=</span><span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb127-11"><a href="data-visualisation.html#cb127-11" aria-hidden="true" tabindex="-1"></a><span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb127-12"><a href="data-visualisation.html#cb127-12" aria-hidden="true" tabindex="-1"></a><span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb127-13"><a href="data-visualisation.html#cb127-13" aria-hidden="true" tabindex="-1"></a><span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb127-14"><a href="data-visualisation.html#cb127-14" aria-hidden="true" tabindex="-1"></a><span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">&#39;solid&#39;</span>),</span>
+<span id="cb127-15"><a href="data-visualisation.html#cb127-15" aria-hidden="true" tabindex="-1"></a><span class="at">axis.line.y =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">&#39;solid&#39;</span>))</span></code></pre></div>
 </div>
-<div id="make-summary-functions" class="section level4" number="6.5.5.2">
-<h4><span class="header-section-number">6.5.5.2</span> make summary functions</h4>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="data-visualisation.html#cb115-1" aria-hidden="true" tabindex="-1"></a>lb <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">mean</span>(x) <span class="sc">-</span> <span class="fu">sd</span>(x)</span>
-<span id="cb115-2"><a href="data-visualisation.html#cb115-2" aria-hidden="true" tabindex="-1"></a>ub <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">mean</span>(x) <span class="sc">+</span> <span class="fu">sd</span>(x)</span></code></pre></div>
+<div id="make-summary-functions" class="section level4" number="6.4.5.2">
+<h4><span class="header-section-number">6.4.5.2</span> make summary functions</h4>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="data-visualisation.html#cb128-1" aria-hidden="true" tabindex="-1"></a>lb <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">mean</span>(x) <span class="sc">-</span> <span class="fu">sd</span>(x)</span>
+<span id="cb128-2"><a href="data-visualisation.html#cb128-2" aria-hidden="true" tabindex="-1"></a>ub <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">mean</span>(x) <span class="sc">+</span> <span class="fu">sd</span>(x)</span></code></pre></div>
 </div>
-<div id="row-names-as-real-column" class="section level4" number="6.5.5.3">
-<h4><span class="header-section-number">6.5.5.3</span> row names as real column</h4>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="data-visualisation.html#cb116-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(mtcars, <span class="st">&quot;car_name&quot;</span>)</span>
-<span id="cb116-2"><a href="data-visualisation.html#cb116-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">cyl=</span><span class="fu">as_factor</span>(cyl))</span></code></pre></div>
+<div id="row-names-as-real-column" class="section level4" number="6.4.5.3">
+<h4><span class="header-section-number">6.4.5.3</span> row names as real column</h4>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="data-visualisation.html#cb129-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(mtcars, <span class="st">&quot;car_name&quot;</span>)</span>
+<span id="cb129-2"><a href="data-visualisation.html#cb129-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">cyl=</span><span class="fu">as_factor</span>(cyl))</span></code></pre></div>
 </div>
-<div id="calc-summary-data" class="section level4" number="6.5.5.4">
-<h4><span class="header-section-number">6.5.5.4</span> calc summary data</h4>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="data-visualisation.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;diamonds&quot;</span>)</span>
-<span id="cb117-2"><a href="data-visualisation.html#cb117-2" aria-hidden="true" tabindex="-1"></a>sumld<span class="ot">&lt;-</span> <span class="fu">ddply</span>(diamonds, <span class="sc">~</span>cut, summarise, <span class="at">mean =</span> <span class="fu">mean</span>(carat), <span class="at">median =</span> <span class="fu">median</span>(carat), </span>
-<span id="cb117-3"><a href="data-visualisation.html#cb117-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">lower =</span> <span class="fu">lb</span>(carat), <span class="at">upper =</span> <span class="fu">ub</span>(carat))</span>
-<span id="cb117-4"><a href="data-visualisation.html#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(sumld)) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div id="calc-summary-data" class="section level4" number="6.4.5.4">
+<h4><span class="header-section-number">6.4.5.4</span> calc summary data</h4>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="data-visualisation.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;diamonds&quot;</span>)</span>
+<span id="cb130-2"><a href="data-visualisation.html#cb130-2" aria-hidden="true" tabindex="-1"></a>sumld<span class="ot">&lt;-</span> <span class="fu">ddply</span>(diamonds, <span class="sc">~</span>cut, summarise, <span class="at">mean =</span> <span class="fu">mean</span>(carat), <span class="at">median =</span> <span class="fu">median</span>(carat), </span>
+<span id="cb130-3"><a href="data-visualisation.html#cb130-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">lower =</span> <span class="fu">lb</span>(carat), <span class="at">upper =</span> <span class="fu">ub</span>(carat))</span>
+<span id="cb130-4"><a href="data-visualisation.html#cb130-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(sumld)) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1164,186 +1196,186 @@ Ideal
 </table>
 </div>
 </div>
-<div id="raincloud-plot-diamonds" class="section level3" number="6.5.6">
-<h3><span class="header-section-number">6.5.6</span> raincloud plot (diamonds)</h3>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="data-visualisation.html#cb118-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="fu">aes</span>(<span class="at">y =</span> carat, <span class="at">x =</span> cut, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
-<span id="cb118-2"><a href="data-visualisation.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_flat_violin</span>(<span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> .<span class="dv">2</span>, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb118-3"><a href="data-visualisation.html#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> carat, <span class="at">color =</span> cut), <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> .<span class="dv">15</span>), <span class="at">size =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb118-4"><a href="data-visualisation.html#cb118-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">2</span>, <span class="at">guides =</span> <span class="cn">FALSE</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
-<span id="cb118-5"><a href="data-visualisation.html#cb118-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expand_limits</span>(<span class="at">x =</span> <span class="fl">5.25</span>) <span class="sc">+</span></span>
-<span id="cb118-6"><a href="data-visualisation.html#cb118-6" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb118-7"><a href="data-visualisation.html#cb118-7" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb118-8"><a href="data-visualisation.html#cb118-8" aria-hidden="true" tabindex="-1"></a><span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb118-9"><a href="data-visualisation.html#cb118-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb118-10"><a href="data-visualisation.html#cb118-10" aria-hidden="true" tabindex="-1"></a>theme_rain</span></code></pre></div>
+<div id="raincloud-plot-diamonds" class="section level3" number="6.4.6">
+<h3><span class="header-section-number">6.4.6</span> raincloud plot (diamonds)</h3>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="data-visualisation.html#cb131-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="fu">aes</span>(<span class="at">y =</span> carat, <span class="at">x =</span> cut, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
+<span id="cb131-2"><a href="data-visualisation.html#cb131-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_flat_violin</span>(<span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> .<span class="dv">2</span>, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb131-3"><a href="data-visualisation.html#cb131-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> carat, <span class="at">color =</span> cut), <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> .<span class="dv">15</span>), <span class="at">size =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb131-4"><a href="data-visualisation.html#cb131-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">2</span>, <span class="at">guides =</span> <span class="cn">FALSE</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb131-5"><a href="data-visualisation.html#cb131-5" aria-hidden="true" tabindex="-1"></a><span class="fu">expand_limits</span>(<span class="at">x =</span> <span class="fl">5.25</span>) <span class="sc">+</span></span>
+<span id="cb131-6"><a href="data-visualisation.html#cb131-6" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb131-7"><a href="data-visualisation.html#cb131-7" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb131-8"><a href="data-visualisation.html#cb131-8" aria-hidden="true" tabindex="-1"></a><span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb131-9"><a href="data-visualisation.html#cb131-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb131-10"><a href="data-visualisation.html#cb131-10" aria-hidden="true" tabindex="-1"></a>theme_rain</span></code></pre></div>
 <pre><code>## Warning: Ignoring unknown parameters: guides</code></pre>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="data-visualisation.html#cb120-1" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-51-1.png" width="672" />
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="data-visualisation.html#cb133-1" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-56-1.png" width="672" />
 ### Alternative raincloud</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="data-visualisation.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculations needed</span></span>
-<span id="cb121-2"><a href="data-visualisation.html#cb121-2" aria-hidden="true" tabindex="-1"></a>sumld<span class="ot">&lt;-</span> <span class="fu">ddply</span>(diamonds, <span class="sc">~</span>cut, summarise, <span class="at">mean =</span> <span class="fu">mean</span>(carat), <span class="at">median =</span> <span class="fu">median</span>(carat), <span class="at">lower =</span> <span class="fu">lb</span>(carat), <span class="at">upper =</span> <span class="fu">ub</span>(carat))</span>
-<span id="cb121-3"><a href="data-visualisation.html#cb121-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-4"><a href="data-visualisation.html#cb121-4" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="fu">aes</span>(<span class="at">y =</span> carat, <span class="at">x =</span> cut, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
-<span id="cb121-5"><a href="data-visualisation.html#cb121-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_flat_violin</span>(<span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> .<span class="dv">2</span>, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb121-6"><a href="data-visualisation.html#cb121-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> carat, <span class="at">color =</span> cut), <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> .<span class="dv">15</span>), <span class="at">size =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb121-7"><a href="data-visualisation.html#cb121-7" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">data =</span> sumld, <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> mean), <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> <span class="fl">0.3</span>), <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
-<span id="cb121-8"><a href="data-visualisation.html#cb121-8" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_errorbar</span>(<span class="at">data =</span> sumld, <span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper, <span class="at">y =</span> mean), <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> <span class="fl">0.3</span>), <span class="at">width =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb121-9"><a href="data-visualisation.html#cb121-9" aria-hidden="true" tabindex="-1"></a><span class="fu">expand_limits</span>(<span class="at">x =</span> <span class="fl">5.25</span>) <span class="sc">+</span></span>
-<span id="cb121-10"><a href="data-visualisation.html#cb121-10" aria-hidden="true" tabindex="-1"></a><span class="fu">guides</span>(<span class="at">fill =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb121-11"><a href="data-visualisation.html#cb121-11" aria-hidden="true" tabindex="-1"></a><span class="fu">guides</span>(<span class="at">color =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb121-12"><a href="data-visualisation.html#cb121-12" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb121-13"><a href="data-visualisation.html#cb121-13" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb121-14"><a href="data-visualisation.html#cb121-14" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb121-15"><a href="data-visualisation.html#cb121-15" aria-hidden="true" tabindex="-1"></a>theme_rain</span>
-<span id="cb121-16"><a href="data-visualisation.html#cb121-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-17"><a href="data-visualisation.html#cb121-17" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-52"></span>
-<img src="Useful-Syntax_files/figure-html/unnamed-chunk-52-1.png" alt="Raincoud plot of means" width="672" />
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="data-visualisation.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculations needed</span></span>
+<span id="cb134-2"><a href="data-visualisation.html#cb134-2" aria-hidden="true" tabindex="-1"></a>sumld<span class="ot">&lt;-</span> <span class="fu">ddply</span>(diamonds, <span class="sc">~</span>cut, summarise, <span class="at">mean =</span> <span class="fu">mean</span>(carat), <span class="at">median =</span> <span class="fu">median</span>(carat), <span class="at">lower =</span> <span class="fu">lb</span>(carat), <span class="at">upper =</span> <span class="fu">ub</span>(carat))</span>
+<span id="cb134-3"><a href="data-visualisation.html#cb134-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-4"><a href="data-visualisation.html#cb134-4" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="fu">aes</span>(<span class="at">y =</span> carat, <span class="at">x =</span> cut, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
+<span id="cb134-5"><a href="data-visualisation.html#cb134-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_flat_violin</span>(<span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> .<span class="dv">2</span>, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb134-6"><a href="data-visualisation.html#cb134-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> carat, <span class="at">color =</span> cut), <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> .<span class="dv">15</span>), <span class="at">size =</span> .<span class="dv">5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb134-7"><a href="data-visualisation.html#cb134-7" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">data =</span> sumld, <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> mean), <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> <span class="fl">0.3</span>), <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb134-8"><a href="data-visualisation.html#cb134-8" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_errorbar</span>(<span class="at">data =</span> sumld, <span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper, <span class="at">y =</span> mean), <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> <span class="fl">0.3</span>), <span class="at">width =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb134-9"><a href="data-visualisation.html#cb134-9" aria-hidden="true" tabindex="-1"></a><span class="fu">expand_limits</span>(<span class="at">x =</span> <span class="fl">5.25</span>) <span class="sc">+</span></span>
+<span id="cb134-10"><a href="data-visualisation.html#cb134-10" aria-hidden="true" tabindex="-1"></a><span class="fu">guides</span>(<span class="at">fill =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb134-11"><a href="data-visualisation.html#cb134-11" aria-hidden="true" tabindex="-1"></a><span class="fu">guides</span>(<span class="at">color =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb134-12"><a href="data-visualisation.html#cb134-12" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb134-13"><a href="data-visualisation.html#cb134-13" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb134-14"><a href="data-visualisation.html#cb134-14" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb134-15"><a href="data-visualisation.html#cb134-15" aria-hidden="true" tabindex="-1"></a>theme_rain</span>
+<span id="cb134-16"><a href="data-visualisation.html#cb134-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-17"><a href="data-visualisation.html#cb134-17" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-57"></span>
+<img src="Useful-Syntax_files/figure-html/unnamed-chunk-57-1.png" alt="Raincoud plot of means" width="672" />
 <p class="caption">
 Figure 6.2: Raincoud plot of means
 </p>
 </div>
 </div>
-<div id="scatterplot-theme" class="section level3" number="6.5.7">
-<h3><span class="header-section-number">6.5.7</span> Scatterplot theme</h3>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="data-visualisation.html#cb122-1" aria-hidden="true" tabindex="-1"></a>theme_scatter <span class="ot">=</span> <span class="fu">theme</span>(</span>
-<span id="cb122-2"><a href="data-visualisation.html#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb122-3"><a href="data-visualisation.html#cb122-3" aria-hidden="true" tabindex="-1"></a><span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb122-4"><a href="data-visualisation.html#cb122-4" aria-hidden="true" tabindex="-1"></a><span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">angle =</span> <span class="dv">0</span>,<span class="at">vjust =</span> .<span class="dv">5</span>),</span>
-<span id="cb122-5"><a href="data-visualisation.html#cb122-5" aria-hidden="true" tabindex="-1"></a><span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb122-6"><a href="data-visualisation.html#cb122-6" aria-hidden="true" tabindex="-1"></a><span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb122-7"><a href="data-visualisation.html#cb122-7" aria-hidden="true" tabindex="-1"></a><span class="at">legend.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>,<span class="at">hjust =</span> .<span class="dv">5</span>),</span>
-<span id="cb122-8"><a href="data-visualisation.html#cb122-8" aria-hidden="true" tabindex="-1"></a><span class="at">legend.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
-<span id="cb122-9"><a href="data-visualisation.html#cb122-9" aria-hidden="true" tabindex="-1"></a><span class="co">#legend.position = &quot;right&quot;,</span></span>
-<span id="cb122-10"><a href="data-visualisation.html#cb122-10" aria-hidden="true" tabindex="-1"></a><span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">colour=</span><span class="st">&#39;light grey&#39;</span>),</span>
-<span id="cb122-11"><a href="data-visualisation.html#cb122-11" aria-hidden="true" tabindex="-1"></a><span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">lineheight=</span>.<span class="dv">8</span>, <span class="at">face=</span><span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb122-12"><a href="data-visualisation.html#cb122-12" aria-hidden="true" tabindex="-1"></a><span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb122-13"><a href="data-visualisation.html#cb122-13" aria-hidden="true" tabindex="-1"></a><span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb122-14"><a href="data-visualisation.html#cb122-14" aria-hidden="true" tabindex="-1"></a><span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb122-15"><a href="data-visualisation.html#cb122-15" aria-hidden="true" tabindex="-1"></a><span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">&#39;solid&#39;</span>),</span>
-<span id="cb122-16"><a href="data-visualisation.html#cb122-16" aria-hidden="true" tabindex="-1"></a><span class="at">axis.line.y =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">&#39;solid&#39;</span>))</span></code></pre></div>
+<div id="scatterplot-theme" class="section level3" number="6.4.7">
+<h3><span class="header-section-number">6.4.7</span> Scatterplot theme</h3>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="data-visualisation.html#cb135-1" aria-hidden="true" tabindex="-1"></a>theme_scatter <span class="ot">=</span> <span class="fu">theme</span>(</span>
+<span id="cb135-2"><a href="data-visualisation.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb135-3"><a href="data-visualisation.html#cb135-3" aria-hidden="true" tabindex="-1"></a><span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb135-4"><a href="data-visualisation.html#cb135-4" aria-hidden="true" tabindex="-1"></a><span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">angle =</span> <span class="dv">0</span>,<span class="at">vjust =</span> .<span class="dv">5</span>),</span>
+<span id="cb135-5"><a href="data-visualisation.html#cb135-5" aria-hidden="true" tabindex="-1"></a><span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb135-6"><a href="data-visualisation.html#cb135-6" aria-hidden="true" tabindex="-1"></a><span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb135-7"><a href="data-visualisation.html#cb135-7" aria-hidden="true" tabindex="-1"></a><span class="at">legend.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>,<span class="at">hjust =</span> .<span class="dv">5</span>),</span>
+<span id="cb135-8"><a href="data-visualisation.html#cb135-8" aria-hidden="true" tabindex="-1"></a><span class="at">legend.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb135-9"><a href="data-visualisation.html#cb135-9" aria-hidden="true" tabindex="-1"></a><span class="co">#legend.position = &quot;right&quot;,</span></span>
+<span id="cb135-10"><a href="data-visualisation.html#cb135-10" aria-hidden="true" tabindex="-1"></a><span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">colour=</span><span class="st">&#39;light grey&#39;</span>),</span>
+<span id="cb135-11"><a href="data-visualisation.html#cb135-11" aria-hidden="true" tabindex="-1"></a><span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">lineheight=</span>.<span class="dv">8</span>, <span class="at">face=</span><span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb135-12"><a href="data-visualisation.html#cb135-12" aria-hidden="true" tabindex="-1"></a><span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb135-13"><a href="data-visualisation.html#cb135-13" aria-hidden="true" tabindex="-1"></a><span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb135-14"><a href="data-visualisation.html#cb135-14" aria-hidden="true" tabindex="-1"></a><span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb135-15"><a href="data-visualisation.html#cb135-15" aria-hidden="true" tabindex="-1"></a><span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">&#39;solid&#39;</span>),</span>
+<span id="cb135-16"><a href="data-visualisation.html#cb135-16" aria-hidden="true" tabindex="-1"></a><span class="at">axis.line.y =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">linetype=</span><span class="st">&#39;solid&#39;</span>))</span></code></pre></div>
 </div>
-<div id="scatterplots" class="section level3" number="6.5.8">
-<h3><span class="header-section-number">6.5.8</span> Scatterplots</h3>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-visualisation.html#cb123-1" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>carat,<span class="at">y=</span>price))</span>
-<span id="cb123-2"><a href="data-visualisation.html#cb123-2" aria-hidden="true" tabindex="-1"></a>sp1 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>()</span>
-<span id="cb123-3"><a href="data-visualisation.html#cb123-3" aria-hidden="true" tabindex="-1"></a>sp2 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>() <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb123-4"><a href="data-visualisation.html#cb123-4" aria-hidden="true" tabindex="-1"></a>sp3 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>() <span class="sc">+</span><span class="fu">theme_bw</span>() <span class="sc">+</span>theme_scatter</span>
-<span id="cb123-5"><a href="data-visualisation.html#cb123-5" aria-hidden="true" tabindex="-1"></a>sp4 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">01</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&#39;(£)&#39;</span>) <span class="sc">+</span><span class="fu">theme_bw</span>() <span class="sc">+</span>theme_scatter</span>
-<span id="cb123-6"><a href="data-visualisation.html#cb123-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-7"><a href="data-visualisation.html#cb123-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-8"><a href="data-visualisation.html#cb123-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(sp1,sp2,sp3,sp4,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">2</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-54"></span>
-<img src="Useful-Syntax_files/figure-html/unnamed-chunk-54-1.png" alt="Scatterplots" width="672" />
+<div id="scatterplots" class="section level3" number="6.4.8">
+<h3><span class="header-section-number">6.4.8</span> Scatterplots</h3>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="data-visualisation.html#cb136-1" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>carat,<span class="at">y=</span>price))</span>
+<span id="cb136-2"><a href="data-visualisation.html#cb136-2" aria-hidden="true" tabindex="-1"></a>sp1 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb136-3"><a href="data-visualisation.html#cb136-3" aria-hidden="true" tabindex="-1"></a>sp2 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>() <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb136-4"><a href="data-visualisation.html#cb136-4" aria-hidden="true" tabindex="-1"></a>sp3 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>() <span class="sc">+</span><span class="fu">theme_bw</span>() <span class="sc">+</span>theme_scatter</span>
+<span id="cb136-5"><a href="data-visualisation.html#cb136-5" aria-hidden="true" tabindex="-1"></a>sp4 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">01</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&#39;(£)&#39;</span>) <span class="sc">+</span><span class="fu">theme_bw</span>() <span class="sc">+</span>theme_scatter</span>
+<span id="cb136-6"><a href="data-visualisation.html#cb136-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-7"><a href="data-visualisation.html#cb136-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-8"><a href="data-visualisation.html#cb136-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(sp1,sp2,sp3,sp4,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-59"></span>
+<img src="Useful-Syntax_files/figure-html/unnamed-chunk-59-1.png" alt="Scatterplots" width="672" />
 <p class="caption">
 Figure 6.3: Scatterplots
 </p>
 </div>
 </div>
-<div id="make-axis-logarithmic" class="section level3" number="6.5.9">
-<h3><span class="header-section-number">6.5.9</span> make axis logarithmic</h3>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="data-visualisation.html#cb124-1" aria-hidden="true" tabindex="-1"></a>sp5 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">01</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&#39;(£)&#39;</span>) <span class="sc">+</span><span class="fu">theme_bw</span>() <span class="sc">+</span>theme_scatter</span>
-<span id="cb124-2"><a href="data-visualisation.html#cb124-2" aria-hidden="true" tabindex="-1"></a>sp5<span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&#39;log10&#39;</span>) <span class="sc">+</span></span>
-<span id="cb124-3"><a href="data-visualisation.html#cb124-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">&#39;log10&#39;</span>)</span></code></pre></div>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<div id="make-axis-logarithmic" class="section level3" number="6.4.9">
+<h3><span class="header-section-number">6.4.9</span> make axis logarithmic</h3>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data-visualisation.html#cb137-1" aria-hidden="true" tabindex="-1"></a>sp5 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">01</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&#39;(£)&#39;</span>) <span class="sc">+</span><span class="fu">theme_bw</span>() <span class="sc">+</span>theme_scatter</span>
+<span id="cb137-2"><a href="data-visualisation.html#cb137-2" aria-hidden="true" tabindex="-1"></a>sp5<span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&#39;log10&#39;</span>) <span class="sc">+</span></span>
+<span id="cb137-3"><a href="data-visualisation.html#cb137-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">&#39;log10&#39;</span>)</span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 </div>
-<div id="add-a-trendline" class="section level3" number="6.5.10">
-<h3><span class="header-section-number">6.5.10</span> add a trendline</h3>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="data-visualisation.html#cb125-1" aria-hidden="true" tabindex="-1"></a>my.formula <span class="ot">&lt;-</span> y <span class="sc">~</span> x <span class="co"># calc formula for display</span></span>
-<span id="cb125-2"><a href="data-visualisation.html#cb125-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-3"><a href="data-visualisation.html#cb125-3" aria-hidden="true" tabindex="-1"></a>sp5<span class="sc">+</span><span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">20000</span>)<span class="sc">+</span><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">3</span>)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span>my.formula,</span>
-<span id="cb125-4"><a href="data-visualisation.html#cb125-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">colour=</span><span class="st">&#39;black&#39;</span>, <span class="at">size=</span>.<span class="dv">4</span>,<span class="at">alpha=</span>.<span class="dv">6</span>)<span class="sc">+</span></span>
-<span id="cb125-5"><a href="data-visualisation.html#cb125-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> my.formula,</span>
-<span id="cb125-6"><a href="data-visualisation.html#cb125-6" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label..,</span>
-<span id="cb125-7"><a href="data-visualisation.html#cb125-7" aria-hidden="true" tabindex="-1"></a>                                                        <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), <span class="at">parse =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="add-a-trendline" class="section level3" number="6.4.10">
+<h3><span class="header-section-number">6.4.10</span> add a trendline</h3>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="data-visualisation.html#cb138-1" aria-hidden="true" tabindex="-1"></a>my.formula <span class="ot">&lt;-</span> y <span class="sc">~</span> x <span class="co"># calc formula for display</span></span>
+<span id="cb138-2"><a href="data-visualisation.html#cb138-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-3"><a href="data-visualisation.html#cb138-3" aria-hidden="true" tabindex="-1"></a>sp5<span class="sc">+</span><span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">20000</span>)<span class="sc">+</span><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">3</span>)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span>my.formula,</span>
+<span id="cb138-4"><a href="data-visualisation.html#cb138-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">colour=</span><span class="st">&#39;black&#39;</span>, <span class="at">size=</span>.<span class="dv">4</span>,<span class="at">alpha=</span>.<span class="dv">6</span>)<span class="sc">+</span></span>
+<span id="cb138-5"><a href="data-visualisation.html#cb138-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> my.formula,</span>
+<span id="cb138-6"><a href="data-visualisation.html#cb138-6" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label..,</span>
+<span id="cb138-7"><a href="data-visualisation.html#cb138-7" aria-hidden="true" tabindex="-1"></a>                                                        <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), <span class="at">parse =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 32 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 32 rows containing non-finite values (stat_poly_eq).</code></pre>
 <pre><code>## Warning: Removed 32 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 8 rows containing missing values (geom_smooth).</code></pre>
-<div class="figure"><span id="fig:unnamed-chunk-56"></span>
-<img src="Useful-Syntax_files/figure-html/unnamed-chunk-56-1.png" alt="linear Trendline" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-61"></span>
+<img src="Useful-Syntax_files/figure-html/unnamed-chunk-61-1.png" alt="linear Trendline" width="672" />
 <p class="caption">
 Figure 6.4: linear Trendline
 </p>
 </div>
 </div>
-<div id="add-a-trendline-1" class="section level3" number="6.5.11">
-<h3><span class="header-section-number">6.5.11</span> add a trendline</h3>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="data-visualisation.html#cb130-1" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>,<span class="at">raw=</span><span class="cn">TRUE</span>) <span class="co"># calc formula for display</span></span>
-<span id="cb130-2"><a href="data-visualisation.html#cb130-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-3"><a href="data-visualisation.html#cb130-3" aria-hidden="true" tabindex="-1"></a>sp5<span class="sc">+</span><span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">20000</span>)<span class="sc">+</span><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">3</span>)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span>formula,</span>
-<span id="cb130-4"><a href="data-visualisation.html#cb130-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">colour=</span><span class="st">&#39;black&#39;</span>, <span class="at">size=</span>.<span class="dv">4</span>,<span class="at">alpha=</span>.<span class="dv">6</span>)<span class="sc">+</span></span>
-<span id="cb130-5"><a href="data-visualisation.html#cb130-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> formula,</span>
-<span id="cb130-6"><a href="data-visualisation.html#cb130-6" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label..,</span>
-<span id="cb130-7"><a href="data-visualisation.html#cb130-7" aria-hidden="true" tabindex="-1"></a>                                                        <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), <span class="at">parse =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="add-a-trendline-1" class="section level3" number="6.4.11">
+<h3><span class="header-section-number">6.4.11</span> add a trendline</h3>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-visualisation.html#cb143-1" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>,<span class="at">raw=</span><span class="cn">TRUE</span>) <span class="co"># calc formula for display</span></span>
+<span id="cb143-2"><a href="data-visualisation.html#cb143-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-3"><a href="data-visualisation.html#cb143-3" aria-hidden="true" tabindex="-1"></a>sp5<span class="sc">+</span><span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">20000</span>)<span class="sc">+</span><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">3</span>)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span>formula,</span>
+<span id="cb143-4"><a href="data-visualisation.html#cb143-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">colour=</span><span class="st">&#39;black&#39;</span>, <span class="at">size=</span>.<span class="dv">4</span>,<span class="at">alpha=</span>.<span class="dv">6</span>)<span class="sc">+</span></span>
+<span id="cb143-5"><a href="data-visualisation.html#cb143-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> formula,</span>
+<span id="cb143-6"><a href="data-visualisation.html#cb143-6" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label..,</span>
+<span id="cb143-7"><a href="data-visualisation.html#cb143-7" aria-hidden="true" tabindex="-1"></a>                                                        <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), <span class="at">parse =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 32 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 32 rows containing non-finite values (stat_poly_eq).</code></pre>
 <pre><code>## Warning: Removed 32 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 14 rows containing missing values (geom_smooth).</code></pre>
-<div class="figure"><span id="fig:unnamed-chunk-57"></span>
-<img src="Useful-Syntax_files/figure-html/unnamed-chunk-57-1.png" alt="Polynomial trendline" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-62"></span>
+<img src="Useful-Syntax_files/figure-html/unnamed-chunk-62-1.png" alt="Polynomial trendline" width="672" />
 <p class="caption">
 Figure 6.5: Polynomial trendline
 </p>
 </div>
 </div>
-<div id="add-multiple-trendlines" class="section level3" number="6.5.12">
-<h3><span class="header-section-number">6.5.12</span> add multiple trendlines</h3>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="data-visualisation.html#cb135-1" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>carat,<span class="at">y=</span>price,<span class="at">colour=</span>clarity))</span>
-<span id="cb135-2"><a href="data-visualisation.html#cb135-2" aria-hidden="true" tabindex="-1"></a>sp5 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">01</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&#39;(£)&#39;</span>) <span class="sc">+</span><span class="fu">theme_bw</span>() <span class="sc">+</span>theme_scatter</span>
-<span id="cb135-3"><a href="data-visualisation.html#cb135-3" aria-hidden="true" tabindex="-1"></a>sp6 <span class="ot">&lt;-</span> sp5<span class="sc">+</span><span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">20000</span>)<span class="sc">+</span><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">3</span>)<span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>)))</span>
-<span id="cb135-4"><a href="data-visualisation.html#cb135-4" aria-hidden="true" tabindex="-1"></a>my.formula4 <span class="ot">&lt;-</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>,<span class="at">raw =</span> <span class="cn">TRUE</span>) <span class="co"># calc formula for display</span></span>
-<span id="cb135-5"><a href="data-visualisation.html#cb135-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb135-6"><a href="data-visualisation.html#cb135-6" aria-hidden="true" tabindex="-1"></a>sp7 <span class="ot">&lt;-</span> sp6<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">colour=</span>clarity),<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span> my.formula4,<span class="at">se=</span>F, <span class="at">size=</span>.<span class="dv">4</span>,<span class="at">alpha=</span>.<span class="dv">6</span>)</span>
-<span id="cb135-7"><a href="data-visualisation.html#cb135-7" aria-hidden="true" tabindex="-1"></a>sp7</span></code></pre></div>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="data-visualisation.html#cb136-1" aria-hidden="true" tabindex="-1"></a>sp8 <span class="ot">&lt;-</span> sp7<span class="sc">+</span></span>
-<span id="cb136-2"><a href="data-visualisation.html#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="fu">aes</span>(<span class="at">label =</span>  <span class="fu">paste</span>(<span class="fu">stat</span>(eq.label),</span>
-<span id="cb136-3"><a href="data-visualisation.html#cb136-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">stat</span>(adj.rr.label), <span class="at">sep =</span> <span class="st">&quot;*</span><span class="sc">\&quot;</span><span class="st">, </span><span class="sc">\&quot;</span><span class="st">*&quot;</span>)),</span>
-<span id="cb136-4"><a href="data-visualisation.html#cb136-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">formula =</span> my.formula4, <span class="at">parse =</span> <span class="cn">TRUE</span>,<span class="at">size=</span><span class="dv">3</span>,  <span class="at">geom =</span> <span class="st">&quot;label_npc&quot;</span>)</span>
-<span id="cb136-5"><a href="data-visualisation.html#cb136-5" aria-hidden="true" tabindex="-1"></a>sp8</span></code></pre></div>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-58-2.png" width="672" />
+<div id="add-multiple-trendlines" class="section level3" number="6.4.12">
+<h3><span class="header-section-number">6.4.12</span> add multiple trendlines</h3>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="data-visualisation.html#cb148-1" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>carat,<span class="at">y=</span>price,<span class="at">colour=</span>clarity))</span>
+<span id="cb148-2"><a href="data-visualisation.html#cb148-2" aria-hidden="true" tabindex="-1"></a>sp5 <span class="ot">&lt;-</span> sp<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">01</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&#39;(£)&#39;</span>) <span class="sc">+</span><span class="fu">theme_bw</span>() <span class="sc">+</span>theme_scatter</span>
+<span id="cb148-3"><a href="data-visualisation.html#cb148-3" aria-hidden="true" tabindex="-1"></a>sp6 <span class="ot">&lt;-</span> sp5<span class="sc">+</span><span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">20000</span>)<span class="sc">+</span><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">3</span>)<span class="sc">+</span> <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>)))</span>
+<span id="cb148-4"><a href="data-visualisation.html#cb148-4" aria-hidden="true" tabindex="-1"></a>my.formula4 <span class="ot">&lt;-</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>,<span class="at">raw =</span> <span class="cn">TRUE</span>) <span class="co"># calc formula for display</span></span>
+<span id="cb148-5"><a href="data-visualisation.html#cb148-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-6"><a href="data-visualisation.html#cb148-6" aria-hidden="true" tabindex="-1"></a>sp7 <span class="ot">&lt;-</span> sp6<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">colour=</span>clarity),<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span> my.formula4,<span class="at">se=</span>F, <span class="at">size=</span>.<span class="dv">4</span>,<span class="at">alpha=</span>.<span class="dv">6</span>)</span>
+<span id="cb148-7"><a href="data-visualisation.html#cb148-7" aria-hidden="true" tabindex="-1"></a>sp7</span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="data-visualisation.html#cb149-1" aria-hidden="true" tabindex="-1"></a>sp8 <span class="ot">&lt;-</span> sp7<span class="sc">+</span></span>
+<span id="cb149-2"><a href="data-visualisation.html#cb149-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="fu">aes</span>(<span class="at">label =</span>  <span class="fu">paste</span>(<span class="fu">stat</span>(eq.label),</span>
+<span id="cb149-3"><a href="data-visualisation.html#cb149-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">stat</span>(adj.rr.label), <span class="at">sep =</span> <span class="st">&quot;*</span><span class="sc">\&quot;</span><span class="st">, </span><span class="sc">\&quot;</span><span class="st">*&quot;</span>)),</span>
+<span id="cb149-4"><a href="data-visualisation.html#cb149-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">formula =</span> my.formula4, <span class="at">parse =</span> <span class="cn">TRUE</span>,<span class="at">size=</span><span class="dv">3</span>,  <span class="at">geom =</span> <span class="st">&quot;label_npc&quot;</span>)</span>
+<span id="cb149-5"><a href="data-visualisation.html#cb149-5" aria-hidden="true" tabindex="-1"></a>sp8</span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-63-2.png" width="672" />
 ### add deviation from regression</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data-visualisation.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
-<span id="cb137-2"><a href="data-visualisation.html#cb137-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(mtcars, <span class="st">&quot;car_name&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="data-visualisation.html#cb138-1" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>,<span class="at">raw=</span><span class="cn">TRUE</span>) <span class="co"># calc formula for display</span></span>
-<span id="cb138-2"><a href="data-visualisation.html#cb138-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-3"><a href="data-visualisation.html#cb138-3" aria-hidden="true" tabindex="-1"></a>hpvmpg <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>hp,<span class="at">y=</span>mpg,<span class="at">label=</span><span class="fu">rownames</span>(mtcars)))</span>
-<span id="cb138-4"><a href="data-visualisation.html#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="co"># p1 &lt;- hpvmpg+geom_point()+geom_smooth(method=&#39;lm&#39;,formula =formula,colour=&#39;black&#39;, size=.4,alpha=.6,se=F)+</span></span>
-<span id="cb138-5"><a href="data-visualisation.html#cb138-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   stat_fit_deviations(formula = formula, colour = &quot;red&quot;)+geom_label_repel(aes(label =rownames(mtcars)),</span></span>
-<span id="cb138-6"><a href="data-visualisation.html#cb138-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                   box.padding   = 0.1, </span></span>
-<span id="cb138-7"><a href="data-visualisation.html#cb138-7" aria-hidden="true" tabindex="-1"></a><span class="co">#                   point.padding = 0.3,</span></span>
-<span id="cb138-8"><a href="data-visualisation.html#cb138-8" aria-hidden="true" tabindex="-1"></a><span class="co">#                   segment.color = &#39;grey50&#39;)</span></span>
-<span id="cb138-9"><a href="data-visualisation.html#cb138-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-10"><a href="data-visualisation.html#cb138-10" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> hpvmpg<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span>formula,<span class="at">colour=</span><span class="st">&#39;black&#39;</span>, <span class="at">size=</span>.<span class="dv">4</span>,<span class="at">alpha=</span>.<span class="dv">6</span>,<span class="at">se=</span>F)<span class="sc">+</span></span>
-<span id="cb138-11"><a href="data-visualisation.html#cb138-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_fit_deviations</span>(<span class="at">formula =</span> formula, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span><span class="fu">geom_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span><span class="fu">rownames</span>(mtcars)),</span>
-<span id="cb138-12"><a href="data-visualisation.html#cb138-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.02</span>, <span class="st">&quot;npc&quot;</span>)),</span>
-<span id="cb138-13"><a href="data-visualisation.html#cb138-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">box.padding =</span> .<span class="dv">5</span>,<span class="at">min.segment.length =</span> <span class="dv">0</span>,<span class="at">max.overlaps =</span> <span class="cn">Inf</span>)</span>
-<span id="cb138-14"><a href="data-visualisation.html#cb138-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-15"><a href="data-visualisation.html#cb138-15" aria-hidden="true" tabindex="-1"></a> p2</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-60"></span>
-<img src="Useful-Syntax_files/figure-html/unnamed-chunk-60-1.png" alt="Deviation from predection" width="672" />
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="data-visualisation.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb150-2"><a href="data-visualisation.html#cb150-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(mtcars, <span class="st">&quot;car_name&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-visualisation.html#cb151-1" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>,<span class="at">raw=</span><span class="cn">TRUE</span>) <span class="co"># calc formula for display</span></span>
+<span id="cb151-2"><a href="data-visualisation.html#cb151-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-3"><a href="data-visualisation.html#cb151-3" aria-hidden="true" tabindex="-1"></a>hpvmpg <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>hp,<span class="at">y=</span>mpg,<span class="at">label=</span><span class="fu">rownames</span>(mtcars)))</span>
+<span id="cb151-4"><a href="data-visualisation.html#cb151-4" aria-hidden="true" tabindex="-1"></a><span class="co"># p1 &lt;- hpvmpg+geom_point()+geom_smooth(method=&#39;lm&#39;,formula =formula,colour=&#39;black&#39;, size=.4,alpha=.6,se=F)+</span></span>
+<span id="cb151-5"><a href="data-visualisation.html#cb151-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   stat_fit_deviations(formula = formula, colour = &quot;red&quot;)+geom_label_repel(aes(label =rownames(mtcars)),</span></span>
+<span id="cb151-6"><a href="data-visualisation.html#cb151-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                   box.padding   = 0.1, </span></span>
+<span id="cb151-7"><a href="data-visualisation.html#cb151-7" aria-hidden="true" tabindex="-1"></a><span class="co">#                   point.padding = 0.3,</span></span>
+<span id="cb151-8"><a href="data-visualisation.html#cb151-8" aria-hidden="true" tabindex="-1"></a><span class="co">#                   segment.color = &#39;grey50&#39;)</span></span>
+<span id="cb151-9"><a href="data-visualisation.html#cb151-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-10"><a href="data-visualisation.html#cb151-10" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> hpvmpg<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span>formula,<span class="at">colour=</span><span class="st">&#39;black&#39;</span>, <span class="at">size=</span>.<span class="dv">4</span>,<span class="at">alpha=</span>.<span class="dv">6</span>,<span class="at">se=</span>F)<span class="sc">+</span></span>
+<span id="cb151-11"><a href="data-visualisation.html#cb151-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_fit_deviations</span>(<span class="at">formula =</span> formula, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span><span class="fu">geom_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span><span class="fu">rownames</span>(mtcars)),</span>
+<span id="cb151-12"><a href="data-visualisation.html#cb151-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.02</span>, <span class="st">&quot;npc&quot;</span>)),</span>
+<span id="cb151-13"><a href="data-visualisation.html#cb151-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">box.padding =</span> .<span class="dv">5</span>,<span class="at">min.segment.length =</span> <span class="dv">0</span>,<span class="at">max.overlaps =</span> <span class="cn">Inf</span>)</span>
+<span id="cb151-14"><a href="data-visualisation.html#cb151-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-15"><a href="data-visualisation.html#cb151-15" aria-hidden="true" tabindex="-1"></a> p2</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-65"></span>
+<img src="Useful-Syntax_files/figure-html/unnamed-chunk-65-1.png" alt="Deviation from predection" width="672" />
 <p class="caption">
 Figure 6.6: Deviation from predection
 </p>
 </div>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-visualisation.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grid.arrange(p1,p2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="data-visualisation.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grid.arrange(p1,p2)</span></span></code></pre></div>
 </div>
-<div id="residuals-id-those-1sd-from-barx" class="section level3" number="6.5.13">
-<h3><span class="header-section-number">6.5.13</span> residuals (ID those &gt;1SD from $bar{X})</h3>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="data-visualisation.html#cb140-1" aria-hidden="true" tabindex="-1"></a>lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(hp <span class="sc">~</span> <span class="fu">poly</span>(disp, <span class="dv">2</span>,<span class="at">raw=</span><span class="cn">TRUE</span>),<span class="at">data=</span>mtcars) <span class="co"># make lin model</span></span>
-<span id="cb140-2"><a href="data-visualisation.html#cb140-2" aria-hidden="true" tabindex="-1"></a>resids <span class="ot">&lt;-</span> <span class="fu">resid</span>(lm) <span class="co"># extract resids as vector</span></span>
-<span id="cb140-3"><a href="data-visualisation.html#cb140-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">lmresids=</span>resids) <span class="co"># add to df</span></span>
-<span id="cb140-4"><a href="data-visualisation.html#cb140-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb140-5"><a href="data-visualisation.html#cb140-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb140-6"><a href="data-visualisation.html#cb140-6" aria-hidden="true" tabindex="-1"></a>low <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">low=</span><span class="fu">mean</span>(lmresids)<span class="sc">-</span><span class="fu">sd</span>(lmresids))<span class="co">#calc low limit</span></span>
-<span id="cb140-7"><a href="data-visualisation.html#cb140-7" aria-hidden="true" tabindex="-1"></a> <span class="co"># assign as variable</span></span>
-<span id="cb140-8"><a href="data-visualisation.html#cb140-8" aria-hidden="true" tabindex="-1"></a>high <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">high=</span><span class="fu">mean</span>(lmresids)<span class="sc">+</span><span class="fu">sd</span>(lmresids))</span>
-<span id="cb140-9"><a href="data-visualisation.html#cb140-9" aria-hidden="true" tabindex="-1"></a>low <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">pull</span>(low)</span>
-<span id="cb140-10"><a href="data-visualisation.html#cb140-10" aria-hidden="true" tabindex="-1"></a>high <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">pull</span>(high)                   </span>
-<span id="cb140-11"><a href="data-visualisation.html#cb140-11" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">sds=</span><span class="fu">ifelse</span>(lmresids<span class="sc">&gt;</span>low <span class="sc">&amp;</span> lmresids<span class="sc">&lt;</span>high,<span class="dv">0</span>,<span class="dv">1</span>)) <span class="co">#create new var</span></span>
-<span id="cb140-12"><a href="data-visualisation.html#cb140-12" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(mtcars[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">12</span>)]))<span class="sc">%&gt;%</span> </span>
-<span id="cb140-13"><a href="data-visualisation.html#cb140-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div id="residuals-id-those-1sd-from-barx" class="section level3" number="6.4.13">
+<h3><span class="header-section-number">6.4.13</span> residuals (ID those &gt;1SD from $bar{X})</h3>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="data-visualisation.html#cb153-1" aria-hidden="true" tabindex="-1"></a>lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(hp <span class="sc">~</span> <span class="fu">poly</span>(disp, <span class="dv">2</span>,<span class="at">raw=</span><span class="cn">TRUE</span>),<span class="at">data=</span>mtcars) <span class="co"># make lin model</span></span>
+<span id="cb153-2"><a href="data-visualisation.html#cb153-2" aria-hidden="true" tabindex="-1"></a>resids <span class="ot">&lt;-</span> <span class="fu">resid</span>(lm) <span class="co"># extract resids as vector</span></span>
+<span id="cb153-3"><a href="data-visualisation.html#cb153-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">lmresids=</span>resids) <span class="co"># add to df</span></span>
+<span id="cb153-4"><a href="data-visualisation.html#cb153-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-5"><a href="data-visualisation.html#cb153-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-6"><a href="data-visualisation.html#cb153-6" aria-hidden="true" tabindex="-1"></a>low <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">low=</span><span class="fu">mean</span>(lmresids)<span class="sc">-</span><span class="fu">sd</span>(lmresids))<span class="co">#calc low limit</span></span>
+<span id="cb153-7"><a href="data-visualisation.html#cb153-7" aria-hidden="true" tabindex="-1"></a> <span class="co"># assign as variable</span></span>
+<span id="cb153-8"><a href="data-visualisation.html#cb153-8" aria-hidden="true" tabindex="-1"></a>high <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">high=</span><span class="fu">mean</span>(lmresids)<span class="sc">+</span><span class="fu">sd</span>(lmresids))</span>
+<span id="cb153-9"><a href="data-visualisation.html#cb153-9" aria-hidden="true" tabindex="-1"></a>low <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">pull</span>(low)</span>
+<span id="cb153-10"><a href="data-visualisation.html#cb153-10" aria-hidden="true" tabindex="-1"></a>high <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">pull</span>(high)                   </span>
+<span id="cb153-11"><a href="data-visualisation.html#cb153-11" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">sds=</span><span class="fu">ifelse</span>(lmresids<span class="sc">&gt;</span>low <span class="sc">&amp;</span> lmresids<span class="sc">&lt;</span>high,<span class="dv">0</span>,<span class="dv">1</span>)) <span class="co">#create new var</span></span>
+<span id="cb153-12"><a href="data-visualisation.html#cb153-12" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(mtcars[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">12</span>)]))<span class="sc">%&gt;%</span> </span>
+<span id="cb153-13"><a href="data-visualisation.html#cb153-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1511,40 +1543,40 @@ Valiant
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="data-visualisation.html#cb141-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> hpvmpg<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span>formula,<span class="at">colour=</span><span class="st">&#39;black&#39;</span>, <span class="at">size=</span>.<span class="dv">4</span>,<span class="at">alpha=</span>.<span class="dv">6</span>,<span class="at">se=</span>F)<span class="sc">+</span></span>
-<span id="cb141-2"><a href="data-visualisation.html#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_fit_deviations</span>(<span class="at">formula =</span> formula, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span><span class="fu">geom_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span>car_name),</span>
-<span id="cb141-3"><a href="data-visualisation.html#cb141-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.02</span>, <span class="st">&quot;npc&quot;</span>)),</span>
-<span id="cb141-4"><a href="data-visualisation.html#cb141-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">box.padding =</span> .<span class="dv">5</span>,<span class="at">min.segment.length =</span> <span class="dv">0</span>,<span class="at">max.overlaps =</span> <span class="cn">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="data-visualisation.html#cb154-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> hpvmpg<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span>formula,<span class="at">colour=</span><span class="st">&#39;black&#39;</span>, <span class="at">size=</span>.<span class="dv">4</span>,<span class="at">alpha=</span>.<span class="dv">6</span>,<span class="at">se=</span>F)<span class="sc">+</span></span>
+<span id="cb154-2"><a href="data-visualisation.html#cb154-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_fit_deviations</span>(<span class="at">formula =</span> formula, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span><span class="fu">geom_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span>car_name),</span>
+<span id="cb154-3"><a href="data-visualisation.html#cb154-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.02</span>, <span class="st">&quot;npc&quot;</span>)),</span>
+<span id="cb154-4"><a href="data-visualisation.html#cb154-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">box.padding =</span> .<span class="dv">5</span>,<span class="at">min.segment.length =</span> <span class="dv">0</span>,<span class="at">max.overlaps =</span> <span class="cn">Inf</span>)</span></code></pre></div>
 </div>
-<div id="only-label-extreme-residuals" class="section level3" number="6.5.14">
-<h3><span class="header-section-number">6.5.14</span> only label extreme residuals</h3>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="data-visualisation.html#cb142-1" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>,<span class="at">raw=</span><span class="cn">TRUE</span>) <span class="co"># calc formula for display</span></span>
-<span id="cb142-2"><a href="data-visualisation.html#cb142-2" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb142-3"><a href="data-visualisation.html#cb142-3" aria-hidden="true" tabindex="-1"></a>dat2<span class="sc">$</span>car_name <span class="ot">&lt;-</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb142-4"><a href="data-visualisation.html#cb142-4" aria-hidden="true" tabindex="-1"></a>ix_label <span class="ot">&lt;-</span> <span class="fu">which</span>(mtcars<span class="sc">$</span>sds <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb142-5"><a href="data-visualisation.html#cb142-5" aria-hidden="true" tabindex="-1"></a>dat2<span class="sc">$</span>car_name[ix_label] <span class="ot">&lt;-</span> mtcars<span class="sc">$</span>car_name[ix_label]</span>
-<span id="cb142-6"><a href="data-visualisation.html#cb142-6" aria-hidden="true" tabindex="-1"></a>hpvmpg <span class="ot">&lt;-</span> dat2 <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>disp,<span class="at">y=</span>hp,<span class="at">label=</span>car_name))</span>
-<span id="cb142-7"><a href="data-visualisation.html#cb142-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-8"><a href="data-visualisation.html#cb142-8" aria-hidden="true" tabindex="-1"></a>hpvmpg<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">color =</span> <span class="fu">ifelse</span>(dat2<span class="sc">$</span>car_name <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;grey50&quot;</span>, <span class="st">&quot;red&quot;</span>),<span class="at">size =</span> <span class="fu">ifelse</span>(dat2<span class="sc">$</span>car_name <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>))<span class="sc">+</span><span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span>car_name),</span>
-<span id="cb142-9"><a href="data-visualisation.html#cb142-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">box.padding =</span> .<span class="dv">55</span>)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span>formula,<span class="at">colour=</span><span class="st">&#39;black&#39;</span>, <span class="at">size=</span>.<span class="dv">3</span>,<span class="at">alpha=</span>.<span class="dv">6</span>,<span class="at">se=</span>F)<span class="sc">+</span></span>
-<span id="cb142-10"><a href="data-visualisation.html#cb142-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_fit_deviations</span>(<span class="at">formula =</span> formula, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>,<span class="at">size=</span>.<span class="dv">5</span>,<span class="at">alpha=</span>.<span class="dv">4</span>)<span class="sc">+</span></span>
-<span id="cb142-11"><a href="data-visualisation.html#cb142-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="fu">aes</span>(<span class="at">label =</span>  <span class="fu">paste</span>(<span class="fu">stat</span>(eq.label),</span>
-<span id="cb142-12"><a href="data-visualisation.html#cb142-12" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">stat</span>(adj.rr.label), <span class="at">sep =</span> <span class="st">&quot;*</span><span class="sc">\&quot;</span><span class="st">, </span><span class="sc">\&quot;</span><span class="st">*&quot;</span>)),</span>
-<span id="cb142-13"><a href="data-visualisation.html#cb142-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">formula =</span> formula, <span class="at">parse =</span> <span class="cn">TRUE</span>,<span class="at">size=</span><span class="dv">3</span>,  <span class="at">geom =</span> <span class="st">&quot;label_npc&quot;</span>)<span class="sc">+</span><span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<div id="only-label-extreme-residuals" class="section level3" number="6.4.14">
+<h3><span class="header-section-number">6.4.14</span> only label extreme residuals</h3>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="data-visualisation.html#cb155-1" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>,<span class="at">raw=</span><span class="cn">TRUE</span>) <span class="co"># calc formula for display</span></span>
+<span id="cb155-2"><a href="data-visualisation.html#cb155-2" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb155-3"><a href="data-visualisation.html#cb155-3" aria-hidden="true" tabindex="-1"></a>dat2<span class="sc">$</span>car_name <span class="ot">&lt;-</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb155-4"><a href="data-visualisation.html#cb155-4" aria-hidden="true" tabindex="-1"></a>ix_label <span class="ot">&lt;-</span> <span class="fu">which</span>(mtcars<span class="sc">$</span>sds <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb155-5"><a href="data-visualisation.html#cb155-5" aria-hidden="true" tabindex="-1"></a>dat2<span class="sc">$</span>car_name[ix_label] <span class="ot">&lt;-</span> mtcars<span class="sc">$</span>car_name[ix_label]</span>
+<span id="cb155-6"><a href="data-visualisation.html#cb155-6" aria-hidden="true" tabindex="-1"></a>hpvmpg <span class="ot">&lt;-</span> dat2 <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>disp,<span class="at">y=</span>hp,<span class="at">label=</span>car_name))</span>
+<span id="cb155-7"><a href="data-visualisation.html#cb155-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-8"><a href="data-visualisation.html#cb155-8" aria-hidden="true" tabindex="-1"></a>hpvmpg<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">color =</span> <span class="fu">ifelse</span>(dat2<span class="sc">$</span>car_name <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;grey50&quot;</span>, <span class="st">&quot;red&quot;</span>),<span class="at">size =</span> <span class="fu">ifelse</span>(dat2<span class="sc">$</span>car_name <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>))<span class="sc">+</span><span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span>car_name),</span>
+<span id="cb155-9"><a href="data-visualisation.html#cb155-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">box.padding =</span> .<span class="dv">55</span>)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>,<span class="at">formula =</span>formula,<span class="at">colour=</span><span class="st">&#39;black&#39;</span>, <span class="at">size=</span>.<span class="dv">3</span>,<span class="at">alpha=</span>.<span class="dv">6</span>,<span class="at">se=</span>F)<span class="sc">+</span></span>
+<span id="cb155-10"><a href="data-visualisation.html#cb155-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_fit_deviations</span>(<span class="at">formula =</span> formula, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>,<span class="at">size=</span>.<span class="dv">5</span>,<span class="at">alpha=</span>.<span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb155-11"><a href="data-visualisation.html#cb155-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="fu">aes</span>(<span class="at">label =</span>  <span class="fu">paste</span>(<span class="fu">stat</span>(eq.label),</span>
+<span id="cb155-12"><a href="data-visualisation.html#cb155-12" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">stat</span>(adj.rr.label), <span class="at">sep =</span> <span class="st">&quot;*</span><span class="sc">\&quot;</span><span class="st">, </span><span class="sc">\&quot;</span><span class="st">*&quot;</span>)),</span>
+<span id="cb155-13"><a href="data-visualisation.html#cb155-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">formula =</span> formula, <span class="at">parse =</span> <span class="cn">TRUE</span>,<span class="at">size=</span><span class="dv">3</span>,  <span class="at">geom =</span> <span class="st">&quot;label_npc&quot;</span>)<span class="sc">+</span><span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
 </div>
 </div>
-<div id="line-defined-by-equation-to-scatterplot" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> line defined by equation to scatterplot</h2>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-visualisation.html#cb143-1" aria-hidden="true" tabindex="-1"></a>plot2<span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>hp,<span class="at">y=</span>qsec))</span>
-<span id="cb143-2"><a href="data-visualisation.html#cb143-2" aria-hidden="true" tabindex="-1"></a>q1 <span class="ot">&lt;-</span> plot2<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb143-3"><a href="data-visualisation.html#cb143-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) <span class="dv">20</span><span class="sc">-</span>(.<span class="dv">013</span><span class="sc">*</span>x)) <span class="co"># linear function</span></span>
-<span id="cb143-4"><a href="data-visualisation.html#cb143-4" aria-hidden="true" tabindex="-1"></a>fun <span class="ot">=</span> <span class="st">&#39;y = 20 - 0.013x - 0.00003x^2&#39;</span></span>
-<span id="cb143-5"><a href="data-visualisation.html#cb143-5" aria-hidden="true" tabindex="-1"></a>q2 <span class="ot">&lt;-</span> plot2<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span>    <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) <span class="dv">20</span><span class="sc">-</span>(.<span class="dv">013</span><span class="sc">*</span>x<span class="fl">+.00003</span><span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span>))<span class="co"># poly function</span></span>
-<span id="cb143-6"><a href="data-visualisation.html#cb143-6" aria-hidden="true" tabindex="-1"></a> <span class="co"># poly function</span></span>
-<span id="cb143-7"><a href="data-visualisation.html#cb143-7" aria-hidden="true" tabindex="-1"></a>q2 <span class="ot">&lt;-</span> q2<span class="sc">+</span> <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x =</span> <span class="dv">175</span>, <span class="at">y =</span> <span class="dv">22</span>, <span class="at">label =</span> fun,<span class="at">size=</span><span class="dv">4</span>)</span>
-<span id="cb143-8"><a href="data-visualisation.html#cb143-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(q1,q2,<span class="at">nrow=</span><span class="dv">1</span>)</span></code></pre></div>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<div id="line-defined-by-equation-to-scatterplot" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> line defined by equation to scatterplot</h2>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="data-visualisation.html#cb156-1" aria-hidden="true" tabindex="-1"></a>plot2<span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>hp,<span class="at">y=</span>qsec))</span>
+<span id="cb156-2"><a href="data-visualisation.html#cb156-2" aria-hidden="true" tabindex="-1"></a>q1 <span class="ot">&lt;-</span> plot2<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb156-3"><a href="data-visualisation.html#cb156-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) <span class="dv">20</span><span class="sc">-</span>(.<span class="dv">013</span><span class="sc">*</span>x)) <span class="co"># linear function</span></span>
+<span id="cb156-4"><a href="data-visualisation.html#cb156-4" aria-hidden="true" tabindex="-1"></a>fun <span class="ot">=</span> <span class="st">&#39;y = 20 - 0.013x - 0.00003x^2&#39;</span></span>
+<span id="cb156-5"><a href="data-visualisation.html#cb156-5" aria-hidden="true" tabindex="-1"></a>q2 <span class="ot">&lt;-</span> plot2<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span>    <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) <span class="dv">20</span><span class="sc">-</span>(.<span class="dv">013</span><span class="sc">*</span>x<span class="fl">+.00003</span><span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span>))<span class="co"># poly function</span></span>
+<span id="cb156-6"><a href="data-visualisation.html#cb156-6" aria-hidden="true" tabindex="-1"></a> <span class="co"># poly function</span></span>
+<span id="cb156-7"><a href="data-visualisation.html#cb156-7" aria-hidden="true" tabindex="-1"></a>q2 <span class="ot">&lt;-</span> q2<span class="sc">+</span> <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x =</span> <span class="dv">175</span>, <span class="at">y =</span> <span class="dv">22</span>, <span class="at">label =</span> fun,<span class="at">size=</span><span class="dv">4</span>)</span>
+<span id="cb156-8"><a href="data-visualisation.html#cb156-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(q1,q2,<span class="at">nrow=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -1553,8 +1585,8 @@ Valiant
           </div>
         </div>
       </div>
-<a href="statistical-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="statistical-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bbc-style.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1577,6 +1609,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

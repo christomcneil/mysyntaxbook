@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 BBC style | Useful-Syntax.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 BBC style | Useful-Syntax.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 BBC style | Useful-Syntax.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-visualisation.html"/>
+
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Useful R syntax</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#structure-of-collection"><i class="fa fa-check"></i><b>1.1</b> Structure of collection</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>2</b> RMarkdown</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="rmarkdown.html"><a href="rmarkdown.html#formatting-basics"><i class="fa fa-check"></i><b>2.1</b> Formatting basics</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>3</b> Rstudio</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="rstudio.html"><a href="rstudio.html#useful-packages"><i class="fa fa-check"></i><b>3.1</b> Useful packages</a></li>
+<li class="chapter" data-level="3.2" data-path="rstudio.html"><a href="rstudio.html#remove-a-package"><i class="fa fa-check"></i><b>3.2</b> Remove a package</a></li>
+<li class="chapter" data-level="3.3" data-path="rstudio.html"><a href="rstudio.html#import-using-janitor"><i class="fa fa-check"></i><b>3.3</b> Import using Janitor</a></li>
+<li class="chapter" data-level="3.4" data-path="rstudio.html"><a href="rstudio.html#remove-dataframe"><i class="fa fa-check"></i><b>3.4</b> Remove dataframe</a></li>
+<li class="chapter" data-level="3.5" data-path="rstudio.html"><a href="rstudio.html#new-vars-by-concatination"><i class="fa fa-check"></i><b>3.5</b> New vars by concatination</a></li>
+<li class="chapter" data-level="3.6" data-path="rstudio.html"><a href="rstudio.html#save-dataframe-csv-or-rdata"><i class="fa fa-check"></i><b>3.6</b> Save dataframe (CSV or Rdata)</a></li>
+<li class="chapter" data-level="3.7" data-path="rstudio.html"><a href="rstudio.html#save-a-diagram-or-plot"><i class="fa fa-check"></i><b>3.7</b> Save a diagram or plot</a></li>
+<li class="chapter" data-level="3.8" data-path="rstudio.html"><a href="rstudio.html#recode-a-text-variable"><i class="fa fa-check"></i><b>3.8</b> Recode a text variable</a></li>
+<li class="chapter" data-level="3.9" data-path="rstudio.html"><a href="rstudio.html#alter-variable-names"><i class="fa fa-check"></i><b>3.9</b> Alter variable names:</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="rstudio.html"><a href="rstudio.html#list-datasets-available"><i class="fa fa-check"></i><b>3.9.1</b> list datasets available</a></li>
+<li class="chapter" data-level="3.9.2" data-path="rstudio.html"><a href="rstudio.html#render-book"><i class="fa fa-check"></i><b>3.9.2</b> Render book</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling and manipulation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#bin-variable-e.g.-lowmediumhigh"><i class="fa fa-check"></i><b>4.1</b> Bin variable ( e.g. Low/Medium/High)</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#conditional-function"><i class="fa fa-check"></i><b>4.2</b> Conditional function</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#sum-across-rows"><i class="fa fa-check"></i><b>4.3</b> Sum across rows</a></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#standardise-variable"><i class="fa fa-check"></i><b>4.4</b> Standardise variable</a></li>
+<li class="chapter" data-level="4.5" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#conditional-replacement"><i class="fa fa-check"></i><b>4.5</b> Conditional Replacement</a></li>
+<li class="chapter" data-level="4.6" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#replace-a-specfic-value"><i class="fa fa-check"></i><b>4.6</b> replace a specfic value</a></li>
+<li class="chapter" data-level="4.7" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#filter-nas-or-retain-complete-cases"><i class="fa fa-check"></i><b>4.7</b> Filter na’s or retain complete cases</a></li>
+<li class="chapter" data-level="4.8" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#delete-specified-columns"><i class="fa fa-check"></i><b>4.8</b> Delete specified columns</a></li>
+<li class="chapter" data-level="4.9" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#change-specific-datapoint"><i class="fa fa-check"></i><b>4.9</b> Change specific datapoint</a></li>
+<li class="chapter" data-level="4.10" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#work-with-dates"><i class="fa fa-check"></i><b>4.10</b> Work with dates</a></li>
+<li class="chapter" data-level="4.11" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#find-duplicate-rows"><i class="fa fa-check"></i><b>4.11</b> Find duplicate rows</a></li>
+<li class="chapter" data-level="4.12" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#impute-missing-values"><i class="fa fa-check"></i><b>4.12</b> Impute missing values</a>
+<ul>
+<li class="chapter" data-level="4.12.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#to-be-completedimputing-missing-values-using-the-mean"><i class="fa fa-check"></i><b>4.12.1</b> To be completedImputing missing values using the mean:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.13" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#keep-rows-based-on-a-unique-value."><i class="fa fa-check"></i><b>4.13</b> Keep rows based on a unique value.</a></li>
+<li class="chapter" data-level="4.14" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#delete-rows-on-a-variable-value"><i class="fa fa-check"></i><b>4.14</b> Delete rows on a variable value</a></li>
+<li class="chapter" data-level="4.15" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#use-if-else-to-calculate-on-values"><i class="fa fa-check"></i><b>4.15</b> Use if else to calculate on values</a></li>
+<li class="chapter" data-level="4.16" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-variables"><i class="fa fa-check"></i><b>4.16</b> Merge data frames (variables)</a></li>
+<li class="chapter" data-level="4.17" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-individuals"><i class="fa fa-check"></i><b>4.17</b> Merge data frames (individuals)</a></li>
+<li class="chapter" data-level="4.18" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#create-a-new-factor-from-existing"><i class="fa fa-check"></i><b>4.18</b> Create a new factor from existing</a></li>
+<li class="chapter" data-level="4.19" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#change-data-types"><i class="fa fa-check"></i><b>4.19</b> change data types</a></li>
+<li class="chapter" data-level="4.20" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#calculate-dates-and-photoperiod"><i class="fa fa-check"></i><b>4.20</b> calculate dates and photoperiod</a></li>
+<li class="chapter" data-level="4.21" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#reduce-variables-using-pca"><i class="fa fa-check"></i><b>4.21</b> Reduce variables using PCA</a>
+<ul>
+<li class="chapter" data-level="4.21.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#to-be-completed"><i class="fa fa-check"></i><b>4.21.1</b> To be completed</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>5</b> Statistical Analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression"><i class="fa fa-check"></i><b>5.1</b> Regression</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#linear-regression-on-groups"><i class="fa fa-check"></i><b>5.1.1</b> Linear regression on groups</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#linear-regression"><i class="fa fa-check"></i><b>5.2</b> Linear Regression</a></li>
+<li class="chapter" data-level="5.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>5.3</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#create-the-logr-model"><i class="fa fa-check"></i><b>5.3.1</b> Create the LogR model</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#principle-component-analysis"><i class="fa fa-check"></i><b>5.4</b> Principle Component Analysis</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#extracting-1st-component"><i class="fa fa-check"></i><b>5.4.1</b> Extracting 1st component</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis-and-visualisation"><i class="fa fa-check"></i><b>5.5</b> Survival Analysis and Visualisation</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-1"><i class="fa fa-check"></i><b>5.5.1</b> To be completed</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="statistical-analysis.html"><a href="statistical-analysis.html#receiver-operated-curves-roc"><i class="fa fa-check"></i><b>5.6</b> Receiver Operated Curves (ROC)</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#to-be-completed-2"><i class="fa fa-check"></i><b>5.6.1</b> To be completed</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>6</b> Data Visualisation</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-visualisation.html"><a href="data-visualisation.html#packages-needed"><i class="fa fa-check"></i><b>6.1</b> Packages needed</a></li>
+<li class="chapter" data-level="6.2" data-path="data-visualisation.html"><a href="data-visualisation.html#summary-tables"><i class="fa fa-check"></i><b>6.2</b> Summary Tables</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-visualisation.html"><a href="data-visualisation.html#summarise-by-group"><i class="fa fa-check"></i><b>6.2.1</b> Summarise by group</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-visualisation.html"><a href="data-visualisation.html#multiple-functions-variables"><i class="fa fa-check"></i><b>6.2.2</b> Multiple functions, variables</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-visualisation.html"><a href="data-visualisation.html#arsenal-summary-table"><i class="fa fa-check"></i><b>6.2.3</b> ‘Arsenal’ summary table</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-visualisation.html"><a href="data-visualisation.html#summarytools-tables"><i class="fa fa-check"></i><b>6.2.4</b> Summarytools tables</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-visualisation.html"><a href="data-visualisation.html#visual-summary-of-data"><i class="fa fa-check"></i><b>6.2.5</b> Visual summary of data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-visualisation.html"><a href="data-visualisation.html#data-frame-summary"><i class="fa fa-check"></i><b>6.2.6</b> Data Frame Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-visualisation.html"><a href="data-visualisation.html#correlation-matrix"><i class="fa fa-check"></i><b>6.3</b> Correlation matrix</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-visualisation.html"><a href="data-visualisation.html#ellipse-style"><i class="fa fa-check"></i><b>6.3.1</b> Ellipse style</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-visualisation.html"><a href="data-visualisation.html#graphing"><i class="fa fa-check"></i><b>6.4</b> Graphing</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="data-visualisation.html"><a href="data-visualisation.html#basic-distribution-histogram"><i class="fa fa-check"></i><b>6.4.1</b> Basic distribution Histogram</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-visualisation.html"><a href="data-visualisation.html#multiple-plot-of-all-distributions"><i class="fa fa-check"></i><b>6.4.2</b> multiple plot of all distributions</a></li>
+<li class="chapter" data-level="6.4.3" data-path="data-visualisation.html"><a href="data-visualisation.html#xy-scatterplot-with-linear-or-polynomial-regression"><i class="fa fa-check"></i><b>6.4.3</b> x*y scatterplot with linear or polynomial regression</a></li>
+<li class="chapter" data-level="6.4.4" data-path="data-visualisation.html"><a href="data-visualisation.html#add-formula-to-plot."><i class="fa fa-check"></i><b>6.4.4</b> Add formula to plot.</a></li>
+<li class="chapter" data-level="6.4.5" data-path="data-visualisation.html"><a href="data-visualisation.html#raincloud-plots-ggplot"><i class="fa fa-check"></i><b>6.4.5</b> Raincloud plots (ggplot)</a></li>
+<li class="chapter" data-level="6.4.6" data-path="data-visualisation.html"><a href="data-visualisation.html#raincloud-plot-diamonds"><i class="fa fa-check"></i><b>6.4.6</b> raincloud plot (diamonds)</a></li>
+<li class="chapter" data-level="6.4.7" data-path="data-visualisation.html"><a href="data-visualisation.html#scatterplot-theme"><i class="fa fa-check"></i><b>6.4.7</b> Scatterplot theme</a></li>
+<li class="chapter" data-level="6.4.8" data-path="data-visualisation.html"><a href="data-visualisation.html#scatterplots"><i class="fa fa-check"></i><b>6.4.8</b> Scatterplots</a></li>
+<li class="chapter" data-level="6.4.9" data-path="data-visualisation.html"><a href="data-visualisation.html#make-axis-logarithmic"><i class="fa fa-check"></i><b>6.4.9</b> make axis logarithmic</a></li>
+<li class="chapter" data-level="6.4.10" data-path="data-visualisation.html"><a href="data-visualisation.html#add-a-trendline"><i class="fa fa-check"></i><b>6.4.10</b> add a trendline</a></li>
+<li class="chapter" data-level="6.4.11" data-path="data-visualisation.html"><a href="data-visualisation.html#add-a-trendline-1"><i class="fa fa-check"></i><b>6.4.11</b> add a trendline</a></li>
+<li class="chapter" data-level="6.4.12" data-path="data-visualisation.html"><a href="data-visualisation.html#add-multiple-trendlines"><i class="fa fa-check"></i><b>6.4.12</b> add multiple trendlines</a></li>
+<li class="chapter" data-level="6.4.13" data-path="data-visualisation.html"><a href="data-visualisation.html#residuals-id-those-1sd-from-barx"><i class="fa fa-check"></i><b>6.4.13</b> residuals (ID those &gt;1SD from $bar{X})</a></li>
+<li class="chapter" data-level="6.4.14" data-path="data-visualisation.html"><a href="data-visualisation.html#only-label-extreme-residuals"><i class="fa fa-check"></i><b>6.4.14</b> only label extreme residuals</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="data-visualisation.html"><a href="data-visualisation.html#line-defined-by-equation-to-scatterplot"><i class="fa fa-check"></i><b>6.5</b> line defined by equation to scatterplot</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="bbc-style.html"><a href="bbc-style.html"><i class="fa fa-check"></i><b>7</b> BBC style</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="bbc-style.html"><a href="bbc-style.html#load-packages"><i class="fa fa-check"></i><b>7.1</b> load packages</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="bbc-style" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> BBC style</h1>
+<div id="load-packages" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> load packages</h2>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="bbc-style.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb157-2"><a href="bbc-style.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code></pre></div>
+<pre><code>## Warning: package &#39;gapminder&#39; was built under R version 4.0.5</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="bbc-style.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggalt)</span></code></pre></div>
+<pre><code>## Warning: package &#39;ggalt&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;ggalt&#39;:
+##   method                  from   
+##   grid.draw.absoluteGrob  ggplot2
+##   grobHeight.absoluteGrob ggplot2
+##   grobWidth.absoluteGrob  ggplot2
+##   grobX.absoluteGrob      ggplot2
+##   grobY.absoluteGrob      ggplot2</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="bbc-style.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(R.utils)</span></code></pre></div>
+<pre><code>## Warning: package &#39;R.utils&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## Loading required package: R.oo</code></pre>
+<pre><code>## Loading required package: R.methodsS3</code></pre>
+<pre><code>## R.methodsS3 v1.8.1 (2020-08-26 16:20:06 UTC) successfully loaded. See ?R.methodsS3 for help.</code></pre>
+<pre><code>## R.oo v1.24.0 (2020-08-26 16:11:58 UTC) successfully loaded. See ?R.oo for help.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;R.oo&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:R.methodsS3&#39;:
+## 
+##     throw</code></pre>
+<pre><code>## The following objects are masked from &#39;package:methods&#39;:
+## 
+##     getClasses, getMethods</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     attach, detach, load, save</code></pre>
+<pre><code>## R.utils v2.10.1 (2020-08-26 22:50:31 UTC) successfully loaded. See ?R.utils for help.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;R.utils&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:Hmisc&#39;:
+## 
+##     capitalize</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     extract</code></pre>
+<pre><code>## The following object is masked from &#39;package:utils&#39;:
+## 
+##     timestamp</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     cat, commandArgs, getOption, inherits, isOpen, nullfile, parse,
+##     warnings</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="bbc-style.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(png)</span>
+<span id="cb178-2"><a href="bbc-style.html#cb178-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code></pre></div>
+<pre><code>## Warning: package &#39;ggpubr&#39; was built under R version 4.0.5</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggpubr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:plyr&#39;:
+## 
+##     mutate</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="bbc-style.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grid)</span>
+<span id="cb182-2"><a href="bbc-style.html#cb182-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;scales&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:viridis&#39;:
+## 
+##     viridis_pal</code></pre>
+<pre><code>## The following object is masked from &#39;package:arsenal&#39;:
+## 
+##     ordinal</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     discard</code></pre>
+<pre><code>## The following object is masked from &#39;package:readr&#39;:
+## 
+##     col_factor</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="bbc-style.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bbplot)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="bbc-style.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Prepare data</span></span>
+<span id="cb189-2"><a href="bbc-style.html#cb189-2" aria-hidden="true" tabindex="-1"></a>dumbbell_df <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb189-3"><a href="bbc-style.html#cb189-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1967</span> <span class="sc">|</span> year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb189-4"><a href="bbc-style.html#cb189-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, lifeExp) <span class="sc">%&gt;%</span></span>
+<span id="cb189-5"><a href="bbc-style.html#cb189-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(year, lifeExp) <span class="sc">%&gt;%</span></span>
+<span id="cb189-6"><a href="bbc-style.html#cb189-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gap =</span> <span class="st">`</span><span class="at">2007</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">1967</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb189-7"><a href="bbc-style.html#cb189-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(gap)) <span class="sc">%&gt;%</span></span>
+<span id="cb189-8"><a href="bbc-style.html#cb189-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb189-9"><a href="bbc-style.html#cb189-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-10"><a href="bbc-style.html#cb189-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Make plot</span></span>
+<span id="cb189-11"><a href="bbc-style.html#cb189-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dumbbell_df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">1967</span><span class="st">`</span>, <span class="at">xend =</span> <span class="st">`</span><span class="at">2007</span><span class="st">`</span>, <span class="at">y =</span> <span class="fu">reorder</span>(country, gap), <span class="at">group =</span> country)) <span class="sc">+</span> </span>
+<span id="cb189-12"><a href="bbc-style.html#cb189-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dumbbell</span>(<span class="at">colour =</span> <span class="st">&quot;#dddddd&quot;</span>,</span>
+<span id="cb189-13"><a href="bbc-style.html#cb189-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb189-14"><a href="bbc-style.html#cb189-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">colour_x =</span> <span class="st">&quot;#FAAB18&quot;</span>,</span>
+<span id="cb189-15"><a href="bbc-style.html#cb189-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">colour_xend =</span> <span class="st">&quot;#1380A1&quot;</span>) <span class="sc">+</span></span>
+<span id="cb189-16"><a href="bbc-style.html#cb189-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bbc_style</span>() <span class="sc">+</span> </span>
+<span id="cb189-17"><a href="bbc-style.html#cb189-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;We&#39;re living longer&quot;</span>,</span>
+<span id="cb189-18"><a href="bbc-style.html#cb189-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle=</span><span class="st">&quot;Biggest life expectancy rise, 1967-2007&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
+## found in Windows font database
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
+## found in Windows font database
+
+## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
+## found in Windows font database</code></pre>
+<pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+## family not found in Windows font database</code></pre>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-visualisation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["Useful-Syntax.pdf", "PDF"]],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -11,6 +11,7 @@ library(kableExtra) # nicer knitr tables
 library(broom)
 library(readr) # load csv stored data
 library(geosphere) # for calc daylength
+library(lubridate)
 ```
 
 
@@ -58,6 +59,12 @@ mtcars <- mtcars %>% mutate(loghp1 = coalesce(loghp, 0))
 mtcars <- mtcars %>% mutate(loghp = replace_na(loghp, "missing"))
 ```
 
+## replace a specfic value
+
+```{r}
+#ageandheight[row number, column number] = [new value]
+```
+
 ## Filter na's or retain complete cases
 ```{r}
 mtcars <- mtcars %>% filter(!is.na(hp)) # no missing values found
@@ -72,10 +79,17 @@ mtcars2 <- mtcars %>% select(-c(drat,hp,vs:gear)) # multiple columns
 rm(list=setdiff(ls(), "mtcars")) # clean environment
 ```
 
-##Change specific datapoint
+## Change specific datapoint
 
 ```{r}
 mtcarsmissingvalues <- mtcars %>% mutate(gear=ifelse(gear==5,"missing",gear))
+```
+
+## Work with dates
+Add a date column
+
+```{r}
+mtcars <- mtcars %>% mutate(date=ymd("2001-05-24"))
 ```
 
 ## Find duplicate rows

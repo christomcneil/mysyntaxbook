@@ -110,3 +110,11 @@ kable(head((mtcars))) %>% kable_minimal(full_width = F)
 #data() # list all available datasets
 data("diamonds")
 ```
+
+### Render book
+```{r eval=FALSE, include=FALSE}
+ bookdown::render_book(output_format = 'all')
+```
+
+
+

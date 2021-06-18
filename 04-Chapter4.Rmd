@@ -13,9 +13,10 @@ library(kableExtra) # nicer knitr tables
 library(broom)
 library(readr) # load csv stored data
 library(geosphere) # for calc daylength
+library(effectsize)
 ```
 
-
+## Linear Regression
 ```{r}
 kable(mtcars %>%  group_by(as.factor(gear)) %>%
 summarise(mean = mean(qsec), sd = sd(qsec))) %>%
@@ -34,11 +35,34 @@ kable(mtcars%>% group_by(gear) %>%
 ```
 [Reference](https://stackoverflow.com/questions/22713325/fitting-several-regression-models-with-dplyr)
 
+```{r}
+fit <- lm(qsec ~ wt + hp+disp+factor(cyl), data = mtcars)
+summary(fit)
+effectsize(fit)
+anova_table <- anova(fit)
+effectsize(anova_table)
+
+
+```
+
+
+
 ## Logistic Regression
-### Create the LR model
+### Create the LogR model
 ```{r}
 
 ```
+
+## Principle Component Analysis
+
+### Extracting 1st component
+
+*complete dataset needed for following* 
+```{r}
+
+```
+
+
 
 
 
