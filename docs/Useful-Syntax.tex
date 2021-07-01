@@ -263,6 +263,9 @@
 
 This chapter contains syntax for the non-code rmarkdown sections.
 
+\hypertarget{bookdownrender_bookoutput_format-all}{%
+\section{bookdown::render\_book(output\_format = `all')}\label{bookdownrender_bookoutput_format-all}}
+
 \hypertarget{formatting-basics}{%
 \subsection{Formatting basics}\label{formatting-basics}}
 
@@ -303,34 +306,14 @@ Load all libraries
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: package 'tidyverse' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{verbatim}
 ## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
 \end{verbatim}
 
 \begin{verbatim}
-## v ggplot2 3.3.3     v purrr   0.3.4
-## v tibble  3.1.2     v dplyr   1.0.6
+## v ggplot2 3.3.4     v purrr   0.3.4
+## v tibble  3.1.2     v dplyr   1.0.7
 ## v tidyr   1.1.3     v stringr 1.4.0
 ## v readr   1.4.0     v forcats 0.5.1
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: package 'ggplot2' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: package 'tibble' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: package 'tidyr' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: package 'dplyr' was built under R version 4.0.5
 \end{verbatim}
 
 \begin{verbatim}
@@ -346,10 +329,6 @@ Load all libraries
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: package 'janitor' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{verbatim}
 ## 
 ## Attaching package: 'janitor'
 \end{verbatim}
@@ -363,22 +342,9 @@ Load all libraries
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(knitr) }\CommentTok{\#nice html tables}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'knitr' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(kableExtra) }\CommentTok{\# nicer knitr tables}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'kableExtra' was built under R version 4.0.5
-\end{verbatim}
 
 \begin{verbatim}
 ## 
@@ -394,23 +360,10 @@ Load all libraries
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(broom)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'broom' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(readr) }\CommentTok{\# load csv stored data}
 \FunctionTok{library}\NormalTok{(geosphere) }\CommentTok{\# for calc daylength}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'geosphere' was built under R version 4.0.5
-\end{verbatim}
 
 \hypertarget{remove-a-package}{%
 \subsection{Remove a package}\label{remove-a-package}}
@@ -501,7 +454,7 @@ Load all libraries
 \begin{verbatim}
 ## function () 
 ## .Internal(date())
-## <bytecode: 0x000000001a771db0>
+## <bytecode: 0x000000001842ef48>
 ## <environment: namespace:base>
 \end{verbatim}
 
@@ -700,10 +653,6 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: package 'Hmisc' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{verbatim}
 ## Loading required package: lattice
 \end{verbatim}
 
@@ -735,15 +684,6 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(naniar) }\CommentTok{\# deal with NAs}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'naniar' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(geosphere)}
 \FunctionTok{library}\NormalTok{(tidyverse) }\CommentTok{\# data handling and viz}
 \FunctionTok{library}\NormalTok{(janitor) }\CommentTok{\#dataframe import cleaning}
@@ -896,6 +836,26 @@ Add a date column
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{extract-the-last-x-num-of-a-string}{%
+\subsection{Extract the last x num of a string}\label{extract-the-last-x-num-of-a-string}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{rownames\_to\_column}\NormalTok{(}\StringTok{"car\_name"}\NormalTok{)}
+
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{last3letters=}\FunctionTok{str\_sub}\NormalTok{(car\_name, }\SpecialCharTok{{-}}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{add-an-order-e.g.-order-of-birth}{%
+\subsection{Add an order (e.g.~order of birth)}\label{add-an-order-e.g.-order-of-birth}}
+
+\emph{Calculate where in order of siblings particpant was born}
+
+\emph{create dedicated df for dob calcs}
+
+\emph{add an order no}
+
 \hypertarget{find-duplicate-rows}{%
 \subsection{Find duplicate rows}\label{find-duplicate-rows}}
 
@@ -1028,27 +988,27 @@ e.g.~prescription code
 \begin{verbatim}
 ## Rows: 6
 ## Columns: 2
-## $ carnames <chr> "Mazda RX4", "Mazda RX4 Wag", "Datsun 710", "Hornet 4 Drive",~
+## $ carnames <chr> "1", "2", "3", "4", "5", "6"
 ## $ valves   <dbl> 24, 24, 16, 24, 32, 24
 \end{verbatim}
 
 \begin{table}
 \centering
-\begin{tabular}{l|l|r}
+\begin{tabular}{l|r}
 \hline
-  & carnames & valves\\
+carnames & valves\\
 \hline
-Mazda RX4 & Mazda RX4 & 24\\
+1 & 24\\
 \hline
-Mazda RX4 Wag & Mazda RX4 Wag & 24\\
+2 & 24\\
 \hline
-Datsun 710 & Datsun 710 & 16\\
+3 & 16\\
 \hline
-Hornet 4 Drive & Hornet 4 Drive & 24\\
+4 & 24\\
 \hline
-Hornet Sportabout & Hornet Sportabout & 32\\
+5 & 32\\
 \hline
-Valiant & Valiant & 24\\
+6 & 24\\
 \hline
 \end{tabular}
 \end{table}
@@ -1065,34 +1025,35 @@ Valiant & Valiant & 24\\
 
 \begin{verbatim}
 ## Rows: 6
-## Columns: 8
-## $ carb     <dbl> 4, 4, 1, 1, 2, 1
-## $ hp_cat   <fct> high hp, high hp, low hp, high hp, high hp, high hp
-## $ loghp    <chr> "2.04139268515822", "2.04139268515822", "missing", "2.0413926~
-## $ sum      <dbl> 273.90, 273.90, 204.85, 371.08, 538.15, 332.76
-## $ loghp1   <dbl> 2.041393, 2.041393, 0.000000, 2.041393, 2.243038, 2.021189
-## $ date     <date> 2001-05-24, 2001-05-24, 2001-05-24, 2001-05-24, 2001-05-24, 2~
-## $ carnames <chr> "Mazda RX4", "Mazda RX4 Wag", "Datsun 710", "Hornet 4 Drive",~
-## $ valves   <dbl> 24, 24, 16, 24, 32, 24
+## Columns: 9
+## $ carb         <dbl> 4, 4, 1, 1, 2, 1
+## $ hp_cat       <fct> high hp, high hp, low hp, high hp, high hp, high hp
+## $ loghp        <chr> "2.04139268515822", "2.04139268515822", "missing", "2.041~
+## $ sum          <dbl> 273.90, 273.90, 204.85, 371.08, 538.15, 332.76
+## $ loghp1       <dbl> 2.041393, 2.041393, 0.000000, 2.041393, 2.243038, 2.021189
+## $ date         <date> 2001-05-24, 2001-05-24, 2001-05-24, 2001-05-24, 2001-05-2~
+## $ last3letters <chr> "RX4", "Wag", "710", "ive", "out", "ant"
+## $ carnames     <chr> "1", "2", "3", "4", "5", "6"
+## $ valves       <dbl> 24, 24, 16, 24, 32, 24
 \end{verbatim}
 
 \begin{table}
 \centering
-\begin{tabular}{r|l|l|r|r|l|l|r}
+\begin{tabular}{r|l|l|r|r|l|l|l|r}
 \hline
-carb & hp\_cat & loghp & sum & loghp1 & date & carnames & valves\\
+carb & hp\_cat & loghp & sum & loghp1 & date & last3letters & carnames & valves\\
 \hline
-4 & high hp & 2.04139268515822 & 273.90 & 2.041393 & 2001-05-24 & Mazda RX4 & 24\\
+4 & high hp & 2.04139268515822 & 273.90 & 2.041393 & 2001-05-24 & RX4 & 1 & 24\\
 \hline
-4 & high hp & 2.04139268515822 & 273.90 & 2.041393 & 2001-05-24 & Mazda RX4 Wag & 24\\
+4 & high hp & 2.04139268515822 & 273.90 & 2.041393 & 2001-05-24 & Wag & 2 & 24\\
 \hline
-1 & low hp & missing & 204.85 & 0.000000 & 2001-05-24 & Datsun 710 & 16\\
+1 & low hp & missing & 204.85 & 0.000000 & 2001-05-24 & 710 & 3 & 16\\
 \hline
-1 & high hp & 2.04139268515822 & 371.08 & 2.041393 & 2001-05-24 & Hornet 4 Drive & 24\\
+1 & high hp & 2.04139268515822 & 371.08 & 2.041393 & 2001-05-24 & ive & 4 & 24\\
 \hline
-2 & high hp & 2.24303804868629 & 538.15 & 2.243038 & 2001-05-24 & Hornet Sportabout & 32\\
+2 & high hp & 2.24303804868629 & 538.15 & 2.243038 & 2001-05-24 & out & 5 & 32\\
 \hline
-1 & high hp & 2.02118929906994 & 332.76 & 2.021189 & 2001-05-24 & Valiant & 24\\
+1 & high hp & 2.02118929906994 & 332.76 & 2.021189 & 2001-05-24 & ant & 6 & 24\\
 \hline
 \end{tabular}
 \end{table}
@@ -1164,7 +1125,7 @@ carb & hp\_cat & loghp & sum & loghp1 & date & carnames & valves\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-33-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-36-1.pdf}
 
 \hypertarget{reduce-variables-using-pca}{%
 \subsection{Reduce variables using PCA}\label{reduce-variables-using-pca}}
@@ -1317,10 +1278,136 @@ gear & r.squared & adj.r.squared & sigma & statistic & p.value & df & logLik & A
 \hypertarget{principle-component-analysis}{%
 \subsection{Principle Component Analysis}\label{principle-component-analysis}}
 
-\hypertarget{extracting-1st-component}{%
-\subsubsection{Extracting 1st component}\label{extracting-1st-component}}
-
 \emph{complete dataset needed for following}
+
+\hypertarget{make-the-pca-model}{%
+\subsubsection{make the PCA model}\label{make-the-pca-model}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(}\StringTok{"mtcars"}\NormalTok{)}
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rownames\_to\_column}\NormalTok{(}\StringTok{"car\_name"}\NormalTok{) }\CommentTok{\# if needed for df}
+\NormalTok{mtcars }\OtherTok{\textless{}{-}} \FunctionTok{rowid\_to\_column}\NormalTok{(mtcars, }\StringTok{"row\_num"}\NormalTok{)}
+\CommentTok{\#make the PCA model}
+\NormalTok{pcamodel.pca }\OtherTok{\textless{}{-}} \FunctionTok{prcomp}\NormalTok{(mtcars[,}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\SpecialCharTok{:}\DecValTok{13}\NormalTok{)], }\AttributeTok{center =} \ConstantTok{TRUE}\NormalTok{,}\AttributeTok{scale. =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# I prefer naming columns, but hard with PCA}
+\CommentTok{\#summarise PCA}
+\FunctionTok{summary}\NormalTok{(pcamodel.pca)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Importance of components:
+##                           PC1    PC2     PC3     PC4     PC5     PC6    PC7
+## Standard deviation     2.5707 1.6280 0.79196 0.51923 0.47271 0.46000 0.3678
+## Proportion of Variance 0.6008 0.2409 0.05702 0.02451 0.02031 0.01924 0.0123
+## Cumulative Proportion  0.6008 0.8417 0.89873 0.92324 0.94356 0.96279 0.9751
+##                            PC8    PC9    PC10   PC11
+## Standard deviation     0.35057 0.2776 0.22811 0.1485
+## Proportion of Variance 0.01117 0.0070 0.00473 0.0020
+## Cumulative Proportion  0.98626 0.9933 0.99800 1.0000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(mtcars[,}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\SpecialCharTok{:}\DecValTok{13}\NormalTok{)]) }\CommentTok{\#check columns are corrrect}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## 1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## 2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## 3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## 4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## 5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## 6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+\end{verbatim}
+
+\hypertarget{make-a-scree-plot-of-the-pca-model}{%
+\subsubsection{make a scree plot of the PCA model}\label{make-a-scree-plot-of-the-pca-model}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#creates scree plot}
+\FunctionTok{fviz\_eig}\NormalTok{(pcamodel.pca)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-42-1.pdf}
+scree plot shows how much variance can be summarised with one variable (components)
+
+\hypertarget{graph-of-variables.-positive-correlated-variables-point-to-the-same-side-of-the-plot.-negative-correlated-variables-point-to-opposite-sides-of-the-graph.}{%
+\subsubsection{Graph of variables. Positive correlated variables point to the same side of the plot. Negative correlated variables point to opposite sides of the graph.}\label{graph-of-variables.-positive-correlated-variables-point-to-the-same-side-of-the-plot.-negative-correlated-variables-point-to-opposite-sides-of-the-graph.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{fviz\_pca\_var}\NormalTok{(pcamodel.pca,}
+             \AttributeTok{col.var =} \StringTok{"contrib"}\NormalTok{, }\CommentTok{\# Color by contributions to the PC}
+             \AttributeTok{gradient.cols =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#00AFBB"}\NormalTok{, }\StringTok{"\#E7B800"}\NormalTok{, }\StringTok{"\#FC4E07"}\NormalTok{),}
+             \AttributeTok{repel =} \ConstantTok{TRUE}\NormalTok{   )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-43-1.pdf}
+\# Extract the Principal components For each individual
+
+this is the key stage of getting the first principal component out per rows score. essentially doing the principal component creates a method for then taking an rows scores, and giving them a value for `1 PC'. then reattach them to the original data frame spreadsheet.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{extractedpcas }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(pcamodel.pca, }\AttributeTok{newdata =}\NormalTok{ mtcars)}
+\FunctionTok{head}\NormalTok{(extractedpcas)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              PC1        PC2        PC3         PC4        PC5         PC6
+## [1,] -0.64686274  1.7081142 -0.5917309  0.11370221 -0.9455234 -0.01698737
+## [2,] -0.61948315  1.5256219 -0.3763013  0.19912121 -1.0166807 -0.24172464
+## [3,] -2.73562427 -0.1441501 -0.2374391 -0.24521545  0.3987623 -0.34876781
+## [4,] -0.30686063 -2.3258038 -0.1336213 -0.50380035  0.5492089  0.01929700
+## [5,]  1.94339268 -0.7425211 -1.1165366  0.07446196  0.2075157  0.14919276
+## [6,] -0.05525342 -2.7421229  0.1612456 -0.97516743  0.2116654 -0.24383585
+##              PC7          PC8         PC9        PC10        PC11
+## [1,] -0.42648652 -0.009631217  0.14642303 -0.06670350  0.17969357
+## [2,] -0.41620046 -0.084520213  0.07452829 -0.12692766  0.08864426
+## [3,] -0.60884146  0.585255765 -0.13122859  0.04573787 -0.09463291
+## [4,] -0.04036075 -0.049583029  0.22021812 -0.06039981  0.14761127
+## [5,]  0.38350816 -0.160297757 -0.02117623 -0.05983003  0.14640690
+## [6,] -0.29464160  0.256612420 -0.03222907 -0.20165466  0.01954506
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  these are the seven principal components of the first six people. we are only interested really in PC1.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# make the Principal component matrix into a data frame }
+\NormalTok{extractedpcasdf }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(extractedpcas)}
+\NormalTok{extractedpcasdf }\OtherTok{\textless{}{-}} \FunctionTok{rowid\_to\_column}\NormalTok{(extractedpcasdf , }\StringTok{"row\_num"}\NormalTok{)}
+\CommentTok{\#add the principal component values for the individuals to masterPCA file}
+\NormalTok{mtcars }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(mtcars,extractedpcasdf,}\AttributeTok{by=}\StringTok{"row\_num"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\emph{this was to add a row number that corresponds to the row number in the cognition data file above.}
+* doing this then allows us to add the principal component data to the cognition data and match the stradl IDs.
+
+create a final spreadsheet with cog data and PCA
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#delete row\_num}
+
+\NormalTok{mtcars}\OtherTok{\textless{}{-}}\NormalTok{ mtcars}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(row\_num, PC3}\SpecialCharTok{:}\NormalTok{PC11))}
+\NormalTok{mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{hp,}\AttributeTok{y=}\NormalTok{PC1))}\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-46-1.pdf}
 
 \hypertarget{survival-analysis-and-visualisation}{%
 \subsection{Survival Analysis and Visualisation}\label{survival-analysis-and-visualisation}}
@@ -1333,6 +1420,27 @@ gear & r.squared & adj.r.squared & sigma & statistic & p.value & df & logLik & A
 
 \hypertarget{to-be-completed-2}{%
 \subsubsection{To be completed}\label{to-be-completed-2}}
+
+\hypertarget{missing-values}{%
+\subsection{Missing Values}\label{missing-values}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(naniar)}
+\FunctionTok{library}\NormalTok{(UpSetR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'UpSetR'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:lattice':
+## 
+##     histogram
+\end{verbatim}
 
 \hypertarget{data-visualisation}{%
 \section{Data Visualisation}\label{data-visualisation}}
@@ -1594,17 +1702,17 @@ wt & 3.217 & 0.978 & 32\\
 No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \midrule
 \endhead
-1 & \vtop{\hbox{\strut mpg}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 20.1 (6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 10.4 \textless{} 19.2 \textless{} 33.9}\hbox{\strut IQR (CV) : 7.4 (0.3)}} & 25 distinct values & \includegraphics{/tmp/ds1120.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-2 & \vtop{\hbox{\strut cyl}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 6.2 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 4 \textless{} 6 \textless{} 8}\hbox{\strut IQR (CV) : 4 (0.3)}} & \vtop{\hbox{\strut 4 : 11 (34.4\%)}\hbox{\strut 6 : 7 (21.9\%)}\hbox{\strut 8 : 14 (43.8\%)}} & \includegraphics{/tmp/ds1121.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-3 & \vtop{\hbox{\strut disp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 230.7 (123.9)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 71.1 \textless{} 196.3 \textless{} 472}\hbox{\strut IQR (CV) : 205.2 (0.5)}} & 27 distinct values & \includegraphics{/tmp/ds1122.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-4 & \vtop{\hbox{\strut hp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 146.7 (68.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 52 \textless{} 123 \textless{} 335}\hbox{\strut IQR (CV) : 83.5 (0.5)}} & 22 distinct values & \includegraphics{/tmp/ds1123.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-5 & \vtop{\hbox{\strut drat}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.6 (0.5)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 2.8 \textless{} 3.7 \textless{} 4.9}\hbox{\strut IQR (CV) : 0.8 (0.1)}} & 22 distinct values & \includegraphics{/tmp/ds1124.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-6 & \vtop{\hbox{\strut wt}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.2 (1)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1.5 \textless{} 3.3 \textless{} 5.4}\hbox{\strut IQR (CV) : 1 (0.3)}} & 29 distinct values & \includegraphics{/tmp/ds1125.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-7 & \vtop{\hbox{\strut qsec}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 17.8 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 14.5 \textless{} 17.7 \textless{} 22.9}\hbox{\strut IQR (CV) : 2 (0.1)}} & 30 distinct values & \includegraphics{/tmp/ds1126.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-8 & \vtop{\hbox{\strut vs}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 18 (56.2\%)}\hbox{\strut 1 : 14 (43.8\%)}} & \includegraphics{/tmp/ds1127.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-9 & \vtop{\hbox{\strut am}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 19 (59.4\%)}\hbox{\strut 1 : 13 (40.6\%)}} & \includegraphics{/tmp/ds1128.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-10 & \vtop{\hbox{\strut gear}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.7 (0.7)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 3 \textless{} 4 \textless{} 5}\hbox{\strut IQR (CV) : 1 (0.2)}} & \vtop{\hbox{\strut 3 : 15 (46.9\%)}\hbox{\strut 4 : 12 (37.5\%)}\hbox{\strut 5 : 5 (15.6\%)}} & \includegraphics{/tmp/ds1129.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-11 & \vtop{\hbox{\strut carb}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 2.8 (1.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1 \textless{} 2 \textless{} 8}\hbox{\strut IQR (CV) : 2 (0.6)}} & \vtop{\hbox{\strut 1 : 7 (21.9\%)}\hbox{\strut 2 : 10 (31.2\%)}\hbox{\strut 3 : 3 ( 9.4\%)}\hbox{\strut 4 : 10 (31.2\%)}\hbox{\strut 6 : 1 ( 3.1\%)}\hbox{\strut 8 : 1 ( 3.1\%)}} & \includegraphics{/tmp/ds1130.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+1 & \vtop{\hbox{\strut mpg}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 20.1 (6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 10.4 \textless{} 19.2 \textless{} 33.9}\hbox{\strut IQR (CV) : 7.4 (0.3)}} & 25 distinct values & \includegraphics{/tmp/ds1175.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+2 & \vtop{\hbox{\strut cyl}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 6.2 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 4 \textless{} 6 \textless{} 8}\hbox{\strut IQR (CV) : 4 (0.3)}} & \vtop{\hbox{\strut 4 : 11 (34.4\%)}\hbox{\strut 6 : 7 (21.9\%)}\hbox{\strut 8 : 14 (43.8\%)}} & \includegraphics{/tmp/ds1176.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+3 & \vtop{\hbox{\strut disp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 230.7 (123.9)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 71.1 \textless{} 196.3 \textless{} 472}\hbox{\strut IQR (CV) : 205.2 (0.5)}} & 27 distinct values & \includegraphics{/tmp/ds1177.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+4 & \vtop{\hbox{\strut hp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 146.7 (68.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 52 \textless{} 123 \textless{} 335}\hbox{\strut IQR (CV) : 83.5 (0.5)}} & 22 distinct values & \includegraphics{/tmp/ds1178.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+5 & \vtop{\hbox{\strut drat}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.6 (0.5)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 2.8 \textless{} 3.7 \textless{} 4.9}\hbox{\strut IQR (CV) : 0.8 (0.1)}} & 22 distinct values & \includegraphics{/tmp/ds1179.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+6 & \vtop{\hbox{\strut wt}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.2 (1)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1.5 \textless{} 3.3 \textless{} 5.4}\hbox{\strut IQR (CV) : 1 (0.3)}} & 29 distinct values & \includegraphics{/tmp/ds1180.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+7 & \vtop{\hbox{\strut qsec}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 17.8 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 14.5 \textless{} 17.7 \textless{} 22.9}\hbox{\strut IQR (CV) : 2 (0.1)}} & 30 distinct values & \includegraphics{/tmp/ds1181.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+8 & \vtop{\hbox{\strut vs}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 18 (56.2\%)}\hbox{\strut 1 : 14 (43.8\%)}} & \includegraphics{/tmp/ds1182.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+9 & \vtop{\hbox{\strut am}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 19 (59.4\%)}\hbox{\strut 1 : 13 (40.6\%)}} & \includegraphics{/tmp/ds1183.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+10 & \vtop{\hbox{\strut gear}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.7 (0.7)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 3 \textless{} 4 \textless{} 5}\hbox{\strut IQR (CV) : 1 (0.2)}} & \vtop{\hbox{\strut 3 : 15 (46.9\%)}\hbox{\strut 4 : 12 (37.5\%)}\hbox{\strut 5 : 5 (15.6\%)}} & \includegraphics{/tmp/ds1184.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
+11 & \vtop{\hbox{\strut carb}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 2.8 (1.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1 \textless{} 2 \textless{} 8}\hbox{\strut IQR (CV) : 2 (0.6)}} & \vtop{\hbox{\strut 1 : 7 (21.9\%)}\hbox{\strut 2 : 10 (31.2\%)}\hbox{\strut 3 : 3 ( 9.4\%)}\hbox{\strut 4 : 10 (31.2\%)}\hbox{\strut 6 : 1 ( 3.1\%)}\hbox{\strut 8 : 1 ( 3.1\%)}} & \includegraphics{/tmp/ds1185.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
 \bottomrule
 \end{longtable}
 
@@ -1628,10 +1736,21 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## Warning in corrplot(M, type = "upper", method = "ellipse", order = "hclust", :
+## p.mat and corr may be not paired, their rownames and colnames are not totally
+## same!
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in cbind(corrPos, pNew): number of rows of result is not a multiple of
+## vector length (arg 2)
+\end{verbatim}
+
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-45-1.pdf}
-\caption{\label{fig:unnamed-chunk-45}Correlation Plot}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-54-1.pdf}
+\caption{\label{fig:unnamed-chunk-54}Correlation Plot}
 \end{figure}
 
 \begin{itemize}
@@ -1663,7 +1782,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-46-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-55-1.pdf}
 \#\#\# Distribution + Normal line
 
 \begin{Shaded}
@@ -1677,7 +1796,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-47-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-56-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1696,7 +1815,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-48-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-57-1.pdf}
 
 \hypertarget{xy-scatterplot-with-linear-or-polynomial-regression}{%
 \subsubsection{x*y scatterplot with linear or polynomial regression}\label{xy-scatterplot-with-linear-or-polynomial-regression}}
@@ -1713,7 +1832,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-49-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-58-1.pdf}
 
 \hypertarget{add-formula-to-plot.}{%
 \subsubsection{Add formula to plot.}\label{add-formula-to-plot.}}
@@ -1736,7 +1855,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-50-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-59-1.pdf}
 
 \hypertarget{raincloud-plots-ggplot}{%
 \subsubsection{Raincloud plots (ggplot)}\label{raincloud-plots-ggplot}}
@@ -1746,10 +1865,6 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \FunctionTok{library}\NormalTok{(plyr)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'plyr' was built under R version 4.0.5
-\end{verbatim}
 
 \begin{verbatim}
 ## ------------------------------------------------------------------------------
@@ -1897,7 +2012,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-56-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-65-1.pdf}
 \#\#\# Alternative raincloud
 
 \begin{Shaded}
@@ -1917,15 +2032,27 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \FunctionTok{scale\_fill\_viridis\_d}\NormalTok{() }\SpecialCharTok{+}
 \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
 \NormalTok{theme\_rain}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
+## "none")` instead.
+
+## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
+## "none")` instead.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{g}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-57-1.pdf}
-\caption{\label{fig:unnamed-chunk-57}Raincoud plot of means}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-66-1.pdf}
+\caption{\label{fig:unnamed-chunk-66}Raincoud plot of means}
 \end{figure}
 
 \hypertarget{scatterplot-theme}{%
@@ -1970,8 +2097,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-59-1.pdf}
-\caption{\label{fig:unnamed-chunk-59}Scatterplots}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-68-1.pdf}
+\caption{\label{fig:unnamed-chunk-68}Scatterplots}
 \end{figure}
 
 \hypertarget{make-axis-logarithmic}{%
@@ -1985,7 +2112,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-60-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-69-1.pdf}
 
 \hypertarget{add-a-trendline}{%
 \subsubsection{add a trendline}\label{add-a-trendline}}
@@ -2020,8 +2147,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-61-1.pdf}
-\caption{\label{fig:unnamed-chunk-61}linear Trendline}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-70-1.pdf}
+\caption{\label{fig:unnamed-chunk-70}linear Trendline}
 \end{figure}
 
 \hypertarget{add-a-trendline-1}{%
@@ -2057,8 +2184,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-62-1.pdf}
-\caption{\label{fig:unnamed-chunk-62}Polynomial trendline}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-71-1.pdf}
+\caption{\label{fig:unnamed-chunk-71}Polynomial trendline}
 \end{figure}
 
 \hypertarget{add-multiple-trendlines}{%
@@ -2076,7 +2203,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-63-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-72-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2088,7 +2215,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-63-2.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-72-2.pdf}
 \#\#\# add deviation from regression
 
 \begin{Shaded}
@@ -2120,8 +2247,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-65-1.pdf}
-\caption{\label{fig:unnamed-chunk-65}Deviation from predection}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-74-1.pdf}
+\caption{\label{fig:unnamed-chunk-74}Deviation from predection}
 \end{figure}
 
 \begin{Shaded}
@@ -2202,7 +2329,7 @@ Valiant & 18.1 & 6 & 225 & 105 & -52.832288 & 1\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-67-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-76-1.pdf}
 
 \hypertarget{line-defined-by-equation-to-scatterplot}{%
 \subsection{line defined by equation to scatterplot}\label{line-defined-by-equation-to-scatterplot}}
@@ -2220,215 +2347,6 @@ Valiant & 18.1 & 6 & 225 & 105 & -52.832288 & 1\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-68-1.pdf}
-
-\hypertarget{bbc-style}{%
-\section{BBC style}\label{bbc-style}}
-
-\hypertarget{load-packages}{%
-\subsection{load packages}\label{load-packages}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\FunctionTok{library}\NormalTok{(gapminder)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'gapminder' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(ggalt)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'ggalt' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{verbatim}
-## Registered S3 methods overwritten by 'ggalt':
-##   method                  from   
-##   grid.draw.absoluteGrob  ggplot2
-##   grobHeight.absoluteGrob ggplot2
-##   grobWidth.absoluteGrob  ggplot2
-##   grobX.absoluteGrob      ggplot2
-##   grobY.absoluteGrob      ggplot2
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(R.utils)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'R.utils' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{verbatim}
-## Loading required package: R.oo
-\end{verbatim}
-
-\begin{verbatim}
-## Loading required package: R.methodsS3
-\end{verbatim}
-
-\begin{verbatim}
-## R.methodsS3 v1.8.1 (2020-08-26 16:20:06 UTC) successfully loaded. See ?R.methodsS3 for help.
-\end{verbatim}
-
-\begin{verbatim}
-## R.oo v1.24.0 (2020-08-26 16:11:58 UTC) successfully loaded. See ?R.oo for help.
-\end{verbatim}
-
-\begin{verbatim}
-## 
-## Attaching package: 'R.oo'
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:R.methodsS3':
-## 
-##     throw
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:methods':
-## 
-##     getClasses, getMethods
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     attach, detach, load, save
-\end{verbatim}
-
-\begin{verbatim}
-## R.utils v2.10.1 (2020-08-26 22:50:31 UTC) successfully loaded. See ?R.utils for help.
-\end{verbatim}
-
-\begin{verbatim}
-## 
-## Attaching package: 'R.utils'
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:Hmisc':
-## 
-##     capitalize
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:tidyr':
-## 
-##     extract
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:utils':
-## 
-##     timestamp
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     cat, commandArgs, getOption, inherits, isOpen, nullfile, parse,
-##     warnings
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(png)}
-\FunctionTok{library}\NormalTok{(ggpubr)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'ggpubr' was built under R version 4.0.5
-\end{verbatim}
-
-\begin{verbatim}
-## 
-## Attaching package: 'ggpubr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:plyr':
-## 
-##     mutate
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(grid)}
-\FunctionTok{library}\NormalTok{(scales)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'scales'
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:viridis':
-## 
-##     viridis_pal
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:arsenal':
-## 
-##     ordinal
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:purrr':
-## 
-##     discard
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:readr':
-## 
-##     col_factor
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(bbplot)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#Prepare data}
-\NormalTok{dumbbell\_df }\OtherTok{\textless{}{-}}\NormalTok{ gapminder }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(year }\SpecialCharTok{==} \DecValTok{1967} \SpecialCharTok{|}\NormalTok{ year }\SpecialCharTok{==} \DecValTok{2007}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{select}\NormalTok{(country, year, lifeExp) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{spread}\NormalTok{(year, lifeExp) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{gap =} \StringTok{\textasciigrave{}}\AttributeTok{2007}\StringTok{\textasciigrave{}} \SpecialCharTok{{-}} \StringTok{\textasciigrave{}}\AttributeTok{1967}\StringTok{\textasciigrave{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(gap)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{head}\NormalTok{(}\DecValTok{10}\NormalTok{)}
-
-\CommentTok{\#Make plot}
-\FunctionTok{ggplot}\NormalTok{(dumbbell\_df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \StringTok{\textasciigrave{}}\AttributeTok{1967}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{xend =} \StringTok{\textasciigrave{}}\AttributeTok{2007}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{y =} \FunctionTok{reorder}\NormalTok{(country, gap), }\AttributeTok{group =}\NormalTok{ country)) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_dumbbell}\NormalTok{(}\AttributeTok{colour =} \StringTok{"\#dddddd"}\NormalTok{,}
-                \AttributeTok{size =} \DecValTok{3}\NormalTok{,}
-                \AttributeTok{colour\_x =} \StringTok{"\#FAAB18"}\NormalTok{,}
-                \AttributeTok{colour\_xend =} \StringTok{"\#1380A1"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{bbc\_style}\NormalTok{() }\SpecialCharTok{+} 
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"We\textquotesingle{}re living longer"}\NormalTok{,}
-       \AttributeTok{subtitle=}\StringTok{"Biggest life expectancy rise, 1967{-}2007"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-70-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-77-1.pdf}
 
 \end{document}

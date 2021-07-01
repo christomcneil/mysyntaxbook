@@ -92,6 +92,42 @@ Add a date column
 mtcars <- mtcars %>% mutate(date=ymd("2001-05-24"))
 ```
 
+## Extract the last x num of a string
+```{r}
+mtcars <- mtcars %>%rownames_to_column("car_name")
+
+mtcars <- mtcars %>% mutate(last3letters=str_sub(car_name, -3))
+```
+
+## Add an order (e.g. order of birth)
+*Calculate where in order of siblings particpant was born*
+
+
+*create dedicated df for dob calcs*
+```{r eval=FALSE, include=FALSE}
+# just the variables of interest for new dataframe
+abcdobs <- abc36_cses %>%  select(CON_NO,DOB, HOWSIBS,SIB1DOB:SIB6DOB) 
+#make the df long format by id number
+abcdobs <- abcdobs %>% 
+  pivot_longer(!c(CON_NO,HOWSIBS),names_to = "Sibling_no", values_to = "dob")
+abcdobs <- abcdobs %>%arrange(CON_NO,dob)#sort (id then date)
+```
+
+*add an order no*
+```{r eval=FALSE, include=FALSE}
+abcdobs<- abcdobs %>% 
+  group_by(as.factor(CON_NO)) %>% 
+  mutate(order_no = row_number())
+abcdobs <- abcdobs %>% filter(Sibling_no=='DOB')# just select the subject
+abcdobs <- abcdobs %>% select(CON_NO,order_no)#just merge back the important vars
+
+abc36_cses <- left_join(abc36_cses,abcdobs)#merge the new order data back
+
+
+```
+
+
+
 ## Find duplicate rows
 ```{r}
 # specify which variable to check for duplication

@@ -1,6 +1,8 @@
 # RMarkdown
 This chapter contains syntax for the non-code rmarkdown sections.  
 
+
+# bookdown::render_book(output_format = 'all')
 ## Formatting basics
 
 ```

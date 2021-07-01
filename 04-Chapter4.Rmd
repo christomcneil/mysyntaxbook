@@ -14,6 +14,7 @@ library(broom)
 library(readr) # load csv stored data
 library(geosphere) # for calc daylength
 library(effectsize)
+library(factoextra)
 ```
 
 ## Linear Regression
@@ -55,13 +56,64 @@ effectsize(anova_table)
 
 ## Principle Component Analysis
 
-### Extracting 1st component
+
 
 *complete dataset needed for following* 
-```{r}
 
+### make the PCA model
+```{r}
+data("mtcars")
+mtcars <- mtcars %>% rownames_to_column("car_name") # if needed for df
+mtcars <- rowid_to_column(mtcars, "row_num")
+#make the PCA model
+pcamodel.pca <- prcomp(mtcars[,c(3:13)], center = TRUE,scale. = TRUE) # I prefer naming columns, but hard with PCA
+#summarise PCA
+summary(pcamodel.pca)
+head(mtcars[,c(3:13)]) #check columns are corrrect
 ```
 
+### make a scree plot of the PCA model
+```{r}
+#creates scree plot
+fviz_eig(pcamodel.pca)
+```
+scree plot shows how much  variance can be summarised with one variable (components)
+
+### Graph of variables. Positive correlated variables point to the same side of the plot. Negative correlated variables point to opposite sides of the graph.
+
+```{r}
+fviz_pca_var(pcamodel.pca,
+             col.var = "contrib", # Color by contributions to the PC
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE   )
+```
+# Extract the Principal components For each individual
+
+ this is the key stage of getting the first principal component out  per rows score.  essentially doing the principal component creates a method for then taking an rows scores,  and giving them a value for '1 PC'.   then reattach them to the original data frame spreadsheet.
+```{r}
+extractedpcas <- predict(pcamodel.pca, newdata = mtcars)
+head(extractedpcas)
+```
+
+*  these are the  seven principal components of the first six people.  we are only interested really in PC1. 
+```{r}
+# make the Principal component matrix into a data frame 
+extractedpcasdf <- as.data.frame(extractedpcas)
+extractedpcasdf <- rowid_to_column(extractedpcasdf , "row_num")
+#add the principal component values for the individuals to masterPCA file
+mtcars <- left_join(mtcars,extractedpcasdf,by="row_num")
+```
+*this was to add a row number that corresponds to the row number in the cognition data file above.*
+* doing this then allows us to add the principal component data to the cognition data and match the stradl IDs.
+
+create a final spreadsheet with cog data and PCA
+```{r}
+#delete row_num
+
+mtcars<- mtcars%>% select(-c(row_num, PC3:PC11))
+mtcars %>% ggplot(aes(x=hp,y=PC1))+geom_point()
+
+```
 
 
 
@@ -72,4 +124,9 @@ effectsize(anova_table)
 ## Receiver Operated Curves (ROC)
 ### To be completed
 
+## Missing Values 
+```{r}
+library(naniar)
+library(UpSetR)
+```
 
