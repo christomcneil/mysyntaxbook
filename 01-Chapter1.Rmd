@@ -2,7 +2,7 @@
 This chapter contains syntax for the non-code rmarkdown sections.  
 
 
-# bookdown::render_book(output_format = 'all')
+
 ## Formatting basics
 
 ```
@@ -22,4 +22,7 @@ This chapter contains syntax for the non-code rmarkdown sections.
 message=FALSE, warning=FALSE, include=FALSE, ECHO=FALSE (show output), 
 
 To set document default knitr::opts_chunk$set(echo=FALSE) 
+
+To render this book:
+bookdown::render_book(output_format = 'all')
 ```

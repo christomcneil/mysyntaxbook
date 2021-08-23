@@ -126,7 +126,11 @@ abc36_cses <- left_join(abc36_cses,abcdobs)#merge the new order data back
 
 ```
 
+## Create a df with the names (and labels) of a dataframe
 
+```{r eval=FALSE, include=FALSE}
+name_list_df <- setNames(stack(lapply(aconf_cses, label))[2:1], c("Varcode", "Variables"))
+```
 
 ## Find duplicate rows
 ```{r}
@@ -136,8 +140,20 @@ kable(n_occur1[n_occur1$Freq > 1,]) %>% kable_styling(full_width = F) %>%
   kable_minimal()
 ```
 
+## Delete duplicate merged columns
+```{r eval=FALSE, include=FALSE}
+combined <- combined %>% 
+  rename_at(
+    vars(ends_with(".x")),
+    ~str_replace(., "\\..$","")
+  ) %>% 
+  select_at(
+    vars(-ends_with(".y"))
+  )
+```
+
 ## Impute missing values
-### To be completedImputing missing values using the mean:
+### Imputing missing values using the mean:
 
 ```{r}
 #create missing values
@@ -149,9 +165,12 @@ mtcarsmissingvalues$gear <- impute(mtcarsmissingvalues$gear, median) # median
 mtcarsmissingvalues$gear <- impute(mtcarsmissingvalues$gear, 4) # replace specific number
 
 ```
-
 [Reference:](http://r-statistics.co/Missing-Value-Treatment-With-R.html)
 
+## check for any na's in a df
+```{r}
+which(complete.cases(mtcars) == FALSE)
+```
 
 ## Keep rows based on a unique value.
 e.g. prescription code
@@ -172,6 +191,12 @@ mtcars3<-mtcars %>% filter(!(cyl==8 & hp==215)) # & is the 'and' operator
 ```{r}
 # no NA's so all values unchanged.
 mtcars <- mtcars %>% mutate(vs=ifelse(is.na(vs),(carb-am)/365.25,vs)) 
+```
+
+## Find the rowwise maximum and make a new variable
+```{r eval=FALSE, include=FALSE}
+iris %>%
+      mutate(mak=pmax(Sepal.Width,Petal.Length, Petal.Width))
 ```
 
 ## Merge data frames (variables)
@@ -242,5 +267,3 @@ dateslat <- dateslat %>% mutate(daylength=daylength(latitude,dateofscan))
 dateslat %>% ggplot(aes(x=dateofscan,y=daylength)) +geom_line() +theme_minimal()
 ```
 
-## Reduce variables using PCA
-### To be completed
