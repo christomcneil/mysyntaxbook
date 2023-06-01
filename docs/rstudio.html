@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Rstudio | Useful-Syntax.knit</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Rstudio | Useful-Syntax.knit" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="rmarkdown.html"/>
 <link rel="next" href="data-wrangling-and-manipulation.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +47,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -93,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -120,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -274,112 +277,96 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rstudio" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Rstudio</h1>
+<div id="rstudio" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Rstudio<a href="rstudio.html#rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This chapter contains syntax for manipulating data and packages within the<br />
 R studio environment.</p>
-<div id="useful-packages" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Useful packages</h2>
+<div id="useful-packages" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Useful packages<a href="rstudio.html#useful-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load all libraries</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="rstudio.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># data handling and viz</span></span></code></pre></div>
-<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
-<pre><code>## v ggplot2 3.3.4     v purrr   0.3.4
-## v tibble  3.1.2     v dplyr   1.0.7
-## v tidyr   1.1.3     v stringr 1.4.0
-## v readr   1.4.0     v forcats 0.5.1</code></pre>
-<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="rstudio.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor) <span class="co">#dataframe import cleaning</span></span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;janitor&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     chisq.test, fisher.test</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="rstudio.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr) <span class="co">#nice html tables</span></span>
-<span id="cb9-2"><a href="rstudio.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra) <span class="co"># nicer knitr tables</span></span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;kableExtra&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     group_rows</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="rstudio.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb12-2"><a href="rstudio.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr) <span class="co"># load csv stored data</span></span>
-<span id="cb12-3"><a href="rstudio.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geosphere) <span class="co"># for calc daylength</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="rstudio.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># data handling and viz</span></span>
+<span id="cb2-2"><a href="rstudio.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor) <span class="co">#dataframe import cleaning</span></span>
+<span id="cb2-3"><a href="rstudio.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr) <span class="co">#nice html tables</span></span>
+<span id="cb2-4"><a href="rstudio.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra) <span class="co"># nicer knitr tables</span></span>
+<span id="cb2-5"><a href="rstudio.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb2-6"><a href="rstudio.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr) <span class="co"># load csv stored data</span></span>
+<span id="cb2-7"><a href="rstudio.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geosphere) <span class="co"># for calc daylength</span></span></code></pre></div>
 </div>
-<div id="remove-a-package" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Remove a package</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="rstudio.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Unload a module: </span></span>
-<span id="cb13-2"><a href="rstudio.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clipr) <span class="co">#load</span></span></code></pre></div>
+<div id="remove-a-package" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Remove a package<a href="rstudio.html#remove-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="rstudio.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Unload a module: </span></span>
+<span id="cb3-2"><a href="rstudio.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clipr) <span class="co">#load</span></span></code></pre></div>
 <pre><code>## Welcome to clipr. See ?write_clip for advisories on writing to the clipboard in R.</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="rstudio.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(package<span class="sc">:</span>clipr) <span class="co">#unload</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="rstudio.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(package<span class="sc">:</span>clipr) <span class="co">#unload</span></span></code></pre></div>
 </div>
-<div id="import-using-janitor" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Import using Janitor</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="rstudio.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data.frame with dirty names</span></span>
-<span id="cb16-2"><a href="rstudio.html#cb16-2" aria-hidden="true" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
-<span id="cb16-3"><a href="rstudio.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;firstName&quot;</span>, <span class="st">&quot;ábc@!*&quot;</span>, <span class="st">&quot;% successful (2009)&quot;</span>,</span>
-<span id="cb16-4"><a href="rstudio.html#cb16-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;REPEAT VALUE&quot;</span>, <span class="st">&quot;REPEAT VALUE&quot;</span>, <span class="st">&quot;&quot;</span>)</span>
-<span id="cb16-5"><a href="rstudio.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test_df)</span></code></pre></div>
+<div id="import-using-janitor" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Import using Janitor<a href="rstudio.html#import-using-janitor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="rstudio.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data.frame with dirty names</span></span>
+<span id="cb6-2"><a href="rstudio.html#cb6-2" aria-hidden="true" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">6</span>))</span>
+<span id="cb6-3"><a href="rstudio.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(test_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;firstName&quot;</span>, <span class="st">&quot;ábc@!*&quot;</span>, <span class="st">&quot;% successful (2009)&quot;</span>,</span>
+<span id="cb6-4"><a href="rstudio.html#cb6-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;REPEAT VALUE&quot;</span>, <span class="st">&quot;REPEAT VALUE&quot;</span>, <span class="st">&quot;&quot;</span>)</span>
+<span id="cb6-5"><a href="rstudio.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test_df)</span></code></pre></div>
 <pre><code>##   firstName ábc@!* % successful (2009) REPEAT VALUE REPEAT VALUE   
 ## 1        NA     NA                  NA           NA           NA NA</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="rstudio.html#cb18-1" aria-hidden="true" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> test_df <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="rstudio.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
-<span id="cb18-3"><a href="rstudio.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test_df)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="rstudio.html#cb8-1" aria-hidden="true" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> test_df <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="rstudio.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb8-3"><a href="rstudio.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test_df)</span></code></pre></div>
 <pre><code>##   first_name abc percent_successful_2009 repeat_value repeat_value_2  x
 ## 1         NA  NA                      NA           NA             NA NA</code></pre>
 <p><a href="https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html">Reference</a></p>
 </div>
-<div id="remove-dataframe" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Remove dataframe</h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="rstudio.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
-<span id="cb20-2"><a href="rstudio.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_instruments&quot;</span>)</span>
-<span id="cb20-3"><a href="rstudio.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_instruments2&quot;</span>) <span class="co"># Load example datasets</span></span>
-<span id="cb20-4"><a href="rstudio.html#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="rstudio.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()[<span class="sc">!</span> <span class="fu">ls</span>() <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;band_instruments&quot;</span>,<span class="st">&quot;band_instruments2&quot;</span>)]) </span>
-<span id="cb20-6"><a href="rstudio.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Everything except Band instruments</span></span>
-<span id="cb20-7"><a href="rstudio.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;band_instruments&quot;</span>)) <span class="co"># Everything except &quot;bandinstruments&quot;</span></span>
-<span id="cb20-8"><a href="rstudio.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
+<div id="remove-dataframe" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Remove dataframe<a href="rstudio.html#remove-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="rstudio.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb10-2"><a href="rstudio.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_instruments&quot;</span>)</span>
+<span id="cb10-3"><a href="rstudio.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_instruments2&quot;</span>) <span class="co"># Load example datasets</span></span>
+<span id="cb10-4"><a href="rstudio.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="rstudio.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()[<span class="sc">!</span> <span class="fu">ls</span>() <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;band_instruments&quot;</span>,<span class="st">&quot;band_instruments2&quot;</span>)]) </span>
+<span id="cb10-6"><a href="rstudio.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Everything except Band instruments</span></span>
+<span id="cb10-7"><a href="rstudio.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;band_instruments&quot;</span>)) <span class="co"># Everything except &quot;bandinstruments&quot;</span></span>
+<span id="cb10-8"><a href="rstudio.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
 <p><a href="https://stackoverflow.com/questions/6190051/how-can-i-remove-all-objects-but-one-from-the-workspace-in-r">Reference:Stackoverflow</a></p>
 </div>
-<div id="new-vars-by-concatination" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> New vars by concatination</h2>
+<div id="new-vars-by-concatination" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> New vars by concatination<a href="rstudio.html#new-vars-by-concatination" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="save-dataframe-csv-or-rdata" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Save dataframe (CSV or Rdata)</h2>
+<div id="save-dataframe-csv-or-rdata" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Save dataframe (CSV or Rdata)<a href="rstudio.html#save-dataframe-csv-or-rdata" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>make date string</em></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="rstudio.html#cb21-1" aria-hidden="true" tabindex="-1"></a>datenow <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;_%Y_%m_%d&quot;</span>)</span>
-<span id="cb21-2"><a href="rstudio.html#cb21-2" aria-hidden="true" tabindex="-1"></a>date</span></code></pre></div>
-<pre><code>## function () 
-## .Internal(date())
-## &lt;bytecode: 0x000000001c34a438&gt;
-## &lt;environment: namespace:base&gt;</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rstudio.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="rstudio.html#cb11-1" aria-hidden="true" tabindex="-1"></a>datenow <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;_%Y_%m_%d&quot;</span>)</span>
+<span id="cb11-2"><a href="rstudio.html#cb11-2" aria-hidden="true" tabindex="-1"></a>date</span></code></pre></div>
+<pre><code>## function (x) 
+## {
+##     UseMethod(&quot;date&quot;)
+## }
+## &lt;bytecode: 0x0000022a9d981a40&gt;
+## &lt;environment: namespace:lubridate&gt;</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="rstudio.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
 <p><em>Write file names</em></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rstudio.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create data directory</span></span>
-<span id="cb24-2"><a href="rstudio.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;data_out&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="rstudio.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create data directory</span></span>
+<span id="cb14-2"><a href="rstudio.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;data_out&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning in dir.create(&quot;data_out&quot;): &#39;data_out&#39; already exists</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="rstudio.html#cb26-1" aria-hidden="true" tabindex="-1"></a>filenamecsv <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtcsvdata&quot;</span>,datenow,<span class="st">&quot;.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb26-2"><a href="rstudio.html#cb26-2" aria-hidden="true" tabindex="-1"></a>filenamerda <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtrdadata&quot;</span>,datenow,<span class="st">&quot;.rda&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="rstudio.html#cb16-1" aria-hidden="true" tabindex="-1"></a>filenamecsv <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtcsvdata&quot;</span>,datenow,<span class="st">&quot;.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb16-2"><a href="rstudio.html#cb16-2" aria-hidden="true" tabindex="-1"></a>filenamerda <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data_out/mtrdadata&quot;</span>,datenow,<span class="st">&quot;.rda&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <p><em>Save the files</em></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="rstudio.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(mtcars,<span class="at">file=</span>filenamerda)</span>
-<span id="cb27-2"><a href="rstudio.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mtcars,<span class="at">file=</span>filenamecsv)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="rstudio.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(mtcars,<span class="at">file=</span>filenamerda)</span>
+<span id="cb17-2"><a href="rstudio.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mtcars,<span class="at">file=</span>filenamecsv)</span></code></pre></div>
 </div>
-<div id="save-a-diagram-or-plot" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> Save a diagram or plot</h2>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="rstudio.html#cb28-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(hp,qsec))<span class="sc">+</span><span class="fu">geom_point</span>()</span>
-<span id="cb28-2"><a href="rstudio.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plot1 #print plot if required</span></span>
-<span id="cb28-3"><a href="rstudio.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;plot.pdf&quot;</span>)</span>
-<span id="cb28-4"><a href="rstudio.html#cb28-4" aria-hidden="true" tabindex="-1"></a>plot1</span>
-<span id="cb28-5"><a href="rstudio.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div id="save-a-diagram-or-plot" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Save a diagram or plot<a href="rstudio.html#save-a-diagram-or-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="rstudio.html#cb18-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(hp,qsec))<span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb18-2"><a href="rstudio.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plot1 #print plot if required</span></span>
+<span id="cb18-3"><a href="rstudio.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;plot.pdf&quot;</span>)</span>
+<span id="cb18-4"><a href="rstudio.html#cb18-4" aria-hidden="true" tabindex="-1"></a>plot1</span>
+<span id="cb18-5"><a href="rstudio.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <pre><code>## png 
 ##   2</code></pre>
 <p>pdf ‘device’ off.</p>
 </div>
-<div id="recode-a-text-variable" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> Recode a text variable</h2>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="rstudio.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_members&quot;</span>)</span>
-<span id="cb30-2"><a href="rstudio.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(band_members)) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div id="recode-a-text-variable" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Recode a text variable<a href="rstudio.html#recode-a-text-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="rstudio.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;band_members&quot;</span>)</span>
+<span id="cb20-2"><a href="rstudio.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(band_members)) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -418,8 +405,8 @@ Beatles
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="rstudio.html#cb31-1" aria-hidden="true" tabindex="-1"></a>band_members <span class="ot">&lt;-</span> band_members <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">name=</span><span class="fu">recode</span>(name, <span class="st">&quot;Mick&quot;</span><span class="ot">=</span> <span class="st">&quot;m&quot;</span>))</span>
-<span id="cb31-2"><a href="rstudio.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((band_members))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="rstudio.html#cb21-1" aria-hidden="true" tabindex="-1"></a>band_members <span class="ot">&lt;-</span> band_members <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">name=</span><span class="fu">recode</span>(name, <span class="st">&quot;Mick&quot;</span><span class="ot">=</span> <span class="st">&quot;m&quot;</span>))</span>
+<span id="cb21-2"><a href="rstudio.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((band_members))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -458,15 +445,15 @@ Beatles
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rstudio.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rstudio.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>()) <span class="co"># Remove everything</span></span></code></pre></div>
 <p>Reference: <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">Kable Extra</a></p>
 </div>
-<div id="alter-variable-names" class="section level2" number="3.9">
-<h2><span class="header-section-number">3.9</span> Alter variable names:</h2>
+<div id="alter-variable-names" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> Alter variable names:<a href="rstudio.html#alter-variable-names" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>Remove underscores</em></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="rstudio.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
-<span id="cb33-2"><a href="rstudio.html#cb33-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">hp_new=</span>hp)</span>
-<span id="cb33-3"><a href="rstudio.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rstudio.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb23-2"><a href="rstudio.html#cb23-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">hp_new=</span>hp)</span>
+<span id="cb23-3"><a href="rstudio.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -738,8 +725,8 @@ Valiant
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="rstudio.html#cb34-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>(<span class="at">.fn =</span> <span class="sc">~</span><span class="fu">str_replace</span>(., <span class="st">&quot;_&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
-<span id="cb34-2"><a href="rstudio.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rstudio.html#cb24-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>(<span class="at">.fn =</span> <span class="sc">~</span><span class="fu">str_replace</span>(., <span class="st">&quot;_&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb24-2"><a href="rstudio.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>((mtcars))) <span class="sc">%&gt;%</span> <span class="fu">kable_minimal</span>(<span class="at">full_width =</span> F)</span></code></pre></div>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1011,13 +998,13 @@ Valiant
 </tr>
 </tbody>
 </table>
-<div id="list-datasets-available" class="section level3" number="3.9.1">
-<h3><span class="header-section-number">3.9.1</span> list datasets available</h3>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="rstudio.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#data() # list all available datasets</span></span>
-<span id="cb35-2"><a href="rstudio.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;diamonds&quot;</span>)</span></code></pre></div>
+<div id="list-datasets-available" class="section level3 hasAnchor" number="3.9.1">
+<h3><span class="header-section-number">3.9.1</span> list datasets available<a href="rstudio.html#list-datasets-available" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rstudio.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#data() # list all available datasets</span></span>
+<span id="cb25-2"><a href="rstudio.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;diamonds&quot;</span>)</span></code></pre></div>
 </div>
-<div id="render-book" class="section level3" number="3.9.2">
-<h3><span class="header-section-number">3.9.2</span> Render book</h3>
+<div id="render-book" class="section level3 hasAnchor" number="3.9.2">
+<h3><span class="header-section-number">3.9.2</span> Render book<a href="rstudio.html#render-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>
@@ -1032,7 +1019,6 @@ Valiant
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1072,6 +1058,10 @@ gitbook.start({
 "text": null
 },
 "download": [["Useful-Syntax.pdf", "PDF"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

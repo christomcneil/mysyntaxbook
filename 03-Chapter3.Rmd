@@ -49,14 +49,13 @@ dat2 <- mtcars %>%
 funcs <- list(mean = ~mean(.x,na.rm = TRUE), 
   sd = ~sd(.x,na.rm = TRUE)
 )
-dat2 %>% summarise(across(where(is.numeric),funcs))
+dat2 %>% dplyr::summarise(across(where(is.numeric),funcs))
 ```
 ## Conditional Replacement
 *Replace all 'NA's in a specified variable with 0.*
 ```{r}
 mtcars <- mtcars %>% mutate(loghp1 = coalesce(loghp, 0))
-#or
-mtcars <- mtcars %>% mutate(loghp = replace_na(loghp, "missing"))
+
 ```
 
 ## replace a specfic value

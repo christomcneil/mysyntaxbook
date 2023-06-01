@@ -33,8 +33,6 @@ head(test_df)
 ```
 [Reference](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html)
 
-
-
 ## Remove dataframe 
 ```{r}
 data("mtcars")
@@ -98,7 +96,7 @@ Reference: [Kable Extra](https://cran.r-project.org/web/packages/kableExtra/vign
 *Remove underscores*
 ```{r}
 data("mtcars")
-mtcars <- mtcars %>% rename(hp_new=hp)
+mtcars <- mtcars %>% dplyr::rename(hp_new=hp)
 kable(head((mtcars))) %>% kable_minimal(full_width = F)
 
 mtcars <- mtcars %>% rename_with(.fn = ~str_replace(., "_", ""))

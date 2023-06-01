@@ -39,7 +39,7 @@ kable(mtcars %>% group_by(cyl) %>% summarise(Ave=mean(hp), StDev=sd(hp))) %>%
 # make sure brackets are correct
 
 df.sum <- mtcars %>%  select(mpg,cyl,hp) %>%
-  summarise(across(everything(),list(mean=mean,sd=sd)))
+  dplyr::summarise(across(everything(),list(mean=mean,sd=sd)))
 kable(df.sum,digits=2) %>% kable_styling(full_width = FALSE) %>%
   kable_minimal() # perform the analysis
 
@@ -79,11 +79,15 @@ dfSummary(mtcars, plain.ascii = FALSE, style = "grid",
 ```{r, fig.cap="Correlation Plot"}
 corrdata <- mtcars %>% select(-c(cyl,disp,vs,am,gear,carb)) 
 corr1 <- Hmisc::rcorr(as.matrix(corrdata))
+
+corrp = cor.mtest(corrdata, conf.level = 0.95)
+
+P <- corrp$p
 M <- corr1$r
 #M
-colnames(M) <- c("mpg", "HP", "Axle Ratio", "Weight (kPounds)", "Quarter Mile (s)")
-rownames(M) <-  c("mpg", "HP", "Axle Ratio", "Weight (kPounds)", "Quarter Mile (s)")
-p_mat <- corr1$P
+#colnames(M) <- c("mpg", "HP", "Axle Ratio", "Weight (kPounds)", "Quarter Mile (s)")
+#rownames(M) <-  c("mpg", "HP", "Axle Ratio", "Weight (kPounds)", "Quarter Mile (s)")
+p_mat <- corrp$p
 corr <- corrplot(M, type = "upper",method="ellipse", order = "hclust", 
          p.mat = p_mat, sig.level = 0.05, insig = "blank")
 ```

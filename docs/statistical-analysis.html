@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Statistical Analysis | Useful-Syntax.knit</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Statistical Analysis | Useful-Syntax.knit" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="data-wrangling-and-manipulation.html"/>
 <link rel="next" href="data-visualisation.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +47,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -93,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -120,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -274,26 +277,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistical-analysis" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Statistical Analysis</h1>
-<div id="regression" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Regression</h2>
-<div id="linear-regression-on-groups" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Linear regression on groups</h3>
+<div id="statistical-analysis" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Statistical Analysis<a href="statistical-analysis.html#statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="regression" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Regression<a href="statistical-analysis.html#regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="linear-regression-on-groups" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Linear regression on groups<a href="statistical-analysis.html#linear-regression-on-groups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="linear-regression" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Linear Regression</h2>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="statistical-analysis.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
-<span id="cb75-2"><a href="statistical-analysis.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
-<span id="cb75-3"><a href="statistical-analysis.html#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb75-4"><a href="statistical-analysis.html#cb75-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div id="linear-regression" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Linear Regression<a href="statistical-analysis.html#linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="statistical-analysis.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(<span class="fu">as.factor</span>(gear)) <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="statistical-analysis.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(qsec), <span class="at">sd =</span> <span class="fu">sd</span>(qsec))) <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="statistical-analysis.html#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb56-4"><a href="statistical-analysis.html#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:left;">
-as.factor(gear)
-</th>
 <th style="text-align:right;">
 mean
 </th>
@@ -304,49 +304,24 @@ sd
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
-3
+<td style="text-align:right;">
+17.17381
 </td>
 <td style="text-align:right;">
-17.692
-</td>
-<td style="text-align:right;">
-1.349916
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4
-</td>
-<td style="text-align:right;">
-18.965
-</td>
-<td style="text-align:right;">
-1.613880
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-5
-</td>
-<td style="text-align:right;">
-15.640
-</td>
-<td style="text-align:right;">
-1.130487
+1.463767
 </td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="statistical-analysis.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Run the same linear regression model by group levels? </span></span>
-<span id="cb76-2"><a href="statistical-analysis.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Instead of running #summary(lm(y~x)) for the number of levels </span></span>
-<span id="cb76-3"><a href="statistical-analysis.html#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
-<span id="cb76-4"><a href="statistical-analysis.html#cb76-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-5"><a href="statistical-analysis.html#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
-<span id="cb76-6"><a href="statistical-analysis.html#cb76-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
-<span id="cb76-7"><a href="statistical-analysis.html#cb76-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
-<span id="cb76-8"><a href="statistical-analysis.html#cb76-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
-<span id="cb76-9"><a href="statistical-analysis.html#cb76-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="statistical-analysis.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Run the same linear regression model by group levels? </span></span>
+<span id="cb57-2"><a href="statistical-analysis.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Instead of running #summary(lm(y~x)) for the number of levels </span></span>
+<span id="cb57-3"><a href="statistical-analysis.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="co">#you have, you can use the R package “broom” along with dplyr.</span></span>
+<span id="cb57-4"><a href="statistical-analysis.html#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="statistical-analysis.html#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the same regression model for gears ##</span></span>
+<span id="cb57-6"><a href="statistical-analysis.html#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mtcars<span class="sc">%&gt;%</span> <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span></span>
+<span id="cb57-7"><a href="statistical-analysis.html#cb57-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="at">fitgear =</span> <span class="fu">glance</span>(<span class="fu">lm</span>(hp<span class="sc">~</span>qsec, <span class="at">data =</span> .))) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-8"><a href="statistical-analysis.html#cb57-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(fitgear),<span class="at">digits=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span>   <span class="fu">kable_styling</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-9"><a href="statistical-analysis.html#cb57-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>()</span></code></pre></div>
 <table class="table lightable-minimal" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -397,16 +372,16 @@ nobs
 3
 </td>
 <td style="text-align:right;">
-0.66
+0.58
 </td>
 <td style="text-align:right;">
-0.63
+0.54
 </td>
 <td style="text-align:right;">
-28.87
+29.74
 </td>
 <td style="text-align:right;">
-25.19
+16.40
 </td>
 <td style="text-align:right;">
 0.00
@@ -415,22 +390,22 @@ nobs
 1
 </td>
 <td style="text-align:right;">
--70.65
+-66.28
 </td>
 <td style="text-align:right;">
-147.31
+138.57
 </td>
 <td style="text-align:right;">
-149.43
+140.48
 </td>
 <td style="text-align:right;">
-10837.12
+10616.60
 </td>
 <td style="text-align:right;">
-13
+12
 </td>
 <td style="text-align:right;">
-15
+14
 </td>
 </tr>
 <tr>
@@ -438,40 +413,40 @@ nobs
 4
 </td>
 <td style="text-align:right;">
-0.10
+0.91
 </td>
 <td style="text-align:right;">
-0.01
+0.87
 </td>
 <td style="text-align:right;">
-25.72
+2.74
 </td>
 <td style="text-align:right;">
-1.15
+20.54
 </td>
 <td style="text-align:right;">
-0.31
+0.05
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
--54.90
+-8.32
 </td>
 <td style="text-align:right;">
-115.80
+22.64
 </td>
 <td style="text-align:right;">
-117.26
+20.80
 </td>
 <td style="text-align:right;">
-6616.46
+14.99
 </td>
 <td style="text-align:right;">
-10
+2
 </td>
 <td style="text-align:right;">
-12
+4
 </td>
 </tr>
 <tr>
@@ -479,119 +454,115 @@ nobs
 5
 </td>
 <td style="text-align:right;">
-0.88
+0.73
 </td>
 <td style="text-align:right;">
-0.83
+0.45
 </td>
 <td style="text-align:right;">
-41.95
+59.23
 </td>
 <td style="text-align:right;">
-21.03
+2.66
 </td>
 <td style="text-align:right;">
-0.02
+0.35
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
--24.50
+-14.85
 </td>
 <td style="text-align:right;">
-55.00
+35.71
 </td>
 <td style="text-align:right;">
-53.83
+33.00
 </td>
 <td style="text-align:right;">
-5279.95
+3507.70
+</td>
+<td style="text-align:right;">
+1
 </td>
 <td style="text-align:right;">
 3
-</td>
-<td style="text-align:right;">
-5
 </td>
 </tr>
 </tbody>
 </table>
 <p><a href="https://stackoverflow.com/questions/22713325/fitting-several-regression-models-with-dplyr">Reference</a></p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="statistical-analysis.html#cb77-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(qsec <span class="sc">~</span> wt <span class="sc">+</span> hp<span class="sc">+</span>disp<span class="sc">+</span><span class="fu">factor</span>(cyl), <span class="at">data =</span> mtcars)</span>
-<span id="cb77-2"><a href="statistical-analysis.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="statistical-analysis.html#cb58-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(qsec <span class="sc">~</span> wt <span class="sc">+</span> hp<span class="sc">+</span>disp<span class="sc">+</span><span class="fu">factor</span>(cyl), <span class="at">data =</span> mtcars)</span>
+<span id="cb58-2"><a href="statistical-analysis.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = qsec ~ wt + hp + disp + factor(cyl), data = mtcars)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -1.9745 -0.5007 -0.1771  0.4984  2.7516 
+## -1.1891 -0.4605 -0.1190  0.4892  1.5292 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  17.487436   0.856699  20.413  &lt; 2e-16 ***
-## wt            1.620772   0.424366   3.819 0.000748 ***
-## hp           -0.019618   0.004912  -3.994 0.000475 ***
-## disp         -0.004124   0.005194  -0.794 0.434313    
-## factor(cyl)6 -1.407378   0.588219  -2.393 0.024245 *  
-## factor(cyl)8 -1.636367   1.131421  -1.446 0.160043    
+## (Intercept)  16.861038   1.060566  15.898 3.18e-11 ***
+## wt            1.200726   0.400340   2.999  0.00849 ** 
+## hp           -0.019943   0.004141  -4.817  0.00019 ***
+## disp         -0.001025   0.004350  -0.236  0.81664    
+## factor(cyl)8 -0.356400   0.732189  -0.487  0.63303    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.9978 on 26 degrees of freedom
-## Multiple R-squared:  0.7385, Adjusted R-squared:  0.6882 
-## F-statistic: 14.68 on 5 and 26 DF,  p-value: 7.13e-07</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="statistical-analysis.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">effectsize</span>(fit)</span></code></pre></div>
+## Residual standard error: 0.7975 on 16 degrees of freedom
+## Multiple R-squared:  0.7625, Adjusted R-squared:  0.7032 
+## F-statistic: 12.84 on 4 and 16 DF,  p-value: 7.179e-05</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="statistical-analysis.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">effectsize</span>(fit)</span></code></pre></div>
 <pre><code>## # Standardization method: refit
 ## 
-## Parameter    | Coefficient (std.) |         95% CI
-## --------------------------------------------------
-## (Intercept)  |               0.57 | [-0.13,  1.28]
-## wt           |               0.89 | [ 0.41,  1.37]
-## hp           |              -0.75 | [-1.14, -0.37]
-## disp         |              -0.29 | [-1.03,  0.45]
-## factor(cyl)6 |              -0.79 | [-1.46, -0.11]
-## factor(cyl)8 |              -0.92 | [-2.22,  0.39]</code></pre>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="statistical-analysis.html#cb81-1" aria-hidden="true" tabindex="-1"></a>anova_table <span class="ot">&lt;-</span> <span class="fu">anova</span>(fit)</span>
-<span id="cb81-2"><a href="statistical-analysis.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">effectsize</span>(anova_table)</span></code></pre></div>
+## Parameter                    | Std. Coef. |         95% CI
+## ----------------------------------------------------------
+## (Intercept)                  |       0.16 | [-0.59,  0.91]
+## wt                           |       0.63 | [ 0.19,  1.08]
+## hp                           |      -0.82 | [-1.18, -0.46]
+## disp                         |      -0.07 | [-0.71,  0.57]
+## factor(cyl)0.690065559342355 |      -0.24 | [-1.30,  0.82]</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="statistical-analysis.html#cb62-1" aria-hidden="true" tabindex="-1"></a>anova_table <span class="ot">&lt;-</span> <span class="fu">anova</span>(fit)</span>
+<span id="cb62-2"><a href="statistical-analysis.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">effectsize</span>(anova_table)</span></code></pre></div>
 <pre><code>## # Effect Size for ANOVA (Type I)
 ## 
-## Parameter   | Eta2 (partial) |       90% CI
+## Parameter   | Eta2 (partial) |       95% CI
 ## -------------------------------------------
-## wt          |           0.10 | [0.00, 0.31]
-## hp          |           0.70 | [0.53, 0.80]
-## disp        |           0.10 | [0.00, 0.30]
-## factor(cyl) |           0.18 | [0.00, 0.33]</code></pre>
+## wt          |           0.15 | [0.00, 1.00]
+## hp          |           0.75 | [0.53, 1.00]
+## disp        |           0.03 | [0.00, 1.00]
+## factor(cyl) |           0.01 | [0.00, 1.00]
+## 
+## - One-sided CIs: upper bound fixed at [1.00].</code></pre>
 </div>
-<div id="logistic-regression" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Logistic Regression</h2>
-<div id="create-the-logr-model" class="section level3" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Create the LogR model</h3>
+<div id="logistic-regression" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Logistic Regression<a href="statistical-analysis.html#logistic-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="create-the-logr-model" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Create the LogR model<a href="statistical-analysis.html#create-the-logr-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="principle-component-analysis" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Principle Component Analysis</h2>
+<div id="principle-component-analysis" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Principle Component Analysis<a href="statistical-analysis.html#principle-component-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>complete dataset needed for following</em></p>
-<div id="make-the-pca-model" class="section level3" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> make the PCA model</h3>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="statistical-analysis.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
-<span id="cb83-2"><a href="statistical-analysis.html#cb83-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rownames_to_column</span>(<span class="st">&quot;car_name&quot;</span>) <span class="co"># if needed for df</span></span>
-<span id="cb83-3"><a href="statistical-analysis.html#cb83-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">rowid_to_column</span>(mtcars, <span class="st">&quot;row_num&quot;</span>)</span>
-<span id="cb83-4"><a href="statistical-analysis.html#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="co">#make the PCA model</span></span>
-<span id="cb83-5"><a href="statistical-analysis.html#cb83-5" aria-hidden="true" tabindex="-1"></a>pcamodel.pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(mtcars[,<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">13</span>)], <span class="at">center =</span> <span class="cn">TRUE</span>,<span class="at">scale. =</span> <span class="cn">TRUE</span>) <span class="co"># I prefer naming columns, but hard with PCA</span></span>
-<span id="cb83-6"><a href="statistical-analysis.html#cb83-6" aria-hidden="true" tabindex="-1"></a><span class="co">#summarise PCA</span></span>
-<span id="cb83-7"><a href="statistical-analysis.html#cb83-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pcamodel.pca)</span></code></pre></div>
+<div id="make-the-pca-model" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> make the PCA model<a href="statistical-analysis.html#make-the-pca-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="statistical-analysis.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb64-2"><a href="statistical-analysis.html#cb64-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">rownames_to_column</span>(<span class="st">&quot;car_name&quot;</span>) <span class="co"># if needed for df</span></span>
+<span id="cb64-3"><a href="statistical-analysis.html#cb64-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">rowid_to_column</span>(mtcars, <span class="st">&quot;row_num&quot;</span>)</span>
+<span id="cb64-4"><a href="statistical-analysis.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co">#make the PCA model</span></span>
+<span id="cb64-5"><a href="statistical-analysis.html#cb64-5" aria-hidden="true" tabindex="-1"></a>pcamodel.pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(mtcars[,<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">13</span>)], <span class="at">center =</span> <span class="cn">TRUE</span>,<span class="at">scale. =</span> <span class="cn">TRUE</span>) <span class="co"># I prefer naming columns, but hard with PCA</span></span>
+<span id="cb64-6"><a href="statistical-analysis.html#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="co">#summarise PCA</span></span>
+<span id="cb64-7"><a href="statistical-analysis.html#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pcamodel.pca)</span></code></pre></div>
 <pre><code>## Importance of components:
-##                           PC1    PC2     PC3     PC4     PC5     PC6    PC7
-## Standard deviation     2.5707 1.6280 0.79196 0.51923 0.47271 0.46000 0.3678
-## Proportion of Variance 0.6008 0.2409 0.05702 0.02451 0.02031 0.01924 0.0123
-## Cumulative Proportion  0.6008 0.8417 0.89873 0.92324 0.94356 0.96279 0.9751
-##                            PC8    PC9    PC10   PC11
-## Standard deviation     0.35057 0.2776 0.22811 0.1485
-## Proportion of Variance 0.01117 0.0070 0.00473 0.0020
-## Cumulative Proportion  0.98626 0.9933 0.99800 1.0000</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="statistical-analysis.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars[,<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">13</span>)]) <span class="co">#check columns are corrrect</span></span></code></pre></div>
+##                           PC1    PC2     PC3     PC4     PC5     PC6    PC7     PC8    PC9    PC10   PC11
+## Standard deviation     2.5707 1.6280 0.79196 0.51923 0.47271 0.46000 0.3678 0.35057 0.2776 0.22811 0.1485
+## Proportion of Variance 0.6008 0.2409 0.05702 0.02451 0.02031 0.01924 0.0123 0.01117 0.0070 0.00473 0.0020
+## Cumulative Proportion  0.6008 0.8417 0.89873 0.92324 0.94356 0.96279 0.9751 0.98626 0.9933 0.99800 1.0000</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="statistical-analysis.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars[,<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">13</span>)]) <span class="co">#check columns are corrrect</span></span></code></pre></div>
 <pre><code>##    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## 1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## 2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -600,77 +571,65 @@ nobs
 ## 5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## 6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
 </div>
-<div id="make-a-scree-plot-of-the-pca-model" class="section level3" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> make a scree plot of the PCA model</h3>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="statistical-analysis.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co">#creates scree plot</span></span>
-<span id="cb87-2"><a href="statistical-analysis.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pcamodel.pca)</span></code></pre></div>
+<div id="make-a-scree-plot-of-the-pca-model" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> make a scree plot of the PCA model<a href="statistical-analysis.html#make-a-scree-plot-of-the-pca-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="statistical-analysis.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">#creates scree plot</span></span>
+<span id="cb68-2"><a href="statistical-analysis.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pcamodel.pca)</span></code></pre></div>
 <p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-46-1.png" width="672" />
 scree plot shows how much variance can be summarised with one variable (components)</p>
 </div>
-<div id="graph-of-variables.-positive-correlated-variables-point-to-the-same-side-of-the-plot.-negative-correlated-variables-point-to-opposite-sides-of-the-graph." class="section level3" number="5.4.3">
-<h3><span class="header-section-number">5.4.3</span> Graph of variables. Positive correlated variables point to the same side of the plot. Negative correlated variables point to opposite sides of the graph.</h3>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="statistical-analysis.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pcamodel.pca,</span>
-<span id="cb88-2"><a href="statistical-analysis.html#cb88-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">&quot;contrib&quot;</span>, <span class="co"># Color by contributions to the PC</span></span>
-<span id="cb88-3"><a href="statistical-analysis.html#cb88-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</span>
-<span id="cb88-4"><a href="statistical-analysis.html#cb88-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>   )</span></code></pre></div>
+<div id="graph-of-variables.-positive-correlated-variables-point-to-the-same-side-of-the-plot.-negative-correlated-variables-point-to-opposite-sides-of-the-graph." class="section level3 hasAnchor" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Graph of variables. Positive correlated variables point to the same side of the plot. Negative correlated variables point to opposite sides of the graph.<a href="statistical-analysis.html#graph-of-variables.-positive-correlated-variables-point-to-the-same-side-of-the-plot.-negative-correlated-variables-point-to-opposite-sides-of-the-graph." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="statistical-analysis.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(pcamodel.pca,</span>
+<span id="cb69-2"><a href="statistical-analysis.html#cb69-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">&quot;contrib&quot;</span>, <span class="co"># Color by contributions to the PC</span></span>
+<span id="cb69-3"><a href="statistical-analysis.html#cb69-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</span>
+<span id="cb69-4"><a href="statistical-analysis.html#cb69-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>   )</span></code></pre></div>
 <p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-47-1.png" width="672" />
 # Extract the Principal components For each individual</p>
 <p>this is the key stage of getting the first principal component out per rows score. essentially doing the principal component creates a method for then taking an rows scores, and giving them a value for ‘1 PC’. then reattach them to the original data frame spreadsheet.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="statistical-analysis.html#cb89-1" aria-hidden="true" tabindex="-1"></a>extractedpcas <span class="ot">&lt;-</span> <span class="fu">predict</span>(pcamodel.pca, <span class="at">newdata =</span> mtcars)</span>
-<span id="cb89-2"><a href="statistical-analysis.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(extractedpcas)</span></code></pre></div>
-<pre><code>##              PC1        PC2        PC3         PC4        PC5         PC6
-## [1,] -0.64686274  1.7081142 -0.5917309  0.11370221 -0.9455234 -0.01698737
-## [2,] -0.61948315  1.5256219 -0.3763013  0.19912121 -1.0166807 -0.24172464
-## [3,] -2.73562427 -0.1441501 -0.2374391 -0.24521545  0.3987623 -0.34876781
-## [4,] -0.30686063 -2.3258038 -0.1336213 -0.50380035  0.5492089  0.01929700
-## [5,]  1.94339268 -0.7425211 -1.1165366  0.07446196  0.2075157  0.14919276
-## [6,] -0.05525342 -2.7421229  0.1612456 -0.97516743  0.2116654 -0.24383585
-##              PC7          PC8         PC9        PC10        PC11
-## [1,] -0.42648652 -0.009631217  0.14642303 -0.06670350  0.17969357
-## [2,] -0.41620046 -0.084520213  0.07452829 -0.12692766  0.08864426
-## [3,] -0.60884146  0.585255765 -0.13122859  0.04573787 -0.09463291
-## [4,] -0.04036075 -0.049583029  0.22021812 -0.06039981  0.14761127
-## [5,]  0.38350816 -0.160297757 -0.02117623 -0.05983003  0.14640690
-## [6,] -0.29464160  0.256612420 -0.03222907 -0.20165466  0.01954506</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="statistical-analysis.html#cb70-1" aria-hidden="true" tabindex="-1"></a>extractedpcas <span class="ot">&lt;-</span> <span class="fu">predict</span>(pcamodel.pca, <span class="at">newdata =</span> mtcars)</span>
+<span id="cb70-2"><a href="statistical-analysis.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(extractedpcas)</span></code></pre></div>
+<pre><code>##              PC1        PC2        PC3         PC4        PC5         PC6         PC7          PC8         PC9        PC10        PC11
+## [1,] -0.64686274  1.7081142 -0.5917309  0.11370221  0.9455234 -0.01698737 -0.42648652  0.009631217 -0.14642303  0.06670350  0.17969357
+## [2,] -0.61948315  1.5256219 -0.3763013  0.19912121  1.0166807 -0.24172464 -0.41620046  0.084520213 -0.07452829  0.12692766  0.08864426
+## [3,] -2.73562427 -0.1441501 -0.2374391 -0.24521545 -0.3987623 -0.34876781 -0.60884146 -0.585255765  0.13122859 -0.04573787 -0.09463291
+## [4,] -0.30686063 -2.3258038 -0.1336213 -0.50380035 -0.5492089  0.01929700 -0.04036075  0.049583029 -0.22021812  0.06039981  0.14761127
+## [5,]  1.94339268 -0.7425211 -1.1165366  0.07446196 -0.2075157  0.14919276  0.38350816  0.160297757  0.02117623  0.05983003  0.14640690
+## [6,] -0.05525342 -2.7421229  0.1612456 -0.97516743 -0.2116654 -0.24383585 -0.29464160 -0.256612420  0.03222907  0.20165466  0.01954506</code></pre>
 <ul>
 <li>these are the seven principal components of the first six people. we are only interested really in PC1.</li>
 </ul>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="statistical-analysis.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make the Principal component matrix into a data frame </span></span>
-<span id="cb91-2"><a href="statistical-analysis.html#cb91-2" aria-hidden="true" tabindex="-1"></a>extractedpcasdf <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(extractedpcas)</span>
-<span id="cb91-3"><a href="statistical-analysis.html#cb91-3" aria-hidden="true" tabindex="-1"></a>extractedpcasdf <span class="ot">&lt;-</span> <span class="fu">rowid_to_column</span>(extractedpcasdf , <span class="st">&quot;row_num&quot;</span>)</span>
-<span id="cb91-4"><a href="statistical-analysis.html#cb91-4" aria-hidden="true" tabindex="-1"></a><span class="co">#add the principal component values for the individuals to masterPCA file</span></span>
-<span id="cb91-5"><a href="statistical-analysis.html#cb91-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">left_join</span>(mtcars,extractedpcasdf,<span class="at">by=</span><span class="st">&quot;row_num&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="statistical-analysis.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make the Principal component matrix into a data frame </span></span>
+<span id="cb72-2"><a href="statistical-analysis.html#cb72-2" aria-hidden="true" tabindex="-1"></a>extractedpcasdf <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(extractedpcas)</span>
+<span id="cb72-3"><a href="statistical-analysis.html#cb72-3" aria-hidden="true" tabindex="-1"></a>extractedpcasdf <span class="ot">&lt;-</span> <span class="fu">rowid_to_column</span>(extractedpcasdf , <span class="st">&quot;row_num&quot;</span>)</span>
+<span id="cb72-4"><a href="statistical-analysis.html#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="co">#add the principal component values for the individuals to masterPCA file</span></span>
+<span id="cb72-5"><a href="statistical-analysis.html#cb72-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">left_join</span>(mtcars,extractedpcasdf,<span class="at">by=</span><span class="st">&quot;row_num&quot;</span>)</span></code></pre></div>
 <p><em>this was to add a row number that corresponds to the row number in the cognition data file above.</em>
 * doing this then allows us to add the principal component data to the cognition data and match the stradl IDs.</p>
 <p>create a final spreadsheet with cog data and PCA</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="statistical-analysis.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co">#delete row_num</span></span>
-<span id="cb92-2"><a href="statistical-analysis.html#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-3"><a href="statistical-analysis.html#cb92-3" aria-hidden="true" tabindex="-1"></a>mtcars<span class="ot">&lt;-</span> mtcars<span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(row_num, PC3<span class="sc">:</span>PC11))</span>
-<span id="cb92-4"><a href="statistical-analysis.html#cb92-4" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>hp,<span class="at">y=</span>PC1))<span class="sc">+</span><span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="statistical-analysis.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co">#delete row_num</span></span>
+<span id="cb73-2"><a href="statistical-analysis.html#cb73-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-3"><a href="statistical-analysis.html#cb73-3" aria-hidden="true" tabindex="-1"></a>mtcars<span class="ot">&lt;-</span> mtcars<span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(row_num, PC3<span class="sc">:</span>PC11))</span>
+<span id="cb73-4"><a href="statistical-analysis.html#cb73-4" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>hp,<span class="at">y=</span>PC1))<span class="sc">+</span><span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 </div>
 </div>
-<div id="survival-analysis-and-visualisation" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Survival Analysis and Visualisation</h2>
-<div id="to-be-completed" class="section level3" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> To be completed</h3>
+<div id="survival-analysis-and-visualisation" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Survival Analysis and Visualisation<a href="statistical-analysis.html#survival-analysis-and-visualisation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="to-be-completed" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> To be completed<a href="statistical-analysis.html#to-be-completed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="receiver-operated-curves-roc" class="section level2" number="5.6">
-<h2><span class="header-section-number">5.6</span> Receiver Operated Curves (ROC)</h2>
-<div id="to-be-completed-1" class="section level3" number="5.6.1">
-<h3><span class="header-section-number">5.6.1</span> To be completed</h3>
+<div id="receiver-operated-curves-roc" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Receiver Operated Curves (ROC)<a href="statistical-analysis.html#receiver-operated-curves-roc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="to-be-completed-1" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> To be completed<a href="statistical-analysis.html#to-be-completed-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="missing-values" class="section level2" number="5.7">
-<h2><span class="header-section-number">5.7</span> Missing Values</h2>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="statistical-analysis.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb93-2"><a href="statistical-analysis.html#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UpSetR)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;UpSetR&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:lattice&#39;:
-## 
-##     histogram</code></pre>
+<div id="missing-values" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Missing Values<a href="statistical-analysis.html#missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="statistical-analysis.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb74-2"><a href="statistical-analysis.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UpSetR)</span></code></pre></div>
 
 </div>
 </div>
@@ -684,7 +643,6 @@ scree plot shows how much variance can be summarised with one variable (componen
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -724,6 +682,10 @@ gitbook.start({
 "text": null
 },
 "download": [["Useful-Syntax.pdf", "PDF"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
