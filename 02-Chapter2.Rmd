@@ -48,7 +48,7 @@ rm(list=ls()) # Remove everything
 
 ## New vars by concatination
 ```{r}
-
+# USE rbind to add new variables to dataset by combination
 ```
 
 ## Save dataframe  (CSV or Rdata)
@@ -66,7 +66,7 @@ dir.create("data_out")
 filenamecsv <- paste("data_out/mtcsvdata",datenow,".csv",sep="")
 filenamerda <- paste("data_out/mtrdadata",datenow,".rda",sep="")
 ```
-*Save the files*
+*Save the files as CSV files or as R data files*
 ```{r}
 save(mtcars,file=filenamerda)
 write.csv(mtcars,file=filenamecsv)

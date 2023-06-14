@@ -56,10 +56,7 @@ effectsize(anova_table)
 
 ## Principle Component Analysis
 
-
-
-*complete dataset needed for following* 
-
+*complete dataset needed for following - impute values if required* 
 ### make the PCA model
 ```{r}
 data("mtcars")
@@ -115,9 +112,6 @@ mtcars %>% ggplot(aes(x=hp,y=PC1))+geom_point()
 
 ```
 
-
-
-
 ## Survival Analysis and Visualisation
 ### To be completed
 
@@ -128,5 +122,7 @@ mtcars %>% ggplot(aes(x=hp,y=PC1))+geom_point()
 ```{r}
 library(naniar)
 library(UpSetR)
+#df_cog_w3w4$block3 <- with(df_cog_w3w4, impute(block3, mean))
+#df_cog_w3w4$o3tco <- with(df_cog_w3w4, impute(o3tco, mean))
 ```
 
