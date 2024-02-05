@@ -126,3 +126,19 @@ library(UpSetR)
 #df_cog_w3w4$o3tco <- with(df_cog_w3w4, impute(o3tco, mean))
 ```
 
+
+### replaces all missing values with mean of column (across all variable columns)
+```{r}
+# Assuming 'my_data' is your data frame with missing values
+# Calculate column means
+means <- colMeans(abc36, na.rm = TRUE)
+
+# Replace missing values in each column with the corresponding column mean
+for (col in names(abc36)) {
+  abc36[is.na(abc36[, col]), col] <- means[col]
+}
+```
+
+
+
+
