@@ -5,16 +5,19 @@
 \documentclass[
 ]{article}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -33,12 +36,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -51,13 +48,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -65,7 +62,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -74,7 +71,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -121,11 +118,17 @@
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{xcolor}
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \author{}
 \date{\vspace{-2.5em}}
@@ -306,20 +309,16 @@ Load all libraries
 \end{Shaded}
 
 \begin{verbatim}
-## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
-\end{verbatim}
-
-\begin{verbatim}
-## v ggplot2 3.3.4     v purrr   0.3.4
-## v tibble  3.1.2     v dplyr   1.0.7
-## v tidyr   1.1.3     v stringr 1.4.0
-## v readr   1.4.0     v forcats 0.5.1
-\end{verbatim}
-
-\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.2     v readr     2.1.4
+## v forcats   1.0.0     v stringr   1.5.0
+## v ggplot2   3.4.2     v tibble    3.2.1
+## v lubridate 1.9.2     v tidyr     1.3.0
+## v purrr     1.0.1     
 ## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 \end{verbatim}
 
 \begin{Shaded}
@@ -331,9 +330,7 @@ Load all libraries
 \begin{verbatim}
 ## 
 ## Attaching package: 'janitor'
-\end{verbatim}
-
-\begin{verbatim}
+## 
 ## The following objects are masked from 'package:stats':
 ## 
 ##     chisq.test, fisher.test
@@ -349,9 +346,7 @@ Load all libraries
 \begin{verbatim}
 ## 
 ## Attaching package: 'kableExtra'
-\end{verbatim}
-
-\begin{verbatim}
+## 
 ## The following object is masked from 'package:dplyr':
 ## 
 ##     group_rows
@@ -364,6 +359,13 @@ Load all libraries
 \FunctionTok{library}\NormalTok{(geosphere) }\CommentTok{\# for calc daylength}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## The legacy packages maptools, rgdal, and rgeos, underpinning this package
+## will retire shortly. Please refer to R-spatial evolution reports on
+## https://r-spatial.org/r/2023/05/15/evolution4.html for details.
+## This package is now running under evolution status 0
+\end{verbatim}
 
 \hypertarget{remove-a-package}{%
 \subsection{Remove a package}\label{remove-a-package}}
@@ -439,6 +441,12 @@ Load all libraries
 \hypertarget{new-vars-by-concatination}{%
 \subsection{New vars by concatination}\label{new-vars-by-concatination}}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# USE rbind to add new variables to dataset by combination}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{save-dataframe-csv-or-rdata}{%
 \subsection{Save dataframe (CSV or Rdata)}\label{save-dataframe-csv-or-rdata}}
 
@@ -452,10 +460,12 @@ Load all libraries
 \end{Shaded}
 
 \begin{verbatim}
-## function () 
-## .Internal(date())
-## <bytecode: 0x00000000184218d8>
-## <environment: namespace:base>
+## function (x) 
+## {
+##     UseMethod("date")
+## }
+## <bytecode: 0x000001ce93b332f8>
+## <environment: namespace:lubridate>
 \end{verbatim}
 
 \begin{Shaded}
@@ -484,7 +494,7 @@ Load all libraries
 \end{Highlighting}
 \end{Shaded}
 
-\emph{Save the files}
+\emph{Save the files as CSV files or as R data files}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -576,7 +586,7 @@ Reference: \href{https://cran.r-project.org/web/packages/kableExtra/vignettes/aw
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{data}\NormalTok{(}\StringTok{"mtcars"}\NormalTok{)}
-\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rename}\NormalTok{(}\AttributeTok{hp\_new=}\NormalTok{hp)}
+\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{rename}\NormalTok{(}\AttributeTok{hp\_new=}\NormalTok{hp)}
 \FunctionTok{kable}\NormalTok{(}\FunctionTok{head}\NormalTok{((mtcars))) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_minimal}\NormalTok{(}\AttributeTok{full\_width =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
@@ -653,18 +663,6 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 \end{Shaded}
 
 \begin{verbatim}
-## Loading required package: lattice
-\end{verbatim}
-
-\begin{verbatim}
-## Loading required package: survival
-\end{verbatim}
-
-\begin{verbatim}
-## Loading required package: Formula
-\end{verbatim}
-
-\begin{verbatim}
 ## 
 ## Attaching package: 'Hmisc'
 \end{verbatim}
@@ -695,17 +693,6 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 \FunctionTok{library}\NormalTok{(lubridate)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'lubridate'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     date, intersect, setdiff, union
-\end{verbatim}
 
 \hypertarget{bin-variable-e.g.-lowmediumhigh}{%
 \subsection{Bin variable ( e.g.~Low/Medium/High)}\label{bin-variable-e.g.-lowmediumhigh}}
@@ -756,7 +743,7 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 \NormalTok{funcs }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{mean =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{mean}\NormalTok{(.x,}\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }
   \AttributeTok{sd =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{sd}\NormalTok{(.x,}\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
 \NormalTok{)}
-\NormalTok{dat2 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric),funcs))}
+\NormalTok{dat2 }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{summarise}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric),funcs))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -765,7 +752,7 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 ##   mpg_mean mpg_sd  cyl_mean cyl_sd disp_mean disp_sd  hp_mean hp_sd drat_mean
 ##      <dbl>  <dbl>     <dbl>  <dbl>     <dbl>   <dbl>    <dbl> <dbl>     <dbl>
 ## 1 7.11e-17      1 -1.47e-17      1 -9.08e-17       1 1.04e-17     1 -2.92e-16
-## # ... with 17 more variables: drat_sd <dbl>, wt_mean <dbl>, wt_sd <dbl>,
+## # i 17 more variables: drat_sd <dbl>, wt_mean <dbl>, wt_sd <dbl>,
 ## #   qsec_mean <dbl>, qsec_sd <dbl>, vs_mean <dbl>, vs_sd <dbl>, am_mean <dbl>,
 ## #   am_sd <dbl>, gear_mean <dbl>, gear_sd <dbl>, carb_mean <dbl>,
 ## #   carb_sd <dbl>, loghp_mean <dbl>, loghp_sd <dbl>, sum_mean <dbl>,
@@ -780,8 +767,6 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{loghp1 =} \FunctionTok{coalesce}\NormalTok{(loghp, }\DecValTok{0}\NormalTok{))}
-\CommentTok{\#or}
-\NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{loghp =} \FunctionTok{replace\_na}\NormalTok{(loghp, }\StringTok{"missing"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -884,12 +869,6 @@ Add a date column
 14 & 19.2 & 2\\
 \hline
 16 & 21 & 2\\
-\hline
-17 & 21.4 & 2\\
-\hline
-19 & 22.8 & 2\\
-\hline
-23 & 30.4 & 2\\
 \hline
 \end{tabular}
 \end{table}
@@ -1011,7 +990,7 @@ e.g.~prescription code
 ## Rows: 6
 ## Columns: 2
 ## $ carnames <chr> "1", "2", "3", "4", "5", "6"
-## $ valves   <dbl> 24, 24, 16, 24, 32, 24
+## $ valves   <dbl> 24, 24, 24, 32, 24, 32
 \end{verbatim}
 
 \begin{table}
@@ -1024,13 +1003,13 @@ carnames & valves\\
 \hline
 2 & 24\\
 \hline
-3 & 16\\
+3 & 24\\
 \hline
-4 & 24\\
+4 & 32\\
 \hline
-5 & 32\\
+5 & 24\\
 \hline
-6 & 24\\
+6 & 32\\
 \hline
 \end{tabular}
 \end{table}
@@ -1048,34 +1027,34 @@ carnames & valves\\
 \begin{verbatim}
 ## Rows: 6
 ## Columns: 9
-## $ carb         <dbl> 4, 4, 1, 1, 2, 1
-## $ hp_cat       <fct> high hp, high hp, low hp, high hp, high hp, high hp
-## $ loghp        <chr> "2.04139268515822", "2.04139268515822", "missing", "2.041~
-## $ sum          <dbl> 273.90, 273.90, 204.85, 371.08, 538.15, 332.76
-## $ loghp1       <dbl> 2.041393, 2.041393, 0.000000, 2.041393, 2.243038, 2.021189
+## $ carb         <dbl> 4, 4, 1, 2, 1, 4
+## $ hp_cat       <fct> high hp, high hp, high hp, high hp, high hp, high hp
+## $ loghp        <dbl> 2.041393, 2.041393, 2.041393, 2.243038, 2.021189, 2.389166
+## $ sum          <dbl> 273.90, 273.90, 371.08, 538.15, 332.76, 608.21
+## $ loghp1       <dbl> 2.041393, 2.041393, 2.041393, 2.243038, 2.021189, 2.389166
 ## $ date         <date> 2001-05-24, 2001-05-24, 2001-05-24, 2001-05-24, 2001-05-2~
-## $ last3letters <chr> "RX4", "Wag", "710", "ive", "out", "ant"
+## $ last3letters <chr> "RX4", "Wag", "ive", "out", "ant", "360"
 ## $ carnames     <chr> "1", "2", "3", "4", "5", "6"
-## $ valves       <dbl> 24, 24, 16, 24, 32, 24
+## $ valves       <dbl> 24, 24, 24, 32, 24, 32
 \end{verbatim}
 
 \begin{table}
 \centering
-\begin{tabular}{r|l|l|r|r|l|l|l|r}
+\begin{tabular}{r|l|r|r|r|l|l|l|r}
 \hline
 carb & hp\_cat & loghp & sum & loghp1 & date & last3letters & carnames & valves\\
 \hline
-4 & high hp & 2.04139268515822 & 273.90 & 2.041393 & 2001-05-24 & RX4 & 1 & 24\\
+4 & high hp & 2.041393 & 273.90 & 2.041393 & 2001-05-24 & RX4 & 1 & 24\\
 \hline
-4 & high hp & 2.04139268515822 & 273.90 & 2.041393 & 2001-05-24 & Wag & 2 & 24\\
+4 & high hp & 2.041393 & 273.90 & 2.041393 & 2001-05-24 & Wag & 2 & 24\\
 \hline
-1 & low hp & missing & 204.85 & 0.000000 & 2001-05-24 & 710 & 3 & 16\\
+1 & high hp & 2.041393 & 371.08 & 2.041393 & 2001-05-24 & ive & 3 & 24\\
 \hline
-1 & high hp & 2.04139268515822 & 371.08 & 2.041393 & 2001-05-24 & ive & 4 & 24\\
+2 & high hp & 2.243038 & 538.15 & 2.243038 & 2001-05-24 & out & 4 & 32\\
 \hline
-2 & high hp & 2.24303804868629 & 538.15 & 2.243038 & 2001-05-24 & out & 5 & 32\\
+1 & high hp & 2.021189 & 332.76 & 2.021189 & 2001-05-24 & ant & 5 & 24\\
 \hline
-1 & high hp & 2.02118929906994 & 332.76 & 2.021189 & 2001-05-24 & ant & 6 & 24\\
+4 & high hp & 2.389166 & 608.21 & 2.389166 & 2001-05-24 & 360 & 6 & 32\\
 \hline
 \end{tabular}
 \end{table}
@@ -1126,13 +1105,14 @@ carb & hp\_cat & loghp & sum & loghp1 & date & last3letters & carnames & valves\
 \end{Shaded}
 
 \begin{verbatim}
-## 
+## Rows: 12 Columns: 3
 ## -- Column specification --------------------------------------------------------
-## cols(
-##   `ID's` = col_double(),
-##   `date (dmy)` = col_character(),
-##   latitude = col_double()
-## )
+## Delimiter: ","
+## chr (1): date (dmy)
+## dbl (2): ID's, latitude
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
 \end{verbatim}
 
 \begin{Shaded}
@@ -1176,11 +1156,11 @@ carb & hp\_cat & loghp & sum & loghp1 & date & last3letters & carnames & valves\
 \hline
 as.factor(gear) & mean & sd\\
 \hline
-3 & 17.692 & 1.349916\\
+3 & 17.52643 & 1.2327244\\
 \hline
-4 & 18.965 & 1.613880\\
+4 & 17.67000 & 1.1249296\\
 \hline
-5 & 15.640 & 1.130487\\
+5 & 14.86667 & 0.5507571\\
 \hline
 \end{tabular}
 \end{table}
@@ -1205,11 +1185,11 @@ as.factor(gear) & mean & sd\\
 \hline
 gear & r.squared & adj.r.squared & sigma & statistic & p.value & df & logLik & AIC & BIC & deviance & df.residual & nobs\\
 \hline
-3 & 0.66 & 0.63 & 28.87 & 25.19 & 0.00 & 1 & -70.65 & 147.31 & 149.43 & 10837.12 & 13 & 15\\
+3 & 0.58 & 0.54 & 29.74 & 16.40 & 0.00 & 1 & -66.28 & 138.57 & 140.48 & 10616.60 & 12 & 14\\
 \hline
-4 & 0.10 & 0.01 & 25.72 & 1.15 & 0.31 & 1 & -54.90 & 115.80 & 117.26 & 6616.46 & 10 & 12\\
+4 & 0.91 & 0.87 & 2.74 & 20.54 & 0.05 & 1 & -8.32 & 22.64 & 20.80 & 14.99 & 2 & 4\\
 \hline
-5 & 0.88 & 0.83 & 41.95 & 21.03 & 0.02 & 1 & -24.50 & 55.00 & 53.83 & 5279.95 & 3 & 5\\
+5 & 0.73 & 0.45 & 59.23 & 2.66 & 0.35 & 1 & -14.85 & 35.71 & 33.00 & 3507.70 & 1 & 3\\
 \hline
 \end{tabular}
 \end{table}
@@ -1230,22 +1210,21 @@ gear & r.squared & adj.r.squared & sigma & statistic & p.value & df & logLik & A
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -1.9745 -0.5007 -0.1771  0.4984  2.7516 
+## -1.1891 -0.4605 -0.1190  0.4892  1.5292 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)  17.487436   0.856699  20.413  < 2e-16 ***
-## wt            1.620772   0.424366   3.819 0.000748 ***
-## hp           -0.019618   0.004912  -3.994 0.000475 ***
-## disp         -0.004124   0.005194  -0.794 0.434313    
-## factor(cyl)6 -1.407378   0.588219  -2.393 0.024245 *  
-## factor(cyl)8 -1.636367   1.131421  -1.446 0.160043    
+## (Intercept)  16.861038   1.060566  15.898 3.18e-11 ***
+## wt            1.200726   0.400340   2.999  0.00849 ** 
+## hp           -0.019943   0.004141  -4.817  0.00019 ***
+## disp         -0.001025   0.004350  -0.236  0.81664    
+## factor(cyl)8 -0.356400   0.732189  -0.487  0.63303    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.9978 on 26 degrees of freedom
-## Multiple R-squared:  0.7385, Adjusted R-squared:  0.6882 
-## F-statistic: 14.68 on 5 and 26 DF,  p-value: 7.13e-07
+## Residual standard error: 0.7975 on 16 degrees of freedom
+## Multiple R-squared:  0.7625, Adjusted R-squared:  0.7032 
+## F-statistic: 12.84 on 4 and 16 DF,  p-value: 7.179e-05
 \end{verbatim}
 
 \begin{Shaded}
@@ -1257,14 +1236,13 @@ gear & r.squared & adj.r.squared & sigma & statistic & p.value & df & logLik & A
 \begin{verbatim}
 ## # Standardization method: refit
 ## 
-## Parameter    | Coefficient (std.) |         95% CI
-## --------------------------------------------------
-## (Intercept)  |               0.57 | [-0.13,  1.28]
-## wt           |               0.89 | [ 0.41,  1.37]
-## hp           |              -0.75 | [-1.14, -0.37]
-## disp         |              -0.29 | [-1.03,  0.45]
-## factor(cyl)6 |              -0.79 | [-1.46, -0.11]
-## factor(cyl)8 |              -0.92 | [-2.22,  0.39]
+## Parameter                    | Std. Coef. |         95% CI
+## ----------------------------------------------------------
+## (Intercept)                  |       0.16 | [-0.59,  0.91]
+## wt                           |       0.63 | [ 0.19,  1.08]
+## hp                           |      -0.82 | [-1.18, -0.46]
+## disp                         |      -0.07 | [-0.71,  0.57]
+## factor(cyl)0.690065559342355 |      -0.24 | [-1.30,  0.82]
 \end{verbatim}
 
 \begin{Shaded}
@@ -1277,12 +1255,14 @@ gear & r.squared & adj.r.squared & sigma & statistic & p.value & df & logLik & A
 \begin{verbatim}
 ## # Effect Size for ANOVA (Type I)
 ## 
-## Parameter   | Eta2 (partial) |       90% CI
+## Parameter   | Eta2 (partial) |       95% CI
 ## -------------------------------------------
-## wt          |           0.10 | [0.00, 0.31]
-## hp          |           0.70 | [0.53, 0.80]
-## disp        |           0.10 | [0.00, 0.30]
-## factor(cyl) |           0.18 | [0.00, 0.33]
+## wt          |           0.15 | [0.00, 1.00]
+## hp          |           0.75 | [0.53, 1.00]
+## disp        |           0.03 | [0.00, 1.00]
+## factor(cyl) |           0.01 | [0.00, 1.00]
+## 
+## - One-sided CIs: upper bound fixed at [1.00].
 \end{verbatim}
 
 \hypertarget{logistic-regression}{%
@@ -1294,10 +1274,8 @@ gear & r.squared & adj.r.squared & sigma & statistic & p.value & df & logLik & A
 \hypertarget{principle-component-analysis}{%
 \subsection{Principle Component Analysis}\label{principle-component-analysis}}
 
-\emph{complete dataset needed for following}
-
-\hypertarget{make-the-pca-model}{%
-\subsubsection{make the PCA model}\label{make-the-pca-model}}
+\emph{complete dataset needed for following - impute values if required}
+\#\#\# make the PCA model
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1378,19 +1356,19 @@ this is the key stage of getting the first principal component out per rows scor
 
 \begin{verbatim}
 ##              PC1        PC2        PC3         PC4        PC5         PC6
-## [1,] -0.64686274  1.7081142 -0.5917309  0.11370221 -0.9455234 -0.01698737
-## [2,] -0.61948315  1.5256219 -0.3763013  0.19912121 -1.0166807 -0.24172464
-## [3,] -2.73562427 -0.1441501 -0.2374391 -0.24521545  0.3987623 -0.34876781
-## [4,] -0.30686063 -2.3258038 -0.1336213 -0.50380035  0.5492089  0.01929700
-## [5,]  1.94339268 -0.7425211 -1.1165366  0.07446196  0.2075157  0.14919276
-## [6,] -0.05525342 -2.7421229  0.1612456 -0.97516743  0.2116654 -0.24383585
+## [1,] -0.64686274  1.7081142 -0.5917309  0.11370221  0.9455234 -0.01698737
+## [2,] -0.61948315  1.5256219 -0.3763013  0.19912121  1.0166807 -0.24172464
+## [3,] -2.73562427 -0.1441501 -0.2374391 -0.24521545 -0.3987623 -0.34876781
+## [4,] -0.30686063 -2.3258038 -0.1336213 -0.50380035 -0.5492089  0.01929700
+## [5,]  1.94339268 -0.7425211 -1.1165366  0.07446196 -0.2075157  0.14919276
+## [6,] -0.05525342 -2.7421229  0.1612456 -0.97516743 -0.2116654 -0.24383585
 ##              PC7          PC8         PC9        PC10        PC11
-## [1,] -0.42648652 -0.009631217  0.14642303 -0.06670350  0.17969357
-## [2,] -0.41620046 -0.084520213  0.07452829 -0.12692766  0.08864426
-## [3,] -0.60884146  0.585255765 -0.13122859  0.04573787 -0.09463291
-## [4,] -0.04036075 -0.049583029  0.22021812 -0.06039981  0.14761127
-## [5,]  0.38350816 -0.160297757 -0.02117623 -0.05983003  0.14640690
-## [6,] -0.29464160  0.256612420 -0.03222907 -0.20165466  0.01954506
+## [1,] -0.42648652  0.009631217 -0.14642303  0.06670350  0.17969357
+## [2,] -0.41620046  0.084520213 -0.07452829  0.12692766  0.08864426
+## [3,] -0.60884146 -0.585255765  0.13122859 -0.04573787 -0.09463291
+## [4,] -0.04036075  0.049583029 -0.22021812  0.06039981  0.14761127
+## [5,]  0.38350816  0.160297757  0.02117623  0.05983003  0.14640690
+## [6,] -0.29464160 -0.256612420  0.03222907  0.20165466  0.01954506
 \end{verbatim}
 
 \begin{itemize}
@@ -1444,18 +1422,58 @@ create a final spreadsheet with cog data and PCA
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(naniar)}
 \FunctionTok{library}\NormalTok{(UpSetR)}
+\CommentTok{\#df\_cog\_w3w4$block3 \textless{}{-} with(df\_cog\_w3w4, impute(block3, mean))}
+\CommentTok{\#df\_cog\_w3w4$o3tco \textless{}{-} with(df\_cog\_w3w4, impute(o3tco, mean))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{replaces-all-missing-values-with-mean-of-column-across-all-variable-columns}{%
+\subsubsection{replaces all missing values with mean of column (across all variable columns)}\label{replaces-all-missing-values-with-mean-of-column-across-all-variable-columns}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Assuming \textquotesingle{}my\_data\textquotesingle{} is your data frame with missing values}
+\CommentTok{\# Calculate column means}
+\CommentTok{\#means \textless{}{-} colMeans(abc36, na.rm = TRUE)}
+
+\CommentTok{\# Replace missing values in each column with the corresponding column mean}
+\CommentTok{\#for (col in names(abc36)) \{}
+\CommentTok{\#  abc36[is.na(abc36[, col]), col] \textless{}{-} means[col]}
+\CommentTok{\#\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{pivot-data-longer}{%
+\subsection{Pivot data longer}\label{pivot-data-longer}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars\_long }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{pivot\_longer}\NormalTok{(PC1}\SpecialCharTok{:}\NormalTok{PC2, }\AttributeTok{names\_to =} \StringTok{\textquotesingle{}PC\textquotesingle{}}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{\textquotesingle{}value\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{do-analysis-on-multiple-groups-e.g.-dependent-variable-are-many-shape-pcs-rstatix}{%
+\subsection{Do analysis on multiple groups (e.g.~dependent variable are many shape PCs) rstatix}\label{do-analysis-on-multiple-groups-e.g.-dependent-variable-are-many-shape-pcs-rstatix}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stat.test }\OtherTok{\textless{}{-}}\NormalTok{ mtcars\_long }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(PC) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{anova\_test}\NormalTok{(value }\SpecialCharTok{\textasciitilde{}}\NormalTok{ hp}\SpecialCharTok{+}\NormalTok{drat) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{adjust\_pvalue}\NormalTok{(}\AttributeTok{method =} \StringTok{"BH"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_significance}\NormalTok{()}
+\NormalTok{stat.test}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## 
-## Attaching package: 'UpSetR'
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:lattice':
-## 
-##     histogram
+## # A tibble: 4 x 10
+##   PC    Effect   DFn   DFd     F        p `p<.05`   ges    p.adj p.adj.signif
+##   <chr> <chr>  <dbl> <dbl> <dbl>    <dbl> <chr>   <dbl>    <dbl> <chr>       
+## 1 PC1   hp         1    29  90.8 1.94e-10 *       0.758 7.76e-10 ****        
+## 2 PC1   drat       1    29  49.4 9.95e- 8 *       0.63  1.99e- 7 ****        
+## 3 PC2   hp         1    29  39.1 7.95e- 7 *       0.574 7.95e- 7 ****        
+## 4 PC2   drat       1    29  42.2 4.14e- 7 *       0.593 5.52e- 7 ****
 \end{verbatim}
 
 \hypertarget{data-visualisation}{%
@@ -1528,7 +1546,7 @@ cyl & Ave & StDev\\
 \CommentTok{\# make sure brackets are correct}
 
 \NormalTok{df.sum }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%}  \FunctionTok{select}\NormalTok{(mpg,cyl,hp) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{summarise}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(),}\FunctionTok{list}\NormalTok{(}\AttributeTok{mean=}\NormalTok{mean,}\AttributeTok{sd=}\NormalTok{sd)))}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{summarise}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(),}\FunctionTok{list}\NormalTok{(}\AttributeTok{mean=}\NormalTok{mean,}\AttributeTok{sd=}\NormalTok{sd)))}
 \FunctionTok{kable}\NormalTok{(df.sum,}\AttributeTok{digits=}\DecValTok{2}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{kable\_minimal}\NormalTok{() }\CommentTok{\# perform the analysis}
 \end{Highlighting}
@@ -1581,11 +1599,30 @@ hp & 146.69 & 68.56\\
 \end{Highlighting}
 \end{Shaded}
 
-\begin{longtable}[]{@{}lccccr@{}}
-\toprule
-& 4 (N=11) & 6 (N=7) & 8 (N=14) & Total (N=32) & p value \\
-\midrule
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1494}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1839}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1954}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1954}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1839}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0920}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+4 (N=11)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+6 (N=7)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+8 (N=14)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Total (N=32)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p value
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 gear & & & & & 0.01 \\
 - Mean (SD) & 4.09 (0.54) & 3.86 (0.69) & 3.29 (0.73) & 3.69 (0.74) & \\
 - Range & 3.00 - 5.00 & 3.00 - 5.00 & 3.00 - 5.00 & 3.00 - 5.00 & \\
@@ -1595,7 +1632,6 @@ hp & & & & & \textless{} 0.01 \\
 wt & & & & & \textless{} 0.01 \\
 - Mean (SD) & 2.29 (0.57) & 3.12 (0.36) & 4.00 (0.76) & 3.22 (0.98) & \\
 - Range & 1.51 - 3.19 & 2.62 - 3.46 & 3.17 - 5.42 & 1.51 - 5.42 & \\
-\bottomrule
 \end{longtable}
 
 \hypertarget{summarytools-tables}{%
@@ -1631,25 +1667,6 @@ wt & & & & & \textless{} 0.01 \\
   \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{)}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_minimal}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning in if (grepl(re1, str, perl = TRUE)) {: the condition has length > 1 and
-## only the first element will be used
-\end{verbatim}
-
-\begin{verbatim}
-## Warning in if (grepl(re2, str, perl = TRUE)) {: the condition has length > 1 and
-## only the first element will be used
-\end{verbatim}
-
-\begin{verbatim}
-## Warning in if (grepl(re3, str, perl = TRUE)) {: the condition has length > 1 and
-## only the first element will be used
-\end{verbatim}
-
-\begin{verbatim}
-## Error in pryr::where(obj_name) : length(name) == 1 is not TRUE
-\end{verbatim}
 
 \begin{table}
 \centering
@@ -1708,28 +1725,181 @@ wt & 3.217 & 0.978 & 32\\
 \textbf{Duplicates:} 0
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.05}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.12}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.29}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.21}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.23}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.10}}@{}}
-\toprule
-No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
-\midrule
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0481}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1154}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2788}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2019}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2212}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0962}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+No
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Stats / Values
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Freqs (\% of Valid)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Graph
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Missing
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
-1 & \vtop{\hbox{\strut mpg}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 20.1 (6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 10.4 \textless{} 19.2 \textless{} 33.9}\hbox{\strut IQR (CV) : 7.4 (0.3)}} & 25 distinct values & \includegraphics{/tmp/ds1197.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-2 & \vtop{\hbox{\strut cyl}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 6.2 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 4 \textless{} 6 \textless{} 8}\hbox{\strut IQR (CV) : 4 (0.3)}} & \vtop{\hbox{\strut 4 : 11 (34.4\%)}\hbox{\strut 6 : 7 (21.9\%)}\hbox{\strut 8 : 14 (43.8\%)}} & \includegraphics{/tmp/ds1198.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-3 & \vtop{\hbox{\strut disp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 230.7 (123.9)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 71.1 \textless{} 196.3 \textless{} 472}\hbox{\strut IQR (CV) : 205.2 (0.5)}} & 27 distinct values & \includegraphics{/tmp/ds1199.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-4 & \vtop{\hbox{\strut hp}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 146.7 (68.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 52 \textless{} 123 \textless{} 335}\hbox{\strut IQR (CV) : 83.5 (0.5)}} & 22 distinct values & \includegraphics{/tmp/ds1200.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-5 & \vtop{\hbox{\strut drat}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.6 (0.5)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 2.8 \textless{} 3.7 \textless{} 4.9}\hbox{\strut IQR (CV) : 0.8 (0.1)}} & 22 distinct values & \includegraphics{/tmp/ds1201.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-6 & \vtop{\hbox{\strut wt}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.2 (1)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1.5 \textless{} 3.3 \textless{} 5.4}\hbox{\strut IQR (CV) : 1 (0.3)}} & 29 distinct values & \includegraphics{/tmp/ds1202.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-7 & \vtop{\hbox{\strut qsec}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 17.8 (1.8)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 14.5 \textless{} 17.7 \textless{} 22.9}\hbox{\strut IQR (CV) : 2 (0.1)}} & 30 distinct values & \includegraphics{/tmp/ds1203.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-8 & \vtop{\hbox{\strut vs}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 18 (56.2\%)}\hbox{\strut 1 : 14 (43.8\%)}} & \includegraphics{/tmp/ds1204.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-9 & \vtop{\hbox{\strut am}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Min : 0}\hbox{\strut Mean : 0.4}\hbox{\strut Max : 1}} & \vtop{\hbox{\strut 0 : 19 (59.4\%)}\hbox{\strut 1 : 13 (40.6\%)}} & \includegraphics{/tmp/ds1205.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-10 & \vtop{\hbox{\strut gear}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 3.7 (0.7)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 3 \textless{} 4 \textless{} 5}\hbox{\strut IQR (CV) : 1 (0.2)}} & \vtop{\hbox{\strut 3 : 15 (46.9\%)}\hbox{\strut 4 : 12 (37.5\%)}\hbox{\strut 5 : 5 (15.6\%)}} & \includegraphics{/tmp/ds1206.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-11 & \vtop{\hbox{\strut carb}\hbox{\strut {[}numeric{]}}} & \vtop{\hbox{\strut Mean (sd) : 2.8 (1.6)}\hbox{\strut min \textless{} med \textless{} max:}\hbox{\strut 1 \textless{} 2 \textless{} 8}\hbox{\strut IQR (CV) : 2 (0.6)}} & \vtop{\hbox{\strut 1 : 7 (21.9\%)}\hbox{\strut 2 : 10 (31.2\%)}\hbox{\strut 3 : 3 ( 9.4\%)}\hbox{\strut 4 : 10 (31.2\%)}\hbox{\strut 6 : 1 ( 3.1\%)}\hbox{\strut 8 : 1 ( 3.1\%)}} & \includegraphics{/tmp/ds1207.png} & \vtop{\hbox{\strut 0}\hbox{\strut (0.0\%)}} \\
-\bottomrule
+\bottomrule\noalign{}
+\endlastfoot
+1 & \begin{minipage}[t]{\linewidth}\raggedright
+mpg\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Mean (sd) : 20.1 (6)\\
+min \textless{} med \textless{} max:\\
+10.4 \textless{} 19.2 \textless{} 33.9\\
+IQR (CV) : 7.4 (0.3)\strut
+\end{minipage} & 25 distinct values & \includegraphics{/tmp/ds0078.png} & \begin{minipage}[t]{\linewidth}\raggedright
+0\\
+(0.0\%)\strut
+\end{minipage} \\
+2 & \begin{minipage}[t]{\linewidth}\raggedright
+cyl\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Mean (sd) : 6.2 (1.8)\\
+min \textless{} med \textless{} max:\\
+4 \textless{} 6 \textless{} 8\\
+IQR (CV) : 4 (0.3)\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+4 : 11 (34.4\%)\\
+6 : 7 (21.9\%)\\
+8 : 14 (43.8\%)\strut
+\end{minipage} & \includegraphics{/tmp/ds0079.png} & \begin{minipage}[t]{\linewidth}\raggedright
+0\\
+(0.0\%)\strut
+\end{minipage} \\
+3 & \begin{minipage}[t]{\linewidth}\raggedright
+disp\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Mean (sd) : 230.7 (123.9)\\
+min \textless{} med \textless{} max:\\
+71.1 \textless{} 196.3 \textless{} 472\\
+IQR (CV) : 205.2 (0.5)\strut
+\end{minipage} & 27 distinct values & \includegraphics{/tmp/ds0080.png} & \begin{minipage}[t]{\linewidth}\raggedright
+0\\
+(0.0\%)\strut
+\end{minipage} \\
+4 & \begin{minipage}[t]{\linewidth}\raggedright
+hp\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Mean (sd) : 146.7 (68.6)\\
+min \textless{} med \textless{} max:\\
+52 \textless{} 123 \textless{} 335\\
+IQR (CV) : 83.5 (0.5)\strut
+\end{minipage} & 22 distinct values & \includegraphics{/tmp/ds0081.png} & \begin{minipage}[t]{\linewidth}\raggedright
+0\\
+(0.0\%)\strut
+\end{minipage} \\
+5 & \begin{minipage}[t]{\linewidth}\raggedright
+drat\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Mean (sd) : 3.6 (0.5)\\
+min \textless{} med \textless{} max:\\
+2.8 \textless{} 3.7 \textless{} 4.9\\
+IQR (CV) : 0.8 (0.1)\strut
+\end{minipage} & 22 distinct values & \includegraphics{/tmp/ds0082.png} & \begin{minipage}[t]{\linewidth}\raggedright
+0\\
+(0.0\%)\strut
+\end{minipage} \\
+6 & \begin{minipage}[t]{\linewidth}\raggedright
+wt\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Mean (sd) : 3.2 (1)\\
+min \textless{} med \textless{} max:\\
+1.5 \textless{} 3.3 \textless{} 5.4\\
+IQR (CV) : 1 (0.3)\strut
+\end{minipage} & 29 distinct values & \includegraphics{/tmp/ds0083.png} & \begin{minipage}[t]{\linewidth}\raggedright
+0\\
+(0.0\%)\strut
+\end{minipage} \\
+7 & \begin{minipage}[t]{\linewidth}\raggedright
+qsec\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Mean (sd) : 17.8 (1.8)\\
+min \textless{} med \textless{} max:\\
+14.5 \textless{} 17.7 \textless{} 22.9\\
+IQR (CV) : 2 (0.1)\strut
+\end{minipage} & 30 distinct values & \includegraphics{/tmp/ds0084.png} & \begin{minipage}[t]{\linewidth}\raggedright
+0\\
+(0.0\%)\strut
+\end{minipage} \\
+8 & \begin{minipage}[t]{\linewidth}\raggedright
+vs\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Min : 0\\
+Mean : 0.4\\
+Max : 1\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+0 : 18 (56.2\%)\\
+1 : 14 (43.8\%)\strut
+\end{minipage} & \includegraphics{/tmp/ds0085.png} & \begin{minipage}[t]{\linewidth}\raggedright
+0\\
+(0.0\%)\strut
+\end{minipage} \\
+9 & \begin{minipage}[t]{\linewidth}\raggedright
+am\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Min : 0\\
+Mean : 0.4\\
+Max : 1\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+0 : 19 (59.4\%)\\
+1 : 13 (40.6\%)\strut
+\end{minipage} & \includegraphics{/tmp/ds0086.png} & \begin{minipage}[t]{\linewidth}\raggedright
+0\\
+(0.0\%)\strut
+\end{minipage} \\
+10 & \begin{minipage}[t]{\linewidth}\raggedright
+gear\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Mean (sd) : 3.7 (0.7)\\
+min \textless{} med \textless{} max:\\
+3 \textless{} 4 \textless{} 5\\
+IQR (CV) : 1 (0.2)\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+3 : 15 (46.9\%)\\
+4 : 12 (37.5\%)\\
+5 : 5 (15.6\%)\strut
+\end{minipage} & \includegraphics{/tmp/ds0087.png} & \begin{minipage}[t]{\linewidth}\raggedright
+0\\
+(0.0\%)\strut
+\end{minipage} \\
+11 & \begin{minipage}[t]{\linewidth}\raggedright
+carb\\
+{[}numeric{]}\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Mean (sd) : 2.8 (1.6)\\
+min \textless{} med \textless{} max:\\
+1 \textless{} 2 \textless{} 8\\
+IQR (CV) : 2 (0.6)\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1 : 7 (21.9\%)\\
+2 : 10 (31.2\%)\\
+3 : 3 ( 9.4\%)\\
+4 : 10 (31.2\%)\\
+6 : 1 ( 3.1\%)\\
+8 : 1 ( 3.1\%)\strut
+\end{minipage} & \includegraphics{/tmp/ds0088.png} & \begin{minipage}[t]{\linewidth}\raggedright
+0\\
+(0.0\%)\strut
+\end{minipage} \\
 \end{longtable}
 
 \hypertarget{correlation-matrix}{%
@@ -1742,31 +1912,24 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \begin{Highlighting}[]
 \NormalTok{corrdata }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(cyl,disp,vs,am,gear,carb)) }
 \NormalTok{corr1 }\OtherTok{\textless{}{-}}\NormalTok{ Hmisc}\SpecialCharTok{::}\FunctionTok{rcorr}\NormalTok{(}\FunctionTok{as.matrix}\NormalTok{(corrdata))}
+
+\NormalTok{corrp }\OtherTok{=} \FunctionTok{cor.mtest}\NormalTok{(corrdata, }\AttributeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
+
+\NormalTok{P }\OtherTok{\textless{}{-}}\NormalTok{ corrp}\SpecialCharTok{$}\NormalTok{p}
 \NormalTok{M }\OtherTok{\textless{}{-}}\NormalTok{ corr1}\SpecialCharTok{$}\NormalTok{r}
 \CommentTok{\#M}
-\FunctionTok{colnames}\NormalTok{(M) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"mpg"}\NormalTok{, }\StringTok{"HP"}\NormalTok{, }\StringTok{"Axle Ratio"}\NormalTok{, }\StringTok{"Weight (kPounds)"}\NormalTok{, }\StringTok{"Quarter Mile (s)"}\NormalTok{)}
-\FunctionTok{rownames}\NormalTok{(M) }\OtherTok{\textless{}{-}}  \FunctionTok{c}\NormalTok{(}\StringTok{"mpg"}\NormalTok{, }\StringTok{"HP"}\NormalTok{, }\StringTok{"Axle Ratio"}\NormalTok{, }\StringTok{"Weight (kPounds)"}\NormalTok{, }\StringTok{"Quarter Mile (s)"}\NormalTok{)}
-\NormalTok{p\_mat }\OtherTok{\textless{}{-}}\NormalTok{ corr1}\SpecialCharTok{$}\NormalTok{P}
+\CommentTok{\#colnames(M) \textless{}{-} c("mpg", "HP", "Axle Ratio", "Weight (kPounds)", "Quarter Mile (s)")}
+\CommentTok{\#rownames(M) \textless{}{-}  c("mpg", "HP", "Axle Ratio", "Weight (kPounds)", "Quarter Mile (s)")}
+\NormalTok{p\_mat }\OtherTok{\textless{}{-}}\NormalTok{ corrp}\SpecialCharTok{$}\NormalTok{p}
 \NormalTok{corr }\OtherTok{\textless{}{-}} \FunctionTok{corrplot}\NormalTok{(M, }\AttributeTok{type =} \StringTok{"upper"}\NormalTok{,}\AttributeTok{method=}\StringTok{"ellipse"}\NormalTok{, }\AttributeTok{order =} \StringTok{"hclust"}\NormalTok{, }
          \AttributeTok{p.mat =}\NormalTok{ p\_mat, }\AttributeTok{sig.level =} \FloatTok{0.05}\NormalTok{, }\AttributeTok{insig =} \StringTok{"blank"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## Warning in corrplot(M, type = "upper", method = "ellipse", order = "hclust", :
-## p.mat and corr may be not paired, their rownames and colnames are not totally
-## same!
-\end{verbatim}
-
-\begin{verbatim}
-## Warning in cbind(corrPos, pNew): number of rows of result is not a multiple of
-## vector length (arg 2)
-\end{verbatim}
-
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-58-1.pdf}
-\caption{\label{fig:unnamed-chunk-58}Correlation Plot}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-61-1.pdf}
+\caption{\label{fig:unnamed-chunk-61}Correlation Plot}
 \end{figure}
 
 \begin{itemize}
@@ -1798,7 +1961,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-59-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-62-1.pdf}
 \#\#\# Distribution + Normal line
 
 \begin{Shaded}
@@ -1812,7 +1975,15 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-60-1.pdf}
+\begin{verbatim}
+## Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
+## i Please use `after_stat(density)` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+\end{verbatim}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-63-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1831,7 +2002,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-61-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-64-1.pdf}
 
 \hypertarget{xy-scatterplot-with-linear-or-polynomial-regression}{%
 \subsubsection{x*y scatterplot with linear or polynomial regression}\label{xy-scatterplot-with-linear-or-polynomial-regression}}
@@ -1848,7 +2019,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-62-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-65-1.pdf}
 
 \hypertarget{add-formula-to-plot.}{%
 \subsubsection{Add formula to plot.}\label{add-formula-to-plot.}}
@@ -1871,7 +2042,7 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-63-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-66-1.pdf}
 
 \hypertarget{raincloud-plots-ggplot}{%
 \subsubsection{Raincloud plots (ggplot)}\label{raincloud-plots-ggplot}}
@@ -1899,6 +2070,12 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \begin{verbatim}
 ## 
 ## Attaching package: 'plyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:rstatix':
+## 
+##     desc, mutate
 \end{verbatim}
 
 \begin{verbatim}
@@ -1948,6 +2125,14 @@ No & Variable & Stats / Values & Freqs (\% of Valid) & Graph & Missing \\
 \AttributeTok{axis.line.y =} \FunctionTok{element\_line}\NormalTok{(}\AttributeTok{colour =} \StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{, }\AttributeTok{size=}\FloatTok{0.5}\NormalTok{, }\AttributeTok{linetype=}\StringTok{\textquotesingle{}solid\textquotesingle{}}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
+## i Please use the `linewidth` argument instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+\end{verbatim}
 
 \hypertarget{make-summary-functions}{%
 \paragraph{make summary functions}\label{make-summary-functions}}
@@ -2019,7 +2204,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: Ignoring unknown parameters: guides
+## Warning in geom_boxplot(width = 0.2, guides = FALSE, outlier.shape = NA, :
+## Ignoring unknown parameters: `guides`
 \end{verbatim}
 
 \begin{Shaded}
@@ -2028,7 +2214,15 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-69-1.pdf}
+\begin{verbatim}
+## Warning: Using the `size` aesthetic with geom_polygon was deprecated in ggplot2 3.4.0.
+## i Please use the `linewidth` aesthetic instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+\end{verbatim}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-72-1.pdf}
 \#\#\# Alternative raincloud
 
 \begin{Shaded}
@@ -2052,11 +2246,11 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
-## "none")` instead.
-
-## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
-## "none")` instead.
+## Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+## of ggplot2 3.3.4.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
 \end{verbatim}
 
 \begin{Shaded}
@@ -2067,8 +2261,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-70-1.pdf}
-\caption{\label{fig:unnamed-chunk-70}Raincoud plot of means}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-73-1.pdf}
+\caption{\label{fig:unnamed-chunk-73}Raincoud plot of means}
 \end{figure}
 
 \hypertarget{scatterplot-theme}{%
@@ -2113,8 +2307,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-72-1.pdf}
-\caption{\label{fig:unnamed-chunk-72}Scatterplots}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-75-1.pdf}
+\caption{\label{fig:unnamed-chunk-75}Scatterplots}
 \end{figure}
 
 \hypertarget{make-axis-logarithmic}{%
@@ -2128,7 +2322,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-73-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-76-1.pdf}
 
 \hypertarget{add-a-trendline}{%
 \subsubsection{add a trendline}\label{add-a-trendline}}
@@ -2146,25 +2340,33 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: Removed 32 rows containing non-finite values (stat_smooth).
+## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## i Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
 \end{verbatim}
 
 \begin{verbatim}
-## Warning: Removed 32 rows containing non-finite values (stat_poly_eq).
+## Warning: Removed 32 rows containing non-finite values (`stat_smooth()`).
 \end{verbatim}
 
 \begin{verbatim}
-## Warning: Removed 32 rows containing missing values (geom_point).
+## Warning: Removed 32 rows containing non-finite values (`stat_poly_eq()`).
 \end{verbatim}
 
 \begin{verbatim}
-## Warning: Removed 8 rows containing missing values (geom_smooth).
+## Warning: Removed 32 rows containing missing values (`geom_point()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 8 rows containing missing values (`geom_smooth()`).
 \end{verbatim}
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-74-1.pdf}
-\caption{\label{fig:unnamed-chunk-74}linear Trendline}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-77-1.pdf}
+\caption{\label{fig:unnamed-chunk-77}linear Trendline}
 \end{figure}
 
 \hypertarget{add-a-trendline-1}{%
@@ -2183,25 +2385,25 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: Removed 32 rows containing non-finite values (stat_smooth).
+## Warning: Removed 32 rows containing non-finite values (`stat_smooth()`).
 \end{verbatim}
 
 \begin{verbatim}
-## Warning: Removed 32 rows containing non-finite values (stat_poly_eq).
+## Warning: Removed 32 rows containing non-finite values (`stat_poly_eq()`).
 \end{verbatim}
 
 \begin{verbatim}
-## Warning: Removed 32 rows containing missing values (geom_point).
+## Warning: Removed 32 rows containing missing values (`geom_point()`).
 \end{verbatim}
 
 \begin{verbatim}
-## Warning: Removed 14 rows containing missing values (geom_smooth).
+## Warning: Removed 14 rows containing missing values (`geom_smooth()`).
 \end{verbatim}
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-75-1.pdf}
-\caption{\label{fig:unnamed-chunk-75}Polynomial trendline}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-78-1.pdf}
+\caption{\label{fig:unnamed-chunk-78}Polynomial trendline}
 \end{figure}
 
 \hypertarget{add-multiple-trendlines}{%
@@ -2219,7 +2421,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-76-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-79-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2231,7 +2433,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-76-2.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-79-2.pdf}
 \#\#\# add deviation from regression
 
 \begin{Shaded}
@@ -2261,10 +2463,23 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## Warning: The following aesthetics were dropped during statistical transformation: label
+## i This can happen when ggplot fails to infer the correct grouping structure in
+##   the data.
+## i Did you forget to specify a `group` aesthetic or to convert a numerical
+##   variable into a factor?
+## The following aesthetics were dropped during statistical transformation: label
+## i This can happen when ggplot fails to infer the correct grouping structure in
+##   the data.
+## i Did you forget to specify a `group` aesthetic or to convert a numerical
+##   variable into a factor?
+\end{verbatim}
+
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-78-1.pdf}
-\caption{\label{fig:unnamed-chunk-78}Deviation from predection}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-81-1.pdf}
+\caption{\label{fig:unnamed-chunk-81}Deviation from predection}
 \end{figure}
 
 \begin{Shaded}
@@ -2345,7 +2560,20 @@ Valiant & 18.1 & 6 & 225 & 105 & -52.832288 & 1\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-80-1.pdf}
+\begin{verbatim}
+## Warning: The following aesthetics were dropped during statistical transformation: label
+## i This can happen when ggplot fails to infer the correct grouping structure in
+##   the data.
+## i Did you forget to specify a `group` aesthetic or to convert a numerical
+##   variable into a factor?
+## The following aesthetics were dropped during statistical transformation: label
+## i This can happen when ggplot fails to infer the correct grouping structure in
+##   the data.
+## i Did you forget to specify a `group` aesthetic or to convert a numerical
+##   variable into a factor?
+\end{verbatim}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-83-1.pdf}
 
 \hypertarget{line-defined-by-equation-to-scatterplot}{%
 \subsection{line defined by equation to scatterplot}\label{line-defined-by-equation-to-scatterplot}}
@@ -2363,6 +2591,6 @@ Valiant & 18.1 & 6 & 225 & 105 & -52.832288 & 1\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-81-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-84-1.pdf}
 
 \end{document}

@@ -15,6 +15,7 @@ library(readr) # load csv stored data
 library(geosphere) # for calc daylength
 library(effectsize)
 library(factoextra)
+library(rstatix)
 ```
 
 ## Linear Regression
@@ -42,8 +43,6 @@ summary(fit)
 effectsize(fit)
 anova_table <- anova(fit)
 effectsize(anova_table)
-
-
 ```
 
 
@@ -131,14 +130,29 @@ library(UpSetR)
 ```{r}
 # Assuming 'my_data' is your data frame with missing values
 # Calculate column means
-means <- colMeans(abc36, na.rm = TRUE)
+#means <- colMeans(abc36, na.rm = TRUE)
 
 # Replace missing values in each column with the corresponding column mean
-for (col in names(abc36)) {
-  abc36[is.na(abc36[, col]), col] <- means[col]
-}
+#for (col in names(abc36)) {
+#  abc36[is.na(abc36[, col]), col] <- means[col]
+#}
+```
+
+## Pivot data longer
+```{r}
+mtcars_long <- mtcars %>% pivot_longer(PC1:PC2, names_to = 'PC', values_to = 'value')
 ```
 
 
+
+## Do analysis on multiple groups (e.g. dependent variable are many shape PCs) rstatix
+```{r}
+stat.test <- mtcars_long %>% 
+  group_by(PC) %>%
+  anova_test(value ~ hp+drat) %>%
+  adjust_pvalue(method = "BH") %>%
+  add_significance()
+stat.test
+```
 
 

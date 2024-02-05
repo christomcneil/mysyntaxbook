@@ -1,9 +1,9 @@
-fig:unnamed-chunk-58
-fig:unnamed-chunk-70
-fig:unnamed-chunk-72
-fig:unnamed-chunk-74
+fig:unnamed-chunk-61
+fig:unnamed-chunk-73
 fig:unnamed-chunk-75
+fig:unnamed-chunk-77
 fig:unnamed-chunk-78
+fig:unnamed-chunk-81
 introduction
 structure-of-collection
 rmarkdown
@@ -55,7 +55,6 @@ linear-regression
 logistic-regression
 create-the-logr-model
 principle-component-analysis
-make-the-pca-model
 make-a-scree-plot-of-the-pca-model
 graph-of-variables.-positive-correlated-variables-point-to-the-same-side-of-the-plot.-negative-correlated-variables-point-to-opposite-sides-of-the-graph.
 survival-analysis-and-visualisation
@@ -63,6 +62,9 @@ to-be-completed
 receiver-operated-curves-roc
 to-be-completed-1
 missing-values
+replaces-all-missing-values-with-mean-of-column-across-all-variable-columns
+pivot-data-longer
+do-analysis-on-multiple-groups-e.g.-dependent-variable-are-many-shape-pcs-rstatix
 data-visualisation
 packages-needed
 summary-tables
