@@ -174,7 +174,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#filter-nas-or-retain-complete-cases"><i class="fa fa-check"></i><b>4.7</b> Filter na’s or retain complete cases</a></li>
 <li class="chapter" data-level="4.8" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#delete-specified-columns"><i class="fa fa-check"></i><b>4.8</b> Delete specified columns</a></li>
 <li class="chapter" data-level="4.9" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#change-specific-datapoint"><i class="fa fa-check"></i><b>4.9</b> Change specific datapoint</a></li>
-<li class="chapter" data-level="4.10" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#work-with-dates"><i class="fa fa-check"></i><b>4.10</b> Work with dates</a></li>
+<li class="chapter" data-level="4.10" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#work-with-dates"><i class="fa fa-check"></i><b>4.10</b> Work with dates</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#add-a-date-column"><i class="fa fa-check"></i><b>4.10.1</b> Add a date column</a></li>
+</ul></li>
 <li class="chapter" data-level="4.11" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#extract-the-last-x-num-of-a-string"><i class="fa fa-check"></i><b>4.11</b> Extract the last x num of a string</a></li>
 <li class="chapter" data-level="4.12" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#add-an-order-e.g.-order-of-birth"><i class="fa fa-check"></i><b>4.12</b> Add an order (e.g. order of birth)</a></li>
 <li class="chapter" data-level="4.13" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#create-a-df-with-the-names-and-labels-of-a-dataframe"><i class="fa fa-check"></i><b>4.13</b> Create a df with the names (and labels) of a dataframe</a></li>
@@ -193,7 +196,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.23" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-individuals"><i class="fa fa-check"></i><b>4.23</b> Merge data frames (individuals)</a></li>
 <li class="chapter" data-level="4.24" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#create-a-new-factor-from-existing"><i class="fa fa-check"></i><b>4.24</b> Create a new factor from existing</a></li>
 <li class="chapter" data-level="4.25" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#change-data-types"><i class="fa fa-check"></i><b>4.25</b> change data types</a></li>
-<li class="chapter" data-level="4.26" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#calculate-dates-and-photoperiod"><i class="fa fa-check"></i><b>4.26</b> calculate dates and photoperiod</a></li>
+<li class="chapter" data-level="4.26" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#calculate-dates-and-photoperiod"><i class="fa fa-check"></i><b>4.26</b> calculate dates and photoperiod</a>
+<ul>
+<li class="chapter" data-level="4.26.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#method-1-this-function-is-needed-to-read_csv-for-multiple-files---with-the-id-option-to-add-the-source-file-to-the-dataframe-as-a-new-column"><i class="fa fa-check"></i><b>4.26.1</b> Method 1 This function is needed to read_csv for multiple files - with the id option to add the source file to the dataframe as a new column</a></li>
+<li class="chapter" data-level="4.26.2" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#option-2"><i class="fa fa-check"></i><b>4.26.2</b> Option 2</a></li>
+<li class="chapter" data-level="4.26.3" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#this-would-import-multiple-csv-files-into-seperate-objects-each-with-a-name-based-on-the-source-csv-file"><i class="fa fa-check"></i><b>4.26.3</b> This would import multiple csv files into seperate objects each with a name based on the source csv file</a></li>
+<li class="chapter" data-level="4.26.4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-all-obj-based-on-wildcards-i.e.-the-equivalent-of-doing-muliple-left_joins-all-objects-must-have-the-same-rows"><i class="fa fa-check"></i><b>4.26.4</b> merge all obj based on wildcards (i.e. the equivalent of doing muliple left_joins) all objects must have the same rows</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>5</b> Statistical Analysis</a>
 <ul>
@@ -370,7 +379,7 @@ R studio environment.</p>
 ## {
 ##     UseMethod(&quot;date&quot;)
 ## }
-## &lt;bytecode: 0x000002c17cf73340&gt;
+## &lt;bytecode: 0x0000018c158519b8&gt;
 ## &lt;environment: namespace:lubridate&gt;</code></pre>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="rstudio.html#cb21-1" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
 <p><em>Write file names</em></p>

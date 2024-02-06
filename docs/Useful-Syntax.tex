@@ -464,7 +464,7 @@ Load all libraries
 ## {
 ##     UseMethod("date")
 ## }
-## <bytecode: 0x000001ce93b332f8>
+## <bytecode: 0x0000026c071da5a0>
 ## <environment: namespace:lubridate>
 \end{verbatim}
 
@@ -813,7 +813,8 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 \hypertarget{work-with-dates}{%
 \subsection{Work with dates}\label{work-with-dates}}
 
-Add a date column
+\hypertarget{add-a-date-column}{%
+\subsubsection{Add a date column}\label{add-a-date-column}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1122,12 +1123,36 @@ carb & hp\_cat & loghp & sum & loghp1 & date & last3letters & carnames & valves\
 
 \NormalTok{dateslat }\OtherTok{\textless{}{-}}\NormalTok{ dateslat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{dateofscan=}\NormalTok{(}\FunctionTok{as.Date}\NormalTok{(date\_dmy,}\AttributeTok{format=}\StringTok{"\%d/\%m/\%Y"}\NormalTok{)))}
 \NormalTok{dateslat }\OtherTok{\textless{}{-}}\NormalTok{ dateslat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{daylength=}\FunctionTok{daylength}\NormalTok{(latitude,dateofscan))}
-                                
 \NormalTok{dateslat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{dateofscan,}\AttributeTok{y=}\NormalTok{daylength)) }\SpecialCharTok{+}\FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}\FunctionTok{theme\_minimal}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-40-1.pdf}
+\#\# Batch reading csvs
+
+\hypertarget{method-1-this-function-is-needed-to-read_csv-for-multiple-files---with-the-id-option-to-add-the-source-file-to-the-dataframe-as-a-new-column}{%
+\subsubsection{Method 1 This function is needed to read\_csv for multiple files - with the id option to add the source file to the dataframe as a new column}\label{method-1-this-function-is-needed-to-read_csv-for-multiple-files---with-the-id-option-to-add-the-source-file-to-the-dataframe-as-a-new-column}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Your custom function to read CSV files with options}
+\NormalTok{read\_csv\_with\_options }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(file\_path) \{}
+  \FunctionTok{read\_csv}\NormalTok{(data\_files,}\AttributeTok{id=}\StringTok{\textquotesingle{}filename\textquotesingle{}}\NormalTok{,}\AttributeTok{skip =} \DecValTok{5}\NormalTok{)  }\CommentTok{\# Replace with your desired options}
+\NormalTok{\}}
+\CommentTok{\# use read\_csv to allow use of id= function, not available with read\_table}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{option-2}{%
+\subsubsection{Option 2}\label{option-2}}
+
+\hypertarget{this-would-import-multiple-csv-files-into-seperate-objects-each-with-a-name-based-on-the-source-csv-file}{%
+\subsubsection{This would import multiple csv files into seperate objects each with a name based on the source csv file}\label{this-would-import-multiple-csv-files-into-seperate-objects-each-with-a-name-based-on-the-source-csv-file}}
+
+import each lm file a df with its id as new column
+
+\hypertarget{merge-all-obj-based-on-wildcards-i.e.-the-equivalent-of-doing-muliple-left_joins-all-objects-must-have-the-same-rows}{%
+\subsubsection{merge all obj based on wildcards (i.e.~the equivalent of doing muliple left\_joins) all objects must have the same rows}\label{merge-all-obj-based-on-wildcards-i.e.-the-equivalent-of-doing-muliple-left_joins-all-objects-must-have-the-same-rows}}
 
 \hypertarget{statistical-analysis}{%
 \section{Statistical Analysis}\label{statistical-analysis}}
@@ -1327,7 +1352,7 @@ gear & r.squared & adj.r.squared & sigma & statistic & p.value & df & logLik & A
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-46-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-49-1.pdf}
 scree plot shows how much variance can be summarised with one variable (components)
 
 \hypertarget{graph-of-variables.-positive-correlated-variables-point-to-the-same-side-of-the-plot.-negative-correlated-variables-point-to-opposite-sides-of-the-graph.}{%
@@ -1342,7 +1367,7 @@ scree plot shows how much variance can be summarised with one variable (componen
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-47-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-50-1.pdf}
 \# Extract the Principal components For each individual
 
 this is the key stage of getting the first principal component out per rows score. essentially doing the principal component creates a method for then taking an rows scores, and giving them a value for `1 PC'. then reattach them to the original data frame spreadsheet.
@@ -1401,7 +1426,7 @@ create a final spreadsheet with cog data and PCA
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-50-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-53-1.pdf}
 
 \hypertarget{survival-analysis-and-visualisation}{%
 \subsection{Survival Analysis and Visualisation}\label{survival-analysis-and-visualisation}}
@@ -1757,7 +1782,7 @@ Mean (sd) : 20.1 (6)\\
 min \textless{} med \textless{} max:\\
 10.4 \textless{} 19.2 \textless{} 33.9\\
 IQR (CV) : 7.4 (0.3)\strut
-\end{minipage} & 25 distinct values & \includegraphics{/tmp/ds0078.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 25 distinct values & \includegraphics{/tmp/ds0100.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1773,7 +1798,7 @@ IQR (CV) : 4 (0.3)\strut
 4 : 11 (34.4\%)\\
 6 : 7 (21.9\%)\\
 8 : 14 (43.8\%)\strut
-\end{minipage} & \includegraphics{/tmp/ds0079.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & \includegraphics{/tmp/ds0101.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1785,7 +1810,7 @@ Mean (sd) : 230.7 (123.9)\\
 min \textless{} med \textless{} max:\\
 71.1 \textless{} 196.3 \textless{} 472\\
 IQR (CV) : 205.2 (0.5)\strut
-\end{minipage} & 27 distinct values & \includegraphics{/tmp/ds0080.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 27 distinct values & \includegraphics{/tmp/ds0102.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1797,7 +1822,7 @@ Mean (sd) : 146.7 (68.6)\\
 min \textless{} med \textless{} max:\\
 52 \textless{} 123 \textless{} 335\\
 IQR (CV) : 83.5 (0.5)\strut
-\end{minipage} & 22 distinct values & \includegraphics{/tmp/ds0081.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 22 distinct values & \includegraphics{/tmp/ds0103.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1809,7 +1834,7 @@ Mean (sd) : 3.6 (0.5)\\
 min \textless{} med \textless{} max:\\
 2.8 \textless{} 3.7 \textless{} 4.9\\
 IQR (CV) : 0.8 (0.1)\strut
-\end{minipage} & 22 distinct values & \includegraphics{/tmp/ds0082.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 22 distinct values & \includegraphics{/tmp/ds0104.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1821,7 +1846,7 @@ Mean (sd) : 3.2 (1)\\
 min \textless{} med \textless{} max:\\
 1.5 \textless{} 3.3 \textless{} 5.4\\
 IQR (CV) : 1 (0.3)\strut
-\end{minipage} & 29 distinct values & \includegraphics{/tmp/ds0083.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 29 distinct values & \includegraphics{/tmp/ds0105.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1833,7 +1858,7 @@ Mean (sd) : 17.8 (1.8)\\
 min \textless{} med \textless{} max:\\
 14.5 \textless{} 17.7 \textless{} 22.9\\
 IQR (CV) : 2 (0.1)\strut
-\end{minipage} & 30 distinct values & \includegraphics{/tmp/ds0084.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 30 distinct values & \includegraphics{/tmp/ds0106.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1847,7 +1872,7 @@ Max : 1\strut
 \end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
 0 : 18 (56.2\%)\\
 1 : 14 (43.8\%)\strut
-\end{minipage} & \includegraphics{/tmp/ds0085.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & \includegraphics{/tmp/ds0107.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1861,7 +1886,7 @@ Max : 1\strut
 \end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
 0 : 19 (59.4\%)\\
 1 : 13 (40.6\%)\strut
-\end{minipage} & \includegraphics{/tmp/ds0086.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & \includegraphics{/tmp/ds0108.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1877,7 +1902,7 @@ IQR (CV) : 1 (0.2)\strut
 3 : 15 (46.9\%)\\
 4 : 12 (37.5\%)\\
 5 : 5 (15.6\%)\strut
-\end{minipage} & \includegraphics{/tmp/ds0087.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & \includegraphics{/tmp/ds0109.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1896,7 +1921,7 @@ IQR (CV) : 2 (0.6)\strut
 4 : 10 (31.2\%)\\
 6 : 1 ( 3.1\%)\\
 8 : 1 ( 3.1\%)\strut
-\end{minipage} & \includegraphics{/tmp/ds0088.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & \includegraphics{/tmp/ds0110.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1928,8 +1953,8 @@ IQR (CV) : 2 (0.6)\strut
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-61-1.pdf}
-\caption{\label{fig:unnamed-chunk-61}Correlation Plot}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-64-1.pdf}
+\caption{\label{fig:unnamed-chunk-64}Correlation Plot}
 \end{figure}
 
 \begin{itemize}
@@ -1961,7 +1986,7 @@ IQR (CV) : 2 (0.6)\strut
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-62-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-65-1.pdf}
 \#\#\# Distribution + Normal line
 
 \begin{Shaded}
@@ -1983,7 +2008,7 @@ IQR (CV) : 2 (0.6)\strut
 ## generated.
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-63-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-66-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2002,7 +2027,7 @@ IQR (CV) : 2 (0.6)\strut
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-64-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-67-1.pdf}
 
 \hypertarget{xy-scatterplot-with-linear-or-polynomial-regression}{%
 \subsubsection{x*y scatterplot with linear or polynomial regression}\label{xy-scatterplot-with-linear-or-polynomial-regression}}
@@ -2019,7 +2044,7 @@ IQR (CV) : 2 (0.6)\strut
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-65-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-68-1.pdf}
 
 \hypertarget{add-formula-to-plot.}{%
 \subsubsection{Add formula to plot.}\label{add-formula-to-plot.}}
@@ -2042,7 +2067,7 @@ IQR (CV) : 2 (0.6)\strut
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-66-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-69-1.pdf}
 
 \hypertarget{raincloud-plots-ggplot}{%
 \subsubsection{Raincloud plots (ggplot)}\label{raincloud-plots-ggplot}}
@@ -2222,7 +2247,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 ## generated.
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-72-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-75-1.pdf}
 \#\#\# Alternative raincloud
 
 \begin{Shaded}
@@ -2261,8 +2286,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-73-1.pdf}
-\caption{\label{fig:unnamed-chunk-73}Raincoud plot of means}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-76-1.pdf}
+\caption{\label{fig:unnamed-chunk-76}Raincoud plot of means}
 \end{figure}
 
 \hypertarget{scatterplot-theme}{%
@@ -2307,8 +2332,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-75-1.pdf}
-\caption{\label{fig:unnamed-chunk-75}Scatterplots}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-78-1.pdf}
+\caption{\label{fig:unnamed-chunk-78}Scatterplots}
 \end{figure}
 
 \hypertarget{make-axis-logarithmic}{%
@@ -2322,7 +2347,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-76-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-79-1.pdf}
 
 \hypertarget{add-a-trendline}{%
 \subsubsection{add a trendline}\label{add-a-trendline}}
@@ -2365,8 +2390,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-77-1.pdf}
-\caption{\label{fig:unnamed-chunk-77}linear Trendline}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-80-1.pdf}
+\caption{\label{fig:unnamed-chunk-80}linear Trendline}
 \end{figure}
 
 \hypertarget{add-a-trendline-1}{%
@@ -2402,8 +2427,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-78-1.pdf}
-\caption{\label{fig:unnamed-chunk-78}Polynomial trendline}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-81-1.pdf}
+\caption{\label{fig:unnamed-chunk-81}Polynomial trendline}
 \end{figure}
 
 \hypertarget{add-multiple-trendlines}{%
@@ -2421,7 +2446,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-79-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-82-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2433,7 +2458,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-79-2.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-82-2.pdf}
 \#\#\# add deviation from regression
 
 \begin{Shaded}
@@ -2478,8 +2503,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-81-1.pdf}
-\caption{\label{fig:unnamed-chunk-81}Deviation from predection}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-84-1.pdf}
+\caption{\label{fig:unnamed-chunk-84}Deviation from predection}
 \end{figure}
 
 \begin{Shaded}
@@ -2573,7 +2598,7 @@ Valiant & 18.1 & 6 & 225 & 105 & -52.832288 & 1\\
 ##   variable into a factor?
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-83-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-86-1.pdf}
 
 \hypertarget{line-defined-by-equation-to-scatterplot}{%
 \subsection{line defined by equation to scatterplot}\label{line-defined-by-equation-to-scatterplot}}
@@ -2591,6 +2616,6 @@ Valiant & 18.1 & 6 & 225 & 105 & -52.832288 & 1\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-84-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-87-1.pdf}
 
 \end{document}
