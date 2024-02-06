@@ -257,42 +257,41 @@ dateslat <- dateslat %>% mutate(dateofscan=(as.Date(date_dmy,format="%d/%m/%Y"))
 dateslat <- dateslat %>% mutate(daylength=daylength(latitude,dateofscan))
 dateslat %>% ggplot(aes(x=dateofscan,y=daylength)) +geom_line() +theme_minimal()
 ```
-## Batch reading csvs
 
+## Batch reading csvs
 ### Method 1 This function is needed to read_csv for multiple files - with the id option to add the source file to the dataframe as a new column
 ```{r}
-# Your custom function to read CSV files with options
-read_csv_with_options <- function(file_path) {
-  read_csv(data_files,id='filename',skip = 5)  # Replace with your desired options
-}
-# use read_csv to allow use of id= function, not available with read_table
+# # Your custom function to read CSV files with options
+# read_csv_with_options <- function(file_path) {
+#   read_csv(data_files,id='filename',skip = 5)  # Replace with your desired options
+# }
+# # use read_csv to allow use of id= function, not available with read_table
 ```
 
 ### Option 2 
-### This would import multiple csv files into seperate objects each with a name based on the source csv file
+This would import multiple csv files into seperate objects each with a name based on the source csv file
 import each lm file a df with its id as new column
-```{r eval=FALSE, include=FALSE}
-# Install and load tidyverse package
-
-# Get a list of CSV files in the directory
-files <- list.files(path = "data_in/pollution_data", pattern = "\\.csv$", full.names = TRUE)
-
-# Read each CSV file into a separate data frame, skipping the first 5 rows
-data_frames <- map(files, ~ read_csv(.x, skip = 5))
-
-# Extract file names without extension and use them as unique names for the data frames
-file_names <- tools::file_path_sans_ext(basename(files))
-names(data_frames) <- make.unique(file_names)
-
-# Now, data_frames is a list of data frames with unique names based on their source
-list2env(data_frames, envir = .GlobalEnv)
+```{r}
+# # Install and load tidyverse package
+# 
+# # Get a list of CSV files in the directory
+# files <- list.files(path = "data_in/pollution_data", pattern = "\\.csv$", full.names = TRUE)
+# 
+# # Read each CSV file into a separate data frame, skipping the first 5 rows
+# data_frames <- map(files, ~ read_csv(.x, skip = 5))
+# 
+# # Extract file names without extension and use them as unique names for the data frames
+# file_names <- tools::file_path_sans_ext(basename(files))
+# names(data_frames) <- make.unique(file_names)
+# 
+# # Now, data_frames is a list of data frames with unique names based on their source
+# list2env(data_frames, envir = .GlobalEnv)
 ```
 
 ### merge all obj based on wildcards (i.e. the equivalent of doing muliple left_joins) all objects must have the same rows
-
-```{r eval=FALSE, include=FALSE}
-list_obj<- lapply(ls(pattern="\\map"),get)
-benzene <- reduce(list_obj, dplyr::left_join)
+```{r}
+# list_obj<- lapply(ls(pattern="\\map"),get)
+# benzene <- reduce(list_obj, dplyr::left_join)
 
 ```
 

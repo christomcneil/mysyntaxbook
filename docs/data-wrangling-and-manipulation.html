@@ -196,12 +196,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.23" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-data-frames-individuals"><i class="fa fa-check"></i><b>4.23</b> Merge data frames (individuals)</a></li>
 <li class="chapter" data-level="4.24" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#create-a-new-factor-from-existing"><i class="fa fa-check"></i><b>4.24</b> Create a new factor from existing</a></li>
 <li class="chapter" data-level="4.25" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#change-data-types"><i class="fa fa-check"></i><b>4.25</b> change data types</a></li>
-<li class="chapter" data-level="4.26" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#calculate-dates-and-photoperiod"><i class="fa fa-check"></i><b>4.26</b> calculate dates and photoperiod</a>
+<li class="chapter" data-level="4.26" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#calculate-dates-and-photoperiod"><i class="fa fa-check"></i><b>4.26</b> calculate dates and photoperiod</a></li>
+<li class="chapter" data-level="4.27" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#batch-reading-csvs"><i class="fa fa-check"></i><b>4.27</b> Batch reading csvs</a>
 <ul>
-<li class="chapter" data-level="4.26.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#method-1-this-function-is-needed-to-read_csv-for-multiple-files---with-the-id-option-to-add-the-source-file-to-the-dataframe-as-a-new-column"><i class="fa fa-check"></i><b>4.26.1</b> Method 1 This function is needed to read_csv for multiple files - with the id option to add the source file to the dataframe as a new column</a></li>
-<li class="chapter" data-level="4.26.2" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#option-2"><i class="fa fa-check"></i><b>4.26.2</b> Option 2</a></li>
-<li class="chapter" data-level="4.26.3" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#this-would-import-multiple-csv-files-into-seperate-objects-each-with-a-name-based-on-the-source-csv-file"><i class="fa fa-check"></i><b>4.26.3</b> This would import multiple csv files into seperate objects each with a name based on the source csv file</a></li>
-<li class="chapter" data-level="4.26.4" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-all-obj-based-on-wildcards-i.e.-the-equivalent-of-doing-muliple-left_joins-all-objects-must-have-the-same-rows"><i class="fa fa-check"></i><b>4.26.4</b> merge all obj based on wildcards (i.e. the equivalent of doing muliple left_joins) all objects must have the same rows</a></li>
+<li class="chapter" data-level="4.27.1" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#method-1-this-function-is-needed-to-read_csv-for-multiple-files---with-the-id-option-to-add-the-source-file-to-the-dataframe-as-a-new-column"><i class="fa fa-check"></i><b>4.27.1</b> Method 1 This function is needed to read_csv for multiple files - with the id option to add the source file to the dataframe as a new column</a></li>
+<li class="chapter" data-level="4.27.2" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#option-2"><i class="fa fa-check"></i><b>4.27.2</b> Option 2</a></li>
+<li class="chapter" data-level="4.27.3" data-path="data-wrangling-and-manipulation.html"><a href="data-wrangling-and-manipulation.html#merge-all-obj-based-on-wildcards-i.e.-the-equivalent-of-doing-muliple-left_joins-all-objects-must-have-the-same-rows"><i class="fa fa-check"></i><b>4.27.3</b> merge all obj based on wildcards (i.e. the equivalent of doing muliple left_joins) all objects must have the same rows</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>5</b> Statistical Analysis</a>
@@ -860,25 +860,41 @@ high hp
 <span id="cb67-4"><a href="data-wrangling-and-manipulation.html#cb67-4" tabindex="-1"></a>dateslat <span class="ot">&lt;-</span> dateslat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">dateofscan=</span>(<span class="fu">as.Date</span>(date_dmy,<span class="at">format=</span><span class="st">&quot;%d/%m/%Y&quot;</span>)))</span>
 <span id="cb67-5"><a href="data-wrangling-and-manipulation.html#cb67-5" tabindex="-1"></a>dateslat <span class="ot">&lt;-</span> dateslat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">daylength=</span><span class="fu">daylength</span>(latitude,dateofscan))</span>
 <span id="cb67-6"><a href="data-wrangling-and-manipulation.html#cb67-6" tabindex="-1"></a>dateslat <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>dateofscan,<span class="at">y=</span>daylength)) <span class="sc">+</span><span class="fu">geom_line</span>() <span class="sc">+</span><span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-40-1.png" width="672" />
-## Batch reading csvs</p>
-<div id="method-1-this-function-is-needed-to-read_csv-for-multiple-files---with-the-id-option-to-add-the-source-file-to-the-dataframe-as-a-new-column" class="section level3 hasAnchor" number="4.26.1">
-<h3><span class="header-section-number">4.26.1</span> Method 1 This function is needed to read_csv for multiple files - with the id option to add the source file to the dataframe as a new column<a href="data-wrangling-and-manipulation.html#method-1-this-function-is-needed-to-read_csv-for-multiple-files---with-the-id-option-to-add-the-source-file-to-the-dataframe-as-a-new-column" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-wrangling-and-manipulation.html#cb68-1" tabindex="-1"></a><span class="co"># Your custom function to read CSV files with options</span></span>
-<span id="cb68-2"><a href="data-wrangling-and-manipulation.html#cb68-2" tabindex="-1"></a>read_csv_with_options <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path) {</span>
-<span id="cb68-3"><a href="data-wrangling-and-manipulation.html#cb68-3" tabindex="-1"></a>  <span class="fu">read_csv</span>(data_files,<span class="at">id=</span><span class="st">&#39;filename&#39;</span>,<span class="at">skip =</span> <span class="dv">5</span>)  <span class="co"># Replace with your desired options</span></span>
-<span id="cb68-4"><a href="data-wrangling-and-manipulation.html#cb68-4" tabindex="-1"></a>}</span>
-<span id="cb68-5"><a href="data-wrangling-and-manipulation.html#cb68-5" tabindex="-1"></a><span class="co"># use read_csv to allow use of id= function, not available with read_table</span></span></code></pre></div>
+<p><img src="Useful-Syntax_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 </div>
-<div id="option-2" class="section level3 hasAnchor" number="4.26.2">
-<h3><span class="header-section-number">4.26.2</span> Option 2<a href="data-wrangling-and-manipulation.html#option-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="batch-reading-csvs" class="section level2 hasAnchor" number="4.27">
+<h2><span class="header-section-number">4.27</span> Batch reading csvs<a href="data-wrangling-and-manipulation.html#batch-reading-csvs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="method-1-this-function-is-needed-to-read_csv-for-multiple-files---with-the-id-option-to-add-the-source-file-to-the-dataframe-as-a-new-column" class="section level3 hasAnchor" number="4.27.1">
+<h3><span class="header-section-number">4.27.1</span> Method 1 This function is needed to read_csv for multiple files - with the id option to add the source file to the dataframe as a new column<a href="data-wrangling-and-manipulation.html#method-1-this-function-is-needed-to-read_csv-for-multiple-files---with-the-id-option-to-add-the-source-file-to-the-dataframe-as-a-new-column" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-wrangling-and-manipulation.html#cb68-1" tabindex="-1"></a><span class="co"># # Your custom function to read CSV files with options</span></span>
+<span id="cb68-2"><a href="data-wrangling-and-manipulation.html#cb68-2" tabindex="-1"></a><span class="co"># read_csv_with_options &lt;- function(file_path) {</span></span>
+<span id="cb68-3"><a href="data-wrangling-and-manipulation.html#cb68-3" tabindex="-1"></a><span class="co">#   read_csv(data_files,id=&#39;filename&#39;,skip = 5)  # Replace with your desired options</span></span>
+<span id="cb68-4"><a href="data-wrangling-and-manipulation.html#cb68-4" tabindex="-1"></a><span class="co"># }</span></span>
+<span id="cb68-5"><a href="data-wrangling-and-manipulation.html#cb68-5" tabindex="-1"></a><span class="co"># # use read_csv to allow use of id= function, not available with read_table</span></span></code></pre></div>
 </div>
-<div id="this-would-import-multiple-csv-files-into-seperate-objects-each-with-a-name-based-on-the-source-csv-file" class="section level3 hasAnchor" number="4.26.3">
-<h3><span class="header-section-number">4.26.3</span> This would import multiple csv files into seperate objects each with a name based on the source csv file<a href="data-wrangling-and-manipulation.html#this-would-import-multiple-csv-files-into-seperate-objects-each-with-a-name-based-on-the-source-csv-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>import each lm file a df with its id as new column</p>
+<div id="option-2" class="section level3 hasAnchor" number="4.27.2">
+<h3><span class="header-section-number">4.27.2</span> Option 2<a href="data-wrangling-and-manipulation.html#option-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This would import multiple csv files into seperate objects each with a name based on the source csv file
+import each lm file a df with its id as new column</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-wrangling-and-manipulation.html#cb69-1" tabindex="-1"></a><span class="co"># # Install and load tidyverse package</span></span>
+<span id="cb69-2"><a href="data-wrangling-and-manipulation.html#cb69-2" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb69-3"><a href="data-wrangling-and-manipulation.html#cb69-3" tabindex="-1"></a><span class="co"># # Get a list of CSV files in the directory</span></span>
+<span id="cb69-4"><a href="data-wrangling-and-manipulation.html#cb69-4" tabindex="-1"></a><span class="co"># files &lt;- list.files(path = &quot;data_in/pollution_data&quot;, pattern = &quot;\\.csv$&quot;, full.names = TRUE)</span></span>
+<span id="cb69-5"><a href="data-wrangling-and-manipulation.html#cb69-5" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb69-6"><a href="data-wrangling-and-manipulation.html#cb69-6" tabindex="-1"></a><span class="co"># # Read each CSV file into a separate data frame, skipping the first 5 rows</span></span>
+<span id="cb69-7"><a href="data-wrangling-and-manipulation.html#cb69-7" tabindex="-1"></a><span class="co"># data_frames &lt;- map(files, ~ read_csv(.x, skip = 5))</span></span>
+<span id="cb69-8"><a href="data-wrangling-and-manipulation.html#cb69-8" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb69-9"><a href="data-wrangling-and-manipulation.html#cb69-9" tabindex="-1"></a><span class="co"># # Extract file names without extension and use them as unique names for the data frames</span></span>
+<span id="cb69-10"><a href="data-wrangling-and-manipulation.html#cb69-10" tabindex="-1"></a><span class="co"># file_names &lt;- tools::file_path_sans_ext(basename(files))</span></span>
+<span id="cb69-11"><a href="data-wrangling-and-manipulation.html#cb69-11" tabindex="-1"></a><span class="co"># names(data_frames) &lt;- make.unique(file_names)</span></span>
+<span id="cb69-12"><a href="data-wrangling-and-manipulation.html#cb69-12" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb69-13"><a href="data-wrangling-and-manipulation.html#cb69-13" tabindex="-1"></a><span class="co"># # Now, data_frames is a list of data frames with unique names based on their source</span></span>
+<span id="cb69-14"><a href="data-wrangling-and-manipulation.html#cb69-14" tabindex="-1"></a><span class="co"># list2env(data_frames, envir = .GlobalEnv)</span></span></code></pre></div>
 </div>
-<div id="merge-all-obj-based-on-wildcards-i.e.-the-equivalent-of-doing-muliple-left_joins-all-objects-must-have-the-same-rows" class="section level3 hasAnchor" number="4.26.4">
-<h3><span class="header-section-number">4.26.4</span> merge all obj based on wildcards (i.e. the equivalent of doing muliple left_joins) all objects must have the same rows<a href="data-wrangling-and-manipulation.html#merge-all-obj-based-on-wildcards-i.e.-the-equivalent-of-doing-muliple-left_joins-all-objects-must-have-the-same-rows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="merge-all-obj-based-on-wildcards-i.e.-the-equivalent-of-doing-muliple-left_joins-all-objects-must-have-the-same-rows" class="section level3 hasAnchor" number="4.27.3">
+<h3><span class="header-section-number">4.27.3</span> merge all obj based on wildcards (i.e. the equivalent of doing muliple left_joins) all objects must have the same rows<a href="data-wrangling-and-manipulation.html#merge-all-obj-based-on-wildcards-i.e.-the-equivalent-of-doing-muliple-left_joins-all-objects-must-have-the-same-rows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-wrangling-and-manipulation.html#cb70-1" tabindex="-1"></a><span class="co"># list_obj&lt;- lapply(ls(pattern=&quot;\\map&quot;),get)</span></span>
+<span id="cb70-2"><a href="data-wrangling-and-manipulation.html#cb70-2" tabindex="-1"></a><span class="co"># benzene &lt;- reduce(list_obj, dplyr::left_join)</span></span></code></pre></div>
 
 </div>
 </div>
