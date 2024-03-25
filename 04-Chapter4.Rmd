@@ -16,6 +16,8 @@ library(geosphere) # for calc daylength
 library(effectsize)
 library(factoextra)
 library(rstatix)
+library(caret)
+library(e1071)
 ```
 
 ## Linear Regression
@@ -143,8 +145,6 @@ library(UpSetR)
 mtcars_long <- mtcars %>% pivot_longer(PC1:PC2, names_to = 'PC', values_to = 'value')
 ```
 
-
-
 ## Do analysis on multiple groups (e.g. dependent variable are many shape PCs) rstatix
 ```{r}
 stat.test <- mtcars_long %>% 
@@ -153,6 +153,151 @@ stat.test <- mtcars_long %>%
   adjust_pvalue(method = "BH") %>%
   add_significance()
 stat.test
+```
+
+## Machine Learning
+
+### Simple example
+#### Load example data
+```{r}
+data("iris")
+iris <- iris %>% clean_names()
+```
+
+#### Creating random test and train subsets
+```{r}
+#make this example reproducible
+set.seed(1)
+
+#create ID column
+iris$id <- 1:nrow(iris)
+
+#use 70% of dataset as training set and 30% as test set 
+train_iris <- iris %>% dplyr::sample_frac(0.70)
+test_iris  <- dplyr::anti_join(iris, train_iris, by = 'id')
+
+
+train_iris <- train_iris %>% select(species, sepal_length:petal_width)
+test_iris <- test_iris %>% select(species, sepal_length:petal_width)
+```
+
+#### create svm iris model
+```{r}
+iris_svm_model <- svm(species~., data = train_iris, kernel = "linear")
+print(iris_svm_model)
+```
+#### Plot results
+```{r}
+plot(iris_svm_model,petal_length~petal_width, data = train_iris)
+```
+#### Test SVM model on test set
+```{r}
+test_iris <- test_iris %>%
+  mutate(pred = predict(iris_svm_model, newdata = ., type = "class"))
+```
+
+#### Percent accuracy
+```{r}
+confusionMatrix(test_iris$pred, test_iris$species)
+```
+
+### Clear environment
+```{r}
+rm(list=setdiff(ls(), "clean environment"))
+data("iris")
+iris <- as_tibble(iris)
+iris <- iris %>% clean_names()
+```
+
+### caret to choose machine learning method
+```{r}
+set.seed(123)  # for reproducibility
+train_index_iris <- createDataPartition(iris$species, p = 0.8, list = FALSE)
+train_data <- iris[train_index_iris, ]
+test_data <- iris[-train_index_iris, ]
+```
+
+
+```{r}
+# prepare training scheme
+control <- trainControl(method="repeatedcv", number=10, repeats=3)
+```
+
+
+```{r}
+# train the LVQ model
+set.seed(7)
+modelLvq <- train(species~., data=train_data, method="lvq", trControl=control)
+# train the GBM model
+set.seed(7)
+modelGbm <- train(species~., data=train_data, method="gbm", trControl=control, verbose=FALSE)
+# train the SVM model
+set.seed(7)
+modelSvm <- train(species~., data=train_data, method="svmRadial", trControl=control)
+```
+
+
+```{r}
+# collect resamples
+results <- resamples(list(LVQ=modelLvq, GBM=modelGbm, SVM=modelSvm))
+# summarize the distributions
+summary(results)
+# boxplots of results
+bwplot(results)
+# dot plots of results
+dotplot(results)
+```
+
+### Use caret to tune the parameters of machine learning
+#### Clear environment
+```{r}
+rm(list=setdiff(ls(), "clean environment"))
+data("iris")
+iris <- as_tibble(iris)
+iris <- iris %>% clean_names()
+```
+
+### caret to choose machine learning method
+```{r}
+set.seed(123)  # for reproducibility
+train_index_iris <- createDataPartition(iris$species, p = 0.8, list = FALSE)
+train_data <- iris[train_index_iris, ]
+test_data <- iris[-train_index_iris, ]
+```
+
+#### set the training scheme for a ML method (e.g. svm)
+```{r}
+# ensure results are repeatable
+set.seed(7)
+
+# prepare training scheme
+control <- trainControl(method="repeatedcv", number=10, repeats=3)
+```
+
+```{r}
+# design the parameter tuning grid
+grid <- expand.grid(C=c(0.1,1,5,10,20,30,40,50,100,200), sigma=c(1,5,10))
+# train the model
+model <- train(species~., data=iris, method="svmRadial", trControl=control, tuneGrid=grid)
+# summarize the model
+print(model)
+```
+
+```{r}
+plot(model)
+```
+
+#### Use Caret to show and use the best algorithm
+```{r}
+print(model$finalModel)
+```
+
+```{r}
+predictions <- predict.train(model, newdata = test_data)
+```
+
+```{r}
+confusionMatrix(test_data$species, predictions)
 ```
 
 

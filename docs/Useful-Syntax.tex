@@ -464,7 +464,7 @@ Load all libraries
 ## {
 ##     UseMethod("date")
 ## }
-## <bytecode: 0x000002b6c56b4898>
+## <bytecode: 0x00000180a6b02150>
 ## <environment: namespace:lubridate>
 \end{verbatim}
 
@@ -786,6 +786,16 @@ Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.460 & 20.22 & 1 & 0 & 3 & 1\\
 \begin{Highlighting}[]
 \NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(hp)) }\CommentTok{\# no missing values found}
 \NormalTok{mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%}\FunctionTok{filter}\NormalTok{(}\FunctionTok{complete.cases}\NormalTok{(.)) }\CommentTok{\# no missing values found}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{replace-na-with-a-specified-value-across-specified-columns}{%
+\subsection{replace NA with a specified value across specified columns}\label{replace-na-with-a-specified-value-across-specified-columns}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#df\_dement \textless{}{-} df\_dement \%\textgreater{}\%}
+  \CommentTok{\#mutate(across(3:8, \textasciitilde{}ifelse(is.na(.), 0, .)))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1127,7 +1137,7 @@ carb & hp\_cat & loghp & sum & loghp1 & date & last3letters & carnames & valves\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-40-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-41-1.pdf}
 
 \hypertarget{batch-reading-csvs}{%
 \subsection{Batch reading csvs}\label{batch-reading-csvs}}
@@ -1179,6 +1189,87 @@ import each lm file a df with its id as new column
 \CommentTok{\# benzene \textless{}{-} reduce(list\_obj, dplyr::left\_join)}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{add-prefix-to-defined-column-names}{%
+\subsection{add prefix to defined column names}\label{add-prefix-to-defined-column-names}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rename\_with}\NormalTok{(}\AttributeTok{.cols =}\NormalTok{ hp}\SpecialCharTok{:}\NormalTok{wt, }\ControlFlowTok{function}\NormalTok{(x)\{}\FunctionTok{paste0}\NormalTok{(}\StringTok{"cars."}\NormalTok{, x)\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               car_name  mpg cyl  disp cars.hp cars.drat cars.wt  qsec vs am
+## 1            Mazda RX4 21.0   6 160.0     110      3.90   2.620 16.46  0  1
+## 2        Mazda RX4 Wag 21.0   6 160.0     110      3.90   2.875 17.02  0  1
+## 3       Hornet 4 Drive 21.4   6 258.0     110      3.08   3.215 19.44  1  0
+## 4    Hornet Sportabout 18.7   8 360.0     175      3.15   3.440 17.02  0  0
+## 5              Valiant 18.1   6 225.0     105      2.76   3.460 20.22  1  0
+## 6           Duster 360 14.3   8 360.0     245      3.21   3.570 15.84  0  0
+## 7             Merc 280 19.2   6 167.6     123      3.92   3.440 18.30  1  0
+## 8            Merc 280C 17.8   6 167.6     123      3.92   3.440 18.90  1  0
+## 9           Merc 450SE 16.4   8 275.8     180      3.07   4.070 17.40  0  0
+## 10          Merc 450SL 17.3   8 275.8     180      3.07   3.730 17.60  0  0
+## 11         Merc 450SLC 15.2   8 275.8     180      3.07   3.780 18.00  0  0
+## 12  Cadillac Fleetwood 10.4   8 472.0     205      2.93   5.250 17.98  0  0
+## 13 Lincoln Continental 10.4   8 460.0     215      3.00   5.424 17.82  0  0
+## 14   Chrysler Imperial 14.7   8 440.0     230      3.23   5.345 17.42  0  0
+## 15    Dodge Challenger 15.5   8 318.0     150      2.76   3.520 16.87  0  0
+## 16         AMC Javelin 15.2   8 304.0     150      3.15   3.435 17.30  0  0
+## 17          Camaro Z28 13.3   8 350.0     245      3.73   3.840 15.41  0  0
+## 18    Pontiac Firebird 19.2   8 400.0     175      3.08   3.845 17.05  0  0
+## 19      Ford Pantera L 15.8   8 351.0     264      4.22   3.170 14.50  0  1
+## 20        Ferrari Dino 19.7   6 145.0     175      3.62   2.770 15.50  0  1
+## 21       Maserati Bora 15.0   8 301.0     335      3.54   3.570 14.60  0  1
+##    gear carb  hp_cat    loghp    sum   loghp1       date last3letters carnames
+## 1     4    4 high hp 2.041393 273.90 2.041393 2001-05-24          RX4        1
+## 2     4    4 high hp 2.041393 273.90 2.041393 2001-05-24          Wag        2
+## 3     3    1 high hp 2.041393 371.08 2.041393 2001-05-24          ive        3
+## 4     3    2 high hp 2.243038 538.15 2.243038 2001-05-24          out        4
+## 5     3    1 high hp 2.021189 332.76 2.021189 2001-05-24          ant        5
+## 6     3    4 high hp 2.389166 608.21 2.389166 2001-05-24          360        6
+## 7     4    4 high hp 2.089905 294.52 2.089905 2001-05-24          280        7
+## 8     4    4 high hp 2.089905 294.52 2.089905 2001-05-24          80C        8
+## 9     3    3 high hp 2.255273 458.87 2.255273 2001-05-24          0SE        9
+## 10    3    3 high hp 2.255273 458.87 2.255273 2001-05-24          0SL       10
+## 11    3    3 high hp 2.255273 458.87 2.255273 2001-05-24          SLC       11
+## 12    3    4 high hp 2.311754 679.93 2.311754 2001-05-24          ood       12
+## 13    3    4 high hp 2.332438 678.00 2.332438 2001-05-24          tal       13
+## 14    3    4 high hp 2.361728 673.23 2.361728 2001-05-24          ial       14
+## 15    3    2 high hp 2.176091 470.76 2.176091 2001-05-24          ger       15
+## 16    3    2 high hp 2.176091 457.15 2.176091 2001-05-24          lin       16
+## 17    3    4 high hp 2.389166 598.73 2.389166 2001-05-24          Z28       17
+## 18    3    2 high hp 2.243038 578.08 2.243038 2001-05-24          ird       18
+## 19    5    4 high hp 2.421604 619.22 2.421604 2001-05-24          a L       19
+## 20    5    6 high hp 2.243038 323.62 2.243038 2001-05-24          ino       20
+## 21    5    8 high hp 2.525045 639.54 2.525045 2001-05-24          ora       21
+##    valves cyc_carb
+## 1      24      6-4
+## 2      24      6-4
+## 3      24      6-1
+## 4      32      8-2
+## 5      24      6-1
+## 6      32      8-4
+## 7      24      6-4
+## 8      24      6-4
+## 9      32      8-3
+## 10     32      8-3
+## 11     32      8-3
+## 12     32      8-4
+## 13     32      8-4
+## 14     32      8-4
+## 15     32      8-2
+## 16     32      8-2
+## 17     32      8-4
+## 18     32      8-2
+## 19     32      8-4
+## 20     24      6-6
+## 21     32      8-8
+\end{verbatim}
+
+\hypertarget{standarise-certain-columns}{%
+\subsection{standarise certain columns}\label{standarise-certain-columns}}
 
 \hypertarget{statistical-analysis}{%
 \section{Statistical Analysis}\label{statistical-analysis}}
@@ -1378,7 +1469,7 @@ gear & r.squared & adj.r.squared & sigma & statistic & p.value & df & logLik & A
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-49-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-52-1.pdf}
 scree plot shows how much variance can be summarised with one variable (components)
 
 \hypertarget{graph-of-variables.-positive-correlated-variables-point-to-the-same-side-of-the-plot.-negative-correlated-variables-point-to-opposite-sides-of-the-graph.}{%
@@ -1393,7 +1484,7 @@ scree plot shows how much variance can be summarised with one variable (componen
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-50-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-53-1.pdf}
 \# Extract the Principal components For each individual
 
 this is the key stage of getting the first principal component out per rows score. essentially doing the principal component creates a method for then taking an rows scores, and giving them a value for `1 PC'. then reattach them to the original data frame spreadsheet.
@@ -1452,7 +1543,7 @@ create a final spreadsheet with cog data and PCA
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-53-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-56-1.pdf}
 
 \hypertarget{survival-analysis-and-visualisation}{%
 \subsection{Survival Analysis and Visualisation}\label{survival-analysis-and-visualisation}}
@@ -1473,6 +1564,22 @@ create a final spreadsheet with cog data and PCA
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(naniar)}
 \FunctionTok{library}\NormalTok{(UpSetR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'UpSetR'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:lattice':
+## 
+##     histogram
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\#df\_cog\_w3w4$block3 \textless{}{-} with(df\_cog\_w3w4, impute(block3, mean))}
 \CommentTok{\#df\_cog\_w3w4$o3tco \textless{}{-} with(df\_cog\_w3w4, impute(o3tco, mean))}
 \end{Highlighting}
@@ -1525,6 +1632,397 @@ create a final spreadsheet with cog data and PCA
 ## 2 PC1   drat       1    29  49.4 9.95e- 8 *       0.63  1.99e- 7 ****        
 ## 3 PC2   hp         1    29  39.1 7.95e- 7 *       0.574 7.95e- 7 ****        
 ## 4 PC2   drat       1    29  42.2 4.14e- 7 *       0.593 5.52e- 7 ****
+\end{verbatim}
+
+\hypertarget{machine-learning}{%
+\subsection{Machine Learning}\label{machine-learning}}
+
+\hypertarget{simple-example}{%
+\subsubsection{Simple example}\label{simple-example}}
+
+\hypertarget{load-example-data}{%
+\paragraph{Load example data}\label{load-example-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(}\StringTok{"iris"}\NormalTok{)}
+\NormalTok{iris }\OtherTok{\textless{}{-}}\NormalTok{ iris }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{clean\_names}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{creating-random-test-and-train-subsets}{%
+\paragraph{Creating random test and train subsets}\label{creating-random-test-and-train-subsets}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#make this example reproducible}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{\#create ID column}
+\NormalTok{iris}\SpecialCharTok{$}\NormalTok{id }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(iris)}
+
+\CommentTok{\#use 70\% of dataset as training set and 30\% as test set }
+\NormalTok{train\_iris }\OtherTok{\textless{}{-}}\NormalTok{ iris }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{sample\_frac}\NormalTok{(}\FloatTok{0.70}\NormalTok{)}
+\NormalTok{test\_iris  }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{anti\_join}\NormalTok{(iris, train\_iris, }\AttributeTok{by =} \StringTok{\textquotesingle{}id\textquotesingle{}}\NormalTok{)}
+
+
+\NormalTok{train\_iris }\OtherTok{\textless{}{-}}\NormalTok{ train\_iris }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(species, sepal\_length}\SpecialCharTok{:}\NormalTok{petal\_width)}
+\NormalTok{test\_iris }\OtherTok{\textless{}{-}}\NormalTok{ test\_iris }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(species, sepal\_length}\SpecialCharTok{:}\NormalTok{petal\_width)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{create-svm-iris-model}{%
+\paragraph{create svm iris model}\label{create-svm-iris-model}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{iris\_svm\_model }\OtherTok{\textless{}{-}} \FunctionTok{svm}\NormalTok{(species}\SpecialCharTok{\textasciitilde{}}\NormalTok{., }\AttributeTok{data =}\NormalTok{ train\_iris, }\AttributeTok{kernel =} \StringTok{"linear"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(iris\_svm\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## svm(formula = species ~ ., data = train_iris, kernel = "linear")
+## 
+## 
+## Parameters:
+##    SVM-Type:  C-classification 
+##  SVM-Kernel:  linear 
+##        cost:  1 
+## 
+## Number of Support Vectors:  23
+\end{verbatim}
+
+\hypertarget{plot-results}{%
+\paragraph{Plot results}\label{plot-results}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(iris\_svm\_model,petal\_length}\SpecialCharTok{\textasciitilde{}}\NormalTok{petal\_width, }\AttributeTok{data =}\NormalTok{ train\_iris)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-64-1.pdf}
+\#\#\#\# Test SVM model on test set
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test\_iris }\OtherTok{\textless{}{-}}\NormalTok{ test\_iris }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pred =} \FunctionTok{predict}\NormalTok{(iris\_svm\_model, }\AttributeTok{newdata =}\NormalTok{ ., }\AttributeTok{type =} \StringTok{"class"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{percent-accuracy}{%
+\paragraph{Percent accuracy}\label{percent-accuracy}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{confusionMatrix}\NormalTok{(test\_iris}\SpecialCharTok{$}\NormalTok{pred, test\_iris}\SpecialCharTok{$}\NormalTok{species)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##             Reference
+## Prediction   setosa versicolor virginica
+##   setosa         15          0         0
+##   versicolor      0         17         0
+##   virginica       0          0        13
+## 
+## Overall Statistics
+##                                      
+##                Accuracy : 1          
+##                  95% CI : (0.9213, 1)
+##     No Information Rate : 0.3778     
+##     P-Value [Acc > NIR] : < 2.2e-16  
+##                                      
+##                   Kappa : 1          
+##                                      
+##  Mcnemar's Test P-Value : NA         
+## 
+## Statistics by Class:
+## 
+##                      Class: setosa Class: versicolor Class: virginica
+## Sensitivity                 1.0000            1.0000           1.0000
+## Specificity                 1.0000            1.0000           1.0000
+## Pos Pred Value              1.0000            1.0000           1.0000
+## Neg Pred Value              1.0000            1.0000           1.0000
+## Prevalence                  0.3333            0.3778           0.2889
+## Detection Rate              0.3333            0.3778           0.2889
+## Detection Prevalence        0.3333            0.3778           0.2889
+## Balanced Accuracy           1.0000            1.0000           1.0000
+\end{verbatim}
+
+\hypertarget{clear-environment}{%
+\subsubsection{Clear environment}\label{clear-environment}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list=}\FunctionTok{setdiff}\NormalTok{(}\FunctionTok{ls}\NormalTok{(), }\StringTok{"clean environment"}\NormalTok{))}
+\FunctionTok{data}\NormalTok{(}\StringTok{"iris"}\NormalTok{)}
+\NormalTok{iris }\OtherTok{\textless{}{-}} \FunctionTok{as\_tibble}\NormalTok{(iris)}
+\NormalTok{iris }\OtherTok{\textless{}{-}}\NormalTok{ iris }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{clean\_names}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{caret-to-choose-machine-learning-method}{%
+\subsubsection{caret to choose machine learning method}\label{caret-to-choose-machine-learning-method}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)  }\CommentTok{\# for reproducibility}
+\NormalTok{train\_index\_iris }\OtherTok{\textless{}{-}} \FunctionTok{createDataPartition}\NormalTok{(iris}\SpecialCharTok{$}\NormalTok{species, }\AttributeTok{p =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{list =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{train\_data }\OtherTok{\textless{}{-}}\NormalTok{ iris[train\_index\_iris, ]}
+\NormalTok{test\_data }\OtherTok{\textless{}{-}}\NormalTok{ iris[}\SpecialCharTok{{-}}\NormalTok{train\_index\_iris, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# prepare training scheme}
+\NormalTok{control }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method=}\StringTok{"repeatedcv"}\NormalTok{, }\AttributeTok{number=}\DecValTok{10}\NormalTok{, }\AttributeTok{repeats=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# train the LVQ model}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{7}\NormalTok{)}
+\NormalTok{modelLvq }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(species}\SpecialCharTok{\textasciitilde{}}\NormalTok{., }\AttributeTok{data=}\NormalTok{train\_data, }\AttributeTok{method=}\StringTok{"lvq"}\NormalTok{, }\AttributeTok{trControl=}\NormalTok{control)}
+\CommentTok{\# train the GBM model}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{7}\NormalTok{)}
+\NormalTok{modelGbm }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(species}\SpecialCharTok{\textasciitilde{}}\NormalTok{., }\AttributeTok{data=}\NormalTok{train\_data, }\AttributeTok{method=}\StringTok{"gbm"}\NormalTok{, }\AttributeTok{trControl=}\NormalTok{control, }\AttributeTok{verbose=}\ConstantTok{FALSE}\NormalTok{)}
+\CommentTok{\# train the SVM model}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{7}\NormalTok{)}
+\NormalTok{modelSvm }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(species}\SpecialCharTok{\textasciitilde{}}\NormalTok{., }\AttributeTok{data=}\NormalTok{train\_data, }\AttributeTok{method=}\StringTok{"svmRadial"}\NormalTok{, }\AttributeTok{trControl=}\NormalTok{control)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# collect resamples}
+\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{resamples}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{LVQ=}\NormalTok{modelLvq, }\AttributeTok{GBM=}\NormalTok{modelGbm, }\AttributeTok{SVM=}\NormalTok{modelSvm))}
+\CommentTok{\# summarize the distributions}
+\FunctionTok{summary}\NormalTok{(results)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## summary.resamples(object = results)
+## 
+## Models: LVQ, GBM, SVM 
+## Number of resamples: 30 
+## 
+## Accuracy 
+##          Min.   1st Qu.    Median      Mean 3rd Qu. Max. NA's
+## LVQ 0.9166667 0.9166667 1.0000000 0.9694444       1    1    0
+## GBM 0.8333333 0.9166667 0.9166667 0.9500000       1    1    0
+## SVM 0.8333333 0.9166667 1.0000000 0.9611111       1    1    0
+## 
+## Kappa 
+##      Min. 1st Qu. Median      Mean 3rd Qu. Max. NA's
+## LVQ 0.875   0.875  1.000 0.9541667       1    1    0
+## GBM 0.750   0.875  0.875 0.9250000       1    1    0
+## SVM 0.750   0.875  1.000 0.9416667       1    1    0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# boxplots of results}
+\FunctionTok{bwplot}\NormalTok{(results)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-71-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# dot plots of results}
+\FunctionTok{dotplot}\NormalTok{(results)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-71-2.pdf}
+
+\hypertarget{use-caret-to-tune-the-parameters-of-machine-learning}{%
+\subsubsection{Use caret to tune the parameters of machine learning}\label{use-caret-to-tune-the-parameters-of-machine-learning}}
+
+\hypertarget{clear-environment-1}{%
+\paragraph{Clear environment}\label{clear-environment-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list=}\FunctionTok{setdiff}\NormalTok{(}\FunctionTok{ls}\NormalTok{(), }\StringTok{"clean environment"}\NormalTok{))}
+\FunctionTok{data}\NormalTok{(}\StringTok{"iris"}\NormalTok{)}
+\NormalTok{iris }\OtherTok{\textless{}{-}} \FunctionTok{as\_tibble}\NormalTok{(iris)}
+\NormalTok{iris }\OtherTok{\textless{}{-}}\NormalTok{ iris }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{clean\_names}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{caret-to-choose-machine-learning-method-1}{%
+\subsubsection{caret to choose machine learning method}\label{caret-to-choose-machine-learning-method-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)  }\CommentTok{\# for reproducibility}
+\NormalTok{train\_index\_iris }\OtherTok{\textless{}{-}} \FunctionTok{createDataPartition}\NormalTok{(iris}\SpecialCharTok{$}\NormalTok{species, }\AttributeTok{p =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{list =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{train\_data }\OtherTok{\textless{}{-}}\NormalTok{ iris[train\_index\_iris, ]}
+\NormalTok{test\_data }\OtherTok{\textless{}{-}}\NormalTok{ iris[}\SpecialCharTok{{-}}\NormalTok{train\_index\_iris, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{set-the-training-scheme-for-a-ml-method-e.g.-svm}{%
+\paragraph{set the training scheme for a ML method (e.g.~svm)}\label{set-the-training-scheme-for-a-ml-method-e.g.-svm}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ensure results are repeatable}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{7}\NormalTok{)}
+
+\CommentTok{\# prepare training scheme}
+\NormalTok{control }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method=}\StringTok{"repeatedcv"}\NormalTok{, }\AttributeTok{number=}\DecValTok{10}\NormalTok{, }\AttributeTok{repeats=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# design the parameter tuning grid}
+\NormalTok{grid }\OtherTok{\textless{}{-}} \FunctionTok{expand.grid}\NormalTok{(}\AttributeTok{C=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{20}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{40}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{100}\NormalTok{,}\DecValTok{200}\NormalTok{), }\AttributeTok{sigma=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{))}
+\CommentTok{\# train the model}
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(species}\SpecialCharTok{\textasciitilde{}}\NormalTok{., }\AttributeTok{data=}\NormalTok{iris, }\AttributeTok{method=}\StringTok{"svmRadial"}\NormalTok{, }\AttributeTok{trControl=}\NormalTok{control, }\AttributeTok{tuneGrid=}\NormalTok{grid)}
+\CommentTok{\# summarize the model}
+\FunctionTok{print}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Support Vector Machines with Radial Basis Function Kernel 
+## 
+## 150 samples
+##   4 predictor
+##   3 classes: 'setosa', 'versicolor', 'virginica' 
+## 
+## No pre-processing
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 135, 135, 135, 135, 135, 135, ... 
+## Resampling results across tuning parameters:
+## 
+##   C      sigma  Accuracy   Kappa    
+##     0.1   1     0.9422222  0.9133333
+##     0.1   5     0.8600000  0.7900000
+##     0.1  10     0.7666667  0.6500000
+##     1.0   1     0.9444444  0.9166667
+##     1.0   5     0.9288889  0.8933333
+##     1.0  10     0.8866667  0.8300000
+##     5.0   1     0.9355556  0.9033333
+##     5.0   5     0.9288889  0.8933333
+##     5.0  10     0.8888889  0.8333333
+##    10.0   1     0.9355556  0.9033333
+##    10.0   5     0.9288889  0.8933333
+##    10.0  10     0.8888889  0.8333333
+##    20.0   1     0.9333333  0.9000000
+##    20.0   5     0.9288889  0.8933333
+##    20.0  10     0.8888889  0.8333333
+##    30.0   1     0.9333333  0.9000000
+##    30.0   5     0.9288889  0.8933333
+##    30.0  10     0.8888889  0.8333333
+##    40.0   1     0.9288889  0.8933333
+##    40.0   5     0.9288889  0.8933333
+##    40.0  10     0.8888889  0.8333333
+##    50.0   1     0.9266667  0.8900000
+##    50.0   5     0.9288889  0.8933333
+##    50.0  10     0.8888889  0.8333333
+##   100.0   1     0.9266667  0.8900000
+##   100.0   5     0.9288889  0.8933333
+##   100.0  10     0.8888889  0.8333333
+##   200.0   1     0.9266667  0.8900000
+##   200.0   5     0.9288889  0.8933333
+##   200.0  10     0.8888889  0.8333333
+## 
+## Accuracy was used to select the optimal model using the largest value.
+## The final values used for the model were sigma = 1 and C = 1.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-76-1.pdf}
+
+\hypertarget{use-caret-to-show-and-use-the-best-algorithm}{%
+\paragraph{Use Caret to show and use the best algorithm}\label{use-caret-to-show-and-use-the-best-algorithm}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(model}\SpecialCharTok{$}\NormalTok{finalModel)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Support Vector Machine object of class "ksvm" 
+## 
+## SV type: C-svc  (classification) 
+##  parameter : cost C = 1 
+## 
+## Gaussian Radial Basis kernel function. 
+##  Hyperparameter : sigma =  1 
+## 
+## Number of Support Vectors : 63 
+## 
+## Objective Function Value : -5.1016 -5.7584 -19.8262 
+## Training error : 0.013333
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{predictions }\OtherTok{\textless{}{-}} \FunctionTok{predict.train}\NormalTok{(model, }\AttributeTok{newdata =}\NormalTok{ test\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{confusionMatrix}\NormalTok{(test\_data}\SpecialCharTok{$}\NormalTok{species, predictions)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##             Reference
+## Prediction   setosa versicolor virginica
+##   setosa         10          0         0
+##   versicolor      0         10         0
+##   virginica       0          1         9
+## 
+## Overall Statistics
+##                                           
+##                Accuracy : 0.9667          
+##                  95% CI : (0.8278, 0.9992)
+##     No Information Rate : 0.3667          
+##     P-Value [Acc > NIR] : 4.476e-12       
+##                                           
+##                   Kappa : 0.95            
+##                                           
+##  Mcnemar's Test P-Value : NA              
+## 
+## Statistics by Class:
+## 
+##                      Class: setosa Class: versicolor Class: virginica
+## Sensitivity                 1.0000            0.9091           1.0000
+## Specificity                 1.0000            1.0000           0.9524
+## Pos Pred Value              1.0000            1.0000           0.9000
+## Neg Pred Value              1.0000            0.9500           1.0000
+## Prevalence                  0.3333            0.3667           0.3000
+## Detection Rate              0.3333            0.3333           0.3000
+## Detection Prevalence        0.3333            0.3333           0.3333
+## Balanced Accuracy           1.0000            0.9545           0.9762
 \end{verbatim}
 
 \hypertarget{data-visualisation}{%
@@ -1808,7 +2306,7 @@ Mean (sd) : 20.1 (6)\\
 min \textless{} med \textless{} max:\\
 10.4 \textless{} 19.2 \textless{} 33.9\\
 IQR (CV) : 7.4 (0.3)\strut
-\end{minipage} & 25 distinct values & \includegraphics{/tmp/ds0122.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 25 distinct values & \includegraphics{/tmp/ds0144.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1824,7 +2322,7 @@ IQR (CV) : 4 (0.3)\strut
 4 : 11 (34.4\%)\\
 6 : 7 (21.9\%)\\
 8 : 14 (43.8\%)\strut
-\end{minipage} & \includegraphics{/tmp/ds0123.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & \includegraphics{/tmp/ds0145.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1836,7 +2334,7 @@ Mean (sd) : 230.7 (123.9)\\
 min \textless{} med \textless{} max:\\
 71.1 \textless{} 196.3 \textless{} 472\\
 IQR (CV) : 205.2 (0.5)\strut
-\end{minipage} & 27 distinct values & \includegraphics{/tmp/ds0124.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 27 distinct values & \includegraphics{/tmp/ds0146.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1848,7 +2346,7 @@ Mean (sd) : 146.7 (68.6)\\
 min \textless{} med \textless{} max:\\
 52 \textless{} 123 \textless{} 335\\
 IQR (CV) : 83.5 (0.5)\strut
-\end{minipage} & 22 distinct values & \includegraphics{/tmp/ds0125.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 22 distinct values & \includegraphics{/tmp/ds0147.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1860,7 +2358,7 @@ Mean (sd) : 3.6 (0.5)\\
 min \textless{} med \textless{} max:\\
 2.8 \textless{} 3.7 \textless{} 4.9\\
 IQR (CV) : 0.8 (0.1)\strut
-\end{minipage} & 22 distinct values & \includegraphics{/tmp/ds0126.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 22 distinct values & \includegraphics{/tmp/ds0148.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1872,7 +2370,7 @@ Mean (sd) : 3.2 (1)\\
 min \textless{} med \textless{} max:\\
 1.5 \textless{} 3.3 \textless{} 5.4\\
 IQR (CV) : 1 (0.3)\strut
-\end{minipage} & 29 distinct values & \includegraphics{/tmp/ds0127.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 29 distinct values & \includegraphics{/tmp/ds0149.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1884,7 +2382,7 @@ Mean (sd) : 17.8 (1.8)\\
 min \textless{} med \textless{} max:\\
 14.5 \textless{} 17.7 \textless{} 22.9\\
 IQR (CV) : 2 (0.1)\strut
-\end{minipage} & 30 distinct values & \includegraphics{/tmp/ds0128.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & 30 distinct values & \includegraphics{/tmp/ds0150.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1898,7 +2396,7 @@ Max : 1\strut
 \end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
 0 : 18 (56.2\%)\\
 1 : 14 (43.8\%)\strut
-\end{minipage} & \includegraphics{/tmp/ds0129.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & \includegraphics{/tmp/ds0151.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1912,7 +2410,7 @@ Max : 1\strut
 \end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
 0 : 19 (59.4\%)\\
 1 : 13 (40.6\%)\strut
-\end{minipage} & \includegraphics{/tmp/ds0130.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & \includegraphics{/tmp/ds0152.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1928,7 +2426,7 @@ IQR (CV) : 1 (0.2)\strut
 3 : 15 (46.9\%)\\
 4 : 12 (37.5\%)\\
 5 : 5 (15.6\%)\strut
-\end{minipage} & \includegraphics{/tmp/ds0131.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & \includegraphics{/tmp/ds0153.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1947,7 +2445,7 @@ IQR (CV) : 2 (0.6)\strut
 4 : 10 (31.2\%)\\
 6 : 1 ( 3.1\%)\\
 8 : 1 ( 3.1\%)\strut
-\end{minipage} & \includegraphics{/tmp/ds0132.png} & \begin{minipage}[t]{\linewidth}\raggedright
+\end{minipage} & \includegraphics{/tmp/ds0154.png} & \begin{minipage}[t]{\linewidth}\raggedright
 0\\
 (0.0\%)\strut
 \end{minipage} \\
@@ -1979,8 +2477,8 @@ IQR (CV) : 2 (0.6)\strut
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-64-1.pdf}
-\caption{\label{fig:unnamed-chunk-64}Correlation Plot}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-86-1.pdf}
+\caption{\label{fig:unnamed-chunk-86}Correlation Plot}
 \end{figure}
 
 \begin{itemize}
@@ -2012,7 +2510,7 @@ IQR (CV) : 2 (0.6)\strut
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-65-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-87-1.pdf}
 \#\#\# Distribution + Normal line
 
 \begin{Shaded}
@@ -2034,7 +2532,7 @@ IQR (CV) : 2 (0.6)\strut
 ## generated.
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-66-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-88-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2053,7 +2551,7 @@ IQR (CV) : 2 (0.6)\strut
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-67-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-89-1.pdf}
 
 \hypertarget{xy-scatterplot-with-linear-or-polynomial-regression}{%
 \subsubsection{x*y scatterplot with linear or polynomial regression}\label{xy-scatterplot-with-linear-or-polynomial-regression}}
@@ -2070,7 +2568,7 @@ IQR (CV) : 2 (0.6)\strut
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-68-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-90-1.pdf}
 
 \hypertarget{add-formula-to-plot.}{%
 \subsubsection{Add formula to plot.}\label{add-formula-to-plot.}}
@@ -2093,7 +2591,7 @@ IQR (CV) : 2 (0.6)\strut
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-69-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-91-1.pdf}
 
 \hypertarget{raincloud-plots-ggplot}{%
 \subsubsection{Raincloud plots (ggplot)}\label{raincloud-plots-ggplot}}
@@ -2273,7 +2771,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 ## generated.
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-75-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-97-1.pdf}
 \#\#\# Alternative raincloud
 
 \begin{Shaded}
@@ -2312,8 +2810,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-76-1.pdf}
-\caption{\label{fig:unnamed-chunk-76}Raincoud plot of means}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-98-1.pdf}
+\caption{\label{fig:unnamed-chunk-98}Raincoud plot of means}
 \end{figure}
 
 \hypertarget{scatterplot-theme}{%
@@ -2358,8 +2856,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-78-1.pdf}
-\caption{\label{fig:unnamed-chunk-78}Scatterplots}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-100-1.pdf}
+\caption{\label{fig:unnamed-chunk-100}Scatterplots}
 \end{figure}
 
 \hypertarget{make-axis-logarithmic}{%
@@ -2373,7 +2871,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-79-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-101-1.pdf}
 
 \hypertarget{add-a-trendline}{%
 \subsubsection{add a trendline}\label{add-a-trendline}}
@@ -2416,8 +2914,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-80-1.pdf}
-\caption{\label{fig:unnamed-chunk-80}linear Trendline}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-102-1.pdf}
+\caption{\label{fig:unnamed-chunk-102}linear Trendline}
 \end{figure}
 
 \hypertarget{add-a-trendline-1}{%
@@ -2453,8 +2951,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-81-1.pdf}
-\caption{\label{fig:unnamed-chunk-81}Polynomial trendline}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-103-1.pdf}
+\caption{\label{fig:unnamed-chunk-103}Polynomial trendline}
 \end{figure}
 
 \hypertarget{add-multiple-trendlines}{%
@@ -2472,7 +2970,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-82-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-104-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2484,7 +2982,7 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-82-2.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-104-2.pdf}
 \#\#\# add deviation from regression
 
 \begin{Shaded}
@@ -2529,8 +3027,8 @@ Ideal & 0.7028370 & 0.54 & 0.2699607 & 1.135713\\
 
 \begin{figure}
 \centering
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-84-1.pdf}
-\caption{\label{fig:unnamed-chunk-84}Deviation from predection}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-106-1.pdf}
+\caption{\label{fig:unnamed-chunk-106}Deviation from predection}
 \end{figure}
 
 \begin{Shaded}
@@ -2624,7 +3122,7 @@ Valiant & 18.1 & 6 & 225 & 105 & -52.832288 & 1\\
 ##   variable into a factor?
 \end{verbatim}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-86-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-108-1.pdf}
 
 \hypertarget{line-defined-by-equation-to-scatterplot}{%
 \subsection{line defined by equation to scatterplot}\label{line-defined-by-equation-to-scatterplot}}
@@ -2642,6 +3140,6 @@ Valiant & 18.1 & 6 & 225 & 105 & -52.832288 & 1\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-87-1.pdf}
+\includegraphics{Useful-Syntax_files/figure-latex/unnamed-chunk-109-1.pdf}
 
 \end{document}

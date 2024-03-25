@@ -67,6 +67,12 @@ mtcars <- mtcars %>% filter(!is.na(hp)) # no missing values found
 mtcars <- mtcars %>%filter(complete.cases(.)) # no missing values found
 ```
 
+## replace NA with a specified value across specified columns
+```{r}
+#df_dement <- df_dement %>%
+  #mutate(across(3:8, ~ifelse(is.na(.), 0, .)))
+```
+
 ## Delete specified columns
 ```{r}
 mtcars1 <- mtcars %>% select(-(drat)) # single column
@@ -294,5 +300,16 @@ import each lm file a df with its id as new column
 # benzene <- reduce(list_obj, dplyr::left_join)
 
 ```
+
+## add prefix to defined column names
+```{r}
+mtcars %>% rename_with(.cols = hp:wt, function(x){paste0("cars.", x)})
+```
+
+## standarise certain columns
+```{r eval=FALSE, include=FALSE}
+df_master <- df_master %>%   mutate_at(c('mema','memdela'),~(scale(.) %>% as.vector))
+```
+
 
 
